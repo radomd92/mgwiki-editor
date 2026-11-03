@@ -1,0 +1,180 @@
+= Words to watch: contextual guidance for Malagasy translation =
+
+== Source and status ==
+Adapted from Wikipedia contributors,
+[https://en.wikipedia.org/w/index.php?title=Wikipedia:Manual_of_Style/Words_to_watch&oldid=1382059772 Wikipedia:Manual of Style/Words to watch, revision 1382059772],
+consulted 3 November 2026. Source revision/history credits its contributors.
+Source and adapted material: Creative Commons Attribution-ShareAlike 4.0.
+The examples below retain the source page's warning groups; Malagasy editorial
+advice and illustrative equivalents are local adaptations, not official policy.
+
+There are no forbidden words or expressions. These are caution signals for an
+editorial decision, not a blacklist, censorship rule, exhaustive vocabulary or
+case-insensitive replacement table. A legitimate technical/legal meaning can
+justify a term. Review meaning and rhetoric in Malagasy equivalents too.
+
+== Protected source wording ==
+Do not apply caution-based replacement inside direct quotations, original work
+titles, or citation metadata. Preserve those words accurately, including offensive
+wording when necessary for faithful, relevant reproduction. A translated quote
+must be clearly identified and preserve meaning/tone, not sanitize an opinion.
+The exception protects source wording; it does not authorize gratuitous quotation,
+plagiarism, unsupported allegations or presenting the source's judgment as fact.
+Quoted attribution is not a loophole for promotion or undue weight.
+
+== Puffery and peacock language ==
+Examples: legendary, best, great, greatest, acclaimed, iconic, visionary,
+outstanding, leading, celebrated, popular, award-winning, landmark, cutting-edge,
+innovative, revolutionary, extraordinary, brilliant, hit, famous, renowned,
+remarkable, prestigious, world-class, respected, notable, virtuoso, honorable,
+awesome, unique, pioneering, phenomenal, prominent.
+
+Replace unsupported praise/blame with specific supported facts. Name an actual
+award, reception or measurable achievement instead of an unqualified superlative.
+Malagasy words such as malaza or miavaka need the same contextual review, not
+automatic removal; faithfully attribute evaluations that the article needs.
+
+== Contentious labels ==
+Examples: cult, racist, perverted, sexist, homophobic, transphobic, misogynistic,
+sect, fundamentalist, heretic, extremist, denialist, terrorist, freedom fighter,
+bigot, myth, -gate, pseudo-, controversial.
+
+Do not insert value judgments or imply an established controversy from an
+editor's choice of label. Use reliable-source support, context and clear
+attribution for contentious characterizations, especially about living people.
+Explain actual disputes rather than merely calling a subject controversial.
+Do not confuse scholarly myth with a claim that a belief is false. Established
+source-supported terms such as pseudoscience need not be concealed or softened.
+
+== Unsupported attributions and weasel language ==
+Examples: some people say, many people remember, many scholars state,
+it is believed/regarded/considered, many are of the opinion, most feel,
+experts declare, it is often reported, it is widely thought, research has shown,
+science says, scientists claim, it is often said, officially, is widely regarded as,
+X has been described as Y.
+
+Identify who said/believes a claim and what supports it. Do not replace an
+identified source with an invented consensus or anonymous authority. A summary
+in a lead can be justified by precise attribution in the body; these phrases are
+not automatically wrong. Malagasy misy milaza and heverina fa merit the same
+check for real, identifiable support.
+
+== Expressions of doubt and scare quotes ==
+Examples: supposed, apparent, purported, alleged, accused, so-called;
+scare quotes such as a Yale "report", and undue emphasis such as a Baptist church
+with only Baptist emphasized.
+
+Do not insinuate doubt through typography or loaded wording. Conversely, retain
+genuine source-supported uncertainty and legal distinctions: an accusation is
+not a conviction. Attribute the allegation instead of presenting it as fact.
+Use the equivalent of called for an ordinary name, not an unjustified so-called.
+
+== Editorializing and implied relationships ==
+Examples: notably, it should be noted, arguably, interestingly, essentially,
+utterly, actually, only, clearly, absolutely, of course, without a doubt, indeed,
+happily, sadly, tragically, aptly, fortunately, unfortunately, untimely.
+Additional source-discussed warning examples: fundamentally, basically, just,
+obviously, naturally. Relationship words: but, despite, however, though, although,
+furthermore, while.
+
+Do not instruct readers how to feel or assume their expectations/knowledge.
+Prefer supported facts to announcing significance. Transition words are not
+forbidden: ensure they do not invent contradiction, causation, surprise or an
+evaluative relationship between independently sourced facts. In Malagasy review
+mazava ho azy, indrisy, soa ihany and similar expressions for these effects.
+
+== Loaded substitutes for said ==
+Examples: reveal, point out, clarify, expose, explain, find, note, observe, insist,
+speculate, surmise, claim, assert, admit, confess, deny, confirm.
+
+Prefer a neutral attributed statement when the source only establishes that
+someone spoke/wrote it. Do not imply truth, discovery, guilt or unreliability by
+varying the reporting verb for style. Said, described, wrote, commented, remarked,
+according to and usually stated can be neutral in appropriate contexts. A genuine
+documented confession or denial may be described precisely; do not erase it just
+because its verb is on this list.
+
+== Euphemisms ==
+Examples: passed away, gave their life, eternal rest, make love, challenge,
+an issue with, collateral damage, differently abled.
+
+Use clear, accurate, respectful language, not rhetoric that hides death, injury,
+disability or responsibility. In relevant sourced prose maty can be more precise
+than an unexamined euphemism for death. Do not assume every medical/disability
+term is inappropriate or impose a clinical claim not present in the evidence.
+
+== Cliches and idioms ==
+Examples: lion's share, tip of the iceberg, landslide, white elephant,
+gild the lily, take the plunge, ace up the sleeve, bird in the hand, twist of fate,
+at the end of the day, rounded out the top five, the likes of.
+
+Translate the intended literal meaning, not a source idiom word-for-word.
+Use a supported proportion, margin, event or action rather than a rhetorical
+comparison. A literal discussion of an iceberg is not an idiom violation.
+
+== Relative time ==
+Examples: recently, lately, currently, today, presently, to date, X years ago,
+formerly, in the past, traditionally, this/last/next (year/month/winter/spring/
+summer/fall/autumn), yesterday, tomorrow, in the future, now, to this day, soon,
+since.
+
+Use supported explicit dates/periods and dated status claims where possible.
+Do not invent a precise date absent from sources or silently update a quote.
+Consider hemisphere/calendar differences when a season is used. Traditions and
+technical terms such as recent in geology require their actual contextual sense.
+Malagasy ankehitriny, vao haingana and hatramin' izao need the same dated context.
+
+== Unspecified places or events ==
+Examples: this country, here, there, somewhere, sometimes, often, occasionally,
+somehow.
+
+State the evidenced place, time, frequency or mechanism. Do not assume a Malagasy
+reader shares the source author's country or viewpoint. Do not manufacture
+precision when a source gives only a qualified/general statement.
+
+== Obituary-style survived by ==
+Examples: is/was survived by, [Name]'s survivors include.
+
+Prefer a sourced account of family and chronology, not a newspaper-obituary
+formula. Do not infer that all children or relatives were listed or that absent
+relatives had died. Preserve such phrases in actual quotations or source titles.
+
+== Person versus office ==
+Distinguish a named person from the institution or position, and their office at
+the time of an event from their later status. Attribute constitutional powers to
+the office rather than its current holder; date claims about officeholders. Do
+not write former president for an event during the person's presidency merely
+because they have left office by the time of translation.
+
+== Neologisms and new compounds ==
+Source-discussed examples include pre-, post-, non-, anti-, -like, -ism, -ist,
+abortionism, evolutionism, lesbianism, transgenderism.
+
+Do not invent unstable technical vocabulary or ideological labels. Use a
+reliable established meaning, or a precise descriptive Malagasy explanation
+labelled honestly in vocabulary evidence. A productive prefix/suffix is not
+automatically wrong, but must not manufacture a doctrine, stigma or consensus.
+
+== Easily confused terms ==
+Examples discussed in the source: Arab, Arabic, Arabian, Islamic, Muslim,
+Islamist, Middle-eastern, Muslim Arab.
+
+Keep language, script, geography, ethnicity, religion and ideology distinct;
+similar spelling or overlap of populations does not make the terms synonyms.
+Apply the same care to scientific, historical and cultural distinctions in
+Malagasy. When the intended sense cannot be established, retain a blocker.
+
+== Vulgarities, obscenities, and profanities ==
+No automatic censorship. Preserve relevant verbatim quotations and original
+titles/names without replacing characters with asterisks or euphemisms. In the
+article's own voice, include offensive wording only when needed for accuracy
+and relevance (for example, the expression itself is the subject), not for shock.
+
+== Review procedure, not a token filter ==
+For each material occurrence outside protected source wording, consider the
+intended sense, reliable-source support, attribution, reader clarity, and effect
+of the Malagasy phrasing. Rewrite only when it improves accuracy/neutrality.
+Record significant decisions in notes.wiki and the existing neutrality/citations/
+terminology gates. Do not add a forbidden-word regex, blanket deletion, or automatic
+censorship of source metadata. The examples are not an instruction to fetch the
+linked guides, sources or dictionaries repeatedly; normal network limits apply.

@@ -1,0 +1,254 @@
+= Protocole d'édition de mgwiki-editor =
+
+== 1. Scope and intake ==
+Determine source Wikipedia language/title (or parse a supplied Wikipedia URL),
+Malagasy article title, desired full/partial scope, and translation versus
+revision intent from the request and unambiguous local evidence. Autonomous mode
+is default: complete translation and checked sandbox save, unless the user says
+draft-only/no-save. Do not ask questions, request script/tool permission or seek
+draft approval. Missing essential information or unresolved ambiguity means
+retain work, record blocked status, and stop with one concise report, no question.
+Only final
+destination allowed: Mpikambana:Bot-Jagwar/<article-title> on mg.wikipedia.org.
+An instruction to design/test the harness never authorizes an on-wiki save.
+Do not publish mainspace, move pages, change account settings, or edit Wikidata.
+
+Load mgwiki-style and mg-vocab. All responses use MediaWiki, never Markdown.
+Read the style skill's saved manual-of-style.wiki and words-to-watch.wiki in
+full. They adapt the requested English Wikipedia guides and explicitly identify
+the user's Malagasy overrides. Reuse these references offline, not per-article
+web requests. Source-guide links are provenance, not new browsing permission.
+
+=== Persistent local-script memory ===
+Local python3 scripts are available in the project folder. Inspect, run or create
+task-relevant helpers without asking, using python3 ./name.py or
+python3 scripts/name.py. Discover built-in commands with
+python3 -m mgwiki_editor --help. Use the active environment and project working
+directory. No interactive setup, secret prompts or network package installation.
+Any script must obey the same publication, network and rate-limit rules; scripts
+are not a route around safety gates. Wikipedia helpers import
+mgwiki_editor.core.Wiki, or call install_wikimedia_transport() from
+mgwiki_editor.network before constructing Pywikibot sites. The gateway installs
+that transport automatically. Do not use an unguarded standalone Pywikibot bot.
+
+=== Wikimedia request budget ===
+* One worker; no parallel Wikipedia requests, prefetch pools or background bots.
+* Share request state across CLI processes and Wikipedia languages in
+  $XDG_STATE_HOME/mgwiki-editor/wikimedia-requests.json (default
+  ~/.local/state/mgwiki-editor/wikimedia-requests.json). Do not delete/reset the
+  state or switch identity/host/process to evade cooldowns.
+* Pace actual HTTP attempts, not only CLI invocations: 10 seconds between
+  requests, the conservative end of the requested 5–10 second range, and at
+  least 10 seconds between edits. Longer server cooldowns take precedence. Dictionary
+  calls also take a shared request slot because the service can read upstream.
+* Reuse pinned source/existing/sandbox text, completed dictionary evidence and
+  the country cache. Finish local translation/review before prepare; do not
+  repeatedly fetch pages or render after every paragraph. Keep final live
+  revision/conflict checks; caching must not suppress save guards.
+* Use maxlag=5 and bounded socket timeouts. The shared transport is the sole
+  normal pacing authority: disable native process-multiplied throttling and
+  native retry loops. Do not add manual sleeps around CLI calls or poll sleeping
+  jobs. More than one actual API request per command is normal, but each request
+  must represent required work, not a repeated idle check.
+* On HTTP 429/503 or API maxlag/ratelimited, persist a shared cooldown. Honor
+  Retry-After seconds or HTTP dates in full; otherwise exponential backoff starts
+  at 30 seconds plus jitter. The failed command stops, rather than resubmitting.
+* Do not immediately rerun the command. Three consecutive overloads open a
+  15-minute circuit. A gate waits at most 10 seconds in total. A longer cooldown
+  or repeatedly extended deadline defers the task without sleeping for minutes;
+  keep the draft and cooldown. Do not poll or reset the deadline to resume early.
+* Tool stderr emits compact request-start/response events and distinguishes
+  request-spacing waits from server cooldowns. Events omit page titles, bodies
+  and credentials. Report a genuine deferred/blocked result, not fictitious work
+  during sleep. Local-only translation/review needs no network pacing sleep.
+* Never automatically retry an uncertain write. Inspect receipt/live destination
+  once through the paced gateway if allowed; an unresolved result stops the job.
+* These are conservative budgets, not a promise that Wikimedia never returns
+  429. Server cooldowns and operator policies take precedence over throughput.
+
+=== External-network boundary ===
+Never access external links unless explicitly requested by the user. This applies
+to all tools and scripts: no browsing, web search, HEAD/existence checks, DOI
+resolvers, reference fetches, curl/wget, requests/urllib detours, redirects,
+external images or package downloads. Do not ask permission merely to open a URL.
+Required Wikipedia API operations and the configured read-only dictionary are
+the default exceptions. Even those transports do not follow redirects. URLs
+copied into citations are data, not permission to contact their hosts. Inspect
+rendered output offline; do not open preview.html in a browser that downloads its
+linked images, scripts, CSS or other resources. If external research is explicitly
+requested later, limit it to the requested scope and retain Wikimedia budgets.
+
+== 2. Snapshot and classify ==
+Run init with --source-lang, --source-title, --article-title, and a new --job
+directory under runs/. An optional --existing-title selects a known Malagasy
+article. Otherwise an mg interlanguage link is preferred, then article-title.
+Pywikibot loads source, existing mainspace, and exact sandbox revision/text.
+Redirects are not silently followed: inspect and reinitialize with the resolved
+title. Missing source, non-mainspace source, and source=mg are blockers for this
+translation workflow. Missing target/sandbox is legitimate new-page state.
+
+Classify in local editorial notes:
+* New article: no existing Malagasy article and no sandbox text.
+* Existing article: preserve and improve sourced Malagasy content rather than
+  replacing it with a fresh translation.
+* Existing sandbox: treat it as user work. Compare against both source and
+  existing article; reuse or merge explicitly. Never erase it blindly.
+* Conflicting title, disambiguation, redirect, or uncertain topic match: resolve
+  from permitted evidence only when unambiguous; otherwise record a blocker and
+  stop without asking. Interlanguage linkage is evidence, not semantic proof.
+
+Keep pinned source URL/revision, existing revision, and sandbox revision.
+Do not refresh snapshots under an already prepared proposal.
+
+== 3. Edition plan ==
+Create notes.wiki with section-by-section coverage, citations, images, tables,
+templates, category links, and link targets. For an existing article record what will be kept,
+translated, merged, corrected, or excluded and why. Compare three texts when a
+sandbox exists. Preserve well-sourced local additions absent from the source.
+
+Record copyright/translation provenance. Keep source permanent links for edit
+summary attribution. Review source-history/license concerns and do not import
+non-free text or images merely because they appear on another Wikipedia.
+
+== 4. Terminology research ==
+Read country-name spellings from data/country-names.json using
+python3 -m mgwiki_editor countries. This cached copy of direct mainspace page
+titles from mgwiki's Sokajy:Firenena avoids a category fetch for each article.
+Only countries --refresh fetches new membership; initialize once if missing,
+then reuse. Apply matching names and diacritics to new Malagasy prose, not to
+original quotations, bibliographic titles, URLs or identifiers. The category can
+contain general pages and omit countries: check identity and document verified
+local-page exceptions rather than making a guessed match. Copy used naming
+evidence into the job and bind it through vocabulary.json evidence_files; a
+shared cache refresh must not modify a prepared job's evidence.
+
+Read vocabulary.json first. For each difficult sense query English Wiktionary,
+translate the definition into Malagasy, and check Malagasy candidates. Store
+lookup evidence in the job directory and add sense/domain-specific memo records.
+For non-English sources, an English bridge definition is acceptable only after
+confirming the same sense; do not silently flatten distinctions through English.
+Define unfamiliar terms in simple English, then translate the definition into
+Malagasy. A clearly labelled editorial definition is acceptable when dictionary
+evidence is unavailable or unhelpful; preserve failed-lookup evidence, and never
+claim that the dictionary supplied the definition. Use descriptive Malagasy
+where evidence does not support an established term, optionally followed by the
+English term in parentheses. A lookup outage alone need not block a clear
+descriptive translation. If material meaning itself remains uncertain, retain
+unresolved status and stop; do not relabel it merely to pass a gate.
+
+Medical first mentions use a Malagasy transcription or established equivalent
+followed by a simple explanation: [Malagasy transcription] (na [Malagasy
+explanation]). The English term can be added in parentheses. Use asma for asthma.
+Do not invent diagnoses, treatment advice or unsupported patient-specific detail.
+
+If more than 100 distinct uncertain English vocabulary items (101 or more)
+accumulate, maintain unknown-vocabulary.wiki inside the job for later resolution.
+Record source sense, simple definition if known, descriptive Malagasy wording,
+uncertainty and next action. Link it through vocabulary.json evidence_files so
+it is bound to the proposal. Preferred labels may remain research tasks when the
+article's descriptive meaning is clear; unresolved critical meanings still block
+publication. The threshold is not an exemption from review or content-integrity checks.
+
+Do not open external reference/External links URLs or use general web searches
+by default, and do not ask permission solely to do so. Preserve the source's
+citations without claiming to have read them. Only an explicit user request
+authorizes that external research. Required Pywikibot CLI operations and
+read-only dictionary lookups remain part of this workflow.
+
+== 5. Translation and integration ==
+Write draft.wiki only. Translate coherent sections, then harmonize terminology
+and prose across the whole article. Maintain citation-to-claim alignment, named
+reference definitions/reuses/groups, quantities, chronology, and uncertainty.
+Adapt headings, links, captions, templates, and tables to actual mgwiki support.
+Use no Markdown. Add relevant Malagasy category links (Sokajy) at the end of the
+article, after all sections and appendices. Preserve category links already
+present in the existing Malagasy article or sandbox: do not translate, rename,
+remove, reorder, or duplicate them; keep their targets, labels, and sort keys.
+Do not guess category targets or blindly import foreign-language categories.
+Sandbox safety remains mandatory: new category links use [[:Sokajy:Name]], and
+the only permitted change to an existing live category link is adding the
+leading colon needed to make it inert. Already-inert links stay byte-for-byte
+unchanged. Record category additions and any safety-only change in notes.wiki.
+No live interwiki or Wikidata changes.
+No unresolved translator comments, TODOs, or research notes in article text.
+
+== 6. Editorial quality gate ==
+Compare against complete pinned source and both existing texts. Evidence goes in
+notes.wiki; set each review.json gate true only when actually checked:
+* meaning: same claims, negations, qualifications, names, numbers, and dates.
+* fluency: natural standard Malagasy; no untranslated prose except valid names,
+  quotations, bibliographic material, or explained original terms. Check one
+  space after Malagasy elision apostrophes (amin' ny, an' Andriamanitra,
+  amin' izao) in new prose, not protected source text or wiki delimiters.
+* coverage: all intended sections, tables, captions, and references accounted for.
+* terminology: consistent sense-specific choices; no unresolved critical terms.
+  Original foreign acronyms have Malagasy parenthetical translations; retained
+  foreign terms/full agency names have correct italics and agency glosses.
+  Book/movie/paper titles use MediaWiki italics without corrupting citation
+  fields. Preserve original name order, with the verified Malagasy surname-first
+  convention; never mechanically reverse Chinese/Japanese/Korean/Vietnamese names
+  or guess the structure of a name. Record these checks in notes.wiki.
+* citations: claims remain supported; references/identifiers neither invented nor
+  lost; living-person and other sensitive claims receive extra review.
+* links_templates: correct local targets, supported templates/parameters, usable
+  files, new Sokajy links at the end, existing category links preserved (except
+  the required inerting colon), no duplicate category additions, and no
+  accidental categorization or interwiki side effects.
+* neutrality: no promotion, unsupported synthesis, or changed evidential weight.
+  Review all words-to-watch categories and Malagasy equivalents in context, not
+  through a blacklist. Do not sanitize/rewrite source quotations, titles or
+  citation metadata; preserve meaningful technical/legal qualifications.
+* existing_preserved: sourced mainspace and sandbox contributions deliberately
+  retained/merged; every removal explained. New pages explicitly mark this N/A
+  in notes before setting the boolean true.
+* wikitext_only: raw wikitext visually reviewed; no Markdown or output wrapper.
+
+Run validate --draft …/draft.wiki. It is a conservative structural lint, not a
+grammar/translation verifier or complete MediaWiki parser. Overlapping wiki/MD
+list syntax is legal; do not reject ordinary MediaWiki lists.
+
+== 7. Preview and proposal ==
+Run prepare --job …. This verifies gates, checks all pinned live revisions,
+renders through mgwiki Pywikibot action=parse, rejects visible parser errors and
+category/interwiki side effects, and writes preview.html, proposal.json, and
+changes.diff. Autonomously review raw wikitext and offline rendered text,
+references, tables, image markup, and link metadata without fetching resources;
+parser success alone does not prove factual or linguistic correctness.
+
+Record destination, permanent source URL, changes.diff path, full proposal
+SHA-256 digest, and substantive merge decisions locally. Do not pause for human
+approval or send a progress message for every phase. Draft/evidence changes
+require prepare again and fresh autonomous review. Digests bind exact bytes;
+they are not evidence that a human inspected the article. /mgtranslate and user
+translation/edit requests authorize this checked sandbox save, but explicit
+draft-only/no-save instructions and harness-development tasks do not.
+
+== 8. Guarded sandbox save ==
+After successful autonomous review run publish --job …. No approval argument or
+user prompt is required. An optional --approve DIGEST remains available for a
+caller who wants to pin a particular digest, not as a mandatory human gate.
+CLI verifies
+proposal and artifact hashes, account Bot-Jagwar, target site/namespace/owner,
+unchanged source/mainspace/sandbox, and exact draft bytes. Existing pages use
+baserevid/basetimestamp and nocreate; new pages use createonly. Minor and bot
+flags are off; cosmetic rewriting is disabled; attribution is in edit summary.
+
+Any edit conflict, new/deleted target, source change, template-render change,
+protection, authentication failure, or failed validation aborts. Refresh and
+merge through a new init job, not by overriding guards. Never use force, skip
+checks, or change the destination to bypass a failure. Rebase autonomously only
+when unambiguous, at most once per task; repeated conflicts or material ambiguity
+mean preserve work and stop without asking or refetching in a loop.
+
+== 9. Verify and hand off ==
+After saving, reread via Pywikibot and compare exact text hash. Store receipt.json
+with target URL, revision, source attribution, digest, and confirmed status.
+Report success only for confirmed read-back. A save may have reached the server
+even if connection/read-back fails: receipt.json records an unconfirmed attempt
+before saving. Do not blindly retry; inspect the page once through the paced
+gateway and reconcile only if exact saved bytes and state can be established.
+Otherwise record unconfirmed/blocked status and stop without questions.
+
+Return a short Malagasy wikitext link to sandbox, or raw article wikitext if
+requested. No Markdown, no claims that mainspace was updated. Preserve all local
+evidence for later human review. Later revisions begin again from fresh snapshots.

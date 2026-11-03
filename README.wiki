@@ -1,0 +1,303 @@
+= mgwiki-editor =
+
+Autonomous OpenCode agent harness for translating Wikipedia articles into Malagasy
+and saving checked MediaWiki wikitext only to Mpikambana:Bot-Jagwar/<article-title>
+on https://mg.wikipedia.org. Mainspace is read-only. No article has been published
+by installing or testing this harness.
+
+== Repository ==
+[https://github.com/radomd92/mgwiki-editor Source repository] and
+[https://github.com/radomd92/mgwiki-editor/issues issue tracker].
+<pre>
+git clone https://github.com/radomd92/mgwiki-editor.git
+cd mgwiki-editor
+</pre>
+Translation jobs under runs/, build/test artifacts, environment files and private
+credentials are excluded from Git. Keep authentication material outside this
+checkout; .gitignore is a precaution, not a complete secret scanner. Review staged
+changes before committing. Never commit ~/botjagwar or copy its credentials here.
+
+GitHub Actions runs offline tests and Ruff on Python 3.11, 3.12 and 3.13. Tests use
+fakes and require no Wikipedia or dictionary credentials; dependency installation
+requires package-index access. CI never publishes Wikipedia edits.
+
+The adapted style references retain their own attribution and license notices.
+No project-wide software license has been selected; do not infer an open-source
+license from public repository access.
+
+== Files ==
+* .opencode/agents/mgwiki-editor.md: agent and permission rules.
+* .opencode/commands/mgtranslate.md: /mgtranslate entry point.
+* .opencode/skills/mgwiki-style/SKILL.md: Malagasy style guide and output contract.
+* .opencode/skills/mgwiki-style/references/manual-of-style.wiki: locally adapted
+  English Wikipedia MoS with source-revision attribution and Malagasy overrides.
+* .opencode/skills/mgwiki-style/references/words-to-watch.wiki: all warning groups,
+  source examples, contextual usage and protected quotation/title/citation rules.
+* .opencode/skills/mgwiki-edition/SKILL.md: required edition workflow.
+* .opencode/skills/mg-vocab/SKILL.md: evidence-backed vocabulary memo procedure.
+* docs/edition-protocol.wiki: full new/existing article edition protocol.
+* mgwiki_editor/: Pywikibot CLI, dictionary client, validation, proposal, and save.
+* mgwiki_editor/network.py: shared pacing, overload cooldowns, API-only transport.
+* tests/: offline regression tests with fake Wikipedia/dictionary boundaries.
+* data/country-names.json: cached direct mainspace titles from Sokajy:Firenena.
+
+== Setup ==
+Run from this project directory. Python 3.11 or newer required.
+<pre>
+python3 -m venv .venv
+.venv/bin/python -m pip install -e '.[test]'
+.venv/bin/python -m mgwiki_editor --help
+</pre>
+
+The harness defaults PYWIKIBOT_DIR to /home/jagwar/.pywikibot, reusing existing
+Pywikibot configuration, credentials, and cookies in place. An explicitly set
+PYWIKIBOT_DIR overrides this default. Nothing is copied into this checkout.
+The process account needs access to that private directory and its configuration.
+Installing or testing the repository does not verify live authentication.
+Do not make credentials world-readable. Run under the owning account or have an
+administrator grant narrowly scoped access, including Pywikibot's runtime writes.
+
+For a different deployment, configure Pywikibot outside this checkout and set
+PYWIKIBOT_DIR to its private directory containing user-config.py. Example
+non-secret settings (do not overwrite existing configuration):
+<pre>
+family = 'wikipedia'
+mylang = 'mg'
+usernames['wikipedia']['mg'] = 'Bot-Jagwar'
+user_agent_description = 'mgwiki-editor; User:Bot-Jagwar; checked sandbox translations'
+maxlag = 5
+max_retries = 2
+socket_timeout = (10, 30)
+</pre>
+Authenticate interactively using Pywikibot's supported login workflow, for
+example PYWIKIBOT_DIR=/home/jagwar/.pywikibot .venv/bin/pwb login -family:wikipedia -code:mg.
+The external pwb command does not inherit the harness's Python-only default;
+pass PYWIKIBOT_DIR explicitly when invoking it directly.
+Keep bot passwords, OAuth credentials, cookies, and user-password.py private and
+outside this checkout. Never paste credentials into an agent prompt or dictionary
+request. Use an account permitted to edit its own sandbox and respect Wikimedia
+bot policies and rate limits; this harness does not assert bot approval.
+
+If using a virtual environment, activate it before starting OpenCode so the
+agent's python3 resolves to that environment. OpenCode discovers the project
+agent/skills automatically. Select mgwiki-editor or invoke:
+<pre>
+/mgtranslate https://en.wikipedia.org/wiki/Water ; Malagasy title: Rano
+</pre>
+Command arguments are prompt text, not shell interpolation. No fixed model or
+provider is imposed. Existing sessions may require selecting the new agent.
+
+== Tool workflow ==
+The agent loads the style skill and both local style references, without fetching
+the source guides per article. New Malagasy text uses amin' ny / an' Andriamanitra /
+amin' izao spacing; foreign acronyms have Malagasy parenthetical translations;
+retained foreign terms, full foreign agency names and book/movie/paper titles
+use MediaWiki italics. Full agency names also have Malagasy parenthetical glosses.
+Names retain original order, explicitly including Chinese/Japanese/Korean/
+Vietnamese names; verified Malagasy names use surname first, given names last.
+Never guess name components. Protected quotations, titles and citation metadata
+are not rewritten to impose prose spelling/order or remove words-to-watch.
+The caution list is not a banned-word filter. These are local harness conventions,
+not a claim that English Wikipedia rules automatically bind Malagasy Wikipedia.
+
+Use a fresh job directory for each independent translation or rebase.
+<pre>
+python3 -m mgwiki_editor init --source-lang en --source-title Water --article-title Rano --job runs/water-001
+python3 -m mgwiki_editor lookup --edition en --word water --output runs/water-001/lookup-en-water.json
+python3 -m mgwiki_editor lookup --edition mg --word rano --output runs/water-001/lookup-mg-rano.json
+</pre>
+
+init pins complete source, existing Malagasy mainspace, and sandbox snapshots.
+Use --existing-title if the intended Malagasy mainspace title differs from the
+source's mg interlanguage link. Missing source is an error; missing target is a
+normal new-page case. Redirects require explicit resolution. Existing sandbox
+text becomes the initial draft; existing mainspace text is used when no sandbox
+exists. Source and existing .wiki files are reference copies; job.json holds the
+canonical pinned snapshots used for conflict detection.
+
+Follow docs/edition-protocol.wiki, edit draft.wiki, record notes.wiki and
+vocabulary.json, then set review.json gates true only after real checks.
+<pre>
+python3 -m mgwiki_editor validate --draft runs/water-001/draft.wiki
+python3 -m mgwiki_editor prepare --job runs/water-001
+</pre>
+
+The agent reviews draft.wiki, changes.diff, preview.html offline, and proposal.json.
+Compare existing
+mainspace and sandbox content as well as the foreign source. A newly created
+sandbox has an all-additions diff; this does not replace mainspace merge review.
+Autonomous mode does not ask questions, tool/script permissions, or draft approval.
+After successful editorial review, save the exact prepared proposal:
+<pre>
+python3 -m mgwiki_editor publish --job runs/water-001
+</pre>
+Optional --approve FULL_SHA256_FROM_PROPOSAL pins an explicit digest for callers
+who want that check; it is no longer required. Digests still protect exact
+content/evidence. Receipts record autonomous versus explicit-digest mode.
+An actual translation/edit request authorizes sandbox completion; draft-only or
+no-save instructions override it. Harness setup/tests never authorize saving.
+Unresolvable missing input or material uncertainty means preserve work, record
+a blocked result, and stop without asking or guessing.
+publish checks exact artifact hashes, live revisions, current rendering,
+fixed account/site/namespace, and server-side revision/creation guards. It saves
+synchronously with translation attribution and no cosmetic rewriting, then
+reads back exact content. receipt.json confirms success or records an uncertain
+attempt. An unconfirmed attempt blocks retries; inspect the live sandbox with
+read --lang mg --title 'Mpikambana:Bot-Jagwar/Rano' --sandbox before any reconciliation.
+Never delete a receipt merely to retry. Start a fresh reviewed job after resolving
+the state. There is no force/mainspace/username override.
+
+The fixed account is Bot-Jagwar; OAuth must identify that exact account. The
+external credential directory remains /home/jagwar/.pywikibot; its filesystem
+owner need not match the wiki account. Jobs prepared for the former Jagwar
+sandbox are not accepted: initialize a fresh job, inspect existing texts, prepare
+a new proposal, and autonomously review its exact draft. Never rewrite old job
+snapshots or proposals to migrate them. No account migration authorizes a save.
+
+== Dictionary contract ==
+Default origin: http://192.168.1.155:8000. Override with MGWIKI_DICTIONARY_URL for a
+trusted origin. Only GET /wiktionary-pages/{en|mg}/{encoded word} is called.
+No /translations or /jobs endpoints: some of those publish Wiktionary edits.
+The response is a list of entries with language, entry, part_of_speech,
+definitions, and optional translations/additional_data. Page language and entry
+language differ: mg/rano also contains non-Malagasy entries. Lookup filters by
+entry language while retaining the raw evidence. The model selects a sense and
+translates its definition; the CLI is not a translation engine.
+
+For unfamiliar terms, define the intended sense in simple English and translate
+that definition into Malagasy. If a lookup fails or supplies no suitable word,
+use an accurate descriptive expression with the English term in parentheses
+when useful. Record definition_origin as dictionary or editorial_simple_english;
+never claim a manual definition came from a dictionary. A missing preferred word
+alone need not block a draft; genuinely unresolved material meanings still do.
+
+Medical terms use a Malagasy transcription or established equivalent followed
+by (na [Malagasy explanation]); asthma is asma. The explanation must not invent
+medical claims about the subject. Above 100 distinct uncertain English vocabulary
+items (101 or more), keep unknown-vocabulary.wiki in the job for later review,
+with sense, tentative wording and next action. Include it in the relevant
+vocabulary.json evidence_files so proposal hashes protect that evidence too.
+The list and threshold never waive editorial gates or exact content-integrity checks.
+
+External references and External links URLs are preserved, not accessed by any
+tool or script by default. No browsing, HEAD checks, DOI resolution, external
+image/resource loading, redirects, package downloads or helper-script detours.
+The agent does not request permission to do these; external research needs an
+explicit user request. Inspect HTML previews offline, without loading resources.
+Required Wikipedia CLI operations
+and read-only dictionary lookup remain allowed. Unvisited sources must not be
+described as verified; material unresolved factual conflicts still block saving.
+
+During setup, the mg/rano and en/atom read endpoints were confirmed against the
+provided service; /openapi.json was absent and /swagger.json listed no paths.
+Repository route definitions supplied the actual contract. Network availability
+and dictionary quality are not guaranteed. Missing pages (404), missing entry
+languages, malformed data, and outages remain distinguishable. HTTP on the LAN
+is unencrypted: send words only, never credentials or sensitive source material.
+
+== Country-name cache ==
+Use the exact matching Malagasy page titles and diacritics from Sokajy:Firenena
+to normalize country names in new prose. The saved list is in
+data/country-names.json, with category URL, retrieval time and membership scope.
+<pre>
+python3 -m mgwiki_editor countries
+python3 -m mgwiki_editor countries --refresh
+</pre>
+The first command reads the local cache only, without Wikipedia requests. If
+missing, it asks for explicit refresh. The second fetches direct mainspace
+members through Pywikibot and atomically replaces the cache only after checking
+the result. An empty/failed fetch preserves the previous cache. Reuse the list
+across translations instead of refetching per article; refresh when necessary.
+
+The category is not a complete geopolitical registry: general/index pages,
+historic states, territories and variants may appear, and countries categorized
+elsewhere may be absent. Check identity, do not assume sovereignty, and use
+verified local-page evidence for missing names rather than guessing a match.
+Keep original quotations, bibliographic titles, identifiers and URLs unchanged.
+Copy any naming evidence used into the job and list it in vocabulary.json
+evidence_files to bind it to the proposal; never replace a prepared job's copy when
+refreshing the shared cache. No command edits Wikipedia or changes categories.
+
+CLI console JSON escapes Unicode so ASCII/Latin-1 terminals can display results
+without reporting a false failure after saving local evidence. Evidence files
+and article drafts remain UTF-8, preserving the original characters exactly.
+When the process locale itself is not UTF-8, use PYTHONUTF8=1 for non-ASCII
+command-line titles as well; console escaping alone cannot repair misdecoded
+arguments. For example:
+<pre>
+PYTHONUTF8=1 python3 -m mgwiki_editor read --lang mg --title 'Nôrvezy'
+</pre>
+
+== Guarantees and limits ==
+Agent responses/article drafts use only MediaWiki wikitext. Internal prompts
+use OpenCode's Markdown definition format; CLI JSON, HTML previews, and diff files
+are tooling artifacts, never text to paste into Wikipedia.
+
+Lint rejects common Markdown, broken named-reference reuse, missing native
+reference renderers, live categories, interwiki links, and placeholders. It
+permits MediaWiki * and # lists and {| tables. Markdown and MediaWiki share some
+syntax; no lexical validator can prove the absence of all Markdown. Raw-text and
+rendered autonomous editorial review remain mandatory. For predictable reference validation,
+use native <nowiki><references /></nowiki> instead of reference-rendering templates.
+
+Rendered previews reject parser errors and template-driven categorization or
+language links. They do not automatically verify every local template parameter,
+link topic, media license, source claim, grammar, or translation. Review gates are
+attestations, not machine evidence of linguistic correctness. Render changes can
+be benign (dynamic templates) but still require fresh preparation and review.
+
+The CLI is a procedural safeguard, not a security sandbox against a malicious
+agent/user with arbitrary shell access or credentials. Shell/edit tools are
+allowed without prompts; scripts still must obey the project network and sandbox
+policy. An unguarded script could bypass the CLI: arbitrary shell access means
+this is not an OS network sandbox. Digests bind content, not human sign-off.
+Use OS isolation/restricted credentials if stronger separation is needed.
+Source/mainspace revisions are checked immediately before saving, but Wikimedia
+cannot atomically lock three independent pages. Destination revision/create
+guards protect against lost updates; later source changes require a new edition.
+
+== Autonomous scripts and Wikimedia load ==
+Local Python scripts remain available as persistent agent knowledge. Inspect/run
+any task-relevant script with python3 ./name.py or python3 scripts/name.py; create
+helpers as needed, without asking. Helpers that contact Wikipedia use
+mgwiki_editor.core.Wiki, or call mgwiki_editor.network.install_wikimedia_transport()
+before constructing Pywikibot sites. Do not use arbitrary scripts to evade guards.
+No interactive login/password/captcha prompts: unavailable credentials block the
+task with a local draft, not a request to the user.
+
+The transport guards actual HTTP attempts, including Pywikibot retries, sharing
+a locked state file across CLI processes and languages at
+$XDG_STATE_HOME/mgwiki-editor/wikimedia-requests.json (default ~/.local/state/…).
+Only required HTTPS Wikipedia APIs and central-auth API endpoints are allowed;
+redirects are rejected. Requests are spaced by 10 seconds, the conservative end
+of the requested 5–10 second range; edits are at least 10 seconds apart. Longer
+server cooldowns take precedence. Dictionary requests share pacing because they may
+cause upstream reads. Reuse job evidence/caches; one wiki worker, no parallel
+fetching or per-paragraph rendering.
+
+429/503, maxlag and ratelimited stop the current command and persist exponential
+backoff starting at 30 seconds plus jitter. Retry-After seconds and HTTP dates
+are honored without truncation. Three consecutive overloads open a 15-minute
+circuit; a gate waits at most 10 seconds total. Longer server cooldowns and
+repeatedly extended deadlines defer the task immediately rather than leaving it
+sleeping for minutes; the cooldown is preserved, not shortened or reset.
+Do not immediately rerun a failed command, poll aggressively, reset shared state,
+or switch account/process to evade cooldowns. Socket timeouts and maxlag=5
+provide additional bounds. Uncertain writes are never
+automatically resubmitted. These limits reduce load, not guarantee zero 429s.
+
+Only the shared transport owns normal pacing. Native Pywikibot throttling can
+multiply delays by its registered process count; it is disabled after the shared
+guard is installed. Native retry sleeps are disabled too. Do not add shell sleep
+loops or wait between local-only steps. A command can need several API requests;
+tool stderr emits compact request-start/response and wait/deferred events so
+actual work is visible. Diagnostics omit page titles, bodies and credentials;
+normal command-result JSON remains on stdout.
+
+== Verification ==
+<pre>
+python3 -m pytest
+ruff check mgwiki_editor tests
+</pre>
+Tests are offline. Live Wikipedia login/read/render/save must be smoke-tested by
+the operator with their own credentials; harness setup does not perform edits.

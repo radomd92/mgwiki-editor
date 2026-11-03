@@ -1,0 +1,234 @@
+= Manual of style adapted for Malagasy Wikipedia translation =
+
+== Scope, sources, and precedence ==
+This is mgwiki-editor's local operational adaptation, not an official policy
+adopted by the Malagasy Wikipedia community and not a full translation of every
+English MoS subpage. Read it together with SKILL.md and words-to-watch.wiki.
+
+Adapted from Wikipedia contributors, [https://en.wikipedia.org/w/index.php?title=Wikipedia:Manual_of_Style&oldid=1381654087 Wikipedia:Manual of Style, revision 1381654087],
+consulted 3 November 2026, and
+[https://en.wikipedia.org/w/index.php?title=Wikipedia:Manual_of_Style/Words_to_watch&oldid=1382059772 Words to watch, revision 1382059772].
+The linked revision histories identify contributing authors. Source text is
+available under Creative Commons Attribution-ShareAlike 4.0; this adaptation of
+that material is shared under the same license. It condenses and localizes the
+English guidance and adds the user's Malagasy project conventions.
+
+Explicit Malagasy rules in SKILL.md control apostrophe spacing, name order,
+foreign-word italics, acronym glosses, agency translations, and italic paper
+titles. Do not import English possessive grammar, national English spelling
+preferences, English title case, or English-specific plural rules into Malagasy.
+Verified community policy and factual/quotation accuracy remain constraints;
+record a genuine conflict instead of inventing a consensus or silently erasing it.
+
+Use these saved references offline. Their links provide provenance, not standing
+authorization to open other pages. Do not fetch the MoS or its subpages for each
+article. No external research, resource loading, or on-wiki edits are authorized
+merely by reading this manual.
+
+== Existing style, clarity, and neutral voice ==
+* Use a consistent, clear, concise encyclopedic style accessible to a general
+  Malagasy reader. Natural Malagasy grammar takes priority over source syntax.
+* Retain an existing acceptable style when several styles are permitted. Do not
+  churn optional punctuation, citation styles or layout, or edit-war over style.
+  The explicit project conventions apply to the new Malagasy sandbox draft,
+  not as permission for mass mainspace corrections.
+* Use neutral third-person exposition, not instructions, rhetorical questions,
+  promotional claims, first-person editorial commentary, or appeals to readers.
+* Preserve qualifications, evidential strength, negation, causation versus
+  correlation, chronology and source attribution. Neither embellish nor conceal.
+* Explain necessary technical vocabulary in clear Malagasy. Prefer a precise
+  descriptive explanation to an unverified technical coinage. Retained foreign
+  terms are italicized, including parenthetical originals.
+* Respect people's documented names and identities. Do not infer gender from a
+  name, import unnecessary gender distinctions from English, expose private
+  former names, or add personal details unsupported by the source.
+
+== Article titles, layout, and headings ==
+* Choose a recognizable, natural, precise, concise Malagasy topic title. Preserve
+  established proper-name spelling. Do not add a sentence-ending punctuation
+  mark unless it is genuinely part of a name/title.
+* Start with an unheaded lead defining the subject and summarizing the supported
+  body. Bold the subject's name at first mention; use no extra decorative bold.
+* Follow the lead with coherent sections rather than a mechanical source outline.
+  Keep sourced existing Malagasy contributions when merging.
+* Use descriptive sentence-case headings: == Tantara ==, then === ... === without
+  skipping levels. No redundant topic name in every heading, numbered headings,
+  rhetorical questions, pseudo-headings made from bold or list markup, links,
+  footnotes, images, or formula markup inside a section heading.
+* Keep headings unique, on separate lines, with a preceding blank line. Preserve
+  necessary existing section anchors when changing a heading, using valid local
+  markup, not an assumed English template.
+* After the body, order suitable appendices consistently: the subject's works,
+  related articles, notes/references, selective further reading, external links.
+  Distinguish works by the subject from works used as references.
+* Only use locally verified templates/parameters. Do not copy English language-
+  variety templates, short descriptions, maintenance banners, infoboxes, authority
+  control, or category-producing templates blindly. Sandbox categories stay
+  inert; no mainspace edits, redirect creation or Wikidata changes.
+
+== Capitalization and typography ==
+* Prefer sentence case in headings and ordinary Malagasy prose. Capitalize
+  actual proper names according to established usage, not all important words.
+* Preserve the original spelling, diacritics, internal word order, and meaningful
+  capitalization of foreign names and titles. Do not impose English title case
+  on a Malagasy translation or another language's title.
+* Distinguish a specific named institution, office, religion or region from a
+  generic description. Do not use honorific typography to endorse a belief or
+  confer unsupported status. Do not add unexplained honorifics to personal names.
+* Italics use paired apostrophes, never Markdown asterisks. Use italics for foreign
+  terms, words discussed as words, and book/movie/paper titles. Do not italicize
+  an entire quotation merely because it is quoted. Keep surrounding sentence
+  punctuation outside italics unless it belongs to the italicized title/phrase.
+* Scientific binomials have an initial capital on the genus and lowercase species
+  epithet, both italic: ''Homo sapiens''. Keep rank indicators, formulae, unit
+  symbols and mathematical operators in their appropriate notation.
+* Use source-supported romanization when needed without reversing name order or
+  guessing pronunciation. Keep original-script forms accurate when supplied.
+
+== Malagasy elision apostrophes ==
+Use no space before the single elision apostrophe and one space after it:
+* amin'ny → amin' ny
+* an'Andriamanitra → an' Andriamanitra
+* amin'izao → amin' izao
+* tamin'ny → tamin' ny
+* ho an'ny → ho an' ny
+
+These are writing conventions for newly composed Malagasy, including captions
+and translated link labels. Preserve already correct spacing. Do not confuse
+single elision apostrophes with MediaWiki's ''italics'' or '''bold''' delimiters.
+Do not change O'Connor, foreign contractions, names, original titles, direct
+quotations, citation metadata, filenames, URLs, IDs, template parameter names,
+code or mathematical expressions. Do not perform a raw global substitution.
+
+== Acronyms, abbreviations, and agencies ==
+Keep established foreign acronyms and abbreviations when useful, preserving
+their letters and conventional punctuation. At first mention write the acronym
+followed by a Malagasy translation/expansion in parentheses, even if familiar:
+WHO (Fikambanana Iraisam-pirenena momba ny Fahasalamana).
+Repeat the explanation only when a standalone caption/table needs it.
+
+Do not invent an acronym from a translated name or import English plural endings.
+Explain rather than abbreviate when a shortened form would confuse. Standard
+unit/scientific symbols are notation, not prose acronyms needing a repeated gloss.
+
+Foreign agency/institution names may remain in their original language and word
+order. Accompany the full name with an accurate Malagasy translation in
+parentheses. Italicize the full retained foreign-language phrase; keep the
+Malagasy gloss and standalone acronym roman. A descriptive translation is not an
+assertion that the organization officially uses that Malagasy name. Never invent
+the expansion, institutional status or mandate from initials alone.
+
+== Personal-name order ==
+Preserve the original/culturally established order for all names. Translation
+does not authorize mechanically moving a final word to the front or applying
+Western given-name-first order.
+* Chinese, Japanese, Korean, and Vietnamese names retain original order, including
+  their romanized forms. Preserve documented individual naming choices rather
+  than guessing an order from nationality alone.
+* Malagasy names use surname first and given names last when those components
+  are verified. This specific local convention is the exception to preserving a
+  source's Westernized order in newly written Malagasy prose.
+* Do not invent a family name, split a mononym or compound name, treat a pen name
+  as an automatically decomposable legal name, or infer a surname from position.
+  Retain the evidenced form and record uncertainty when structure is unknown.
+* Direct quotations, original titles and citation author metadata preserve the
+  source's exact names and ordering. Do not rewrite a bibliography to match
+  narrative name order; keep separate author fields semantically accurate.
+* Proper personal/place names are not italicized solely because they are foreign.
+  Do not translate the components of a personal name.
+
+== Titles of books, films, and papers ==
+In narrative mentions, italicize book titles, movie/film titles, and paper or
+research-article titles: ''L'Étranger'' and ''On the Electrodynamics of Moving
+Bodies'' illustrate markup, not verified translations. Preserve the actual
+title's spelling, punctuation, language and internal word order.
+
+Italic paper titles are an explicit local override: the English guide normally
+uses quotation marks for papers and other short works. Do not invent a published
+Malagasy title; an explanatory translation may follow in parentheses and must
+not be misrepresented as an official edition. Keep citation title fields literal
+and let verified citation rendering supply typography; do not double-wrap titles
+already formatted by a template. A verbatim quotation retains its source text.
+
+== Quotations, citations, and attribution ==
+* Keep direct quotations faithful in wording, names, order and meaning. Identify
+  the speaker/writer and attach the supporting reference. Mark genuine omissions
+  or editorial insertions transparently; never omit a qualification to change a
+  quotation's message. Do not silently correct or sanitize source titles.
+* Clearly label Malagasy translations of quotations; they are translations, not
+  original Malagasy utterances. Preserve controversial wording and force of the
+  source without presenting the speaker's judgment as Wikipedia's own voice.
+* Do not rewrite words-to-watch occurrences inside original quotations, titles,
+  or citation metadata. Faithful reproduction does not waive relevance, copyright,
+  reliable sourcing, contextual accuracy or living-person protections.
+* Quote selectively; long quotation and close copying are not substitutes for
+  original translation/exposition. Do not use scare quotes to imply disbelief.
+* Preserve citation-to-claim placement, named reference definitions/reuses/groups,
+  authors, titles, dates, pages, URLs, DOI and ISBN. Place reference tags adjacent
+  to the supported clause/sentence, normally after punctuation, and provide a
+  matching native references renderer for each group.
+* Preserve source URLs as data. Do not visit them or claim to have read them
+  unless the user explicitly requested that research. Dictionary definitions
+  inform translation but do not establish an article's factual claims.
+
+== Punctuation, dates, quantities, and grammar ==
+* Use consistent readable punctuation and a single interword space. Distinguish
+  apostrophes, quotation marks, hyphens, en dashes for ranges, and mathematical
+  minus signs. Never change these characters inside identifiers or URLs.
+* Avoid ambiguous slashes and and/or constructions; state whether alternatives,
+  combinations, ratios or a sequence are intended. Keep parentheses balanced.
+  Do not add rhetorical exclamation marks or double sentence-ending punctuation.
+* Adapt grammar, verbal voice and tense to Malagasy while preserving historical
+  versus present claims. Do not transfer English possessive endings, English
+  collective-noun agreement or English contraction bans to Malagasy elisions.
+* Prefer source-supported explicit dates to recently/currently/today. Date relative
+  expressions inside quotations by identifying the quotation's context, not by
+  rewriting its words. Avoid unqualified northern-hemisphere seasonal assumptions.
+* Use consistent unambiguous Malagasy dates; preserve exact source dates in
+  quotations/citation metadata. Clarify time zone/calendar where relevant.
+* Preserve quantities, uncertainty, significant figures, proportions, units,
+  coordinates, currency and time-dependent exchange rates. Never convert using
+  an invented rate or change precision to make prose look neater.
+* Prefer SI units where suitable, retaining necessary source/specialist units and
+  verified equivalences. Use standard unit symbols without invented plural forms.
+  Keep values and symbols together with supported nonbreaking spacing where
+  appropriate. Use proper math markup without corrupting formula/code syntax.
+
+== Geography, media, lists, tables, and accessibility ==
+* Use verified Malagasy place names; country spellings use the cached
+  Sokajy:Firenena evidence prescribed in SKILL.md. Preserve historical context
+  rather than replacing a former political entity with an anachronistic modern
+  one. Names do not establish sovereignty or territorial claims.
+* Keep Commons filenames, licenses, orientation and scientific image information
+  accurate. Translate captions/alt text; do not infer an identity from appearance
+  or fetch external images to verify it. Avoid left/right/above/below references
+  whose meaning disappears on mobile or with a screen reader.
+* Use succinct captions with consistent sentence punctuation and the same name,
+  apostrophe, title and foreign-term conventions as body text.
+* Use prose when it is clearer than a list. Use MediaWiki lists and consistent
+  grammatical structure; number a list only when sequence/numbering matters.
+  Do not insert blank lines that accidentally split a single wiki list.
+* Use semantic wikitable headers and captions, not tables for visual page layout.
+  Do not rely on color alone, text-only images, forced tiny fonts, or hidden/
+  collapsed essential information. Inspect the preview offline without loading
+  external resources.
+* Link useful concepts to correct local topics, not every repeated common word.
+  Do not add misleading links or links/footnotes inside section headings. Put
+  selective external links in the appropriate appendix, not as inline substitutes
+  for citations; preserving a link does not authorize opening it.
+* Prefer simple native wikitext to elaborate HTML/CSS and unverified templates.
+  No Markdown, live sandbox categories, mainspace metadata edits, or style bots.
+
+== Wording review and edition gate ==
+Read words-to-watch.wiki in full. Its lists are contextual warnings, not banned
+tokens. Check the same rhetorical effects in Malagasy, not just English spelling.
+Do not remove meaningful uncertainty, legal allegations, or established technical
+terminology merely to avoid a listed word.
+
+Before publication, inspect the raw draft and offline preview against this manual.
+Record apostrophe spacing, acronym/agency glosses, foreign/title italics, verified
+name order, quotation/citation exceptions, source fidelity and neutral wording in
+notes.wiki. Set existing fluency/terminology/neutrality/citations review gates true
+only after those checks. Automated structural lint is not a language-style proof.
+Unresolved material identity or meaning stops autonomous publication; do not ask
+questions, invent evidence, or relax conflict/network guards to finish the task.

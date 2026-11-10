@@ -82,8 +82,14 @@ merely by reading this manual.
 * Scientific binomials have an initial capital on the genus and lowercase species
   epithet, both italic: ''Homo sapiens''. Keep rank indicators, formulae, unit
   symbols and mathematical operators in their appropriate notation.
-* Use source-supported romanization when needed without reversing name order or
-  guessing pronunciation. Keep original-script forms accurate when supplied.
+* Transcribe foreign names written in non-Latin scripts into the Latin alphabet
+  in new Malagasy prose, captions, and translated link labels. Use a
+  source-supported transcription/romanization without reversing name order or
+  guessing pronunciation; do not invent a Latin form. An accurate original-script
+  form may accompany the transcription when useful. Preserve originals in direct
+  quotations, original titles, citation metadata, exact link targets, identifiers,
+  and URLs. Record unresolved transcription uncertainty outside the article and
+  follow the existing publication-blocking rules.
 
 == Malagasy elision apostrophes ==
 Use no space before the single elision apostrophe and one space after it:
@@ -199,9 +205,15 @@ already formatted by a template. A verbatim quotation retains its source text.
   Sokajy:Firenena evidence prescribed in SKILL.md. Preserve historical context
   rather than replacing a former political entity with an anachronistic modern
   one. Names do not establish sovereignty or territorial claims.
-* Keep Commons filenames, licenses, orientation and scientific image information
-  accurate. Translate captions/alt text; do not infer an identity from appearance
-  or fetch external images to verify it. Avoid left/right/above/below references
+* Include the original article's images within the requested scope, including
+  infoboxes, inline illustrations and galleries. Keep Commons filenames, licenses,
+  orientation and scientific image information accurate. Preserve meaningful
+  placement/order and adapt unsupported templates to verified local markup.
+  Account for every omitted/replaced image and its reason in notes.wiki; do not
+  import unavailable or non-free foreign-local files merely to match the source.
+  Translate captions/alt text, retaining their links and references; do not infer
+  an identity from appearance or fetch external images to verify it. Avoid
+  left/right/above/below references
   whose meaning disappears on mobile or with a screen reader.
 * Use succinct captions with consistent sentence punctuation and the same name,
   apostrophe, title and foreign-term conventions as body text.
@@ -212,9 +224,13 @@ already formatted by a template. A verbatim quotation retains its source text.
   Do not rely on color alone, text-only images, forced tiny fonts, or hidden/
   collapsed essential information. Inspect the preview offline without loading
   external resources.
-* Link useful concepts to correct local topics, not every repeated common word.
-  Do not add misleading links or links/footnotes inside section headings. Put
-  selective external links in the appropriate appendix, not as inline substitutes
+* Preserve source internal links within the requested scope, including those in
+  infoboxes, tables and captions, using verified same-topic Malagasy targets and
+  translated labels. Adapt same-page anchors to translated headings. Record
+  unresolved targets and plain-text fallbacks in notes.wiki; never silently strip
+  links or guess targets. Link useful concepts to correct local topics, not every
+  repeated common word. Do not add misleading links or links/footnotes inside
+  section headings. Put selective external links in the appropriate appendix, not as inline substitutes
   for citations; preserving a link does not authorize opening it.
 * Prefer simple native wikitext to elaborate HTML/CSS and unverified templates.
   No Markdown, live sandbox categories, mainspace metadata edits, or style bots.

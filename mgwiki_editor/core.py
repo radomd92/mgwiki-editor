@@ -17,7 +17,14 @@ from urllib.request import Request
 
 import mwparserfromhell
 
-from .network import dictionary_open, install_wikimedia_transport
+from . import observations
+from .dictionary_retries import DictionaryRetries
+from .network import (
+    NetworkPolicyError,
+    dictionary_open,
+    dictionary_word,
+    install_wikimedia_transport,
+)
 
 ACCOUNT = "Bot-Jagwar"
 PREFIX = f"Mpikambana:{ACCOUNT}/"
@@ -130,12 +137,15 @@ def country_names(wiki: Wiki, *, refresh: bool = False) -> dict[str, Any]:
 
 def lookup(
     edition: str, word: str, *, base_url: str | None = None, opener: Any = dictionary_open,
+    retries: DictionaryRetries | None = None,
 ) -> dict[str, Any]:
-    """GET dictionary entries without invoking translation/publication endpoints."""
+    """GET entries; retain nonblocking 502 evidence and a bounded, resumable retry."""
     if edition not in {"en", "mg"}:
         raise GuardError("Dictionary edition must be en or mg.")
-    if not word.strip() or len(word) > 250 or any(ord(c) < 32 for c in word):
-        raise GuardError("Invalid dictionary word.")
+    try:
+        dictionary_word(word)
+    except NetworkPolicyError as exc:
+        raise GuardError(str(exc)) from exc
     base = (base_url or os.getenv("MGWIKI_DICTIONARY_URL", DICTIONARY_URL)).rstrip("/")
     parsed = urlsplit(base)
     if (
@@ -148,6 +158,10 @@ def lookup(
     request = Request(
         url, headers={"Accept": "application/json", "User-Agent": "mgwiki-editor/0.1"},
     )
+    retries = retries or DictionaryRetries()
+    pending = retries.pending(url)
+    if pending is not None:
+        return pending
     try:
         with opener(request, timeout=20) as response:
             payload = response.read(5_000_001)
@@ -156,11 +170,42 @@ def lookup(
             raw = json.loads(payload)
     except HTTPError as exc:
         if exc.code == 404:
+            observations.observe(url, 404, dictionary=True, missing=True)
+            retries.clear(url)
             return {"url": url, "retrieved_at": now(), "status": "missing", "entries": []}
+        if exc.code == 502:
+            # The service also maps its explicit NoPage exception to HTTP 502.
+            # Never infer a miss merely from a status code or an error-message substring.
+            with exc:
+                body = exc.read(65_537)
+            truncated = len(body) > 65_536
+            body = body[:65_536].decode("utf-8", errors="replace")
+            try:
+                error = json.loads(body)
+            except ValueError:
+                error = None
+            result = {
+                "url": url, "retrieved_at": now(), "edition": edition, "word": word,
+                "status": "failed", "entries": [], "http_status": 502,
+                "error_body": body, "error_body_truncated": truncated,
+                "content_trust": "untrusted_dictionary_data",
+            }
+            details = error.get("details") if isinstance(error, dict) else None
+            if (not truncated and isinstance(error, dict) and error.get("type") == "error"
+                    and error.get("status") == 502 and isinstance(details, dict)
+                    and details.get("type") == "NoPage"):
+                observations.observe(url, 502, dictionary=True, missing=True)
+                retries.clear(url)
+                return {**result, "status": "missing", "missing_reason": "backend_NoPage"}
+            observations.observe(url, 502, dictionary=True,
+                                 retry_after=exc.headers.get("Retry-After", ""))
+            return retries.failure(result, exc.headers.get("Retry-After", ""))
         raise GuardError(f"Dictionary HTTP error {exc.code}; not a dictionary miss.") from exc
     except (URLError, TimeoutError, OSError) as exc:
+        observations.observe(url, None, dictionary=True)
         raise GuardError("Dictionary unavailable; do not infer a missing word.") from exc
     except (ValueError, UnicodeError) as exc:
+        observations.observe(url, None, dictionary=True)
         raise GuardError("Malformed dictionary JSON.") from exc
     if not isinstance(raw, list) or any(
         not isinstance(entry, dict) or not isinstance(entry.get("language"), str)
@@ -168,8 +213,11 @@ def lookup(
         or any(not isinstance(d, str) for d in entry["definitions"])
         for entry in raw
     ):
+        observations.observe(url, None, dictionary=True)
         raise GuardError("Unexpected dictionary entry schema.")
     entries = [entry for entry in raw if entry["language"] == edition]
+    observations.observe(url, 200, dictionary=True, valid_success=True)
+    retries.clear(url)
     return {
         "url": url, "retrieved_at": now(), "edition": edition, "word": word,
         "status": "found" if entries else "no_matching_language",
@@ -190,6 +238,12 @@ def lint_wikitext(text: str) -> list[str]:
     for tag in code.filter_tags():
         if str(tag.tag).strip().lower() in {"math", "chem"}:
             prose = prose.replace(str(tag), "")
+    markdown_prose = prose
+    for tag in code.filter_tags():
+        if str(tag.tag).strip().lower() in {
+            "code", "pre", "nowiki", "syntaxhighlight", "source",
+        }:
+            markdown_prose = markdown_prose.replace(str(tag), "\n")
     patterns = {
         "Markdown fence or backtick": r"`|(?m:^\s*~~~)",
         "Markdown link/image": r"!?\[[^\]\n]*\]\([^\n]*\)",
@@ -204,7 +258,10 @@ def lint_wikitext(text: str) -> list[str]:
         "Unsafe HTML element": r"(?i:<\s*(?:script|iframe)\b)",
     }
     for label, pattern in patterns.items():
-        if re.search(pattern, prose):
+        # Literal/code content may contain Markdown-looking characters, but does not
+        # exempt active HTML, directives or editorial placeholders from their guards.
+        subject = markdown_prose if label.startswith("Markdown") else prose
+        if re.search(pattern, subject):
             errors.append(label + ".")
     for link in code.filter_wikilinks():
         target = str(link.title).strip()
@@ -212,29 +269,16 @@ def lint_wikitext(text: str) -> list[str]:
             errors.append("Sandbox category must be inert (prefix link with :).")
         if re.match(r"^[a-z]{2,3}(?:-[a-z0-9]+)*:", target):
             errors.append("Live interwiki link is not permitted in the sandbox.")
-    definitions: set[tuple[str, str]] = set()
-    reuses: set[tuple[str, str]] = set()
-    reference_groups: set[str] = set()
-    rendered_groups: set[str] = set()
-    for tag in code.filter_tags():
-        name = str(tag.tag).strip().lower()
-        if name not in {"ref", "references"}:
-            continue
-        group = str(tag.get("group").value).strip("\"' ") if tag.has("group") else ""
-        if name == "references":
-            rendered_groups.add(group)
-            continue
-        reference_groups.add(group)
-        if tag.has("name"):
-            key = (group, str(tag.get("name").value).strip("\"' "))
-            if tag.self_closing:
-                reuses.add(key)
-            elif str(tag.contents).strip():
-                definitions.add(key)
-    if reuses - definitions:
+    from .references import reference_inventory
+
+    references = reference_inventory(text)
+    errors.extend(references["errors"])
+    if references["undefined"]:
         errors.append("Named reference reused without a definition in the same group.")
+    if references["conflicts"]:
+        errors.append("Conflicting named reference definitions in the same group.")
     # Require native reference rendering instead of guessing local template behavior.
-    if reference_groups - rendered_groups:
+    if references["missing_renderers"]:
         errors.append("Each reference group needs a matching <references /> renderer.")
     return sorted(set(errors))
 
@@ -319,8 +363,105 @@ class Wiki:
         pages = category.articles(namespaces=0, recurse=False)
         return [page.title() for page in pages if int(page.namespace()) == 0]
 
+    def link_targets(self, language: str, titles: list[str]) -> dict[str, Any]:
+        """Bounded read-only langlink batch; namespace/topic verification remains explicit."""
+        if not isinstance(titles, list) or not 1 <= len(titles) <= 50:
+            raise GuardError("Langlink batch needs 1..50 mainspace titles.")
+        titles = [title(value) for value in titles]
+        data = self.site(language).simple_request(
+            action="query", titles="|".join(titles), prop="langlinks", lllang="mg",
+            lllimit="max", formatversion=2,
+        ).submit()
+        pages = data.get("query", {}).get("pages", [])
+        if not isinstance(pages, list) or any(page.get("ns") != 0 for page in pages):
+            raise GuardError("Langlink batch contains non-mainspace/invalid pages.")
+        return {"language": language, "response": data}  # Evidence only; never follow URLs.
+
+    def file_metadata(self, filename: str) -> dict[str, Any]:
+        """Query availability/license metadata via mgwiki only; never fetch file resources."""
+        filename = title(filename)
+        data = self.site("mg").simple_request(
+            action="query", titles="File:" + filename, prop="imageinfo",
+            iiprop="url|timestamp|sha1|extmetadata", formatversion=2,
+        ).submit()
+        pages = data.get("query", {}).get("pages", [])
+        if not isinstance(pages, list) or any(page.get("ns") != 6 for page in pages):
+            raise GuardError("File metadata namespace invalid.")
+        return data
+
+    def template_metadata(self, titles: list[str]) -> dict[str, Any]:
+        """Pin local namespace-10 revision bodies; existence is not parameter support."""
+        if (not isinstance(titles, list) or not 1 <= len(titles) <= 50
+                or any(not isinstance(value, str) for value in titles)):
+            raise GuardError("Template batch needs 1..50 explicit namespace-10 titles.")
+        canonical = {}
+        for value in titles:
+            value = title(value)
+            if not value.casefold().startswith(("template:", "endrika:")):
+                raise GuardError("Template metadata requires an explicit template namespace.")
+            page = self.page("mg", value)
+            if int(page.namespace()) != 10:
+                raise GuardError("Template metadata requires namespace 10.")
+            canonical[value] = page.title()
+        data = self.site("mg").simple_request(
+            action="query", titles="|".join(canonical.values()), prop="revisions",
+            rvprop="ids|timestamp|sha1|content", rvslots="main", rvlimit=1, formatversion=2,
+        ).submit()
+        pages = data.get("query", {}).get("pages", [])
+        if (any(key in data for key in ("continue", "error", "errors", "warnings"))
+                or not isinstance(pages, list) or not pages
+                or any(not isinstance(page, dict) or page.get("ns") != 10 for page in pages)):
+            raise GuardError("Incomplete/invalid template revision metadata.")
+        for page in pages:
+            if not page.get("missing"):
+                revisions = page.get("revisions", [])
+                if (len(revisions) != 1 or type(revisions[0].get("revid")) is not int
+                        or not isinstance(revisions[0].get("slots", {}).get("main", {}).get(
+                            "content"), str)):
+                    raise GuardError("Template revision content unavailable; do not infer support.")
+        return {"language": "mg", "requested_to_canonical": canonical, "response": data,
+                "limits": "Pinned revision bodies only; transitive module/template contracts, "
+                          "parameter semantics and category/render behavior need review."}
+
+    def expand_template(self, language: str, page_title: str, text: str) -> dict[str, Any]:
+        """Expand one coordinator-selected pinned call; no file/resource requests."""
+        page_title = title(page_title)
+        if not isinstance(text, str) or not text.strip() or len(text.encode()) > 65_536:
+            raise GuardError("Template expansion needs a bounded pinned call.")
+        data = self.site(language).simple_request(
+            action="expandtemplates", title=page_title, text=text, prop="wikitext", formatversion=2,
+        ).submit()
+        if (any(key in data for key in ("continue", "error", "errors", "warnings"))
+                or not isinstance(data.get("expandtemplates", {}).get("wikitext"), str)):
+            raise GuardError("Incomplete template expansion; retain unresolved mapping.")
+        return data
+
+    def category_metadata(self, titles: list[str]) -> dict[str, Any]:
+        """Verify category naming/namespace via mgwiki metadata, never edit categories."""
+        if not isinstance(titles, list) or not 1 <= len(titles) <= 50:
+            raise GuardError("Category batch needs 1..50 titles.")
+        canonical = {}
+        for value in titles:
+            value = title(value)
+            page = self.page("mg", value)
+            if int(page.namespace()) != 14:
+                raise GuardError("Category metadata requires namespace 14.")
+            canonical[value] = page.title()
+        data = self.site("mg").simple_request(
+            action="query", titles="|".join(canonical.values()),
+            prop="categoryinfo", formatversion=2,
+        ).submit()
+        if any(page.get("ns") != 14 for page in data.get("query", {}).get("pages", [])):
+            raise GuardError("Category metadata namespace changed.")
+        return {"language": "mg", "requested_to_canonical": canonical, "response": data}
+
     def render(self, destination: str, text: str) -> str:
         """Parse a sandbox draft on mgwiki without saving it."""
+        from .rendering import rendering_report
+
+        if (not destination.startswith(PREFIX)
+                or destination != sandbox_title(destination[len(PREFIX):])):
+            raise GuardError("Preview requires the exact permitted sandbox title.")
         data = self.site("mg").simple_request(
             action="parse", title=destination, text=text, contentmodel="wikitext",
             prop="text|categories|langlinks", formatversion=2, disablelimitreport=True,
@@ -330,7 +471,7 @@ class Wiki:
             html = html["*"]
         if data.get("categories") or data.get("langlinks"):
             raise GuardError("Rendered sandbox has category or language-link side effects.")
-        if re.search(r'class=[\"\'][^\"\']*\b(?:error|mw-ext-cite-error)\b', html):
+        if not rendering_report(html)["valid"]:
             raise GuardError("MediaWiki preview contains a parser/citation error.")
         return html
 
@@ -407,18 +548,49 @@ def initialize(
         (job / f"{name}.wiki").write_bytes(state[name]["text"].encode("utf-8"))
     initial = sandbox["text"] if sandbox["revision_id"] is not None else existing["text"]
     (job / "draft.wiki").write_bytes(initial.encode("utf-8"))
-    (job / "notes.wiki").write_text("= Fanamarihana momba ny fanitsiana =\n", encoding="utf-8")
+    (job / "notes.wiki").write_text("# Edition notes\n", encoding="utf-8")
+    (job / "source-issues.md").write_text(
+        "# Source issues\n\nNone recorded. Review pending.\n", encoding="utf-8",
+    )
     write_json(job / "review.json", dict.fromkeys(GATES, False))
     write_json(job / "vocabulary.json", [])
     return state
 
 
 ARTIFACTS = ("job.json", "draft.wiki", "review.json", "notes.wiki", "vocabulary.json")
+OPTIONAL_ARTIFACTS = ("source-issues.md", "editorial-state.json")
 
 
 def artifact_hashes(job: Path) -> dict[str, str]:
     """Bind every editable proposal input to exact bytes."""
     names = set(ARTIFACTS)
+    names.update(name for name in OPTIONAL_ARTIFACTS if (job / name).exists())
+    pinned = {}
+    if (job / "editorial-state.json").exists():
+        editorial = read_json(job / "editorial-state.json")
+        if (not isinstance(editorial, dict)
+                or not isinstance(editorial.get("review_evidence"), dict)
+                or not isinstance(editorial.get("sections"), list)
+                or not isinstance(editorial.get("issues"), list)):
+            raise GuardError("Invalid editorial evidence snapshot.")
+        mappings = [editorial["review_evidence"]]
+        mappings.extend(section.get("hashes", {}) for section in editorial["sections"])
+        for issue in editorial["issues"]:
+            mappings.extend((issue.get("evidence", {}), issue.get("resolution_evidence", {})))
+        for mapping in mappings:
+            if not isinstance(mapping, dict):
+                raise GuardError("Invalid editorial evidence mapping.")
+            for name, expected in mapping.items():
+                if (not isinstance(name, str) or not isinstance(expected, str)
+                        or name == "editorial-state.json"
+                        or name in pinned and pinned[name] != expected):
+                    raise GuardError("Conflicting/self-referential editorial evidence.")
+                evidence = (job / name).resolve()
+                if (not evidence.is_relative_to(job) or not evidence.is_file()
+                        or digest(evidence.read_bytes()) != expected):
+                    raise GuardError("Editorial evidence changed/missing; review again.")
+                pinned[name] = expected
+                names.add(name)
     vocabulary = read_json(job / "vocabulary.json")
     if not isinstance(vocabulary, list):
         raise GuardError("Vocabulary memo must be a list.")
@@ -464,17 +636,25 @@ def check_live(wiki: Wiki, state: dict[str, Any]) -> None:
         assert_snapshot(old, new)
 
 
-def checked_draft(job: Path) -> str:
+def _artifact_text(job: Path, name: str, expected: dict[str, str] | None = None) -> str:
+    """Bind the bytes actually consumed, not only the file observed before/after a read."""
+    raw = (job / name).read_bytes()
+    if expected is not None and digest(raw) != expected.get(name):
+        raise GuardError(f"Captured {name} changed from prepared inputs; prepare again.")
+    return raw.decode("utf-8")
+
+
+def checked_draft(job: Path, *, expected: dict[str, str] | None = None) -> str:
     """Read exact UTF-8 bytes, require all editorial attestations, and lint syntax."""
-    text = (job / "draft.wiki").read_bytes().decode("utf-8")
-    review = read_json(job / "review.json")
+    text = _artifact_text(job, "draft.wiki", expected)
+    review = json.loads(_artifact_text(job, "review.json", expected))
     missing = [gate for gate in GATES if review.get(gate) is not True]
     if missing:
         raise GuardError("Unreviewed gates: " + ", ".join(missing))
     errors = lint_wikitext(text)
     if errors:
         raise GuardError(" ".join(errors))
-    vocab = read_json(job / "vocabulary.json")
+    vocab = json.loads(_artifact_text(job, "vocabulary.json", expected))
     if not isinstance(vocab, list) or any(
         not isinstance(item, dict) or item.get("status") not in {"verified", "descriptive"}
         or not item.get("evidence_files") or not item.get("source_sense")
@@ -482,7 +662,7 @@ def checked_draft(job: Path) -> str:
         for item in vocab
     ):
         raise GuardError("Vocabulary memo contains unresolved or invalid entries.")
-    if len((job / "notes.wiki").read_text(encoding="utf-8").strip().splitlines()) < 2:
+    if len(_artifact_text(job, "notes.wiki", expected).strip().splitlines()) < 2:
         raise GuardError("Record section coverage and review evidence in notes.wiki.")
     return text
 
@@ -493,9 +673,9 @@ def prepare(wiki: Wiki, job: Path) -> dict[str, Any]:
     if (job / "receipt.json").exists():
         raise GuardError("Job has a save attempt; reconcile it and use a fresh job.")
     before = artifact_hashes(job)
-    state = read_json(job / "job.json")
+    state = json.loads(_artifact_text(job, "job.json", before))
     check_state(state)
-    text = checked_draft(job)
+    text = checked_draft(job, expected=before)
     check_live(wiki, state)
     html = wiki.render(state["destination"], text)
     (job / "preview.html").write_bytes(html.encode("utf-8"))
@@ -538,11 +718,11 @@ def publish(wiki: Wiki, job: Path, approval: str | None = None) -> dict[str, Any
     for name, key in (("preview.html", "preview_sha256"), ("changes.diff", "diff_sha256")):
         if digest((job / name).read_bytes()) != proposal[key]:
             raise GuardError("Review artifact changed after preparation.")
-    state = read_json(job / "job.json")
+    state = json.loads(_artifact_text(job, "job.json", proposal["artifacts"]))
     check_state(state)
     if state["destination"] != proposal["destination"]:
         raise GuardError("Proposal destination does not match job.")
-    text = checked_draft(job)
+    text = checked_draft(job, expected=proposal["artifacts"])
     check_live(wiki, state)
     html = wiki.render(state["destination"], text)
     if digest(html.encode("utf-8")) != proposal["preview_sha256"]:

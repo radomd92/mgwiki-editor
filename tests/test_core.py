@@ -12,6 +12,7 @@ from urllib.error import HTTPError, URLError
 
 import pytest
 
+from mgwiki_editor import core
 from mgwiki_editor.core import (
     GATES,
     PYWIKIBOT_DIR,
@@ -28,6 +29,7 @@ from mgwiki_editor.core import (
     sandbox_title,
     write_json,
 )
+from mgwiki_editor.vocabulary import vocabulary
 
 ARTICLE = "'''Rano''' dia ranoka.\n\n== Loharano ==\n<references />\n"
 
@@ -84,7 +86,7 @@ def job(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> tuple[FakeWiki, Path
     initialize(wiki, path, "en", "Water", "Rano")
     (path / "draft.wiki").write_text(ARTICLE, encoding="utf-8")
     (path / "notes.wiki").write_text(
-        "= Review =\nAll intended sections compared.\n", encoding="utf-8",
+        "# Review\nAll intended sections compared.\n", encoding="utf-8",
     )
     write_json(path / "review.json", dict.fromkeys(GATES, True))
     return wiki, path
@@ -221,6 +223,24 @@ def test_math_operators_are_not_markdown() -> None:
     assert lint_wikitext("<math>a*b*c</math>") == []
 
 
+@pytest.mark.parametrize("tag", ["code", "pre", "nowiki", "syntaxhighlight", "source"])
+@pytest.mark.parametrize("literal", [
+    "const s = `template string`;", "x = a*b*c", "**literal asterisks**",
+    "- [x] literal checklist", "1. literal numbered text", "| --- | --- |",
+])
+def test_markdown_characters_inside_literal_code_are_not_article_markdown(
+    tag: str, literal: str,
+) -> None:
+    assert lint_wikitext(f"<{tag}>{literal}</{tag}>") == []
+
+
+@pytest.mark.parametrize("tag", ["code", "pre", "nowiki", "syntaxhighlight", "source"])
+def test_protected_code_does_not_exempt_surrounding_markdown_or_other_guards(tag: str) -> None:
+    assert "Markdown emphasis." in lint_wikitext(f"<{tag}>literal</{tag}>\n**Markdown**")
+    assert "Unsafe HTML element." in lint_wikitext(f"<{tag}><script>bad</script></{tag}>")
+    assert "Unresolved editorial placeholder." in lint_wikitext(f"<{tag}>TODO</{tag}>")
+
+
 def test_init_preserves_existing_and_sandbox(
     tmp_path: Path, monkeypatch: pytest.MonkeyPatch,
 ) -> None:
@@ -287,8 +307,51 @@ def test_autonomous_publish_rejects_changed_draft(job: tuple[FakeWiki, Path]) ->
     assert not wiki.saves
 
 
+@pytest.mark.parametrize("phase", ["prepare", "publish"])
 @pytest.mark.parametrize("filename", [
-    "draft.wiki", "notes.wiki", "review.json", "vocabulary.json", "preview.html", "changes.diff",
+    "draft.wiki", "job.json", "review.json", "vocabulary.json", "notes.wiki",
+])
+def test_consumed_artifacts_are_bound_even_when_a_concurrent_edit_is_reverted(
+    job: tuple[FakeWiki, Path], monkeypatch: pytest.MonkeyPatch, phase: str, filename: str,
+) -> None:
+    """A→B→A on disk cannot approve/render/save the transient B captured in memory."""
+    wiki, path = job
+    if phase == "publish":
+        prepare(wiki, path)
+    target = path / filename
+    original = target.read_bytes()
+    changed = original + (b"<!-- unreviewed edit -->" if filename.endswith(".wiki") else b" ")
+    original_hashes, original_read = core.artifact_hashes, Path.read_bytes
+    armed, injected = False, False
+
+    def hashes_then_edit(directory):
+        nonlocal armed, injected
+        result = original_hashes(directory)
+        if not injected:
+            target.write_bytes(changed)
+            armed = injected = True
+        return result
+
+    def read_then_restore(filename_path):
+        nonlocal armed
+        raw = original_read(filename_path)
+        if armed and filename_path == target:
+            target.write_bytes(original)
+            armed = False
+        return raw
+
+    monkeypatch.setattr(core, "artifact_hashes", hashes_then_edit)
+    monkeypatch.setattr(Path, "read_bytes", read_then_restore)
+    with pytest.raises(GuardError, match=f"Captured {filename} changed"):
+        (prepare if phase == "prepare" else publish)(wiki, path)
+    assert original_read(target) == original
+    assert not wiki.saves
+    assert not (path / "receipt.json").exists()
+
+
+@pytest.mark.parametrize("filename", [
+    "draft.wiki", "notes.wiki", "source-issues.md", "review.json", "vocabulary.json",
+    "preview.html", "changes.diff",
 ])
 def test_changed_artifact_invalidates_approval(job: tuple[FakeWiki, Path], filename: str) -> None:
     """Any post-proposal draft, evidence, or preview mutation invalidates approval."""
@@ -299,6 +362,67 @@ def test_changed_artifact_invalidates_approval(job: tuple[FakeWiki, Path], filen
     with pytest.raises(GuardError, match="changed"):
         publish(wiki, path, proposal["digest"])
     assert not wiki.saves
+
+
+def test_initialize_uses_non_wiki_memory(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> None:
+    """New operational notes are Markdown, not article wikitext."""
+    monkeypatch.chdir(tmp_path)
+    path = tmp_path / "runs" / "memory"
+    wiki = FakeWiki()
+    initialize(wiki, path, "en", "Water", "Rano")
+    assert (path / "notes.wiki").read_text(encoding="utf-8") == "# Edition notes\n"
+    assert (path / "source-issues.md").read_text(encoding="utf-8") == (
+        "# Source issues\n\nNone recorded. Review pending.\n"
+    )
+    assert not wiki.saves
+
+
+def test_open_source_issues_do_not_block_publication(job: tuple[FakeWiki, Path]) -> None:
+    """Source disagreement is durable evidence, not an unresolved vocabulary gate."""
+    wiki, path = job
+    memory = (
+        "# Source issues\n\n## SRC-001\n"
+        "Status: open; nonblocking. Article: Rano; job: runs/water.\n"
+        "Evidence: source.wiki; en:Water revision 11; lead vs history.\n"
+        "Claims: A says 1900 (ref A); B says 1901 (ref B).\n"
+        "Draft: attribution retained. Next: user review.\n"
+    )
+    (path / "source-issues.md").write_text(memory, encoding="utf-8")
+    proposal = prepare(wiki, path)
+    assert proposal["artifacts"]["source-issues.md"] == digest(memory.encode("utf-8"))
+    receipt = publish(wiki, path)
+    assert receipt["status"] == "confirmed"
+    assert (path / "source-issues.md").read_text(encoding="utf-8") == memory
+    assert wiki.saves[0][1] == ARTICLE
+    assert "SRC-001" not in wiki.saves[0][1]
+
+
+@pytest.mark.parametrize("present_before", [False, True])
+def test_source_issue_memory_addition_or_removal_requires_prepare(
+    job: tuple[FakeWiki, Path], present_before: bool,
+) -> None:
+    """Optional-memory set changes still invalidate the exact prepared proposal."""
+    wiki, path = job
+    memory = path / "source-issues.md"
+    if not present_before:
+        memory.unlink()
+    prepare(wiki, path)
+    if present_before:
+        memory.unlink()
+    else:
+        memory.write_text("# Source issues\nNone recorded.\n", encoding="utf-8")
+    with pytest.raises(GuardError, match="changed"):
+        publish(wiki, path)
+    assert not wiki.saves
+
+
+def test_legacy_job_without_source_issue_memory_can_publish(job: tuple[FakeWiki, Path]) -> None:
+    """Existing jobs need no evidence rewrite solely to adopt the new memory file."""
+    wiki, path = job
+    (path / "source-issues.md").unlink()
+    proposal = prepare(wiki, path)
+    assert "source-issues.md" not in proposal["artifacts"]
+    assert publish(wiki, path)["status"] == "confirmed"
 
 
 def test_wrong_digest_cannot_publish(job: tuple[FakeWiki, Path]) -> None:
@@ -387,7 +511,7 @@ def test_vocabulary_evidence_is_bound(job: tuple[FakeWiki, Path]) -> None:
 
 
 @pytest.mark.parametrize("filename", [
-    "unknown-vocabulary.wiki", "user-vocabulary.wiki", "country-names.json",
+    "unknown-vocabulary.wiki", "user-vocabulary.wiki", "country-names.json", "kajy-equation.json",
 ])
 def test_supplemental_terminology_evidence_is_bound(
     job: tuple[FakeWiki, Path], filename: str,
@@ -415,6 +539,53 @@ def test_unresolved_vocabulary_blocks_prepare(job: tuple[FakeWiki, Path]) -> Non
     write_json(path / "vocabulary.json", [{"status": "unresolved", "evidence_files": []}])
     with pytest.raises(GuardError, match="Vocabulary"):
         prepare(wiki, path)
+
+
+def test_dictionary_502_alone_does_not_block_reviewed_descriptive_publication(
+    job: tuple[FakeWiki, Path],
+) -> None:
+    """Dictionary outage evidence does not waive or fail independent editorial gates."""
+    from mgwiki_editor.dictionary_retries import DictionaryRetries
+
+    wiki, path = job
+
+    def opener(*args, **kwargs):
+        raise HTTPError("http://dictionary", 502, "Bad Gateway", {}, io.BytesIO(b"timeout"))
+
+    evidence = lookup("en", "term", opener=opener,
+                      retries=DictionaryRetries(path / "retry-state.json"))
+    assert evidence["status"] == "failed"
+    write_json(path / "dictionary-failure.json", evidence)
+    write_json(path / "vocabulary.json", [{
+        "status": "descriptive", "source_sense": "clear source-context meaning",
+        "chosen_expression": "fanazavana", "malagasy_definition": "fanazavana mazava",
+        "evidence_files": ["dictionary-failure.json"],
+    }])
+    prepare(wiki, path)
+    assert publish(wiki, path)["status"] == "confirmed"
+    assert len(wiki.saves) == 1
+
+
+def test_pinned_sqlite_lookup_survives_shared_database_change(job: tuple[FakeWiki, Path]) -> None:
+    """Prepared jobs depend on exact query evidence, never on a mutable shared database."""
+    wiki, path = job
+    source = Path(__file__).resolve().parents[1] / "data/vocabulary/kajy-mathematics.sqlite"
+    temporary_db = path.parent / "reference.sqlite"
+    temporary_db.write_bytes(source.read_bytes())
+    evidence = vocabulary("equation", exact=True, cache=temporary_db)
+    assert evidence["entries"][0]["source_number"] == 102
+    write_json(path / "kajy-equation.json", evidence)
+    write_json(path / "vocabulary.json", [{
+        "status": "descriptive", "source_sense": "mathematical equation",
+        "chosen_expression": "fampimirana", "malagasy_definition": "fanazavana",
+        "evidence_files": ["kajy-equation.json"], "source_numbers": [102],
+    }])
+    proposal = prepare(wiki, path)
+    assert proposal["artifacts"]["kajy-equation.json"] == digest(
+        (path / "kajy-equation.json").read_bytes(),
+    )
+    temporary_db.write_bytes(b"shared database changed after evidence was pinned")
+    assert publish(wiki, path)["status"] == "confirmed"
 
 
 class FakePage:

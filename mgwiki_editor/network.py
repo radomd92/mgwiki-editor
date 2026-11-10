@@ -7,6 +7,7 @@ import json
 import math
 import os
 import random
+import re
 import sys
 import time
 from collections.abc import Callable, Iterator
@@ -16,8 +17,10 @@ from email.utils import parsedate_to_datetime
 from pathlib import Path
 from typing import Any
 from urllib.error import HTTPError
-from urllib.parse import parse_qs, urlsplit
+from urllib.parse import parse_qs, unquote, urlsplit
 from urllib.request import HTTPRedirectHandler, ProxyHandler, Request, build_opener
+
+from . import observations
 
 REQUEST_INTERVAL = 10
 EDIT_INTERVAL = 10
@@ -138,6 +141,14 @@ class RequestGate:
             state.update(failures=failures, next_request=deadline, cooldown_until=deadline)
             return delay
 
+    def defer_until(self, deadline: float) -> None:
+        """Extend the existing shared authority; never shorten a cooldown or create a retry loop."""
+        if not isinstance(deadline, (float, int)) or not math.isfinite(deadline) or deadline < 0:
+            raise NetworkPolicyError("Invalid cooldown deadline.")
+        with self.state() as state:
+            state["next_request"] = max(state.get("next_request", 0), deadline)
+            state["cooldown_until"] = max(state.get("cooldown_until", 0), deadline)
+
     def success(self) -> None:
         """Reset consecutive failures without cancelling any outstanding shared cooldown."""
         with self.state() as state:
@@ -165,6 +176,7 @@ def guarded_send(
 ) -> Callable[..., Any]:
     """Guard actual HTTP attempts, including Pywikibot's own retries, not just CLI calls."""
     def request(prepared: Any, **kwargs: Any) -> Any:
+        active_gate = observations.request_gate() or gate
         if not api_url_allowed(prepared.url):
             raise NetworkPolicyError(
                 "Only approved Wikimedia API URLs are allowed by this transport.",
@@ -174,9 +186,21 @@ def guarded_send(
             body = (
                 prepared.body.decode("utf-8") if isinstance(prepared.body, bytes) else prepared.body
             )
-            parameters.update(parse_qs(body))
+            body_parameters = parse_qs(body)
+            if "action" in parameters and "action" in body_parameters:
+                raise NetworkPolicyError("Duplicate API action refused.")
+            parameters.update(body_parameters)
+        actions = parameters.get("action", [])
+        allowed = {"query", "parse", "edit", "login", "clientlogin", "paraminfo", "help",
+                   "expandtemplates", "compare"}
+        if actions and (len(actions) != 1 or actions[0] not in allowed):
+            raise NetworkPolicyError("Forbidden/ambiguous API action.")
         write = parameters.get("action") == ["edit"]
-        gate.wait(write=write)
+        safe_read = bool(actions and actions[0] in {
+            "query", "parse", "paraminfo", "help", "expandtemplates", "compare",
+        })
+        observations.before(prepared.url, safe_read=safe_read)
+        active_gate.wait(write=write)
         # Never print titles, request bodies, arbitrary action values, or tokens.
         action = parameters.get("action", [""])[0]
         action = action if action in {"query", "parse", "edit", "login", "clientlogin"} else "api"
@@ -187,6 +211,7 @@ def guarded_send(
         try:
             response = send(prepared, **kwargs)
         except Exception as exc:
+            observations.observe(prepared.url, None, safe_read=safe_read)
             report({"event": "wikimedia_request", "phase": "failed", "action": action})
             if write:
                 raise NetworkPolicyError(
@@ -196,32 +221,48 @@ def guarded_send(
         report({"event": "wikimedia_request", "phase": "response",
                 "action": action, "status": response.status_code})
         if 300 <= response.status_code < 400:
+            observations.observe(prepared.url, response.status_code, safe_read=safe_read)
             raise NetworkPolicyError("API redirect not followed; no external link was opened.")
         error = ""
         if response.status_code == 200:
             try:
                 payload = response.json()
-                api_error = payload.get("error", {}) if isinstance(payload, dict) else {}
+                api_error = payload.get("error", {}) if isinstance(payload, dict) else None
                 error = (
                     api_error.get("code", "") if isinstance(api_error, dict) else "invalid_error"
                 )
+                if not isinstance(error, str):
+                    error = "invalid_error"
             except ValueError as exc:
+                error = "invalid_json"
                 if write:
                     raise NetworkPolicyError(
                         "Edit response is not JSON; save unconfirmed. No automatic resubmission.",
                     ) from exc
+        observations.observe(prepared.url, response.status_code, safe_read=safe_read,
+                             valid_success=response.status_code == 200 and not error,
+                             retry_after=response.headers.get("Retry-After", ""))
         if response.status_code in {429, 503} or error in {"maxlag", "ratelimited"}:
-            delay = gate.backoff(response.headers.get("Retry-After", ""))
+            delay = active_gate.backoff(response.headers.get("Retry-After", ""))
             raise NetworkPolicyError(
                 f"Wikimedia overloaded ({error or response.status_code}); "
                 f"shared cooldown {delay:.0f}s. No automatic resubmission.",
+            )
+        if 500 <= response.status_code <= 599:
+            now = active_gate.clock()
+            active_gate.defer_until(now + max(
+                15, retry_after_seconds(response.headers.get("Retry-After", ""), now),
+            ))
+            raise NetworkPolicyError(
+                f"Wikimedia HTTP {response.status_code}; cooldown retained. "
+                "No automatic resubmission.",
             )
         if write and (response.status_code >= 400 or error):
             raise NetworkPolicyError(
                 f"Edit returned {error or response.status_code}; no automatic resubmission.",
             )
         if response.status_code == 200:
-            gate.success()
+            active_gate.success()
         return response
 
     return request
@@ -259,10 +300,12 @@ def install_wikimedia_transport() -> None:
         def send_without_replay(prepared: Any, **kwargs: Any) -> Any:
             try:
                 return guarded(prepared, **kwargs)
-            except NetworkPolicyError as exc:
+            except Exception as exc:
                 # Pywikibot retries arbitrary Exception instances, but not this
                 # documented fatal transport exception. Never replay an edit.
-                raise FatalServerError(str(exc)) from exc
+                reason = (str(exc) if isinstance(exc, NetworkPolicyError) else
+                          "Transport/policy observation failed. No automatic resubmission.")
+                raise FatalServerError(reason) from exc
 
         http.session.send = send_without_replay
         http.session._mgwiki_guard = True
@@ -279,20 +322,61 @@ class NoRedirect(HTTPRedirectHandler):
 
     def redirect_request(self, *args: Any, **kwargs: Any) -> None:
         """Reject redirect traversal rather than opening another URL."""
+        if args and getattr(args[0], "full_url", None):
+            observations.observe(args[0].full_url, args[2], dictionary=True)
         raise NetworkPolicyError("Dictionary redirect not followed.")
+
+
+def dictionary_word(value: str) -> str:
+    """Validate lookup identity; reject path-routing tricks, never call another endpoint."""
+    if (not isinstance(value, str) or not value.strip() or len(value) > 250
+            or any(ord(c) < 32 for c in value)):
+        raise NetworkPolicyError("Invalid dictionary word.")
+    decoded = value.strip()
+    for _ in range(20):
+        if decoded in {".", ".."} or "/" in decoded or "\\" in decoded:
+            raise NetworkPolicyError("Dictionary path-like term unsafe; use descriptive fallback.")
+        following = unquote(decoded)
+        if following == decoded:
+            return value.strip()
+        decoded = following
+    raise NetworkPolicyError("Excessive term encoding; no request sent.")
 
 
 def dictionary_open(request: Request, *, timeout: int) -> Any:
     """Pace real dictionary calls too; they can trigger upstream Wikimedia reads."""
-    gate = RequestGate()
+    parsed = urlsplit(request.full_url)
+    if (request.get_method() != "GET" or request.data is not None or parsed.query or parsed.fragment
+            or parsed.username or parsed.password or parsed.scheme not in {"http", "https"}
+            or not re.fullmatch(r"/wiktionary-pages/(?:en|mg)/[^/]+", parsed.path)):
+        raise NetworkPolicyError("Only credential-free read-only dictionary GET lookup allowed.")
+    dictionary_word(unquote(parsed.path.rsplit("/", 1)[1]))
+    gate = observations.request_gate() or RequestGate()
+    observations.before(request.full_url, safe_read=True, dictionary=True)
     gate.wait()
     # No proxy discovery: the explicitly configured LAN dictionary is the only origin.
     try:
-        return build_opener(ProxyHandler({}), NoRedirect()).open(request, timeout=timeout)
+        response = build_opener(ProxyHandler({}), NoRedirect()).open(request, timeout=timeout)
     except HTTPError as exc:
+        if exc.code not in {404, 502}:
+            observations.observe(request.full_url, exc.code, dictionary=True,
+                                 retry_after=exc.headers.get("Retry-After", ""))
+        if 500 <= exc.code <= 599 and exc.code not in {502, 503}:
+            now = gate.clock()
+            delay = max(15, retry_after_seconds(exc.headers.get("Retry-After", ""), now))
+            gate.defer_until(now + delay)
         if exc.code in {429, 503}:
             delay = gate.backoff(exc.headers.get("Retry-After", ""))
             raise NetworkPolicyError(
                 f"Dictionary overloaded ({exc.code}); shared cooldown {delay:.0f}s. Stop.",
             ) from exc
+        if exc.code == 404:
+            # A normal dictionary miss is not another overload in the failure streak.
+            gate.success()
         raise
+    try:
+        gate.success()  # Reset only the streak; outstanding shared cooldowns stay intact.
+    except Exception:
+        response.close()
+        raise
+    return response

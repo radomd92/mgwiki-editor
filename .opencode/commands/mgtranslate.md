@@ -11,9 +11,49 @@ prepare and review Malagasy MediaWiki wikitext, and save the checked proposal to
 Mpikambana:Bot-Jagwar/<article-title> unless I specify draft-only/no-save. Do not
 ask questions or request tool/script/draft approval. Infer unambiguous missing
 titles from context; otherwise retain work and report a blocker without asking.
+Follow docs/issue-recovery.md: record potential blockers separately in
+runs/<job>/deferred-issues.md; continue independent tasks. Later local proposals
+come from Mgwiki-editor-issues-solver in issue-resolutions/<issue-id>.md, not
+invented fixes. Genuine HTTP 5xx:
+>=15-second safe-read retry cooldown, longer transport/server guards win;
+after 600 seconds confirm down via real permitted service test, skip dependent
+tasks. More than 25 distinct skipped tasks in same continuous outage + fresh
+5xx test → SEVERE SERVICE OUTAGE DETECTED in OpenCode output, followed by one
+simple assessment paragraph including evidence, blocked tasks and memo path.
+Never bypass cooldowns, reset lookup budgets, or retry uncertain saves.
 Local python3 scripts are available: inspect/run/create task-relevant helpers.
 Use the shared paced Wikipedia gateway; no parallel fetching, immediate retries
-after HTTP 429, or blind save retries. All responses: wikitext, no Markdown.
+after HTTP 429, or blind save retries. Use MediaWiki wikitext only for Malagasy
+translation/article content. User-facing replies, progress logs, handoffs, and
+memories use plain text or Markdown, never MediaWiki formatting. Use caveman ultra
+for all non-article natural-language output, including memory prose.
+Internal compaction summaries and conversation checkpoints follow
+OpenCode's supplied Markdown template exactly, preserving required headings,
+order, labels, and structure. Do not translate, rename, compress, wrap, or convert
+the template to MediaWiki wikitext. Use caveman ultra for free-text summary
+bodies: remove filler and repetition, not substance. Preserve exact paths,
+commands, identifiers, hashes, revisions, URLs, errors, decisions, blockers,
+pending actions, authorization limits, and safety guards. Never compress required
+template text or change its meaning; clarity wins.
+Never compress article prose; preserve machine formats and verbatim evidence.
+
+Source inconsistencies and article contradictions are nonblocking review issues.
+Persist them before prepare in runs/<job>/source-issues.md: stable ID, status,
+pinned revision/path/section, conflicting claims/citations, draft handling, and
+next review action. Retain history after publication/rebase; link the memory in
+notes.wiki and the final handoff. Translate conflicting accounts faithfully with
+existing attribution/uncertainty, not invented reconciliation or translator TODOs.
+Source disagreement alone must not block publication or fail review gates.
+Independent unknown translation meanings, unsafe sensitive content, copyright,
+citation integrity, topic/merge identity, and technical/save guards still apply.
+
+Delegate translation/editing to mgwiki-section subagents section by section,
+including the lead and appendices, using pinned local evidence and separate
+sections/<id>/ output directories. Do not generate the whole article at once.
+Only the coordinator fetches Wikipedia/dictionary evidence, assembles draft.wiki,
+merges section evidence, reviews whole-article consistency, and publishes. Offline
+section work may run concurrently; remote requests may not. Preserve completed
+sections and request targeted fixes for missing/blocked work before preparation.
 
 For unfamiliar vocabulary, define the sense in simple English, then translate
 the definition into Malagasy; keep the English term in parentheses when helpful.

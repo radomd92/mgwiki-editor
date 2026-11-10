@@ -1,0 +1,591 @@
+{
+  "schema": 1,
+  "status": "historical_not_active_workflow",
+  "scripts": [
+    {
+      "original_path": "achilles_clarify.py",
+      "path": "scripts/legacy/achilles_clarify.py",
+      "sha256": "92ab3875a1c7cc6fbbd3d3ce82d0f7f3f315f5147592e5ac170dedfd394c1a73"
+    },
+    {
+      "original_path": "achilles_extra.py",
+      "path": "scripts/legacy/achilles_extra.py",
+      "sha256": "318984fd12b3b3fdf1d2ed692ecc9a5367a8d31e6f116f2f43b7d167970533e0"
+    },
+    {
+      "original_path": "achilles_final_evidence.py",
+      "path": "scripts/legacy/achilles_final_evidence.py",
+      "sha256": "abee8527b1f2c0402dcbd8768e098ee20a37b473c320624790f4ef4fba46a9fc"
+    },
+    {
+      "original_path": "achilles_gate.py",
+      "path": "scripts/legacy/achilles_gate.py",
+      "sha256": "81cc0cbb15261a9ab0ab7007982c23733b027452d6324dbc6bd9677b7cdfee1d"
+    },
+    {
+      "original_path": "achilles_integrate.py",
+      "path": "scripts/legacy/achilles_integrate.py",
+      "sha256": "81406ce7c7ddd08657ab528444596c91b33a9746ffae73a3e86d0393d6cccb11"
+    },
+    {
+      "original_path": "achilles_reconcile.py",
+      "path": "scripts/legacy/achilles_reconcile.py",
+      "sha256": "28b657e33efa1a0f43a65609c8e1438ab74f38b2b9447e08307317af9a8cfab8"
+    },
+    {
+      "original_path": "achilles_review_fixes.py",
+      "path": "scripts/legacy/achilles_review_fixes.py",
+      "sha256": "25cb883722889dc5b5e98d9a575478940f5e6d06036e94ea6394d90e9f1dd445"
+    },
+    {
+      "original_path": "achilles_setup.py",
+      "path": "scripts/legacy/achilles_setup.py",
+      "sha256": "2fdc34fb85e84decd3eea5468dd492f223c605da0f38d57014b23d6096896396"
+    },
+    {
+      "original_path": "achilles_terms.py",
+      "path": "scripts/legacy/achilles_terms.py",
+      "sha256": "ea6ffc59350a29c2f0c851a89abee218b5856af4d943b5c4e061154244f4bfc9"
+    },
+    {
+      "original_path": "achilles_vocabulary.py",
+      "path": "scripts/legacy/achilles_vocabulary.py",
+      "sha256": "e67c3ed3f535235baf4367878e42dac330b2c5052d45563fcd7240ec67dbbb46"
+    },
+    {
+      "original_path": "akileosy_retitle.py",
+      "path": "scripts/legacy/akileosy_retitle.py",
+      "sha256": "f479626f973e04cd6595643d85cf6f85969bad2b1772274105d86555923deaea"
+    },
+    {
+      "original_path": "alina_evidence.py",
+      "path": "scripts/legacy/alina_evidence.py",
+      "sha256": "5c83c323a31ec440aa8a04e0dc8bc7f10fd566af82f5081829724b0b80f40ed6"
+    },
+    {
+      "original_path": "alina_finalize.py",
+      "path": "scripts/legacy/alina_finalize.py",
+      "sha256": "7c21fb95de0a9a15c3b52277b0c97e355f85f01a67ae1acaa528c485c45afc08"
+    },
+    {
+      "original_path": "alina_identity.py",
+      "path": "scripts/legacy/alina_identity.py",
+      "sha256": "399e5773b5b44fa7241cdd00ba539672e988f3b71c6721a226628d73c072fdff"
+    },
+    {
+      "original_path": "alina_integrate.py",
+      "path": "scripts/legacy/alina_integrate.py",
+      "sha256": "c995a0a8e6b1914b8adc59bbc1af2d8f622b3eca97329078b04cfa2e18faf95c"
+    },
+    {
+      "original_path": "alina_lookup.py",
+      "path": "scripts/legacy/alina_lookup.py",
+      "sha256": "72f51265ef863271690b1a28a20e8e92f860d5a99f7e4c1b43cc124967319df2"
+    },
+    {
+      "original_path": "alina_names.py",
+      "path": "scripts/legacy/alina_names.py",
+      "sha256": "e6da05a5bf166ba182134179c3e6c565eabb22c3e72680bbe0c126f6a805c2ca"
+    },
+    {
+      "original_path": "alina_native.py",
+      "path": "scripts/legacy/alina_native.py",
+      "sha256": "77b8d6c1db8d06f4936aada48ad550c54e4b85db36043a3b1583287cff3c69d2"
+    },
+    {
+      "original_path": "alina_plan.py",
+      "path": "scripts/legacy/alina_plan.py",
+      "sha256": "bcffaa3607a7377dec2adda1a4ffaef8d180fc178a4a534063a2cbc3c49e0edc"
+    },
+    {
+      "original_path": "alina_rebase.py",
+      "path": "scripts/legacy/alina_rebase.py",
+      "sha256": "f3c778ef81e6c675a5c281c4549aaba686ddcb449472e4a3483afc5803b02c4c"
+    },
+    {
+      "original_path": "alina_reconcile.py",
+      "path": "scripts/legacy/alina_reconcile.py",
+      "sha256": "1489ec0821e062e43e1103e8bf28ac030a74da1e6937722e78ed4271f0b9b95c"
+    },
+    {
+      "original_path": "alina_refine.py",
+      "path": "scripts/legacy/alina_refine.py",
+      "sha256": "fbf922c2be64eb6e5a4021ce88ec06c56301f351782f3fbe45ea33bb04584c95"
+    },
+    {
+      "original_path": "alina_resolve.py",
+      "path": "scripts/legacy/alina_resolve.py",
+      "sha256": "a54da0b2c60e78a10a200a175d446bbd3d01ec12f1dde1035541fd6e09c03ee7"
+    },
+    {
+      "original_path": "alina_supplement.py",
+      "path": "scripts/legacy/alina_supplement.py",
+      "sha256": "c710532bf4755c0d07b3430abc3cb8652177b8472af3484ecbd71adaba1deeeb"
+    },
+    {
+      "original_path": "baseball_evidence.py",
+      "path": "scripts/legacy/baseball_evidence.py",
+      "sha256": "7a3d1f50b2913c54807ea15fddfc8e4288a3b036079e3c598a32f8c7d9a14b5d"
+    },
+    {
+      "original_path": "baseball_finalize.py",
+      "path": "scripts/legacy/baseball_finalize.py",
+      "sha256": "b6d4c35fbf3f90194b8748c8f0ce48d00143f81544a7b6b19440710f8a780981"
+    },
+    {
+      "original_path": "baseball_integrate.py",
+      "path": "scripts/legacy/baseball_integrate.py",
+      "sha256": "783a9f3d9cda150c8d341bc04874f14afb6ec1546c88ca1bf3a9d43e57ab4dbf"
+    },
+    {
+      "original_path": "baseball_job.py",
+      "path": "scripts/legacy/baseball_job.py",
+      "sha256": "929a9ad931bd7b49894a75b233c249b6902f7d29148c963ab95e5076840b028f"
+    },
+    {
+      "original_path": "baseball_plan.py",
+      "path": "scripts/legacy/baseball_plan.py",
+      "sha256": "cf6719534f495a10a968bb5170114172098bff6fc2ac28584c64e35bb7481abd"
+    },
+    {
+      "original_path": "baseball_reconcile.py",
+      "path": "scripts/legacy/baseball_reconcile.py",
+      "sha256": "a68e19572c36a909937bffd4a24e8ee35fd240352d731b40b462696495be3e11"
+    },
+    {
+      "original_path": "baseball_supplement.py",
+      "path": "scripts/legacy/baseball_supplement.py",
+      "sha256": "53ba9b6f6ea8bc21194f2221cba9834367ddf744cdf548b780e5615bb0687bd6"
+    },
+    {
+      "original_path": "baseball_terms.py",
+      "path": "scripts/legacy/baseball_terms.py",
+      "sha256": "e778aef84db2f9be1ff56075d58daffddf2eccd42c4cb499198cd0fef03531cb"
+    },
+    {
+      "original_path": "earthquake_coverage_review.py",
+      "path": "scripts/legacy/earthquake_coverage_review.py",
+      "sha256": "615154d8339993fb7441958102163018b775616ab232b4318dcd5de9dedc4c2c"
+    },
+    {
+      "original_path": "earthquake_culture_integrate.py",
+      "path": "scripts/legacy/earthquake_culture_integrate.py",
+      "sha256": "d00cefceb89e4669f7ee3e8bbb83c532d0bdd9d06664745e2f5a57927e6f78ec"
+    },
+    {
+      "original_path": "earthquake_defer_after_overload.py",
+      "path": "scripts/legacy/earthquake_defer_after_overload.py",
+      "sha256": "0da69caa7abe836efd41f5cf6d40d76a875e5ef200e0b096497eb5e0650bc849"
+    },
+    {
+      "original_path": "earthquake_evidence.py",
+      "path": "scripts/legacy/earthquake_evidence.py",
+      "sha256": "c48210db36b188091494000ce7d36dd6489ac0dd67f5991ee404691f8c543cd0"
+    },
+    {
+      "original_path": "earthquake_finalize_review.py",
+      "path": "scripts/legacy/earthquake_finalize_review.py",
+      "sha256": "a732d783368da22141ad14b89d48cc377002bf1c1193e11288e7e3bd95c72206"
+    },
+    {
+      "original_path": "earthquake_integrate.py",
+      "path": "scripts/legacy/earthquake_integrate.py",
+      "sha256": "816c8ffb84eb1f2be123c51f61a27981709537c319bb3ce1da9ad39551a1e116"
+    },
+    {
+      "original_path": "earthquake_last_lookups.py",
+      "path": "scripts/legacy/earthquake_last_lookups.py",
+      "sha256": "3abc1baea5ea8ed1eb225526a2e3b656d6e8aaaf2c407cd07287854f8f65403e"
+    },
+    {
+      "original_path": "earthquake_markup_safety.py",
+      "path": "scripts/legacy/earthquake_markup_safety.py",
+      "sha256": "b7a5efdd4af7945b71c7ed4135263efb26c9a1b8fcdbf836b092e2f5ee466fa9"
+    },
+    {
+      "original_path": "earthquake_omissions_merge.py",
+      "path": "scripts/legacy/earthquake_omissions_merge.py",
+      "sha256": "85c734d47ccd5e311cd41332f529534549950f7ec775a605a25a7fcecd08d82c"
+    },
+    {
+      "original_path": "earthquake_omissions_plan.py",
+      "path": "scripts/legacy/earthquake_omissions_plan.py",
+      "sha256": "9381f35a221a0b2360e61529e2037768a55fc0c854299c51effbf966b3c6febc"
+    },
+    {
+      "original_path": "earthquake_plan.py",
+      "path": "scripts/legacy/earthquake_plan.py",
+      "sha256": "9fb30dbd416be477255a354c54494c28ad3395e55055e0bdb3a8795a273987e8"
+    },
+    {
+      "original_path": "earthquake_precision_fixes.py",
+      "path": "scripts/legacy/earthquake_precision_fixes.py",
+      "sha256": "353b3e6fe58a2a39fbe7b279484d661a4d51f5bc92a1028a37fddf2f839d0628"
+    },
+    {
+      "original_path": "earthquake_preview_review.py",
+      "path": "scripts/legacy/earthquake_preview_review.py",
+      "sha256": "7d9257a9c0251e4e3e12419ad9982003f5cc286d8ce89a73d6a7579dc1cc3c02"
+    },
+    {
+      "original_path": "earthquake_rebase_exact.py",
+      "path": "scripts/legacy/earthquake_rebase_exact.py",
+      "sha256": "3210c82d97a432be653475406d2d4a73f01a2cb63169933e1a36c0816b0c3609"
+    },
+    {
+      "original_path": "earthquake_record_failed_lookup.py",
+      "path": "scripts/legacy/earthquake_record_failed_lookup.py",
+      "sha256": "b895c9f8df4131dbaf305312f6acfccb287176e4be3d5f11d8374d860c6885e6"
+    },
+    {
+      "original_path": "earthquake_resume_evidence.py",
+      "path": "scripts/legacy/earthquake_resume_evidence.py",
+      "sha256": "04cffd7a687f2fcbbcac112d7f564258bdba5669ec545d1a33df16b072dbf35a"
+    },
+    {
+      "original_path": "earthquake_retain.py",
+      "path": "scripts/legacy/earthquake_retain.py",
+      "sha256": "cecdbeb4d5bb809a8c93f492688856938c5e79b83f9211ed408c83e8a38edad7"
+    },
+    {
+      "original_path": "earthquake_review_fixes.py",
+      "path": "scripts/legacy/earthquake_review_fixes.py",
+      "sha256": "69186f73fc348f7b62766229ca00de290369149a7d04f6eb5bbf610b11db84bf"
+    },
+    {
+      "original_path": "earthquake_setup.py",
+      "path": "scripts/legacy/earthquake_setup.py",
+      "sha256": "8979238c4c3d2aed043d8fcebe09e0ab515940ab306077b0f5a9d2085f820211"
+    },
+    {
+      "original_path": "earthquake_source_issues.py",
+      "path": "scripts/legacy/earthquake_source_issues.py",
+      "sha256": "38f78d796512692ad6c297ce0c2924703614fcfae1da86b856ae6ef39434b606"
+    },
+    {
+      "original_path": "earthquake_supplement.py",
+      "path": "scripts/legacy/earthquake_supplement.py",
+      "sha256": "de33801268d6924850577aab35b99dcc012e3cb0943db94db612c7176c8cb9d8"
+    },
+    {
+      "original_path": "genji_en_citation_history.py",
+      "path": "scripts/legacy/genji_en_citation_history.py",
+      "sha256": "c3a26b93372582e72fd2d8f2aef832fede64c9fbf4beb1848284eceab66d4b5f"
+    },
+    {
+      "original_path": "genji_en_evidence.py",
+      "path": "scripts/legacy/genji_en_evidence.py",
+      "sha256": "7610b35985135f99e456c2c7c7fb4b104c9ae23dcbeb8001278964d5445b0aa7"
+    },
+    {
+      "original_path": "genji_en_finalize.py",
+      "path": "scripts/legacy/genji_en_finalize.py",
+      "sha256": "239895206bd78da5b6633a15db4534b4568fa1992184cafe5523bfbc209b1b40"
+    },
+    {
+      "original_path": "genji_en_followup.py",
+      "path": "scripts/legacy/genji_en_followup.py",
+      "sha256": "1e5f6b92c0282427725fba521a1b4b1be9486dbdfabeebde5d79a90ba2f7d27d"
+    },
+    {
+      "original_path": "genji_en_merge.py",
+      "path": "scripts/legacy/genji_en_merge.py",
+      "sha256": "5031c000307f4cc92c7a616f19329c1b3bc60e527969c66a884a9f73618555d7"
+    },
+    {
+      "original_path": "genji_en_more_terms.py",
+      "path": "scripts/legacy/genji_en_more_terms.py",
+      "sha256": "ffe00977579afe1748d9c0fcae1d690eda313026cba24abf10c969f682723d32"
+    },
+    {
+      "original_path": "genji_en_native.py",
+      "path": "scripts/legacy/genji_en_native.py",
+      "sha256": "481dd1e7cfb34a63acb6e2846f987850e70ec115822391410a1fa7f0920b383f"
+    },
+    {
+      "original_path": "genji_en_plan.py",
+      "path": "scripts/legacy/genji_en_plan.py",
+      "sha256": "edcda7600e1a991967c1d499f255caddbec0c25388fb9e33dd494b51cf73c2e1"
+    },
+    {
+      "original_path": "genji_en_task.py",
+      "path": "scripts/legacy/genji_en_task.py",
+      "sha256": "65c48b688b36866894dbf99bb77c2940d4a7101d0407b5459df6875486a91eda"
+    },
+    {
+      "original_path": "iliad_citation_checks.py",
+      "path": "scripts/legacy/iliad_citation_checks.py",
+      "sha256": "7d6335f5fc6533d316484e20a0b5eed70398ecc1534bf54081736fbcdc40420e"
+    },
+    {
+      "original_path": "iliad_evidence.py",
+      "path": "scripts/legacy/iliad_evidence.py",
+      "sha256": "f4f68add2b388d51eced3e07f9c79ee69a4189cf3ae8af24c6082ded5643d4b5"
+    },
+    {
+      "original_path": "iliad_final_terms.py",
+      "path": "scripts/legacy/iliad_final_terms.py",
+      "sha256": "53eb4ee53ea6b5594314c74047e0b6890b8e387f554860d8f6de1ba2dd21ec53"
+    },
+    {
+      "original_path": "iliad_finish_review.py",
+      "path": "scripts/legacy/iliad_finish_review.py",
+      "sha256": "52482196c542ba50fbbb90dd4c93cde73b80c7e54561a985f1f1099f2cffe834"
+    },
+    {
+      "original_path": "iliad_identity.py",
+      "path": "scripts/legacy/iliad_identity.py",
+      "sha256": "fd9e5e820e62f4eb85aee8b96043d750a621a1b24548a71a515385bb8bae1cc4"
+    },
+    {
+      "original_path": "iliad_integrate.py",
+      "path": "scripts/legacy/iliad_integrate.py",
+      "sha256": "b337d7bac48c07bc75be1ac97694111b20bba61128bce01ea53c14458f830faf"
+    },
+    {
+      "original_path": "iliad_more_terms.py",
+      "path": "scripts/legacy/iliad_more_terms.py",
+      "sha256": "2d0b9ae70f2974a2f19ad5ea54a8fbac76111d27784956169375fd7d1eb56ed1"
+    },
+    {
+      "original_path": "iliad_native.py",
+      "path": "scripts/legacy/iliad_native.py",
+      "sha256": "8de626056721d1cd9b6e0b2277f2236e49e896c9de5011f3098b19b4ba898352"
+    },
+    {
+      "original_path": "iliad_plan.py",
+      "path": "scripts/legacy/iliad_plan.py",
+      "sha256": "60f16f81f88d8317637fc852e04f07a8157c4c784bb3e21f557802751e8f9e4b"
+    },
+    {
+      "original_path": "iliad_rebase.py",
+      "path": "scripts/legacy/iliad_rebase.py",
+      "sha256": "a7185c99346bdc4ef3ab542ca8b37bba22a195c22f25a637015ea5c0dc09d917"
+    },
+    {
+      "original_path": "iliad_refine.py",
+      "path": "scripts/legacy/iliad_refine.py",
+      "sha256": "60f277581c49fba26f8a12883bcc331a0f8fdcd9945a4d1ebad1be02f1d97cb1"
+    },
+    {
+      "original_path": "iliad_reuse.py",
+      "path": "scripts/legacy/iliad_reuse.py",
+      "sha256": "5d54d6f02ad89541a41c700627786c7f729d85820fb8357f3e275f96e9b51ea0"
+    },
+    {
+      "original_path": "iliad_review_evidence.py",
+      "path": "scripts/legacy/iliad_review_evidence.py",
+      "sha256": "cab118baeb8cd74441325b8ac41cd14b4385877e948f52aeb60c832f63077ddf"
+    },
+    {
+      "original_path": "iliad_supplement.py",
+      "path": "scripts/legacy/iliad_supplement.py",
+      "sha256": "bc0024f2e213a0204b05ab81cb2e6f26e7a21121e2f058c96e421605984f6564"
+    },
+    {
+      "original_path": "iliad_troasy_integrate.py",
+      "path": "scripts/legacy/iliad_troasy_integrate.py",
+      "sha256": "a7cf8c2527d065296f7e882e429acc06653e7fe7f52f7f3974099fd5eb67ecfe"
+    },
+    {
+      "original_path": "iliad_troasy_plan.py",
+      "path": "scripts/legacy/iliad_troasy_plan.py",
+      "sha256": "c63d9ba9ee92aa912c062b1bf235d2a122ea20624a5223c1273a5d101d0b19b6"
+    },
+    {
+      "original_path": "iliada_naming_evidence.py",
+      "path": "scripts/legacy/iliada_naming_evidence.py",
+      "sha256": "3de820d53425dff40eb5267beca12d1085fc2210f8d34722fb33ac800e503a9a"
+    },
+    {
+      "original_path": "iliada_naming_plan.py",
+      "path": "scripts/legacy/iliada_naming_plan.py",
+      "sha256": "87a505e3136f94340c15cfc64ce4ad0e1c7da5d01f69e22b8671d59d6d75a51a"
+    },
+    {
+      "original_path": "iliada_naming_preserve.py",
+      "path": "scripts/legacy/iliada_naming_preserve.py",
+      "sha256": "0dde80921f5e4562b63258a65679b15ea1e68a03deb976fd4aef7824f57f637f"
+    },
+    {
+      "original_path": "iliada_user_names.py",
+      "path": "scripts/legacy/iliada_user_names.py",
+      "sha256": "b6f3c446e8c6865b5520ee87ec2c43b62a693ef3883f0f7d33de103ff4083ac0"
+    },
+    {
+      "original_path": "iliada_user_names_integrate.py",
+      "path": "scripts/legacy/iliada_user_names_integrate.py",
+      "sha256": "509c37fc241e094cc711844dee02f5f34e268ff55bb77ed9db0d77a9124d090d"
+    },
+    {
+      "original_path": "mahabharata_audit.py",
+      "path": "scripts/legacy/mahabharata_audit.py",
+      "sha256": "e92538b917a640d84abe659827aa79fbfb42319b0b5dcd372430b190dd3ac300"
+    },
+    {
+      "original_path": "mahabharata_coverage.py",
+      "path": "scripts/legacy/mahabharata_coverage.py",
+      "sha256": "079901b36f2b21b042d532eced796c22c1270d0cb5835e056445ea747c8afff2"
+    },
+    {
+      "original_path": "mahabharata_final_review.py",
+      "path": "scripts/legacy/mahabharata_final_review.py",
+      "sha256": "a33ab8d84703852ea958f775a1b67bcbaa3680737a9b533b39881242484c2956"
+    },
+    {
+      "original_path": "mahabharata_integrate.py",
+      "path": "scripts/legacy/mahabharata_integrate.py",
+      "sha256": "3be66df46be5b00fe4272f61e27837718f1cd8ba4f1a3bbb76fe663001d086ec"
+    },
+    {
+      "original_path": "mahabharata_lead_evidence.py",
+      "path": "scripts/legacy/mahabharata_lead_evidence.py",
+      "sha256": "309a2c2fb2c76203736b1604510bf84f3d622f144068f74cb8b37da7ece7573d"
+    },
+    {
+      "original_path": "mahabharata_plan.py",
+      "path": "scripts/legacy/mahabharata_plan.py",
+      "sha256": "2d42dc70c75f3ae818f7912bccaee49296fb64dd47d9201f9ec08b2389f30180"
+    },
+    {
+      "original_path": "mahabharata_preview.py",
+      "path": "scripts/legacy/mahabharata_preview.py",
+      "sha256": "83feb0c76f49ca2adfc079d43fad470b706369584e012594547d0b143dae2cf7"
+    },
+    {
+      "original_path": "mahabharata_rebase.py",
+      "path": "scripts/legacy/mahabharata_rebase.py",
+      "sha256": "cc26917c6319ff4e80bba57b437c189cb528b2dd6010cad7fb44c36dcf602e24"
+    },
+    {
+      "original_path": "mahabharata_resume.py",
+      "path": "scripts/legacy/mahabharata_resume.py",
+      "sha256": "eae782ade300fec40960fffa9f8482005a42bc6218a945fa9b380e9a4e956d56"
+    },
+    {
+      "original_path": "mahabharata_retain.py",
+      "path": "scripts/legacy/mahabharata_retain.py",
+      "sha256": "aea81523a817252182395cb698af3e30a54f74f468be6c667e7a2e7b48258c13"
+    },
+    {
+      "original_path": "mahabharata_review_fixes.py",
+      "path": "scripts/legacy/mahabharata_review_fixes.py",
+      "sha256": "9edfddb1832500f33457b70b688735df7db3600de5d1e95c4e0321cfb6425dc1"
+    },
+    {
+      "original_path": "mahabharata_setup.py",
+      "path": "scripts/legacy/mahabharata_setup.py",
+      "sha256": "e72b4290cfd0b1dcf59b854f94a4c471e3e19d52f38bee78fe53968e8db3aeb2"
+    },
+    {
+      "original_path": "mahabharata_terms.py",
+      "path": "scripts/legacy/mahabharata_terms.py",
+      "sha256": "ff3e2a6aa7954a542275c9f742928b997135db263430904bc14cd947b8a30596"
+    },
+    {
+      "original_path": "mahabharata_vocabulary.py",
+      "path": "scripts/legacy/mahabharata_vocabulary.py",
+      "sha256": "6ff46543864c1b172fbe4d125c608592e238699c0c733986434b826fc54186fd"
+    },
+    {
+      "original_path": "oedipus_evidence.py",
+      "path": "scripts/legacy/oedipus_evidence.py",
+      "sha256": "51c59ef95bc050d444aa5581929a545c2b5122f8615cae1373f3d465e7d0c23e"
+    },
+    {
+      "original_path": "oedipus_finalize.py",
+      "path": "scripts/legacy/oedipus_finalize.py",
+      "sha256": "324bae886612a261306112e7ad8e1a88b77732cff22ec97e8a2a181713759312"
+    },
+    {
+      "original_path": "oedipus_merge.py",
+      "path": "scripts/legacy/oedipus_merge.py",
+      "sha256": "a0785a737cce1eae4f622168f194f5e891669be4ce087fe2bbd919d29b286eb8"
+    },
+    {
+      "original_path": "oedipus_plan.py",
+      "path": "scripts/legacy/oedipus_plan.py",
+      "sha256": "80da8e8d198c55b8e74039de05a17d63c8309a15b5e38dc1efa7094b188926d1"
+    },
+    {
+      "original_path": "oedipus_review_fixes.py",
+      "path": "scripts/legacy/oedipus_review_fixes.py",
+      "sha256": "d331ef705780efd0e56e7c66e3216d585f2d7d9d777a0ff2009e91d88a5393d7"
+    },
+    {
+      "original_path": "oedipus_terms.py",
+      "path": "scripts/legacy/oedipus_terms.py",
+      "sha256": "d390f1a1cc8376d7000b0880585f503fabd064d2ea66f2eb597eb77b2774dfcc"
+    },
+    {
+      "original_path": "programming_audit.py",
+      "path": "scripts/legacy/programming_audit.py",
+      "sha256": "f687831edc72930b311584fb4ffd3a37237e058bcfeadbc9e4c6ea252e01e6fa"
+    },
+    {
+      "original_path": "programming_canonical.py",
+      "path": "scripts/legacy/programming_canonical.py",
+      "sha256": "0affebb7a807ac69398a5ae96799e68184e534fbf9de32260b89330bfb0eb4bb"
+    },
+    {
+      "original_path": "programming_close_review.py",
+      "path": "scripts/legacy/programming_close_review.py",
+      "sha256": "6457da455f40ab7885c0e2d7067fd22b7d88a171902051da7f8ea93c166fd8a2"
+    },
+    {
+      "original_path": "programming_evidence.py",
+      "path": "scripts/legacy/programming_evidence.py",
+      "sha256": "b0e825590ab77b686935f523c3b16a0dfe7d909d41a021240d4b2ca40cea2e25"
+    },
+    {
+      "original_path": "programming_finish_memo.py",
+      "path": "scripts/legacy/programming_finish_memo.py",
+      "sha256": "8f2fcbb892f44991232171b7459f2c5c9083b930f4c097b6a52e85bf3f8bc3b4"
+    },
+    {
+      "original_path": "programming_integrate.py",
+      "path": "scripts/legacy/programming_integrate.py",
+      "sha256": "25c9370cb8bc82bd99becf07eaa0a48d86b76341fb32b51b59a5ad3b0218eb7b"
+    },
+    {
+      "original_path": "programming_link_identity.py",
+      "path": "scripts/legacy/programming_link_identity.py",
+      "sha256": "2a518049415d6d63e515479ea87f5b91251f1f1760a97ea33a354d9dbc7a02df"
+    },
+    {
+      "original_path": "programming_plan.py",
+      "path": "scripts/legacy/programming_plan.py",
+      "sha256": "a927466e1453f14d9a81adcafb31df12196d735c7a1793118d6280880494c79b"
+    },
+    {
+      "original_path": "programming_preview.py",
+      "path": "scripts/legacy/programming_preview.py",
+      "sha256": "b22f2580230d0d677b6cd3d220e84da361522e84d9145be6746c4614b0625d2d"
+    },
+    {
+      "original_path": "programming_refine.py",
+      "path": "scripts/legacy/programming_refine.py",
+      "sha256": "881981d44fc5b2bfb8a4e74c964ed9d32322d852f3e2cfbff3ff1c62ae8006f0"
+    },
+    {
+      "original_path": "programming_retain.py",
+      "path": "scripts/legacy/programming_retain.py",
+      "sha256": "b340d7e75c09983122e9b426d9cea6abfebf4aa7732f578a3a31946641de62a5"
+    },
+    {
+      "original_path": "programming_supplement.py",
+      "path": "scripts/legacy/programming_supplement.py",
+      "sha256": "8afa4fd194513b4abbb6ff79209283c449ca9aad99192da0c15e0689b5754320"
+    },
+    {
+      "original_path": "programming_terms.py",
+      "path": "scripts/legacy/programming_terms.py",
+      "sha256": "4e15480514fbdbafe75121fff2e3d9f988788c9547dab66a72094d061f7e9918"
+    },
+    {
+      "original_path": "programming_workers.py",
+      "path": "scripts/legacy/programming_workers.py",
+      "sha256": "213010d176a963e7bbfceb1e54dd89223aff457424e7408d099864914b5e8951"
+    }
+  ]
+}

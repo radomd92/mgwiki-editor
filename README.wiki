@@ -27,6 +27,9 @@ license from public repository access.
 
 == Files ==
 * .opencode/agents/mgwiki-editor.md: agent and permission rules.
+* .opencode/agents/mgwiki-section.md: offline section translation/editing subagent.
+* .opencode/agents/Mgwiki-editor-issues-solver.md: later offline deferred-issue proposals.
+* docs/issue-recovery.md: autonomous issue memo, guarded 5xx recovery/outage alerts.
 * .opencode/commands/mgtranslate.md: /mgtranslate entry point.
 * .opencode/skills/mgwiki-style/SKILL.md: Malagasy style guide and output contract.
 * .opencode/skills/mgwiki-style/references/manual-of-style.wiki: locally adapted
@@ -40,6 +43,33 @@ license from public repository access.
 * mgwiki_editor/network.py: shared pacing, overload cooldowns, API-only transport.
 * tests/: offline regression tests with fake Wikipedia/dictionary boundaries.
 * data/country-names.json: cached direct mainspace titles from Sokajy:Firenena.
+* data/vocabulary/kajy-mathematics.sqlite: indexed, queryable French–Malagasy
+  mathematics candidates, with original spellings, provenance and review flags.
+* data/vocabulary/kajy-mathematics.json: preserved import for offline DB rebuilds.
+* data/vocabulary/kajy-mathematics-review.md: persistent glossary review issues.
+* mgwiki_editor/vocabulary.py: offline glossary import, SQLite build/read-only query.
+* mgwiki_editor/terminology.py: possible untranslated-French-math audit, never edits.
+* scripts/build_vocabulary_db.py: offline, non-overwriting SQLite snapshot builder.
+
+Python workflow: docs/script-workflow.md. Reusable section planning, candidate
+assembly, coverage via CLI: sections-plan, sections-assemble, coverage. Historical
+article recipes: scripts/legacy/; not active workflow. No new root-level recipes.
+Cached links/dictionary/vocabulary: links-build, dictionary-index, vocabulary-report.
+Shared evidence/write guards: mgwiki_editor/artifacts.py. Reports never approve review.
+Citation/metadata/rendering checks: docs/editorial-checks.md. Offline citation-audit,
+metadata-audit; scoped template-info/source-expand/render-check broker actions;
+license-evidence for guarded live rights metadata, license-report for cached claims;
+control doctor for optional broker prerequisites. No automatic evidence/gate clearance.
+
+Policy implementation: docs/policy-enforcement.md; deployment/API:
+docs/broker-deployment.md. Typed ALLOW/DENY/DEFER evaluator, durable SQLite journal,
+guarded execution/recovery, issue/section/evidence lifecycle, scoped Unix/MCP
+broker and Linux isolation launcher implemented. Broker-configured CLI has no
+direct-operation fallback. Default CLI uses existing guarded Wiki/Pywikibot auth;
+no new broker socket/token required. Credentials unchanged, original guards retained.
+Tests use fake services/local isolation; production OpenCode/credentials/services
+not reconfigured. Whole-tool-process isolation and trusted launch intent required
+before claiming hard enforcement. No article saved by implementation/testing.
 
 == Setup ==
 Run from this project directory. Python 3.11 or newer required.
@@ -115,8 +145,25 @@ text becomes the initial draft; existing mainspace text is used when no sandbox
 exists. Source and existing .wiki files are reference copies; job.json holds the
 canonical pinned snapshots used for conflict detection.
 
-Follow docs/edition-protocol.wiki, edit draft.wiki, record notes.wiki and
-vocabulary.json, then set review.json gates true only after real checks.
+Follow docs/edition-protocol.wiki. The coordinator reads the complete snapshots,
+plans ordered sections (including lead and appendices), and delegates each to
+mgwiki-section with local evidence and its own sections/<id>/ output directory.
+Workers write section.wiki, notes.wiki and vocabulary.json locally; independent
+sections may run concurrently, but workers cannot fetch remote data or publish.
+Only the coordinator makes paced Wikipedia/dictionary requests, assembles
+draft.wiki, merges shared notes/vocabulary, and checks cross-section consistency.
+Missing/blocked sections require targeted follow-up, not whole-article generation.
+Set review.json gates true only after real checks of the assembled article.
+
+The mgwiki-section agent uses OpenCode V2's edit permission action to expose
+the patch tool; a permission named patch does not enable that tool. Its default
+deny rule keeps shell, network and nested delegation unavailable. Edit allowances
+cover only section.wiki, notes.wiki and vocabulary.json beneath
+runs/*/sections/*/. Shared job files, pinned inputs and project files stay denied.
+The static rules do not select one dynamic assignment: workers must still honor
+their coordinator-assigned exclusive directory. This is not OS-level isolation.
+If patch is unavailable or denied, the worker reports blocked rather than
+claiming a successful handoff or using another tool to bypass permissions.
 <pre>
 python3 -m mgwiki_editor validate --draft runs/water-001/draft.wiki
 python3 -m mgwiki_editor prepare --job runs/water-001
@@ -136,8 +183,27 @@ who want that check; it is no longer required. Digests still protect exact
 content/evidence. Receipts record autonomous versus explicit-digest mode.
 An actual translation/edit request authorizes sandbox completion; draft-only or
 no-save instructions override it. Harness setup/tests never authorize saving.
-Unresolvable missing input or material uncertainty means preserve work, record
-a blocked result, and stop without asking or guessing.
+Unresolvable missing input or translation/topic/merge uncertainty means preserve
+work, record a blocked result, and stop without asking or guessing. Source
+inconsistencies and article contradictions are nonblocking review issues: retain
+them in runs/<job>/source-issues.md for later user review, not as failed gates.
+Record stable ID, status, pinned revision/path/section, conflicting claims/citations,
+draft handling, and next review action. Workers report issues in their notes.wiki;
+the coordinator consolidates the memory before prepare and links it in the handoff.
+Open issues survive publication and rebase, with history intact. Translate accounts
+faithfully with existing attribution/uncertainty; never invent a reconciliation.
+Independent unsafe content, copyright, citation integrity, unresolved translation
+meaning, topic/merge identity, and technical/save guards remain mandatory.
+Potential blockers go separately in runs/<job>/deferred-issues.md; independent
+tasks continue. Later assign issues/local evidence to Mgwiki-editor-issues-solver;
+coordinator alone accepts its issue-resolutions/<issue-id>.md proposals. See
+docs/issue-recovery.md: safe HTTP 5xx retries >=15 seconds apart, longer guards
+win; real permitted probe at/after 600 seconds confirms persistent outage before
+dependent tasks are skipped. More than 25 distinct skipped tasks in same outage
+requires fresh 5xx test and SEVERE SERVICE OUTAGE DETECTED in OpenCode output,
+plus one simple paragraph with assessment, evidence, all blocked tasks and memo
+path. These are agent instructions, not a new CLI background retry mechanism;
+existing transport, dictionary lookup budgets and uncertain-save guards remain.
 publish checks exact artifact hashes, live revisions, current rendering,
 fixed account/site/namespace, and server-side revision/creation guards. It saves
 synchronously with translation attribution and no cosmetic rewriting, then
@@ -186,7 +252,8 @@ The agent does not request permission to do these; external research needs an
 explicit user request. Inspect HTML previews offline, without loading resources.
 Required Wikipedia CLI operations
 and read-only dictionary lookup remain allowed. Unvisited sources must not be
-described as verified; material unresolved factual conflicts still block saving.
+described as verified. Unresolved factual disagreements alone do not block saving:
+record them in source-issues.md and preserve source attribution/uncertainty.
 
 During setup, the mg/rano and en/atom read endpoints were confirmed against the
 provided service; /openapi.json was absent and /swagger.json listed no paths.
@@ -194,6 +261,65 @@ Repository route definitions supplied the actual contract. Network availability
 and dictionary quality are not guaranteed. Missing pages (404), missing entry
 languages, malformed data, and outages remain distinguishable. HTTP on the LAN
 is unencrypted: send words only, never credentials or sensitive source material.
+
+Dictionary HTTP 502: preserve bounded error-body evidence. Exact structured
+type=error/status=502/details.type=NoPage means the service explicitly reports a
+missing page, despite its incorrect HTTP status; record status=missing with
+http_status=502 and missing_reason=backend_NoPage. Other 502s remain failed, never
+invented missing words. They schedule up to ten retries after the initial attempt,
+at least 15 seconds after each failed response; longer Retry-After wins. Per-lookup
+budgets/deadlines persist in the shared state directory's dictionary-retries.json.
+lookup returns retained failed evidence plus retry metadata before a deadline or
+after exhaustion, without contacting the service. Resume due lookups between
+useful translation/review work; no hidden retry, sleep, polling, or parallel worker
+loop. Ordinary successful/missing replies end only that lookup's retry streak.
+HTTP 429/503 and Wikimedia cooldown/circuit guards remain unchanged. A 502 alone,
+pending retry, or exhausted retry budget does not block reviewed, accurate
+descriptive translation; unresolved material meaning and other editorial/save
+guards remain independent blockers. No automatic review attestation/publication.
+
+== Mathematics vocabulary cache ==
+The user-requested Kajy post, "ireo voambolana matematika malagasy" (19 April
+2011), supplies 507 rows in data/vocabulary/kajy-mathematics.sqlite. JSON is retained
+as the original import; runtime queries use SQLite. Its JS-only page required
+the same post's Blogger feed to obtain the bilingual table. Source URL, author,
+timestamps, feed/content hashes, source numbers and original cell text accompany
+the candidates. No English equivalents or definitions are invented.
+<pre>
+python3 -m mgwiki_editor vocab --language fr --word 'équation' --output runs/water-001/kajy-equation.json
+python3 -m mgwiki_editor vocab --language fr --word equation --exact
+python3 -m mgwiki_editor vocab --language mg --word 'fampimirana'
+python3 -m mgwiki_editor vocab-audit --draft runs/water-001/draft.wiki --output runs/water-001/math-audit-01.json
+</pre>
+Reads/searches are offline, case/accent-insensitive; source spellings stay intact.
+The tool uses mode=ro, query_only, and bound SQL parameters. The entries table
+exposes source_number, table_row, french, malagasy, indexed normalized keys,
+candidate status and JSON-encoded source_cells/review_flags; metadata retains
+source provenance and the original JSON hash. Query results include the exact
+database_sha256 for job evidence. No refresh or remote write exists.
+Offline rebuild to a new path (existing DBs are never overwritten):
+<pre>
+python3 scripts/build_vocabulary_db.py --output data/vocabulary/new-mathematics.sqlite
+</pre>
+Read mg-vocab and the persistent review memory
+before selecting a candidate: split rows, placeholder numbering, suspected typos,
+polysemy and alternatives require sense-specific handling, not global replacement.
+This blog is terminology evidence, not dictionary verification or article-fact
+authority. Keep normal sense checks and definitions; pin used results through job
+vocabulary.json evidence_files. External research still needs an explicit request;
+do not refetch per article. Source disagreements alone remain nonblocking.
+
+For each untranslated mathematical term, the agent must inventory occurrences,
+interrogate the DB, select the intended sense, then delegate grounded Malagasy
+substitutions to section workers. English terms require a confirmed French sense
+bridge; no English mappings are silently invented. Cover prose, headings,
+captions, tables and displayed labels, while protecting quotations, names/titles,
+citation metadata, formulae, exact link targets, identifiers, filenames and URLs.
+Every inventory item must be translated/descriptively explained or deliberately
+retained with reason. Re-audit and review the assembled draft; a zero-match audit
+is not full coverage. vocab-audit reports possible French matches, never rewrites
+the draft or chooses among competing senses. Existing jobs stay untouched unless
+an article-edit task authorizes their revision. No blind global replacement.
 
 == Country-name cache ==
 Use the exact matching Malagasy page titles and diacritics from Sokajy:Firenena
@@ -229,9 +355,17 @@ PYTHONUTF8=1 python3 -m mgwiki_editor read --lang mg --title 'Nôrvezy'
 </pre>
 
 == Guarantees and limits ==
-Agent responses/article drafts use only MediaWiki wikitext. Internal prompts
-use OpenCode's Markdown definition format; CLI JSON, HTML previews, and diff files
-are tooling artifacts, never text to paste into Wikipedia.
+Use MediaWiki wikitext only for Malagasy translation/article content. Replies,
+logs, handoffs, and memories use plain text/Markdown and caveman ultra; article
+prose is never compressed. Compaction keeps OpenCode's supplied Markdown template
+exact, using ultra only in free-text bodies. New commentary in legacy notes.wiki
+and unknown-vocabulary.wiki files also uses plain text/Markdown. Existing pinned
+source evidence stays unchanged. Internal prompts retain OpenCode's definition
+format; CLI JSON, HTML previews, and diff files keep their required formats.
+Tooling/memory artifacts are never pasted into Wikipedia. source-issues.md, when
+present, is hashed into the proposal: later changes require fresh preparation,
+but unresolved source issues are not publication blockers. Older jobs without
+that memory remain supported; never rewrite historical evidence merely to migrate it.
 
 Lint rejects common Markdown, broken named-reference reuse, missing native
 reference renderers, live categories, interwiki links, and placeholders. It

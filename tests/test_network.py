@@ -255,8 +255,44 @@ def test_dictionary_overload_cools_shared_gate(
 
     monkeypatch.setattr(network, "build_opener", lambda *args: SimpleNamespace(open=fail))
     with pytest.raises(NetworkPolicyError, match="Dictionary overloaded"):
-        network.dictionary_open(Request("http://dictionary"), timeout=20)
+        network.dictionary_open(Request("http://dictionary/wiktionary-pages/mg/rano"), timeout=20)
     assert json.loads(limiter.path.read_text())["next_request"] == clock.now + 120
+
+
+@pytest.mark.parametrize("missing", [False, True])
+def test_successful_dictionary_result_resets_overload_streak_without_erasing_cooldown(
+    gate: tuple[RequestGate, Clock], monkeypatch: pytest.MonkeyPatch, missing: bool,
+) -> None:
+    limiter, clock = gate
+    limiter.backoff("120")
+    clock.now += 120
+    monkeypatch.setattr(network, "RequestGate", lambda: limiter)
+    deadline = clock.now + 60
+
+    def open_response(*args, **kwargs):
+        # Another worker can record a new cooldown while this request is in flight.
+        with limiter.state() as state:
+            state["next_request"] = state["cooldown_until"] = deadline
+        if missing:
+            raise HTTPError("http://dictionary", 404, "missing", {}, None)
+        return "dictionary-response"
+
+    monkeypatch.setattr(network, "build_opener", lambda *args: SimpleNamespace(open=open_response))
+    if missing:
+        with pytest.raises(HTTPError) as error:
+            network.dictionary_open(
+                Request("http://dictionary/wiktionary-pages/mg/rano"), timeout=20)
+        assert error.value.code == 404
+    else:
+        assert network.dictionary_open(
+            Request("http://dictionary/wiktionary-pages/mg/rano"), timeout=20) == (
+            "dictionary-response"
+        )
+    state = json.loads(limiter.path.read_text())
+    assert state["failures"] == 0
+    assert state["next_request"] == state["cooldown_until"] == deadline
+    clock.now = deadline
+    assert limiter.backoff() == 30  # A new streak, not a second consecutive overload.
 
 
 def test_no_password_or_captcha_prompt() -> None:

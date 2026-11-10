@@ -1,0 +1,6174 @@
+{
+  "schema": 1,
+  "domain": "mathematics",
+  "languages": [
+    "mg",
+    "fr"
+  ],
+  "source": {
+    "url": "https://kajy.blogspot.com/2011/04/ireo-voambolana-matematika-malagasy.html?m=1",
+    "retrieval_url": "https://kajy.blogspot.com/feeds/posts/default/2307042205075419731?alt=json",
+    "post_id": "tag:blogger.com,1999:blog-7429401142448269532.post-2307042205075419731",
+    "title": "ireo voambolana matematika malagasy",
+    "author": "teny malagasy",
+    "published_at": "2011-04-19T08:52:00.000-07:00",
+    "updated_at": "2011-04-19T08:52:08.081-07:00",
+    "retrieved_at": "2026-11-08T23:32:02.955548+00:00",
+    "feed_sha256": "0c9d2395b4761dd2c8672e29353b5b30ff2d3cfac037f2aa6f7a5bbd217426df",
+    "content_sha256": "f9b28ab27022b4b44f97f52985aea2a58ff5a451f96f28d814e5253fd8eb3ab8",
+    "authority": "User-requested blog glossary; candidates, not verified dictionary entries.",
+    "rights": "No reuse license verified. Terminology evidence, not article prose."
+  },
+  "normalization": "HTML text/entity extraction; whitespace collapsed. Source spellings retained. Number/heading prefixes removed only from malagasy, retained in source_cells. No English equivalents, definitions, typo corrections, or row merges invented.",
+  "source_row_count": 512,
+  "entry_count": 507,
+  "numbered_placeholders": [
+    {
+      "source_number": 192,
+      "table_row": 196,
+      "reason": "Numbered section heading; no bilingual term. Not invented."
+    }
+  ],
+  "entries": [
+    {
+      "source_number": 1,
+      "table_row": 1,
+      "malagasy": "Abeliana",
+      "french": "Abelien",
+      "source_cells": [
+        "1. Abeliana",
+        "Abelien"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 2,
+      "table_row": 2,
+      "malagasy": "Aljebra",
+      "french": "Algèbre",
+      "source_cells": [
+        "2. Aljebra",
+        "Algèbre"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 3,
+      "table_row": 3,
+      "malagasy": "Aljebrika",
+      "french": "Algèbrique",
+      "source_cells": [
+        "3. Aljebrika",
+        "Algèbrique"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 4,
+      "table_row": 4,
+      "malagasy": "Amin’ny lafiny roa",
+      "french": "Bilatère",
+      "source_cells": [
+        "4. Amin’ny lafiny roa",
+        "Bilatère"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 5,
+      "table_row": 5,
+      "malagasy": "Ankina",
+      "french": "Axiome",
+      "source_cells": [
+        "5. Ankina",
+        "Axiome"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 6,
+      "table_row": 6,
+      "malagasy": "Azo ampitahana",
+      "french": "Comparable",
+      "source_cells": [
+        "6. Azo ampitahana",
+        "Comparable"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 7,
+      "table_row": 7,
+      "malagasy": "Araovako",
+      "french": "Covariance",
+      "source_cells": [
+        "7. Araovako",
+        "Covariance"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 8,
+      "table_row": 8,
+      "malagasy": "Azo tsinjaraina",
+      "french": "Décomposable",
+      "source_cells": [
+        "8. Azo tsinjaraina",
+        "Décomposable"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 9,
+      "table_row": 9,
+      "malagasy": "Ambaratonga",
+      "french": "Degré",
+      "source_cells": [
+        "9. Ambaratonga",
+        "Degré"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 10,
+      "table_row": 10,
+      "malagasy": "Antsasan-kitsy",
+      "french": "Demi-droite",
+      "source_cells": [
+        "10. Antsasan-kitsy",
+        "Demi-droite"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 11,
+      "table_row": 11,
+      "malagasy": "Azo tanisaina",
+      "french": "Denombrable",
+      "source_cells": [
+        "11. Azo tanisaina",
+        "Denombrable"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 12,
+      "table_row": 12,
+      "malagasy": "Azo savazoroina",
+      "french": "Diagonalisable",
+      "source_cells": [
+        "12. Azo savazoroina",
+        "Diagonalisable"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 13,
+      "table_row": 13,
+      "malagasy": "Azo elanina",
+      "french": "Différentiable",
+      "source_cells": [
+        "13. Azo elanina",
+        "Différentiable"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 14,
+      "table_row": 14,
+      "malagasy": "Ateraky ny",
+      "french": "Engendré",
+      "source_cells": [
+        "14. Ateraky ny",
+        "Engendré"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 15,
+      "table_row": 15,
+      "malagasy": "Andrana",
+      "french": "Epreuve",
+      "source_cells": [
+        "15. Andrana",
+        "Epreuve"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 16,
+      "table_row": 16,
+      "malagasy": "Ainga",
+      "french": "Exponentielle",
+      "source_cells": [
+        "16. Ainga",
+        "Exponentielle"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 17,
+      "table_row": 17,
+      "malagasy": "Ampahany",
+      "french": "Fraction",
+      "source_cells": [
+        "17. Ampahany",
+        "Fraction"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 18,
+      "table_row": 18,
+      "malagasy": "Azo ahorona",
+      "french": "Intégrable",
+      "source_cells": [
+        "18. Azo ahorona",
+        "Intégrable"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 19,
+      "table_row": 19,
+      "malagasy": "Atin’ny (vondrona iray)",
+      "french": "Intérieur (d’un ensemble)",
+      "source_cells": [
+        "19. Atin’ny (vondrona iray)",
+        "Intérieur (d’un ensemble)"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 20,
+      "table_row": 20,
+      "malagasy": "Anaty (hajatena)",
+      "french": "Intérieur (automorphisme)",
+      "source_cells": [
+        "20. Anaty (hajatena)",
+        "Intérieur (automorphisme)"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 21,
+      "table_row": 21,
+      "malagasy": "Azo afotitra",
+      "french": "Inversible",
+      "source_cells": [
+        "21. Azo afotitra",
+        "Inversible"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 22,
+      "table_row": 22,
+      "malagasy": "Arapanoratana (fandaharana)",
+      "french": "Lexicographique (ordre)",
+      "source_cells": [
+        "22. Arapanoratana (fandaharana)",
+        "Lexicographique (ordre)"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 23,
+      "table_row": 23,
+      "malagasy": "Anaiso",
+      "french": "Logarithme",
+      "source_cells": [
+        "23. Anaiso",
+        "Logarithme"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 24,
+      "table_row": 24,
+      "malagasy": "Logaritima",
+      "french": "Logarithme",
+      "source_cells": [
+        "24. Logaritima",
+        "Logarithme"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 25,
+      "table_row": 25,
+      "malagasy": "Azo zavaina",
+      "french": "Métrisable",
+      "source_cells": [
+        "25. Azo zavaina",
+        "Métrisable"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 26,
+      "table_row": 26,
+      "malagasy": "Azo ampifampitomboina (fianakavina)",
+      "french": "Multipliable (famille)",
+      "source_cells": [
+        "26. Azo ampifampitomboina (fianakavina)",
+        "Multipliable (famille)"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 27,
+      "table_row": 27,
+      "malagasy": "Azo tsinontsinoniavana",
+      "french": "Négligeable",
+      "source_cells": [
+        "27. Azo tsinontsinoniavana",
+        "Négligeable"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 28,
+      "table_row": 28,
+      "malagasy": "Ankasa",
+      "french": "Pair",
+      "source_cells": [
+        "28. Ankasa",
+        "Pair"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 29,
+      "table_row": 29,
+      "malagasy": "Azo ampifamandihana",
+      "french": "Permitable",
+      "source_cells": [
+        "29. Azo ampifamandihana",
+        "Permitable"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 30,
+      "table_row": 30,
+      "malagasy": "Azo angambaina",
+      "french": "Probabilisable",
+      "source_cells": [
+        "30. Azo angambaina",
+        "Probabilisable"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 31,
+      "table_row": 31,
+      "malagasy": "Angambaina",
+      "french": "Probabilisé",
+      "source_cells": [
+        "31. Angambaina",
+        "Probabilisé"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 32,
+      "table_row": 32,
+      "malagasy": "Azo sarahina",
+      "french": "Séparable",
+      "source_cells": [
+        "32. Azo sarahina",
+        "Séparable"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 33,
+      "table_row": 33,
+      "malagasy": "Azo atambatra",
+      "french": "Sommable",
+      "source_cells": [
+        "33. Azo atambatra",
+        "Sommable"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 34,
+      "table_row": 34,
+      "malagasy": "Atroka",
+      "french": "Spectre",
+      "source_cells": [
+        "34. Atroka",
+        "Spectre"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 35,
+      "table_row": 35,
+      "malagasy": "Azo soloina",
+      "french": "Substituable",
+      "source_cells": [
+        "35. Azo soloina",
+        "Substituable"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 36,
+      "table_row": 36,
+      "malagasy": "Avo kokoa, na avo",
+      "french": "Supérieur",
+      "source_cells": [
+        "36. Avo kokoa, na avo",
+        "Supérieur"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 37,
+      "table_row": 37,
+      "malagasy": "Anatoerana",
+      "french": "Topologie",
+      "source_cells": [
+        "37. Anatoerana",
+        "Topologie"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 38,
+      "table_row": 38,
+      "malagasy": "Anatoeranina, momba na misy anatoerana",
+      "french": "Topologique",
+      "source_cells": [
+        "38. Anatoeranina, momba na misy anatoerana",
+        "Topologique"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 39,
+      "table_row": 39,
+      "malagasy": "Azo tokam-bikaina",
+      "french": "Uniformisable",
+      "source_cells": [
+        "39. Azo tokam-bikaina",
+        "Uniformisable"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 40,
+      "table_row": 40,
+      "malagasy": "Ambiny",
+      "french": "Reste",
+      "source_cells": [
+        "40. Ambiny",
+        "Reste"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 41,
+      "table_row": 43,
+      "malagasy": "Bambaray",
+      "french": "Connexe",
+      "source_cells": [
+        "41. Bambaray",
+        "Connexe"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 42,
+      "table_row": 44,
+      "malagasy": "Bory, misembo",
+      "french": "Cyclique",
+      "source_cells": [
+        "42. Bory, misembo",
+        "Cyclique"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 43,
+      "table_row": 45,
+      "malagasy": "Bika",
+      "french": "Forme",
+      "source_cells": [
+        "43. Bika",
+        "Forme"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 44,
+      "table_row": 46,
+      "malagasy": "Botolorafitra",
+      "french": "Holomorphe",
+      "source_cells": [
+        "44. Botolorafitra",
+        "Holomorphe"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 45,
+      "table_row": 47,
+      "malagasy": "Bolina",
+      "french": "Boule",
+      "source_cells": [
+        "45. Bolina",
+        "Boule"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 46,
+      "table_row": 48,
+      "malagasy": "Bontsina",
+      "french": "Convexe",
+      "source_cells": [
+        "46. Bontsina",
+        "Convexe"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 47,
+      "table_row": 49,
+      "malagasy": "Didy",
+      "french": "Coupe",
+      "source_cells": [
+        "47. Didy",
+        "Coupe"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 48,
+      "table_row": 50,
+      "malagasy": "Diso (fifandraisana)",
+      "french": "Fausse (relation-",
+      "source_cells": [
+        "48. Diso (fifandraisana)",
+        "Fausse (relation-"
+      ],
+      "status": "candidate",
+      "review_flags": [
+        "unbalanced_parentheses"
+      ]
+    },
+    {
+      "source_number": 49,
+      "table_row": 51,
+      "malagasy": "Dindo",
+      "french": "Image",
+      "source_cells": [
+        "49. Dindo",
+        "Image"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 50,
+      "table_row": 52,
+      "malagasy": "Dia",
+      "french": "Induit (trace)",
+      "source_cells": [
+        "50. Dia",
+        "Induit (trace)"
+      ],
+      "status": "candidate",
+      "review_flags": [
+        "multiple_french_senses"
+      ]
+    },
+    {
+      "source_number": 51,
+      "table_row": 53,
+      "malagasy": "Dia",
+      "french": "Trace",
+      "source_cells": [
+        "51. Dia",
+        "Trace"
+      ],
+      "status": "candidate",
+      "review_flags": [
+        "multiple_french_senses"
+      ]
+    },
+    {
+      "source_number": 52,
+      "table_row": 54,
+      "malagasy": "Disofantatra",
+      "french": "Trivial",
+      "source_cells": [
+        "52. Disofantatra",
+        "Trivial"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 53,
+      "table_row": 56,
+      "malagasy": "Elanalana, fahasamihafana",
+      "french": "Différence",
+      "source_cells": [
+        "53. Elanalana, fahasamihafana",
+        "Différence"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 54,
+      "table_row": 57,
+      "malagasy": "Elana",
+      "french": "Différentielle",
+      "source_cells": [
+        "54. Elana",
+        "Différentielle"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 55,
+      "table_row": 58,
+      "malagasy": "Erinina",
+      "french": "Dominée (fonction)",
+      "source_cells": [
+        "55. Erinina",
+        "Dominée (fonction)"
+      ],
+      "status": "candidate",
+      "review_flags": [
+        "multiple_french_senses"
+      ]
+    },
+    {
+      "source_number": 56,
+      "table_row": 59,
+      "malagasy": "Erinina",
+      "french": "Dominée (convergence)",
+      "source_cells": [
+        "56. Erinina",
+        "Dominée (convergence)"
+      ],
+      "status": "candidate",
+      "review_flags": [
+        "multiple_french_senses"
+      ]
+    },
+    {
+      "source_number": 57,
+      "table_row": 60,
+      "malagasy": "Esorin-tendrony na esori-teboka",
+      "french": "Epointé",
+      "source_cells": [
+        "57. Esorin-tendrony na esori-teboka",
+        "Epointé"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 58,
+      "table_row": 61,
+      "malagasy": "Efa",
+      "french": "Fini",
+      "source_cells": [
+        "58. Efa",
+        "Fini"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 59,
+      "table_row": 62,
+      "malagasy": "Eohitra ara-bika",
+      "french": "Formelle (série)",
+      "source_cells": [
+        "59. Eohitra ara-bika",
+        "Formelle (série)"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 60,
+      "table_row": 63,
+      "malagasy": "Efafototra",
+      "french": "Quaternion",
+      "source_cells": [
+        "60. Efafototra",
+        "Quaternion"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 61,
+      "table_row": 64,
+      "malagasy": "Enti-miaingam-pihoarana",
+      "french": "Récurrence (principe)",
+      "source_cells": [
+        "61. Enti-miaingam-pihoarana",
+        "Récurrence (principe)"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 62,
+      "table_row": 65,
+      "malagasy": "Efan-joro",
+      "french": "Trigonométrique (fonction)",
+      "source_cells": [
+        "62. Efan-joro",
+        "Trigonométrique (fonction)"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 63,
+      "table_row": 66,
+      "malagasy": "Efa lohavy",
+      "french": "Type fini",
+      "source_cells": [
+        "63. Efa lohavy",
+        "Type fini"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 64,
+      "table_row": 68,
+      "malagasy": "Fibosesehana",
+      "french": "Accumulation",
+      "source_cells": [
+        "64. Fibosesehana",
+        "Accumulation"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 65,
+      "table_row": 69,
+      "malagasy": "Fifanampiana",
+      "french": "Addition",
+      "source_cells": [
+        "65. Fifanampiana",
+        "Addition"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 66,
+      "table_row": 70,
+      "malagasy": "Firaiketana",
+      "french": "Adhérence",
+      "source_cells": [
+        "66. Firaiketana",
+        "Adhérence"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 67,
+      "table_row": 71,
+      "malagasy": "Fanifiana",
+      "french": "Affinité",
+      "source_cells": [
+        "67. Fanifiana",
+        "Affinité"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 68,
+      "table_row": 72,
+      "malagasy": "Fanadihadiana",
+      "french": "Analyse",
+      "source_cells": [
+        "68. Fanadihadiana",
+        "Analyse"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 69,
+      "table_row": 73,
+      "malagasy": "Fihady",
+      "french": "Analytique",
+      "source_cells": [
+        "69. Fihady",
+        "Analytique"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 70,
+      "table_row": 74,
+      "malagasy": "Fampiharana",
+      "french": "Application",
+      "source_cells": [
+        "70. Fampiharana",
+        "Application"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 71,
+      "table_row": 75,
+      "malagasy": "Fandaminana",
+      "french": "Arrangement",
+      "source_cells": [
+        "71. Fandaminana",
+        "Arrangement"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 72,
+      "table_row": 76,
+      "malagasy": "Fanakambanana",
+      "french": "Assemblage",
+      "source_cells": [
+        "72. Fanakambanana",
+        "Assemblage"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 73,
+      "table_row": 77,
+      "malagasy": "Fototra",
+      "french": "Base",
+      "source_cells": [
+        "73. Fototra",
+        "Base"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 74,
+      "table_row": 78,
+      "malagasy": "Fifampiakoana",
+      "french": "Bijection",
+      "source_cells": [
+        "74. Fifampiakoana",
+        "Bijection"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 75,
+      "table_row": 79,
+      "malagasy": "Fatra",
+      "french": "Coefficient",
+      "source_cells": [
+        "75. Fatra",
+        "Coefficient"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 76,
+      "table_row": 80,
+      "malagasy": "Fangaro",
+      "french": "Combinaison",
+      "source_cells": [
+        "76. Fangaro",
+        "Combinaison"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 77,
+      "table_row": 81,
+      "malagasy": "Fameno",
+      "french": "Complémentaire",
+      "source_cells": [
+        "77. Fameno",
+        "Complémentaire"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 78,
+      "table_row": 82,
+      "malagasy": "Feno",
+      "french": "Complet",
+      "source_cells": [
+        "78. Feno",
+        "Complet"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 79,
+      "table_row": 83,
+      "malagasy": "Felany",
+      "french": "Composante",
+      "source_cells": [
+        "79. Felany",
+        "Composante"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 80,
+      "table_row": 84,
+      "malagasy": "Fifanesen’ny (fampiharana roa",
+      "french": "Composé (de 2 applications",
+      "source_cells": [
+        "80. Fifanesen’ny (fampiharana roa",
+        "Composé (de 2 applications"
+      ],
+      "status": "candidate",
+      "review_flags": [
+        "unbalanced_parentheses",
+        "split_entry_across_rows_80_81"
+      ]
+    },
+    {
+      "source_number": 81,
+      "table_row": 85,
+      "malagasy": "ny finfandraisana roa)",
+      "french": "de 2relations)",
+      "source_cells": [
+        "81. ny finfandraisana roa)",
+        "de 2relations)"
+      ],
+      "status": "candidate",
+      "review_flags": [
+        "unbalanced_parentheses",
+        "split_entry_across_rows_80_81"
+      ]
+    },
+    {
+      "source_number": 82,
+      "table_row": 86,
+      "malagasy": "Fisahalana",
+      "french": "Congurence",
+      "source_cells": [
+        "82. Fisahalana",
+        "Congurence"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 83,
+      "table_row": 87,
+      "malagasy": "Fifanajoana",
+      "french": "Conjonction",
+      "source_cells": [
+        "83. Fifanajoana",
+        "Conjonction"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 84,
+      "table_row": 88,
+      "malagasy": "Fatodra, ombona",
+      "french": "Conjugué",
+      "source_cells": [
+        "84. Fatodra, ombona",
+        "Conjugué"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 85,
+      "table_row": 89,
+      "malagasy": "Fikaikonana",
+      "french": "Contraction",
+      "source_cells": [
+        "85. Fikaikonana",
+        "Contraction"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 86,
+      "table_row": 90,
+      "malagasy": "Fivohirana",
+      "french": "Convexité",
+      "source_cells": [
+        "86. Fivohirana",
+        "Convexité"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 87,
+      "table_row": 91,
+      "malagasy": "Fampiaramikodia",
+      "french": "Convolution",
+      "source_cells": [
+        "87. Fampiaramikodia",
+        "Convolution"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 88,
+      "table_row": 92,
+      "malagasy": "Fangitra",
+      "french": "Coordonnée",
+      "source_cells": [
+        "88. Fangitra",
+        "Coordonnée"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 89,
+      "table_row": 93,
+      "malagasy": "Fifamaliana",
+      "french": "Correspondance",
+      "source_cells": [
+        "89. Fifamaliana",
+        "Correspondance"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 90,
+      "table_row": 94,
+      "malagasy": "Famaritana",
+      "french": "Définition",
+      "source_cells": [
+        "90. Famaritana",
+        "Définition"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 91,
+      "table_row": 95,
+      "malagasy": "Fikitrohana",
+      "french": "Densité",
+      "source_cells": [
+        "91. Fikitrohana",
+        "Densité"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 92,
+      "table_row": 96,
+      "malagasy": "Famindrana",
+      "french": "Déplacement",
+      "source_cells": [
+        "92. Famindrana",
+        "Déplacement"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 93,
+      "table_row": 97,
+      "malagasy": "Fisintonana",
+      "french": "Dérivation",
+      "source_cells": [
+        "93. Fisintonana",
+        "Dérivation"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 94,
+      "table_row": 98,
+      "malagasy": "Foana ny fihaoany ; tsy mifanapaka",
+      "french": "Disjoint",
+      "source_cells": [
+        "94. Foana ny fihaoany ; tsy mifanapaka",
+        "Disjoint"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 95,
+      "table_row": 99,
+      "malagasy": "Fifanilihina",
+      "french": "Disjonction",
+      "source_cells": [
+        "95. Fifanilihina",
+        "Disjonction"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 96,
+      "table_row": 100,
+      "malagasy": "Fizarana",
+      "french": "Division",
+      "source_cells": [
+        "96. Fizarana",
+        "Division"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 97,
+      "table_row": 101,
+      "malagasy": "Fihatahana",
+      "french": "Ecart",
+      "source_cells": [
+        "97. Fihatahana",
+        "Ecart"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 98,
+      "table_row": 102,
+      "malagasy": "Fihatehana lohany",
+      "french": "Ecart-type",
+      "source_cells": [
+        "98. Fihatehana lohany",
+        "Ecart-type"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 99,
+      "table_row": 103,
+      "malagasy": "Fimirana",
+      "french": "Egalité",
+      "source_cells": [
+        "99. Fimirana",
+        "Egalité"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 100,
+      "table_row": 104,
+      "malagasy": "Fototra (lefa)",
+      "french": "Elémentaire (fonction)",
+      "source_cells": [
+        "100. Fototra (lefa)",
+        "Elémentaire (fonction)"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 101,
+      "table_row": 105,
+      "malagasy": "Fangaroana",
+      "french": "Integration",
+      "source_cells": [
+        "101. Fangaroana",
+        "Integration"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 102,
+      "table_row": 106,
+      "malagasy": "Fampimirana",
+      "french": "Equation",
+      "source_cells": [
+        "102. Fampimirana",
+        "Equation"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 103,
+      "table_row": 107,
+      "malagasy": "Fimirasanda",
+      "french": "Equipollence",
+      "source_cells": [
+        "103. Fimirasanda",
+        "Equipollence"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 104,
+      "table_row": 108,
+      "malagasy": "Fisehalana, fimiran-tsanda",
+      "french": "Equivalence",
+      "source_cells": [
+        "104. Fisehalana, fimiran-tsanda",
+        "Equivalence"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 105,
+      "table_row": 109,
+      "malagasy": "Fanantenana",
+      "french": "Espérance",
+      "source_cells": [
+        "105. Fanantenana",
+        "Espérance"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 106,
+      "table_row": 110,
+      "malagasy": "Fihitarana",
+      "french": "Extension",
+      "source_cells": [
+        "106. Fihitarana",
+        "Extension"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 107,
+      "table_row": 111,
+      "malagasy": "Fiafarany",
+      "french": "Extrémité",
+      "source_cells": [
+        "107. Fiafarany",
+        "Extrémité"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 108,
+      "table_row": 112,
+      "malagasy": "Fananona (peratra)",
+      "french": "Factoriel (anneau)",
+      "source_cells": [
+        "108. Fananona (peratra)",
+        "Factoriel (anneau)"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 109,
+      "table_row": 113,
+      "malagasy": "Fananona",
+      "french": "Factorielle",
+      "source_cells": [
+        "109. Fananona",
+        "Factorielle"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 110,
+      "table_row": 114,
+      "malagasy": "Fianakaviana",
+      "french": "Famille",
+      "source_cells": [
+        "110. Fianakaviana",
+        "Famille"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 111,
+      "table_row": 115,
+      "malagasy": "Fametrahana ambaratonga",
+      "french": "Graduation",
+      "source_cells": [
+        "111. Fametrahana ambaratonga",
+        "Graduation"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 112,
+      "table_row": 116,
+      "malagasy": "Fisahalerana",
+      "french": "Homotopie",
+      "source_cells": [
+        "112. Fisahalerana",
+        "Homotopie"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 113,
+      "table_row": 117,
+      "malagasy": "Fanatsobohana",
+      "french": "Immersion",
+      "source_cells": [
+        "113. Fanatsobohana",
+        "Immersion"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 114,
+      "table_row": 118,
+      "malagasy": "Fitarihana",
+      "french": "Implication",
+      "source_cells": [
+        "114. Fitarihana",
+        "Implication"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 115,
+      "table_row": 119,
+      "malagasy": "Fiatiana",
+      "french": "Inclusion",
+      "source_cells": [
+        "115. Fiatiana",
+        "Inclusion"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 116,
+      "table_row": 120,
+      "malagasy": "Fampiharana manavaka",
+      "french": "Injection",
+      "source_cells": [
+        "116. Fampiharana manavaka",
+        "Injection"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 117,
+      "table_row": 121,
+      "malagasy": "Fihaonana",
+      "french": "Intersection",
+      "source_cells": [
+        "117. Fihaonana",
+        "Intersection"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 118,
+      "table_row": 122,
+      "malagasy": "Fotitra",
+      "french": "Inverse",
+      "source_cells": [
+        "118. Fotitra",
+        "Inverse"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 119,
+      "table_row": 123,
+      "malagasy": "Fanafoterana, na fifoterana",
+      "french": "Inversion",
+      "source_cells": [
+        "119. Fanafoterana, na fifoterana",
+        "Inversion"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 120,
+      "table_row": 124,
+      "malagasy": "Fimirazeva",
+      "french": "Isométrie",
+      "source_cells": [
+        "120. Fimirazeva",
+        "Isométrie"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 121,
+      "table_row": 125,
+      "malagasy": "Faritra",
+      "french": "Limite",
+      "source_cells": [
+        "121. Faritra",
+        "Limite"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 122,
+      "table_row": 126,
+      "malagasy": "Farany lehibe",
+      "french": "Maximal",
+      "source_cells": [
+        "122. Farany lehibe",
+        "Maximal"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 123,
+      "table_row": 127,
+      "malagasy": "Farany kely",
+      "french": "Minimal",
+      "source_cells": [
+        "123. Farany kely",
+        "Minimal"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 124,
+      "table_row": 128,
+      "malagasy": "Fifampitomboana",
+      "french": "Multiplication",
+      "source_cells": [
+        "124. Fifampitomboana",
+        "Multiplication"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 125,
+      "table_row": 129,
+      "malagasy": "Fandavana",
+      "french": "Negation",
+      "source_cells": [
+        "125. Fandavana",
+        "Negation"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 126,
+      "table_row": 130,
+      "malagasy": "Fandaharana, andalana",
+      "french": "Ordre",
+      "source_cells": [
+        "126. Fandaharana, andalana",
+        "Ordre"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 127,
+      "table_row": 131,
+      "malagasy": "Fitodihana",
+      "french": "Orientation",
+      "source_cells": [
+        "127. Fitodihana",
+        "Orientation"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 128,
+      "table_row": 132,
+      "malagasy": "Fiaingana",
+      "french": "Origine",
+      "source_cells": [
+        "128. Fiaingana",
+        "Origine"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 129,
+      "table_row": 133,
+      "malagasy": "Fanitsijoroina",
+      "french": "Orthonormalisation",
+      "source_cells": [
+        "129. Fanitsijoroina",
+        "Orthonormalisation"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 130,
+      "table_row": 134,
+      "malagasy": "Fanokoana",
+      "french": "Partition",
+      "source_cells": [
+        "130. Fanokoana",
+        "Partition"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 131,
+      "table_row": 135,
+      "malagasy": "Fitsingerenana",
+      "french": "Période",
+      "source_cells": [
+        "131. Fitsingerenana",
+        "Période"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 132,
+      "table_row": 136,
+      "malagasy": "Fefika",
+      "french": "Plein",
+      "source_cells": [
+        "132. Fefika",
+        "Plein"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 133,
+      "table_row": 137,
+      "malagasy": "Fanatsikoana",
+      "french": "Polarisation",
+      "source_cells": [
+        "133. Fanatsikoana",
+        "Polarisation"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 134,
+      "table_row": 138,
+      "malagasy": "Fipoirana",
+      "french": "Primitive (polynôme)",
+      "source_cells": [
+        "134. Fipoirana",
+        "Primitive (polynôme)"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 135,
+      "table_row": 139,
+      "malagasy": "fipoirana (lefa)",
+      "french": "Primitive (function)",
+      "source_cells": [
+        "135. fipoirana (lefa)",
+        "Primitive (function)"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 136,
+      "table_row": 140,
+      "malagasy": "Fipoirana (faka)",
+      "french": "Primitive (racine)",
+      "source_cells": [
+        "136. Fipoirana (faka)",
+        "Primitive (racine)"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 137,
+      "table_row": 141,
+      "malagasy": "Fiangambana",
+      "french": "Probabilité",
+      "source_cells": [
+        "137. Fiangambana",
+        "Probabilité"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 138,
+      "table_row": 142,
+      "malagasy": "Fanalavana",
+      "french": "Prolongement",
+      "source_cells": [
+        "138. Fanalavana",
+        "Prolongement"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 139,
+      "table_row": 143,
+      "malagasy": "Faka",
+      "french": "Racine",
+      "source_cells": [
+        "139. Faka",
+        "Racine"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 140,
+      "table_row": 144,
+      "malagasy": "Fanohiny",
+      "french": "Réciproque (relation)",
+      "source_cells": [
+        "140. Fanohiny",
+        "Réciproque (relation)"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 141,
+      "table_row": 145,
+      "malagasy": "Fandrakofana",
+      "french": "Recouvrement",
+      "source_cells": [
+        "141. Fandrakofana",
+        "Recouvrement"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 142,
+      "table_row": 146,
+      "malagasy": "Fifandraisana",
+      "french": "Relation",
+      "source_cells": [
+        "142. Fifandraisana",
+        "Relation"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 143,
+      "table_row": 147,
+      "malagasy": "Fanerena",
+      "french": "Restriction",
+      "source_cells": [
+        "143. Fanerena",
+        "Restriction"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 144,
+      "table_row": 148,
+      "malagasy": "Fitambarana",
+      "french": "Réunion",
+      "source_cells": [
+        "144. Fitambarana",
+        "Réunion"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 145,
+      "table_row": 149,
+      "malagasy": "Fanodinana",
+      "french": "Rotation",
+      "source_cells": [
+        "145. Fanodinana",
+        "Rotation"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 146,
+      "table_row": 150,
+      "malagasy": "Fitapahana",
+      "french": "Rupture (corps)",
+      "source_cells": [
+        "146. Fitapahana",
+        "Rupture (corps)"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 147,
+      "table_row": 151,
+      "malagasy": "Fempona",
+      "french": "Saturé",
+      "source_cells": [
+        "147. Fempona",
+        "Saturé"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 148,
+      "table_row": 152,
+      "malagasy": "Fifanahafana",
+      "french": "Similitude",
+      "source_cells": [
+        "148. Fifanahafana",
+        "Similitude"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 149,
+      "table_row": 153,
+      "malagasy": "Fizarazarana, zana-pizarana",
+      "french": "Subdivision",
+      "source_cells": [
+        "149. Fizarazarana, zana-pizarana",
+        "Subdivision"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 150,
+      "table_row": 154,
+      "malagasy": "Fanatsoboha-ive",
+      "french": "Submersion",
+      "source_cells": [
+        "150. Fanatsoboha-ive",
+        "Submersion"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 151,
+      "table_row": 155,
+      "malagasy": "Fifanandrifiana",
+      "french": "Symétrie (géométrie)",
+      "source_cells": [
+        "151. Fifanandrifiana",
+        "Symétrie (géométrie)"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 152,
+      "table_row": 156,
+      "malagasy": "Fifanojoana, fianakaviana, vondrona",
+      "french": "Système",
+      "source_cells": [
+        "152. Fifanojoana, fianakaviana, vondrona",
+        "Système"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 153,
+      "table_row": 157,
+      "malagasy": "Fifolahana",
+      "french": "Torsion",
+      "source_cells": [
+        "153. Fifolahana",
+        "Torsion"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 154,
+      "table_row": 158,
+      "malagasy": "Fanisahana",
+      "french": "Translation",
+      "source_cells": [
+        "154. Fanisahana",
+        "Translation"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 155,
+      "table_row": 159,
+      "malagasy": "Fitsimbadihana",
+      "french": "Transposition",
+      "source_cells": [
+        "155. Fitsimbadihana",
+        "Transposition"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 156,
+      "table_row": 160,
+      "malagasy": "Faobe",
+      "french": "Universel",
+      "source_cells": [
+        "156. Faobe",
+        "Universel"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 157,
+      "table_row": 161,
+      "malagasy": "Fanandana",
+      "french": "Valuation",
+      "source_cells": [
+        "157. Fanandana",
+        "Valuation"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 158,
+      "table_row": 162,
+      "malagasy": "Foana",
+      "french": "Vide",
+      "source_cells": [
+        "158. Foana",
+        "Vide"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 159,
+      "table_row": 163,
+      "malagasy": "Goba",
+      "french": "Cube",
+      "source_cells": [
+        "G 159. Goba",
+        "Cube"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 160,
+      "table_row": 164,
+      "malagasy": "Hantona",
+      "french": "Argument",
+      "source_cells": [
+        "160. Hantona",
+        "Argument"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 161,
+      "table_row": 165,
+      "malagasy": "Hajatena mampitovy",
+      "french": "Automorphisme",
+      "source_cells": [
+        "161. Hajatena mampitovy",
+        "Automorphisme"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 162,
+      "table_row": 166,
+      "malagasy": "Henjana",
+      "french": "Catégorique",
+      "source_cells": [
+        "162. Henjana",
+        "Catégorique"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 163,
+      "table_row": 167,
+      "malagasy": "Haro",
+      "french": "Complexe",
+      "source_cells": [
+        "163. Haro",
+        "Complexe"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 164,
+      "table_row": 168,
+      "malagasy": "Hitsy",
+      "french": "Droite",
+      "source_cells": [
+        "164. Hitsy",
+        "Droite"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 165,
+      "table_row": 169,
+      "malagasy": "Hajatena",
+      "french": "Endomorphisme",
+      "source_cells": [
+        "165. Hajatena",
+        "Endomorphisme"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 166,
+      "table_row": 170,
+      "malagasy": "Hilbersrana",
+      "french": "Hilbertien",
+      "source_cells": [
+        "166. Hilbersrana",
+        "Hilbertien"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 167,
+      "table_row": 171,
+      "malagasy": "Herina",
+      "french": "Cycle",
+      "source_cells": [
+        "167. Herina",
+        "Cycle"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 168,
+      "table_row": 172,
+      "malagasy": "Haja",
+      "french": "Homorphisme",
+      "source_cells": [
+        "168. Haja",
+        "Homorphisme"
+      ],
+      "status": "candidate",
+      "review_flags": [
+        "multiple_french_senses"
+      ]
+    },
+    {
+      "source_number": 169,
+      "table_row": 173,
+      "malagasy": "Hiperlemaka",
+      "french": "Hyperplan",
+      "source_cells": [
+        "169. Hiperlemaka",
+        "Hyperplan"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 170,
+      "table_row": 174,
+      "malagasy": "Horona",
+      "french": "Intégrale",
+      "source_cells": [
+        "170. Horona",
+        "Intégrale"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 171,
+      "table_row": 175,
+      "malagasy": "Haja",
+      "french": "Morphisme",
+      "source_cells": [
+        "171. Haja",
+        "Morphisme"
+      ],
+      "status": "candidate",
+      "review_flags": [
+        "multiple_french_senses"
+      ]
+    },
+    {
+      "source_number": 172,
+      "table_row": 176,
+      "malagasy": "Heneniny",
+      "french": "Multiple",
+      "source_cells": [
+        "172. Heneniny",
+        "Multiple"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 173,
+      "table_row": 177,
+      "malagasy": "Hodina",
+      "french": "Permutation",
+      "source_cells": [
+        "173. Hodina",
+        "Permutation"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 174,
+      "table_row": 178,
+      "malagasy": "Harato",
+      "french": "Treillis",
+      "source_cells": [
+        "174. Harato",
+        "Treillis"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 175,
+      "table_row": 179,
+      "malagasy": "Herimisiana",
+      "french": "Hermitien",
+      "source_cells": [
+        "175. Herimisiana",
+        "Hermitien"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 176,
+      "table_row": 180,
+      "malagasy": "Hentitra",
+      "french": "Strict.",
+      "source_cells": [
+        "176. Hentitra",
+        "Strict."
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 177,
+      "table_row": 181,
+      "malagasy": "Ivodanja",
+      "french": "Affine",
+      "source_cells": [
+        "I 177. Ivodanja",
+        "Affine"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 178,
+      "table_row": 182,
+      "malagasy": "Ivondanja",
+      "french": "Barycentre",
+      "source_cells": [
+        "178. Ivondanja",
+        "Barycentre"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 179,
+      "table_row": 183,
+      "malagasy": "Isa",
+      "french": "Cardinal",
+      "source_cells": [
+        "179. Isa",
+        "Cardinal"
+      ],
+      "status": "candidate",
+      "review_flags": [
+        "multiple_french_senses"
+      ]
+    },
+    {
+      "source_number": 180,
+      "table_row": 184,
+      "malagasy": "Isa",
+      "french": "Nombre",
+      "source_cells": [
+        "180. Isa",
+        "Nombre"
+      ],
+      "status": "candidate",
+      "review_flags": [
+        "multiple_french_senses"
+      ]
+    },
+    {
+      "source_number": 181,
+      "table_row": 185,
+      "malagasy": "Isa avalin’ny (peratra iray)",
+      "french": "Caractéristique (d’un anneau)",
+      "source_cells": [
+        "181. Isa avalin’ny (peratra iray)",
+        "Caractéristique (d’un anneau)"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 182,
+      "table_row": 186,
+      "malagasy": "Ivo",
+      "french": "Centre",
+      "source_cells": [
+        "182. Ivo",
+        "Centre"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 183,
+      "table_row": 187,
+      "malagasy": "Ivelany",
+      "french": "Extérieur",
+      "source_cells": [
+        "183. Ivelany",
+        "Extérieur"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 184,
+      "table_row": 188,
+      "malagasy": "Iva kokoa na iva",
+      "french": "Inférieur",
+      "source_cells": [
+        "184. Iva kokoa na iva",
+        "Inférieur"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 185,
+      "table_row": 189,
+      "malagasy": "Ito",
+      "french": "Local, localement",
+      "source_cells": [
+        "185. Ito",
+        "Local, localement"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 186,
+      "table_row": 190,
+      "malagasy": "Ivoho",
+      "french": "Réciproquement",
+      "source_cells": [
+        "186. Ivoho",
+        "Réciproquement"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 187,
+      "table_row": 191,
+      "malagasy": "Ivoha (dindoà)",
+      "french": "Réciproque (image)",
+      "source_cells": [
+        "187. Ivoha (dindoà)",
+        "Réciproque (image)"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 188,
+      "table_row": 192,
+      "malagasy": "Iraitoraka",
+      "french": "Unipotent",
+      "source_cells": [
+        "188. Iraitoraka",
+        "Unipotent"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 189,
+      "table_row": 193,
+      "malagasy": "Ideally",
+      "french": "Idéal",
+      "source_cells": [
+        "189. Ideally",
+        "Idéal"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 190,
+      "table_row": 194,
+      "malagasy": "Joro",
+      "french": "Norme",
+      "source_cells": [
+        "J 190. Joro",
+        "Norme"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 191,
+      "table_row": 195,
+      "malagasy": "Joroina, misy",
+      "french": "Normé",
+      "source_cells": [
+        "191. Joroina, misy",
+        "Normé"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 193,
+      "table_row": 196,
+      "malagasy": "Kisendrasendra",
+      "french": "Aléatoire",
+      "source_cells": [
+        "192. K 193. Kisendrasendra",
+        "Aléatoire"
+      ],
+      "status": "candidate",
+      "review_flags": [
+        "numbered_heading_prefix"
+      ]
+    },
+    {
+      "source_number": 194,
+      "table_row": 197,
+      "malagasy": "Kilasy",
+      "french": "Classe",
+      "source_cells": [
+        "194. Kilasy",
+        "Classe"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 195,
+      "table_row": 198,
+      "malagasy": "Kôsaka",
+      "french": "Cadimension",
+      "source_cells": [
+        "195. Kôsaka",
+        "Cadimension"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 196,
+      "table_row": 199,
+      "malagasy": "Kôanona",
+      "french": "Cofacteur",
+      "source_cells": [
+        "196. Kôanona",
+        "Cofacteur"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 197,
+      "table_row": 200,
+      "malagasy": "Kosary",
+      "french": "Coïmage",
+      "source_cells": [
+        "197. Kosary",
+        "Coïmage"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 198,
+      "table_row": 201,
+      "malagasy": "Kôvohoka",
+      "french": "Comatrice",
+      "source_cells": [
+        "198. Kôvohoka",
+        "Comatrice"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 199,
+      "table_row": 202,
+      "malagasy": "Kitsoloha",
+      "french": "Cone",
+      "source_cells": [
+        "199. Kitsoloha",
+        "Cone"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 200,
+      "table_row": 203,
+      "malagasy": "Kôtaolana",
+      "french": "Conoyau",
+      "source_cells": [
+        "200. Kôtaolana",
+        "Conoyau"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 201,
+      "table_row": 204,
+      "malagasy": "Kitroka",
+      "french": "Dense",
+      "source_cells": [
+        "201. Kitroka",
+        "Dense"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 202,
+      "table_row": 205,
+      "malagasy": "Kapila",
+      "french": "Disque",
+      "source_cells": [
+        "202. Kapila",
+        "Disque"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 203,
+      "table_row": 206,
+      "malagasy": "Kitsiko",
+      "french": "Polaire",
+      "source_cells": [
+        "203. Kitsiko",
+        "Polaire"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 204,
+      "table_row": 207,
+      "malagasy": "Kalera",
+      "french": "Scalaire",
+      "source_cells": [
+        "204. Kalera",
+        "Scalaire"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 205,
+      "table_row": 208,
+      "malagasy": "Skalera",
+      "french": "Scalaire",
+      "source_cells": [
+        "205. Skalera",
+        "Scalaire"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 206,
+      "table_row": 209,
+      "malagasy": "Katsa",
+      "french": "Exact",
+      "source_cells": [
+        "206. Katsa",
+        "Exact"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 207,
+      "table_row": 210,
+      "malagasy": "Kely indrindra",
+      "french": "Minimum",
+      "source_cells": [
+        "207. Kely indrindra",
+        "Minimum"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 208,
+      "table_row": 211,
+      "malagasy": "Kisary",
+      "french": "Graphe",
+      "source_cells": [
+        "208. Kisary",
+        "Graphe"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 209,
+      "table_row": 212,
+      "malagasy": "Laniny",
+      "french": "Adjoint",
+      "source_cells": [
+        "L 209. Laniny",
+        "Adjoint"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 210,
+      "table_row": 213,
+      "malagasy": "Lanitena",
+      "french": "Autoadjoint",
+      "source_cells": [
+        "210. Lanitena",
+        "Autoadjoint"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 211,
+      "table_row": 214,
+      "malagasy": "Lamosina faharoa",
+      "french": "Bideral",
+      "source_cells": [
+        "211. Lamosina faharoa",
+        "Bideral"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 212,
+      "table_row": 215,
+      "malagasy": "Lalana",
+      "french": "Chemin",
+      "source_cells": [
+        "212. Lalana",
+        "Chemin"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 213,
+      "table_row": 216,
+      "malagasy": "Lahadroa",
+      "french": "Couple",
+      "source_cells": [
+        "213. Lahadroa",
+        "Couple"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 214,
+      "table_row": 217,
+      "malagasy": "Lamosiny (erantsilo)",
+      "french": "Dual (espace)",
+      "source_cells": [
+        "214. Lamosiny (erantsilo)",
+        "Dual (espace)"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 215,
+      "table_row": 218,
+      "malagasy": "Lefa",
+      "french": "Fonction",
+      "source_cells": [
+        "215. Lefa",
+        "Fonction"
+      ],
+      "status": "candidate",
+      "review_flags": [
+        "multiple_french_senses"
+      ]
+    },
+    {
+      "source_number": 216,
+      "table_row": 219,
+      "malagasy": "Lalàna",
+      "french": "Loi",
+      "source_cells": [
+        "216. Lalàna",
+        "Loi"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 217,
+      "table_row": 220,
+      "malagasy": "Lalàm-panorenana",
+      "french": "Loi de composition",
+      "source_cells": [
+        "217. Lalàm-panorenana",
+        "Loi de composition"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 218,
+      "table_row": 221,
+      "malagasy": "Lehibe indrindra",
+      "french": "Maximum",
+      "source_cells": [
+        "218. Lehibe indrindra",
+        "Maximum"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 219,
+      "table_row": 222,
+      "malagasy": "Loadrafitra",
+      "french": "Miromorphe",
+      "source_cells": [
+        "219. Loadrafitra",
+        "Miromorphe"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 220,
+      "table_row": 223,
+      "malagasy": "Leha",
+      "french": "Orbite",
+      "source_cells": [
+        "220. Leha",
+        "Orbite"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 221,
+      "table_row": 224,
+      "malagasy": "Laharana",
+      "french": "Ordinal",
+      "source_cells": [
+        "221. Laharana",
+        "Ordinal"
+      ],
+      "status": "candidate",
+      "review_flags": [
+        "multiple_french_senses"
+      ]
+    },
+    {
+      "source_number": 222,
+      "table_row": 225,
+      "malagasy": "Lampy",
+      "french": "Pavé",
+      "source_cells": [
+        "222. Lampy",
+        "Pavé"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 223,
+      "table_row": 226,
+      "malagasy": "Lemaka",
+      "french": "Plan",
+      "source_cells": [
+        "223. Lemaka",
+        "Plan"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 224,
+      "table_row": 227,
+      "malagasy": "Lohalahatra na lohapandaharana",
+      "french": "Préordre",
+      "source_cells": [
+        "224. Lohalahatra na lohapandaharana",
+        "Préordre"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 225,
+      "table_row": 228,
+      "malagasy": "Laharana",
+      "french": "Rang",
+      "source_cells": [
+        "225. Laharana",
+        "Rang"
+      ],
+      "status": "candidate",
+      "review_flags": [
+        "multiple_french_senses"
+      ]
+    },
+    {
+      "source_number": 226,
+      "table_row": 229,
+      "malagasy": "Lefa",
+      "french": "Repartition (function de)",
+      "source_cells": [
+        "226. Lefa",
+        "Repartition (function de)"
+      ],
+      "status": "candidate",
+      "review_flags": [
+        "multiple_french_senses"
+      ]
+    },
+    {
+      "source_number": 227,
+      "table_row": 230,
+      "malagasy": "Lahatelo",
+      "french": "Triplet",
+      "source_cells": [
+        "227. Lahatelo",
+        "Triplet"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 228,
+      "table_row": 231,
+      "malagasy": "(lefa avalin’I E)",
+      "french": "Caractéristique (function…. de E)",
+      "source_cells": [
+        "228. (lefa avalin’I E)",
+        "Caractéristique (function…. de E)"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 229,
+      "table_row": 232,
+      "malagasy": "Lempona",
+      "french": "Concave",
+      "source_cells": [
+        "229. Lempona",
+        "Concave"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 230,
+      "table_row": 233,
+      "malagasy": "Lafy",
+      "french": "Côté",
+      "source_cells": [
+        "230. Lafy",
+        "Côté"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 231,
+      "table_row": 234,
+      "malagasy": "Lejo",
+      "french": "Hypotenuse",
+      "source_cells": [
+        "231. Lejo",
+        "Hypotenuse"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 232,
+      "table_row": 235,
+      "malagasy": "Miraikitra",
+      "french": "Adherent",
+      "source_cells": [
+        "M 232. Miraikitra",
+        "Adherent"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 233,
+      "table_row": 236,
+      "malagasy": "Mampoelana",
+      "french": "Alterné",
+      "source_cells": [
+        "233. Mampoelana",
+        "Alterné"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 234,
+      "table_row": 237,
+      "malagasy": "Mpanamontsana",
+      "french": "Annulateur",
+      "source_cells": [
+        "234. Mpanamontsana",
+        "Annulateur"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 235,
+      "table_row": 238,
+      "malagasy": "Manohi-pamadihana (lalàna)",
+      "french": "Anti-commutatif (loi)",
+      "source_cells": [
+        "235. Manohi-pamadihana (lalàna)",
+        "Anti-commutatif (loi)"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 236,
+      "table_row": 239,
+      "malagasy": "Manohi-pamadihana",
+      "french": "Anticommutative (algebra)",
+      "source_cells": [
+        "236. Manohi-pamadihana",
+        "Anticommutative (algebra)"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 237,
+      "table_row": 240,
+      "malagasy": "Manohi-pamadiahana (fampiharana)",
+      "french": "Antisymétrique (application)",
+      "source_cells": [
+        "237. Manohi-pamadiahana (fampiharana)",
+        "Antisymétrique (application)"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 238,
+      "table_row": 241,
+      "malagasy": "Manohi-pamadiana (hajatena)",
+      "french": "Antysmétrique (application)",
+      "source_cells": [
+        "238. Manohi-pamadiana (hajatena)",
+        "Antysmétrique (application)"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 239,
+      "table_row": 242,
+      "malagasy": "Manohi-pamadiahana (ampahany voasaina)",
+      "french": "Antisymétrique (fraction rationnelle)",
+      "source_cells": [
+        "239. Manohi-pamadiahana (ampahany voasaina)",
+        "Antisymétrique (fraction rationnelle)"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 240,
+      "table_row": 243,
+      "malagasy": "Mampiombona",
+      "french": "Associatif",
+      "source_cells": [
+        "240. Mampiombona",
+        "Associatif"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 241,
+      "table_row": 244,
+      "malagasy": "Miako",
+      "french": "Bijective",
+      "source_cells": [
+        "241. Miako",
+        "Bijective"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 242,
+      "table_row": 245,
+      "malagasy": "Momba laha-droa",
+      "french": "Binaire",
+      "source_cells": [
+        "242. Momba laha-droa",
+        "Binaire"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 243,
+      "table_row": 246,
+      "malagasy": "Mahazatra (matematika)",
+      "french": "Canonique",
+      "source_cells": [
+        "243. Mahazatra (matematika)",
+        "Canonique"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 244,
+      "table_row": 247,
+      "malagasy": "(Maromiantaona) avahin’ny",
+      "french": "Caractéristique (polynôme)",
+      "source_cells": [
+        "244. (Maromiantaona) avahin’ny",
+        "Caractéristique (polynôme)"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 245,
+      "table_row": 248,
+      "malagasy": "Mpanivo",
+      "french": "Centralisateur",
+      "source_cells": [
+        "245. Mpanivo",
+        "Centralisateur"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 246,
+      "table_row": 249,
+      "malagasy": "Mihidy",
+      "french": "Clos",
+      "source_cells": [
+        "246. Mihidy",
+        "Clos"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 247,
+      "table_row": 250,
+      "malagasy": "Mirazotra",
+      "french": "Colinéaire",
+      "source_cells": [
+        "247. Mirazotra",
+        "Colinéaire"
+      ],
+      "status": "candidate",
+      "review_flags": [
+        "multiple_french_senses"
+      ]
+    },
+    {
+      "source_number": 248,
+      "table_row": 251,
+      "malagasy": "Mampivondrona",
+      "french": "Collectivisant",
+      "source_cells": [
+        "248. Mampivondrona",
+        "Collectivisant"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 249,
+      "table_row": 252,
+      "malagasy": "Mpampifamadika",
+      "french": "Commutateur",
+      "source_cells": [
+        "249. Mpampifamadika",
+        "Commutateur"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 250,
+      "table_row": 253,
+      "malagasy": "Mamadika",
+      "french": "Commutative",
+      "source_cells": [
+        "250. Mamadika",
+        "Commutative"
+      ],
+      "status": "candidate",
+      "review_flags": [
+        "multiple_french_senses"
+      ]
+    },
+    {
+      "source_number": 251,
+      "table_row": 254,
+      "malagasy": "Mihizina",
+      "french": "Compact",
+      "source_cells": [
+        "251. Mihizina",
+        "Compact"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 252,
+      "table_row": 255,
+      "malagasy": "Manaja (fifandraisana)",
+      "french": "Compatible (relation)",
+      "source_cells": [
+        "252. Manaja (fifandraisana)",
+        "Compatible (relation)"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 253,
+      "table_row": 256,
+      "malagasy": "Misy vahany",
+      "french": "Compatible (système)",
+      "source_cells": [
+        "253. Misy vahany",
+        "Compatible (système)"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 254,
+      "table_row": 257,
+      "malagasy": "Mifameno",
+      "french": "Complémentaire",
+      "source_cells": [
+        "254. Mifameno",
+        "Complémentaire"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 255,
+      "table_row": 258,
+      "malagasy": "Milempona",
+      "french": "Concave",
+      "source_cells": [
+        "255. Milempona",
+        "Concave"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 256,
+      "table_row": 259,
+      "malagasy": "Misy fepetra",
+      "french": "Conditionnelle",
+      "source_cells": [
+        "256. Misy fepetra",
+        "Conditionnelle"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 257,
+      "table_row": 260,
+      "malagasy": "Mitohy",
+      "french": "Continu",
+      "source_cells": [
+        "257. Mitohy",
+        "Continu"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 258,
+      "table_row": 261,
+      "malagasy": "Mikaikona",
+      "french": "Contractante (application)",
+      "source_cells": [
+        "258. Mikaikona",
+        "Contractante (application)"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 259,
+      "table_row": 262,
+      "malagasy": "Misy fifanoherana",
+      "french": "Contradiction",
+      "source_cells": [
+        "259. Misy fifanoherana",
+        "Contradiction"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 260,
+      "table_row": 263,
+      "malagasy": "Mivangongo",
+      "french": "Convergent",
+      "source_cells": [
+        "260. Mivangongo",
+        "Convergent"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 261,
+      "table_row": 264,
+      "malagasy": "Mivohitra",
+      "french": "Convexe",
+      "source_cells": [
+        "261. Mivohitra",
+        "Convexe"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 262,
+      "table_row": 265,
+      "malagasy": "Mitombo",
+      "french": "Croissant",
+      "source_cells": [
+        "262. Mitombo",
+        "Croissant"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 263,
+      "table_row": 266,
+      "malagasy": "Mihena",
+      "french": "Décroissant",
+      "source_cells": [
+        "263. Mihena",
+        "Décroissant"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 264,
+      "table_row": 267,
+      "malagasy": "Miankina",
+      "french": "Dependant",
+      "source_cells": [
+        "264. Miankina",
+        "Dependant"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 265,
+      "table_row": 268,
+      "malagasy": "Mpamaritra",
+      "french": "Determinant",
+      "source_cells": [
+        "265. Mpamaritra",
+        "Determinant"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 266,
+      "table_row": 269,
+      "malagasy": "Misavazoro",
+      "french": "Diagonaliser",
+      "source_cells": [
+        "266. Misavazoro",
+        "Diagonaliser"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 267,
+      "table_row": 270,
+      "malagasy": "Mielana",
+      "french": "Differential",
+      "source_cells": [
+        "267. Mielana",
+        "Differential"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 268,
+      "table_row": 271,
+      "malagasy": "Mielana (fampimirana)",
+      "french": "Equation différentielle",
+      "source_cells": [
+        "268. Mielana (fampimirana)",
+        "Equation différentielle"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 269,
+      "table_row": 272,
+      "malagasy": "Miorika",
+      "french": "Minorer",
+      "source_cells": [
+        "269. Miorika",
+        "Minorer"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 270,
+      "table_row": 273,
+      "malagasy": "Mitan-droa, midi-droa",
+      "french": "Mixte",
+      "source_cells": [
+        "270. Mitan-droa, midi-droa",
+        "Mixte"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 271,
+      "table_row": 274,
+      "malagasy": "Maromizotra",
+      "french": "Multilinéaire",
+      "source_cells": [
+        "271. Maromizotra",
+        "Multilinéaire"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 272,
+      "table_row": 275,
+      "malagasy": "Miiba",
+      "french": "Negatif",
+      "source_cells": [
+        "272. Miiba",
+        "Negatif"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 273,
+      "table_row": 276,
+      "malagasy": "Moana",
+      "french": "Neutre",
+      "source_cells": [
+        "273. Moana",
+        "Neutre"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 274,
+      "table_row": 277,
+      "malagasy": "Montsan-toraka",
+      "french": "Nilpotent",
+      "source_cells": [
+        "274. Montsan-toraka",
+        "Nilpotent"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 275,
+      "table_row": 278,
+      "malagasy": "Manaradalana",
+      "french": "Normal",
+      "source_cells": [
+        "275. Manaradalana",
+        "Normal"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 276,
+      "table_row": 279,
+      "malagasy": "Mpampanaradalana",
+      "french": "Normalisateur",
+      "source_cells": [
+        "276. Mpampanaradalana",
+        "Normalisateur"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 277,
+      "table_row": 280,
+      "malagasy": "Momba isa",
+      "french": "Numérique",
+      "source_cells": [
+        "277. Momba isa",
+        "Numérique"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 278,
+      "table_row": 281,
+      "malagasy": "Mpiasa",
+      "french": "Opérateur",
+      "source_cells": [
+        "278. Mpiasa",
+        "Opérateur"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 279,
+      "table_row": 282,
+      "malagasy": "Mijadona, mifampijadona",
+      "french": "Orthogonal",
+      "source_cells": [
+        "279. Mijadona, mifampijadona",
+        "Orthogonal"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 280,
+      "table_row": 283,
+      "malagasy": "Mahatsijoroina",
+      "french": "Orthonormal",
+      "source_cells": [
+        "280. Mahatsijoroina",
+        "Orthonormal"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 281,
+      "table_row": 284,
+      "malagasy": "Mivoha",
+      "french": "Ouvert",
+      "source_cells": [
+        "281. Mivoha",
+        "Ouvert"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 282,
+      "table_row": 285,
+      "malagasy": "Mirazotra",
+      "french": "Parallèle",
+      "source_cells": [
+        "282. Mirazotra",
+        "Parallèle"
+      ],
+      "status": "candidate",
+      "review_flags": [
+        "multiple_french_senses"
+      ]
+    },
+    {
+      "source_number": 283,
+      "table_row": 286,
+      "malagasy": "Mihilana",
+      "french": "Partielle",
+      "source_cells": [
+        "283. Mihilana",
+        "Partielle"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 284,
+      "table_row": 287,
+      "malagasy": "Marorirana",
+      "french": "Polyèdre",
+      "source_cells": [
+        "284. Marorirana",
+        "Polyèdre"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 285,
+      "table_row": 288,
+      "malagasy": "Maromiantaona",
+      "french": "Polynôme",
+      "source_cells": [
+        "285. Maromiantaona",
+        "Polynôme"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 286,
+      "table_row": 289,
+      "malagasy": "Miabo, mandroso",
+      "french": "Positif",
+      "source_cells": [
+        "286. Miabo, mandroso",
+        "Positif"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 287,
+      "table_row": 290,
+      "malagasy": "Milohalibersiana",
+      "french": "Préhibertien",
+      "source_cells": [
+        "287. Milohalibersiana",
+        "Préhibertien"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 288,
+      "table_row": 291,
+      "malagasy": "Mpanipy",
+      "french": "Projecteur",
+      "source_cells": [
+        "288. Mpanipy",
+        "Projecteur"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 289,
+      "table_row": 292,
+      "malagasy": "Mitsipy",
+      "french": "Projectif",
+      "source_cells": [
+        "289. Mitsipy",
+        "Projectif"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 290,
+      "table_row": 293,
+      "malagasy": "Mitoradiva",
+      "french": "Quadratique",
+      "source_cells": [
+        "290. Mitoradiva",
+        "Quadratique"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 291,
+      "table_row": 294,
+      "malagasy": "Mpilaza fisiana",
+      "french": "Quantificateur existentiel",
+      "source_cells": [
+        "291. Mpilaza fisiana",
+        "Quantificateur existentiel"
+      ],
+      "status": "candidate",
+      "review_flags": [
+        "multiple_french_senses"
+      ]
+    },
+    {
+      "source_number": 292,
+      "table_row": 295,
+      "malagasy": "Mpilaza faobe",
+      "french": "Quantificateur universel",
+      "source_cells": [
+        "292. Mpilaza faobe",
+        "Quantificateur universel"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 293,
+      "table_row": 296,
+      "malagasy": "Manatsotra",
+      "french": "Réduire",
+      "source_cells": [
+        "293. Manatsotra",
+        "Réduire"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 294,
+      "table_row": 297,
+      "malagasy": "Mifolaka",
+      "french": "Reflexif",
+      "source_cells": [
+        "294. Mifolaka",
+        "Reflexif"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 295,
+      "table_row": 298,
+      "malagasy": "Mitsipika",
+      "french": "Réglée",
+      "source_cells": [
+        "295. Mitsipika",
+        "Réglée"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 296,
+      "table_row": 299,
+      "malagasy": "Manavaka",
+      "french": "Régulier (element)",
+      "source_cells": [
+        "296. Manavaka",
+        "Régulier (element)"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 297,
+      "table_row": 300,
+      "malagasy": "Mpisolo tena",
+      "french": "Représentant",
+      "source_cells": [
+        "297. Mpisolo tena",
+        "Représentant"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 298,
+      "table_row": 301,
+      "malagasy": "Mandrorona",
+      "french": "Retrograde",
+      "source_cells": [
+        "298. Mandrorona",
+        "Retrograde"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 299,
+      "table_row": 302,
+      "malagasy": "Mizotra tapaka",
+      "french": "Sesquilinéaire",
+      "source_cells": [
+        "299. Mizotra tapaka",
+        "Sesquilinéaire"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 300,
+      "table_row": 303,
+      "malagasy": "Mandry ambany",
+      "french": "Sous-jacent",
+      "source_cells": [
+        "300. Mandry ambany",
+        "Sous-jacent"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 301,
+      "table_row": 304,
+      "malagasy": "Manokana",
+      "french": "Special",
+      "source_cells": [
+        "301. Manokana",
+        "Special"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 302,
+      "table_row": 305,
+      "malagasy": "Matroka (zanakerana)",
+      "french": "Spectral (sous-espace)",
+      "source_cells": [
+        "302. Matroka (zanakerana)",
+        "Spectral (sous-espace)"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 303,
+      "table_row": 306,
+      "malagasy": "Matroka (sanda)",
+      "french": "Spectrle (valeur)",
+      "source_cells": [
+        "303. Matroka (sanda)",
+        "Spectrle (valeur)"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 304,
+      "table_row": 307,
+      "malagasy": "Mpampitombona",
+      "french": "Stabilisateur",
+      "source_cells": [
+        "304. Mpampitombona",
+        "Stabilisateur"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 305,
+      "table_row": 308,
+      "malagasy": "Mifamasaka",
+      "french": "Supplémentaire",
+      "source_cells": [
+        "305. Mifamasaka",
+        "Supplémentaire"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 306,
+      "table_row": 309,
+      "malagasy": "Mielana (bika)",
+      "french": "Forme différentielle",
+      "source_cells": [
+        "306. Mielana (bika)",
+        "Forme différentielle"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 307,
+      "table_row": 310,
+      "malagasy": "Mivantana",
+      "french": "Direct",
+      "source_cells": [
+        "307. Mivantana",
+        "Direct"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 308,
+      "table_row": 311,
+      "malagasy": "Mpanasaraka",
+      "french": "Discriminant",
+      "source_cells": [
+        "308. Mpanasaraka",
+        "Discriminant"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 309,
+      "table_row": 312,
+      "malagasy": "Miavaka",
+      "french": "Distingué",
+      "source_cells": [
+        "309. Miavaka",
+        "Distingué"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 310,
+      "table_row": 313,
+      "malagasy": "Mampiparitaka",
+      "french": "Distributif",
+      "source_cells": [
+        "310. Mampiparitaka",
+        "Distributif"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 311,
+      "table_row": 314,
+      "malagasy": "Misandrahaka",
+      "french": "Divergent",
+      "source_cells": [
+        "311. Misandrahaka",
+        "Divergent"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 312,
+      "table_row": 315,
+      "malagasy": "Mpizara",
+      "french": "Diviseur",
+      "source_cells": [
+        "312. Mpizara",
+        "Diviseur"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 313,
+      "table_row": 316,
+      "malagasy": "Manerina",
+      "french": "Dominant (coefficient)",
+      "source_cells": [
+        "313. Manerina",
+        "Dominant (coefficient)"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 314,
+      "table_row": 317,
+      "malagasy": "Mifandafy (fototra)",
+      "french": "Dual (base)",
+      "source_cells": [
+        "314. Mifandafy (fototra)",
+        "Dual (base)"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 315,
+      "table_row": 318,
+      "malagasy": "Mivalandotra",
+      "french": "Etalé",
+      "source_cells": [
+        "315. Mivalandotra",
+        "Etalé"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 316,
+      "table_row": 319,
+      "malagasy": "Mirafitohizana",
+      "french": "Equicontinu",
+      "source_cells": [
+        "316. Mirafitohizana",
+        "Equicontinu"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 317,
+      "table_row": 320,
+      "malagasy": "Miratoraka",
+      "french": "Equipotent",
+      "source_cells": [
+        "317. Miratoraka",
+        "Equipotent"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 318,
+      "table_row": 321,
+      "malagasy": "Mirafiangambana",
+      "french": "Equiprobable",
+      "source_cells": [
+        "318. Mirafiangambana",
+        "Equiprobable"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 319,
+      "table_row": 322,
+      "malagasy": "Mitohatra",
+      "french": "Escalier (function en)",
+      "source_cells": [
+        "319. Mitohatra",
+        "Escalier (function en)"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 320,
+      "table_row": 323,
+      "malagasy": "Mirihina",
+      "french": "Etagé",
+      "source_cells": [
+        "320. Mirihina",
+        "Etagé"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 321,
+      "table_row": 324,
+      "malagasy": "Mikintana",
+      "french": "Etoilé",
+      "source_cells": [
+        "321. Mikintana",
+        "Etoilé"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 322,
+      "table_row": 325,
+      "malagasy": "Mpilaza fisiana",
+      "french": "Existential (quantificateur)",
+      "source_cells": [
+        "322. Mpilaza fisiana",
+        "Existential (quantificateur)"
+      ],
+      "status": "candidate",
+      "review_flags": [
+        "multiple_french_senses"
+      ]
+    },
+    {
+      "source_number": 323,
+      "table_row": 326,
+      "malagasy": "Malefaka",
+      "french": "Faible (topologie)",
+      "source_cells": [
+        "323. Malefaka",
+        "Faible (topologie)"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 324,
+      "table_row": 327,
+      "malagasy": "Mikatona",
+      "french": "Fermé",
+      "source_cells": [
+        "324. Mikatona",
+        "Fermé"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 325,
+      "table_row": 328,
+      "malagasy": "Misivana",
+      "french": "Filtrant",
+      "source_cells": [
+        "325. Misivana",
+        "Filtrant"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 326,
+      "table_row": 329,
+      "malagasy": "Manify",
+      "french": "Fin",
+      "source_cells": [
+        "326. Manify",
+        "Fin"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 327,
+      "table_row": 330,
+      "malagasy": "Mamarana (silaka)",
+      "french": "Finissante (section)",
+      "source_cells": [
+        "327. Mamarana (silaka)",
+        "Finissante (section)"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 328,
+      "table_row": 331,
+      "malagasy": "Mpandefa",
+      "french": "Foncteur",
+      "source_cells": [
+        "328. Mpandefa",
+        "Foncteur"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 329,
+      "table_row": 332,
+      "malagasy": "Mahery",
+      "french": "Forte (topologie)",
+      "source_cells": [
+        "329. Mahery",
+        "Forte (topologie)"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 330,
+      "table_row": 333,
+      "malagasy": "Mpiteraka",
+      "french": "Générateur",
+      "source_cells": [
+        "330. Mpiteraka",
+        "Générateur"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 331,
+      "table_row": 334,
+      "malagasy": "Mampidôko",
+      "french": "Identique (application)",
+      "source_cells": [
+        "331. Mampidôko",
+        "Identique (application)"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 332,
+      "table_row": 335,
+      "malagasy": "Miafona",
+      "french": "Implicité",
+      "source_cells": [
+        "332. Miafona",
+        "Implicité"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 333,
+      "table_row": 336,
+      "malagasy": "Mihanaka",
+      "french": "Inductif",
+      "source_cells": [
+        "333. Mihanaka",
+        "Inductif"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 334,
+      "table_row": 337,
+      "malagasy": "Miherina",
+      "french": "Involutif",
+      "source_cells": [
+        "334. Miherina",
+        "Involutif"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 335,
+      "table_row": 338,
+      "malagasy": "Manirery",
+      "french": "Isolé",
+      "source_cells": [
+        "335. Manirery",
+        "Isolé"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 336,
+      "table_row": 339,
+      "malagasy": "Mitovy rafitra",
+      "french": "Isomorphe",
+      "source_cells": [
+        "336. Mitovy rafitra",
+        "Isomorphe"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 337,
+      "table_row": 340,
+      "malagasy": "Malalaka (tsifimirana)",
+      "french": "Large (inégalité)",
+      "source_cells": [
+        "337. Malalaka (tsifimirana)",
+        "Large (inégalité)"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 338,
+      "table_row": 341,
+      "malagasy": "Mahaleo",
+      "french": "Libre",
+      "source_cells": [
+        "338. Mahaleo",
+        "Libre"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 339,
+      "table_row": 342,
+      "malagasy": "Mifatotra",
+      "french": "Lié",
+      "source_cells": [
+        "339. Mifatotra",
+        "Lié"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 340,
+      "table_row": 343,
+      "malagasy": "Mizotra (matetika)",
+      "french": "Linéaire",
+      "source_cells": [
+        "340. Mizotra (matetika)",
+        "Linéaire"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 341,
+      "table_row": 344,
+      "malagasy": "Mihoatra",
+      "french": "Majorant",
+      "source_cells": [
+        "341. Mihoatra",
+        "Majorant"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 342,
+      "table_row": 345,
+      "malagasy": "Misy zeva, momba zeva, zevaina",
+      "french": "Métrique",
+      "source_cells": [
+        "342. Misy zeva, momba zeva, zevaina",
+        "Métrique"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 343,
+      "table_row": 346,
+      "malagasy": "Mandrakotra",
+      "french": "Srjectif",
+      "source_cells": [
+        "343. Mandrakotra",
+        "Srjectif"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 344,
+      "table_row": 347,
+      "malagasy": "Mamadika (bika)",
+      "french": "Symétrique (forme)",
+      "source_cells": [
+        "344. Mamadika (bika)",
+        "Symétrique (forme)"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 345,
+      "table_row": 348,
+      "malagasy": "Mamadika",
+      "french": "Symétrique (algèbre)",
+      "source_cells": [
+        "345. Mamadika",
+        "Symétrique (algèbre)"
+      ],
+      "status": "candidate",
+      "review_flags": [
+        "multiple_french_senses"
+      ]
+    },
+    {
+      "source_number": 346,
+      "table_row": 349,
+      "malagasy": "Mira amin’ny tsimbadiny (vahoka)",
+      "french": "Symétrique (matrice)",
+      "source_cells": [
+        "346. Mira amin’ny tsimbadiny (vahoka)",
+        "Symétrique (matrice)"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 347,
+      "table_row": 350,
+      "malagasy": "Mamadika (toraka)",
+      "french": "Symétrique (puissance)",
+      "source_cells": [
+        "347. Mamadika (toraka)",
+        "Symétrique (puissance)"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 348,
+      "table_row": 351,
+      "malagasy": "Misy tohitra",
+      "french": "Symétrisable",
+      "source_cells": [
+        "348. Misy tohitra",
+        "Symétrisable"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 349,
+      "table_row": 352,
+      "malagasy": "Mpihenjana",
+      "french": "Tenseur",
+      "source_cells": [
+        "349. Mpihenjana",
+        "Tenseur"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 350,
+      "table_row": 353,
+      "malagasy": "Momba fihenjanana",
+      "french": "Tensoriel (produit)",
+      "source_cells": [
+        "350. Momba fihenjanana",
+        "Tensoriel (produit)"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 351,
+      "table_row": 354,
+      "malagasy": "Manenika",
+      "french": "Total",
+      "source_cells": [
+        "351. Manenika",
+        "Total"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 352,
+      "table_row": 355,
+      "malagasy": "Misavoana",
+      "french": "Transcendant",
+      "source_cells": [
+        "352. Misavoana",
+        "Transcendant"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 353,
+      "table_row": 356,
+      "malagasy": "Mihoatrefa",
+      "french": "Transfini",
+      "source_cells": [
+        "353. Mihoatrefa",
+        "Transfini"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 354,
+      "table_row": 357,
+      "malagasy": "Mampita",
+      "french": "Transitif",
+      "source_cells": [
+        "354. Mampita",
+        "Transitif"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 355,
+      "table_row": 358,
+      "malagasy": "Momba zoro",
+      "french": "Trigonométrique",
+      "source_cells": [
+        "355. Momba zoro",
+        "Trigonométrique"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 356,
+      "table_row": 359,
+      "malagasy": "Mombatsilo (orina)",
+      "french": "Vectoriel (produit)",
+      "source_cells": [
+        "356. Mombatsilo (orina)",
+        "Vectoriel (produit)"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 357,
+      "table_row": 360,
+      "malagasy": "Ny maha-singany",
+      "french": "Appartenance",
+      "source_cells": [
+        "N 357. Ny maha-singany",
+        "Appartenance"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 358,
+      "table_row": 361,
+      "malagasy": "Ny mifanohitra",
+      "french": "Contraire",
+      "source_cells": [
+        "358. Ny mifanohitra",
+        "Contraire"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 359,
+      "table_row": 362,
+      "malagasy": "Nanahary",
+      "french": "Naturel",
+      "source_cells": [
+        "359. Nanahary",
+        "Naturel"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 360,
+      "table_row": 363,
+      "malagasy": "Orina (i a sy i b)",
+      "french": "Compose (de a et de b)",
+      "source_cells": [
+        "O 360. Orina (i a sy i b)",
+        "Compose (de a et de b)"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 361,
+      "table_row": 364,
+      "malagasy": "Ohatra manohitra",
+      "french": "Contre-exemple",
+      "source_cells": [
+        "361. Ohatra manohitra",
+        "Contre-exemple"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 362,
+      "table_row": 365,
+      "malagasy": "Orina",
+      "french": "Produit (de 2 éléments)",
+      "source_cells": [
+        "362. Orina",
+        "Produit (de 2 éléments)"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 363,
+      "table_row": 366,
+      "malagasy": "Oha-mihizina",
+      "french": "Quasi-compact",
+      "source_cells": [
+        "363. Oha-mihizina",
+        "Quasi-compact"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 364,
+      "table_row": 367,
+      "malagasy": "Oltrasivana",
+      "french": "Uultrafiltra",
+      "source_cells": [
+        "364. Oltrasivana",
+        "Uultrafiltra"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 365,
+      "table_row": 368,
+      "malagasy": "Ovaka",
+      "french": "Variance",
+      "source_cells": [
+        "365. Ovaka",
+        "Variance"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 366,
+      "table_row": 369,
+      "malagasy": "Ovala",
+      "french": "Variété",
+      "source_cells": [
+        "366. Ovala",
+        "Variété"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 367,
+      "table_row": 370,
+      "malagasy": "Peratra",
+      "french": "Anneau",
+      "source_cells": [
+        "P 367. Peratra",
+        "Anneau"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 368,
+      "table_row": 371,
+      "malagasy": "Paritaka",
+      "french": "Distribution",
+      "source_cells": [
+        "368. Paritaka",
+        "Distribution"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 369,
+      "table_row": 372,
+      "malagasy": "Pifindrana (voho)",
+      "french": "Passage (matrice de)",
+      "source_cells": [
+        "369. Pifindrana (voho)",
+        "Passage (matrice de)"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 370,
+      "table_row": 373,
+      "malagasy": "Roa-mitovy",
+      "french": "Bicontinu",
+      "source_cells": [
+        "R 370. Roa-mitovy",
+        "Bicontinu"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 371,
+      "table_row": 374,
+      "malagasy": "Roa-mizotra",
+      "french": "Bilinéaire",
+      "source_cells": [
+        "371. Roa-mizotra",
+        "Bilinéaire"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 372,
+      "table_row": 375,
+      "malagasy": "Roamiantaona",
+      "french": "Binôme",
+      "source_cells": [
+        "372. Roamiantaona",
+        "Binôme"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 373,
+      "table_row": 376,
+      "malagasy": "Refy",
+      "french": "Mesure",
+      "source_cells": [
+        "373. Refy",
+        "Mesure"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 374,
+      "table_row": 377,
+      "malagasy": "Rohitra",
+      "french": "Série",
+      "source_cells": [
+        "374. Rohitra",
+        "Série"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 375,
+      "table_row": 378,
+      "malagasy": "Rify",
+      "french": "Série",
+      "source_cells": [
+        "375. Rify",
+        "Série"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 376,
+      "table_row": 379,
+      "malagasy": "Rikitra",
+      "french": "Symétrique (géométrie)",
+      "source_cells": [
+        "376. Rikitra",
+        "Symétrique (géométrie)"
+      ],
+      "status": "candidate",
+      "review_flags": [
+        "multiple_french_senses"
+      ]
+    },
+    {
+      "source_number": 377,
+      "table_row": 380,
+      "malagasy": "Rikitra",
+      "french": "Voisinage",
+      "source_cells": [
+        "377. Rikitra",
+        "Voisinage"
+      ],
+      "status": "candidate",
+      "review_flags": [
+        "multiple_french_senses"
+      ]
+    },
+    {
+      "source_number": 378,
+      "table_row": 381,
+      "malagasy": "Raikipohy",
+      "french": "Formule, relation",
+      "source_cells": [
+        "378. Raikipohy",
+        "Formule, relation"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 379,
+      "table_row": 382,
+      "malagasy": "Sokajy",
+      "french": "Catégorie",
+      "source_cells": [
+        "S 379. Sokajy",
+        "Catégorie"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 380,
+      "table_row": 383,
+      "malagasy": "Sintona",
+      "french": "Dérivé",
+      "source_cells": [
+        "380. Sintona",
+        "Dérivé"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 381,
+      "table_row": 384,
+      "malagasy": "Savazoro",
+      "french": "Diagonale",
+      "source_cells": [
+        "381. Savazoro",
+        "Diagonale"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 382,
+      "table_row": 385,
+      "malagasy": "Sava (vondrona)",
+      "french": "Diamètre (d’un ensemble)",
+      "source_cells": [
+        "382. Sava (vondrona)",
+        "Diamètre (d’un ensemble)"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 383,
+      "table_row": 386,
+      "malagasy": "Savaivo",
+      "french": "Diamètre (d(un cercle)",
+      "source_cells": [
+        "383. Savaivo",
+        "Diamètre (d(un cercle)"
+      ],
+      "status": "candidate",
+      "review_flags": [
+        "unbalanced_parentheses"
+      ]
+    },
+    {
+      "source_number": 384,
+      "table_row": 387,
+      "malagasy": "Samy hafa amin’ny",
+      "french": "Différent de",
+      "source_cells": [
+        "384. Samy hafa amin’ny",
+        "Différent de"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 385,
+      "table_row": 388,
+      "malagasy": "Saka",
+      "french": "Dimension",
+      "source_cells": [
+        "385. Saka",
+        "Dimension"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 386,
+      "table_row": 389,
+      "malagasy": "Singa",
+      "french": "Elément",
+      "source_cells": [
+        "386. Singa",
+        "Elément"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 387,
+      "table_row": 390,
+      "malagasy": "Sahala",
+      "french": "Equivalent",
+      "source_cells": [
+        "387. Sahala",
+        "Equivalent"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 388,
+      "table_row": 391,
+      "malagasy": "Sivana",
+      "french": "Filtre",
+      "source_cells": [
+        "388. Sivana",
+        "Filtre"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 389,
+      "table_row": 392,
+      "malagasy": "Sisiny",
+      "french": "Frontière",
+      "source_cells": [
+        "389. Sisiny",
+        "Frontière"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 390,
+      "table_row": 393,
+      "malagasy": "Sary",
+      "french": "Graphe",
+      "source_cells": [
+        "390. Sary",
+        "Graphe"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 391,
+      "table_row": 394,
+      "malagasy": "Sahalerana",
+      "french": "Homotope",
+      "source_cells": [
+        "391. Sahalerana",
+        "Homotope"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 392,
+      "table_row": 395,
+      "malagasy": "Safelika",
+      "french": "Lacet",
+      "source_cells": [
+        "392. Safelika",
+        "Lacet"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 393,
+      "table_row": 396,
+      "malagasy": "Sala",
+      "french": "Moyenne",
+      "source_cells": [
+        "393. Sala",
+        "Moyenne"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 394,
+      "table_row": 397,
+      "malagasy": "Silaka",
+      "french": "Partie",
+      "source_cells": [
+        "394. Silaka",
+        "Partie"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 395,
+      "table_row": 398,
+      "malagasy": "Sahala, mifanahaka",
+      "french": "Semblable",
+      "source_cells": [
+        "395. Sahala, mifanahaka",
+        "Semblable"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 396,
+      "table_row": 399,
+      "malagasy": "Sonia",
+      "french": "Signature",
+      "source_cells": [
+        "396. Sonia",
+        "Signature"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 397,
+      "table_row": 400,
+      "malagasy": "Sfera",
+      "french": "Sphère",
+      "source_cells": [
+        "397. Sfera",
+        "Sphère"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 398,
+      "table_row": 401,
+      "malagasy": "Sanda",
+      "french": "Valeur",
+      "source_cells": [
+        "398. Sanda",
+        "Valeur"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 399,
+      "table_row": 402,
+      "malagasy": "Tapitra",
+      "french": "Achevé",
+      "source_cells": [
+        "T 399. Tapitra",
+        "Achevé"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 400,
+      "table_row": 403,
+      "malagasy": "Tohilanitena",
+      "french": "Antiautoadjoint",
+      "source_cells": [
+        "400. Tohilanitena",
+        "Antiautoadjoint"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 401,
+      "table_row": 404,
+      "malagasy": "Taho",
+      "french": "Arête",
+      "source_cells": [
+        "401. Taho",
+        "Arête"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 402,
+      "table_row": 405,
+      "malagasy": "Tava",
+      "french": "Face",
+      "source_cells": [
+        "402. Tava",
+        "Face"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 403,
+      "table_row": 406,
+      "malagasy": "Tendro",
+      "french": "Sommet",
+      "source_cells": [
+        "403. Tendro",
+        "Sommet"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 404,
+      "table_row": 407,
+      "malagasy": "Tsy azo tsinjaraina",
+      "french": "Irréductible",
+      "source_cells": [
+        "404. Tsy azo tsinjaraina",
+        "Irréductible"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 405,
+      "table_row": 408,
+      "malagasy": "Tovirafitra, na haja mampitovy",
+      "french": "Isomorphisme",
+      "source_cells": [
+        "405. Tovirafitra, na haja mampitovy",
+        "Isomorphisme"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 406,
+      "table_row": 409,
+      "malagasy": "Tovizotra",
+      "french": "Isotrope",
+      "source_cells": [
+        "406. Tovizotra",
+        "Isotrope"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 407,
+      "table_row": 410,
+      "malagasy": "Tsipika",
+      "french": "Ligne",
+      "source_cells": [
+        "407. Tsipika",
+        "Ligne"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 408,
+      "table_row": 411,
+      "malagasy": "Tany",
+      "french": "Module",
+      "source_cells": [
+        "408. Tany",
+        "Module"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 409,
+      "table_row": 412,
+      "malagasy": "Tokam-piteraka",
+      "french": "Monogène",
+      "source_cells": [
+        "409. Tokam-piteraka",
+        "Monogène"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 410,
+      "table_row": 413,
+      "malagasy": "Tokan-dalàna",
+      "french": "Monoïde",
+      "source_cells": [
+        "410. Tokan-dalàna",
+        "Monoïde"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 411,
+      "table_row": 414,
+      "malagasy": "Tokamiantaona",
+      "french": "Monôme",
+      "source_cells": [
+        "411. Tokamiantaona",
+        "Monôme"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 412,
+      "table_row": 415,
+      "malagasy": "Tokam-piovana",
+      "french": "Monotone",
+      "source_cells": [
+        "412. Tokam-piovana",
+        "Monotone"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 413,
+      "table_row": 416,
+      "malagasy": "Taolana",
+      "french": "Noyau",
+      "source_cells": [
+        "413. Taolana",
+        "Noyau"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 414,
+      "table_row": 417,
+      "malagasy": "Tohitra",
+      "french": "Opposé",
+      "source_cells": [
+        "414. Tohitra",
+        "Opposé"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 415,
+      "table_row": 418,
+      "malagasy": "Teboka",
+      "french": "Point",
+      "source_cells": [
+        "415. Teboka",
+        "Point"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 416,
+      "table_row": 419,
+      "malagasy": "Tsiko",
+      "french": "Pôle",
+      "source_cells": [
+        "416. Tsiko",
+        "Pôle"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 417,
+      "table_row": 420,
+      "malagasy": "Tsy azo tsinjaraina (isa)",
+      "french": "Premier (nombre)",
+      "source_cells": [
+        "417. Tsy azo tsinjaraina (isa)",
+        "Premier (nombre)"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 418,
+      "table_row": 421,
+      "malagasy": "Tsimifanapaka",
+      "french": "Premiers entre eux",
+      "source_cells": [
+        "418. Tsimifanapaka",
+        "Premiers entre eux"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 419,
+      "table_row": 422,
+      "malagasy": "Tokam-piteraka (idealy)",
+      "french": "Principal (idéal)",
+      "source_cells": [
+        "419. Tokam-piteraka (idealy)",
+        "Principal (idéal)"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 420,
+      "table_row": 423,
+      "malagasy": "Tokam-piteraka (peratra)",
+      "french": "Principal (anneau)",
+      "source_cells": [
+        "420. Tokam-piteraka (peratra)",
+        "Principal (anneau)"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 421,
+      "table_row": 424,
+      "malagasy": "Tsipy",
+      "french": "Projection",
+      "source_cells": [
+        "421. Tsipy",
+        "Projection"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 422,
+      "table_row": 425,
+      "malagasy": "Tena … na manokana",
+      "french": "Propre",
+      "source_cells": [
+        "422. Tena … na manokana",
+        "Propre"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 423,
+      "table_row": 426,
+      "malagasy": "Toetra manokana",
+      "french": "Propriété",
+      "source_cells": [
+        "423. Toetra manokana",
+        "Propriété"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 424,
+      "table_row": 427,
+      "malagasy": "Toraka",
+      "french": "Puissance",
+      "source_cells": [
+        "424. Toraka",
+        "Puissance"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 425,
+      "table_row": 428,
+      "malagasy": "Tsotra",
+      "french": "Simple",
+      "source_cells": [
+        "425. Tsotra",
+        "Simple"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 426,
+      "table_row": 429,
+      "malagasy": "Tambatra",
+      "french": "Somme",
+      "source_cells": [
+        "426. Tambatra",
+        "Somme"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 427,
+      "table_row": 430,
+      "malagasy": "Tandahatra",
+      "french": "Suite",
+      "source_cells": [
+        "427. Tandahatra",
+        "Suite"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 428,
+      "table_row": 431,
+      "malagasy": "Tohana",
+      "french": "Support",
+      "source_cells": [
+        "428. Tohana",
+        "Support"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 429,
+      "table_row": 432,
+      "malagasy": "Tohitra (singa)",
+      "french": "Symétrique (élément)",
+      "source_cells": [
+        "429. Tohitra (singa)",
+        "Symétrique (élément)"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 430,
+      "table_row": 433,
+      "malagasy": "Tsombadika",
+      "french": "Transposé",
+      "source_cells": [
+        "430. Tsombadika",
+        "Transposé"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 431,
+      "table_row": 434,
+      "malagasy": "Telozorirana",
+      "french": "Triangulaire",
+      "source_cells": [
+        "431. Telozorirana",
+        "Triangulaire"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 432,
+      "table_row": 435,
+      "malagasy": "Tsilo, tandra, vektera",
+      "french": "Vecteur",
+      "source_cells": [
+        "432. Tsilo, tandra, vektera",
+        "Vecteur"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 433,
+      "table_row": 436,
+      "malagasy": "Tokan-tatanana (fitohizana)",
+      "french": "Uniforme (continuité)",
+      "source_cells": [
+        "433. Tokan-tatanana (fitohizana)",
+        "Uniforme (continuité)"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 434,
+      "table_row": 437,
+      "malagasy": "Tokan-tatanana (fivangongona)",
+      "french": "Uniforme (structure)",
+      "source_cells": [
+        "434. Tokan-tatanana (fivangongona)",
+        "Uniforme (structure)"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 435,
+      "table_row": 438,
+      "malagasy": "Taventy",
+      "french": "Unitaire",
+      "source_cells": [
+        "435. Taventy",
+        "Unitaire"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 436,
+      "table_row": 439,
+      "malagasy": "Tohikaja mampitovy",
+      "french": "Antiautomorphisme",
+      "source_cells": [
+        "436. Tohikaja mampitovy",
+        "Antiautomorphisme"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 437,
+      "table_row": 440,
+      "malagasy": "Tohi-pamindrana",
+      "french": "Antidéplacement",
+      "source_cells": [
+        "437. Tohi-pamindrana",
+        "Antidéplacement"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 438,
+      "table_row": 441,
+      "malagasy": "Tohi-kajatena",
+      "french": "Antiendomorphisme",
+      "source_cells": [
+        "438. Tohi-kajatena",
+        "Antiendomorphisme"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 439,
+      "table_row": 442,
+      "malagasy": "Teza",
+      "french": "Axe",
+      "source_cells": [
+        "439. Teza",
+        "Axe"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 440,
+      "table_row": 443,
+      "malagasy": "Tsimiankina",
+      "french": "Canonique",
+      "source_cells": [
+        "440. Tsimiankina",
+        "Canonique"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 441,
+      "table_row": 444,
+      "malagasy": "Toetra",
+      "french": "Caractère",
+      "source_cells": [
+        "441. Toetra",
+        "Caractère"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 442,
+      "table_row": 445,
+      "malagasy": "Toradroa",
+      "french": "Carré",
+      "source_cells": [
+        "442. Toradroa",
+        "Carré"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 443,
+      "table_row": 446,
+      "malagasy": "Tanivo",
+      "french": "Central",
+      "source_cells": [
+        "443. Tanivo",
+        "Central"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 444,
+      "table_row": 447,
+      "malagasy": "Toratelo",
+      "french": "Au cube",
+      "source_cells": [
+        "444. Toratelo",
+        "Au cube"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 445,
+      "table_row": 448,
+      "malagasy": "Tsy misy hisalasalana",
+      "french": "Certain",
+      "source_cells": [
+        "445. Tsy misy hisalasalana",
+        "Certain"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 446,
+      "table_row": 449,
+      "malagasy": "Tsangana",
+      "french": "Colonne",
+      "source_cells": [
+        "446. Tsangana",
+        "Colonne"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 447,
+      "table_row": 450,
+      "malagasy": "Tsimiova",
+      "french": "Constant",
+      "source_cells": [
+        "447. Tsimiova",
+        "Constant"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 448,
+      "table_row": 451,
+      "malagasy": "Tohimandroso",
+      "french": "Contragrédient",
+      "source_cells": [
+        "448. Tohimandroso",
+        "Contragrédient"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 449,
+      "table_row": 452,
+      "malagasy": "Tohimiova",
+      "french": "Contravariant",
+      "source_cells": [
+        "449. Tohimiova",
+        "Contravariant"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 450,
+      "table_row": 453,
+      "malagasy": "Tafolo",
+      "french": "Décimal",
+      "source_cells": [
+        "450. Tafolo",
+        "Décimal"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 451,
+      "table_row": 454,
+      "malagasy": "Tsy tsara",
+      "french": "Dégénéré",
+      "source_cells": [
+        "451. Tsy tsara",
+        "Dégénéré"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 452,
+      "table_row": 455,
+      "malagasy": "Tovielana",
+      "french": "Difféomorphisme",
+      "source_cells": [
+        "452. Tovielana",
+        "Difféomorphisme"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 453,
+      "table_row": 456,
+      "malagasy": "Tapiany zava-tonga",
+      "french": "Elémentaire (événement)",
+      "source_cells": [
+        "453. Tapiany zava-tonga",
+        "Elémentaire (événement)"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 454,
+      "table_row": 457,
+      "malagasy": "Tsimivaky (isa)",
+      "french": "Entier (nombre)",
+      "source_cells": [
+        "454. Tsimivaky (isa)",
+        "Entier (nombre)"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 455,
+      "table_row": 458,
+      "malagasy": "Tsimivaky (rohitra)",
+      "french": "Entière (série)",
+      "source_cells": [
+        "455. Tsimivaky (rohitra)",
+        "Entière (série)"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 456,
+      "table_row": 459,
+      "malagasy": "Tsy mihetsika",
+      "french": "Fixe",
+      "source_cells": [
+        "456. Tsy mihetsika",
+        "Fixe"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 457,
+      "table_row": 460,
+      "malagasy": "Tovierana",
+      "french": "Homéomorphisme",
+      "source_cells": [
+        "457. Tovierana",
+        "Homéomorphisme"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 458,
+      "table_row": 461,
+      "malagasy": "Tokankarazana",
+      "french": "Homogène",
+      "source_cells": [
+        "458. Tokankarazana",
+        "Homogène"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 459,
+      "table_row": 462,
+      "malagasy": "Tovisoratra",
+      "french": "Homographe",
+      "source_cells": [
+        "459. Tovisoratra",
+        "Homographe"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 460,
+      "table_row": 463,
+      "malagasy": "Tovihady",
+      "french": "Homologie",
+      "source_cells": [
+        "460. Tovihady",
+        "Homologie"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 461,
+      "table_row": 464,
+      "malagasy": "Tovipetraka",
+      "french": "Homothétie",
+      "source_cells": [
+        "461. Tovipetraka",
+        "Homothétie"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 462,
+      "table_row": 465,
+      "malagasy": "Tsiankasa",
+      "french": "Impair",
+      "source_cells": [
+        "462. Tsiankasa",
+        "Impair"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 463,
+      "table_row": 466,
+      "malagasy": "Tsy mety ho tonga",
+      "french": "Impossible (en probabilité)",
+      "source_cells": [
+        "463. Tsy mety ho tonga",
+        "Impossible (en probabilité)"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 464,
+      "table_row": 467,
+      "malagasy": "Tsy afa-mifanaraka",
+      "french": "Incompatible",
+      "source_cells": [
+        "464. Tsy afa-mifanaraka",
+        "Incompatible"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 465,
+      "table_row": 468,
+      "malagasy": "Tadiavina, fantarina",
+      "french": "Inconnu",
+      "source_cells": [
+        "465. Tadiavina, fantarina",
+        "Inconnu"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 466,
+      "table_row": 469,
+      "malagasy": "Tsy azo",
+      "french": "Indécidable",
+      "source_cells": [
+        "466. Tsy azo",
+        "Indécidable"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 467,
+      "table_row": 470,
+      "malagasy": "Tsy mifampiankina",
+      "french": "Indépendant",
+      "source_cells": [
+        "467. Tsy mifampiankina",
+        "Indépendant"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 468,
+      "table_row": 471,
+      "malagasy": "Tsivoafaritra",
+      "french": "Indéterminée",
+      "source_cells": [
+        "468. Tsivoafaritra",
+        "Indéterminée"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 469,
+      "table_row": 472,
+      "malagasy": "Tsifimirana",
+      "french": "Inégalité",
+      "source_cells": [
+        "469. Tsifimirana",
+        "Inégalité"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 470,
+      "table_row": 473,
+      "malagasy": "Tsifihontsonana",
+      "french": "Inertie",
+      "source_cells": [
+        "470. Tsifihontsonana",
+        "Inertie"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 471,
+      "table_row": 474,
+      "malagasy": "Tsiefa",
+      "french": "Infini",
+      "source_cells": [
+        "471. Tsiefa",
+        "Infini"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 472,
+      "table_row": 475,
+      "malagasy": "Tsimivalo (peratra)",
+      "french": "Intègre (anneau)",
+      "source_cells": [
+        "472. Tsimivalo (peratra)",
+        "Intègre (anneau)"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 473,
+      "table_row": 476,
+      "malagasy": "Tsivoasaina",
+      "french": "Irrationnel",
+      "source_cells": [
+        "473. Tsivoasaina",
+        "Irrationnel"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 474,
+      "table_row": 477,
+      "malagasy": "Todika",
+      "french": "Sens",
+      "source_cells": [
+        "474. Todika",
+        "Sens"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 475,
+      "table_row": 478,
+      "malagasy": "Voavaha",
+      "french": "Absolu",
+      "source_cells": [
+        "V 475. Voavaha",
+        "Absolu"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 476,
+      "table_row": 479,
+      "malagasy": "Voatohi-pamadiana",
+      "french": "Antisymétrisé",
+      "source_cells": [
+        "476. Voatohi-pamadiana",
+        "Antisymétrisé"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 477,
+      "table_row": 480,
+      "malagasy": "Voafetra",
+      "french": "Borné",
+      "source_cells": [
+        "477. Voafetra",
+        "Borné"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 478,
+      "table_row": 481,
+      "malagasy": "Voaivo",
+      "french": "Centré (variable aliatoire)",
+      "source_cells": [
+        "478. Voaivo",
+        "Centré (variable aliatoire)"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 479,
+      "table_row": 482,
+      "malagasy": "Vory",
+      "french": "Circulaire (permutation)",
+      "source_cells": [
+        "479. Vory",
+        "Circulaire (permutation)"
+      ],
+      "status": "candidate",
+      "review_flags": [
+        "multiple_french_senses"
+      ]
+    },
+    {
+      "source_number": 480,
+      "table_row": 483,
+      "malagasy": "Voagizina",
+      "french": "Compactifié",
+      "source_cells": [
+        "480. Voagizina",
+        "Compactifié"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 481,
+      "table_row": 484,
+      "malagasy": "Voagaro",
+      "french": "Complexifié",
+      "source_cells": [
+        "481. Voagaro",
+        "Complexifié"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 482,
+      "table_row": 485,
+      "malagasy": "Vatana",
+      "french": "Corps",
+      "source_cells": [
+        "482. Vatana",
+        "Corps"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 483,
+      "table_row": 486,
+      "malagasy": "Voatetika",
+      "french": "Discret (topologie)",
+      "source_cells": [
+        "483. Voatetika",
+        "Discret (topologie)"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 484,
+      "table_row": 487,
+      "malagasy": "Vala",
+      "french": "Domaine",
+      "source_cells": [
+        "484. Vala",
+        "Domaine"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 485,
+      "table_row": 488,
+      "malagasy": "Vondrona",
+      "french": "Ensemble",
+      "source_cells": [
+        "485. Vondrona",
+        "Ensemble"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 486,
+      "table_row": 489,
+      "malagasy": "Voasivana",
+      "french": "Filtré",
+      "source_cells": [
+        "486. Voasivana",
+        "Filtré"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 487,
+      "table_row": 490,
+      "malagasy": "Vory",
+      "french": "Groupe",
+      "source_cells": [
+        "487. Vory",
+        "Groupe"
+      ],
+      "status": "candidate",
+      "review_flags": [
+        "multiple_french_senses"
+      ]
+    },
+    {
+      "source_number": 488,
+      "table_row": 491,
+      "malagasy": "Vinaniana",
+      "french": "Imaginaire",
+      "source_cells": [
+        "488. Vinaniana",
+        "Imaginaire"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 489,
+      "table_row": 492,
+      "malagasy": "Voahoatra",
+      "french": "Majoré",
+      "source_cells": [
+        "489. Voahoatra",
+        "Majoré"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 490,
+      "table_row": 493,
+      "malagasy": "Vohoka",
+      "french": "Matrice",
+      "source_cells": [
+        "490. Vohoka",
+        "Matrice"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 491,
+      "table_row": 494,
+      "malagasy": "Voaorika",
+      "french": "Minoré",
+      "source_cells": [
+        "491. Voaorika",
+        "Minoré"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 492,
+      "table_row": 495,
+      "malagasy": "Voalohatra",
+      "french": "Ordonné",
+      "source_cells": [
+        "492. Voalohatra",
+        "Ordonné"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 493,
+      "table_row": 496,
+      "malagasy": "Voatodika",
+      "french": "Orienté",
+      "source_cells": [
+        "493. Voatodika",
+        "Orienté"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 494,
+      "table_row": 497,
+      "malagasy": "Voalohany (vatana)",
+      "french": "Premier (corps)",
+      "source_cells": [
+        "494. Voalohany (vatana)",
+        "Premier (corps)"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 495,
+      "table_row": 498,
+      "malagasy": "Voalohany na tsy azo tsinjaraina",
+      "french": "Premier (ideal)",
+      "source_cells": [
+        "495. Voalohany na tsy azo tsinjaraina",
+        "Premier (ideal)"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 496,
+      "table_row": 499,
+      "malagasy": "Vokatra (vondrona)",
+      "french": "Produit (ensemble)",
+      "source_cells": [
+        "496. Vokatra (vondrona)",
+        "Produit (ensemble)"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 497,
+      "table_row": 500,
+      "malagasy": "Vokatra",
+      "french": "Produit (mesure)",
+      "source_cells": [
+        "497. Vokatra",
+        "Produit (mesure)"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 498,
+      "table_row": 501,
+      "malagasy": "Voasaina",
+      "french": "Rationnel",
+      "source_cells": [
+        "498. Voasaina",
+        "Rationnel"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 499,
+      "table_row": 502,
+      "malagasy": "Voatsapa",
+      "french": "Réel",
+      "source_cells": [
+        "499. Voatsapa",
+        "Réel"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 500,
+      "table_row": 503,
+      "malagasy": "Vela",
+      "french": "Résidu",
+      "source_cells": [
+        "500. Vela",
+        "Résidu"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 501,
+      "table_row": 504,
+      "malagasy": "Voarato",
+      "french": "Reticule",
+      "source_cells": [
+        "501. Voarato",
+        "Reticule"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 502,
+      "table_row": 505,
+      "malagasy": "Zoro",
+      "french": "Angle",
+      "source_cells": [
+        "Z 502. Zoro",
+        "Angle"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 503,
+      "table_row": 506,
+      "malagasy": "Zotra",
+      "french": "Direction",
+      "source_cells": [
+        "503. Zotra",
+        "Direction"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 504,
+      "table_row": 507,
+      "malagasy": "Zeva",
+      "french": "Distance",
+      "source_cells": [
+        "504. Zeva",
+        "Distance"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 505,
+      "table_row": 508,
+      "malagasy": "Zava-tonga",
+      "french": "Evénement",
+      "source_cells": [
+        "505. Zava-tonga",
+        "Evénement"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 506,
+      "table_row": 509,
+      "malagasy": "Zandry (vohoka)",
+      "french": "Mineur (matrice)",
+      "source_cells": [
+        "506. Zandry (vohoka)",
+        "Mineur (matrice)"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 507,
+      "table_row": 510,
+      "malagasy": "Zara; teka",
+      "french": "Quotient",
+      "source_cells": [
+        "507. Zara; teka",
+        "Quotient"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    },
+    {
+      "source_number": 508,
+      "table_row": 511,
+      "malagasy": "Zanaka",
+      "french": "Sous-",
+      "source_cells": [
+        "508. Zanaka",
+        "Sous-"
+      ],
+      "status": "candidate",
+      "review_flags": []
+    }
+  ]
+}

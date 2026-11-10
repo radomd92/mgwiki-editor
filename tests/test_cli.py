@@ -152,3 +152,89 @@ def test_cli_unicode_errors_on_latin1_terminal(monkeypatch: pytest.MonkeyPatch) 
         stream.flush()
     assert status == 1
     assert json.loads(buffer.getvalue())["message"] == "Jibotỳ — unavailable"
+
+
+def test_configured_broker_routes_publish_without_direct_wiki_or_fallback(monkeypatch, capsys):
+    from mgwiki_editor import control
+
+    monkeypatch.setenv("MGWIKI_BROKER_SOCKET", "/broker/socket")
+    monkeypatch.setenv("MGWIKI_CAPABILITY_FILE", "/broker/cap")
+    monkeypatch.setattr(cli, "Wiki", lambda: pytest.fail("Broker profile bypassed"))
+    calls = []
+    def client(socket, capfile, command, args):
+        calls.append((command, args))
+        return ({"ok": True, "result": {"run": "water"}} if command == "status" else
+                {"ok": False, "decision": {"outcome": "DENY"}})
+    monkeypatch.setattr(control, "client", client)
+    assert cli.main(["publish", "--job", "runs/water"]) == 1
+    assert [command for command, _ in calls] == ["status", "publish"]
+    assert json.loads(capsys.readouterr().out)["decision"]["outcome"] == "DENY"
+
+
+def test_incomplete_broker_settings_fail_closed_without_wiki(monkeypatch, capsys):
+    monkeypatch.setenv("MGWIKI_BROKER_SOCKET", "/broker/socket")
+    monkeypatch.delenv("MGWIKI_CAPABILITY_FILE", raising=False)
+    monkeypatch.setattr(cli, "Wiki", lambda: pytest.fail("Incomplete broker config bypassed"))
+    assert cli.main(["read", "--lang", "en", "--title", "Water"]) == 1
+    assert "no fallback" in capsys.readouterr().err
+
+
+def test_broker_job_identity_mismatch_blocks_before_publish(monkeypatch, capsys):
+    from mgwiki_editor import control
+
+    monkeypatch.setenv("MGWIKI_BROKER_SOCKET", "/broker/socket")
+    monkeypatch.setenv("MGWIKI_CAPABILITY_FILE", "/broker/cap")
+    monkeypatch.setattr(control, "client", lambda *args: {"ok": True, "result": {"run": "water"}})
+    assert cli.main(["publish", "--job", "runs/other"]) == 1
+    assert "does not match" in capsys.readouterr().err
+
+
+@pytest.mark.parametrize("command", ["citation-audit", "metadata-audit"])
+def test_new_offline_checks_route_through_configured_broker(monkeypatch, capsys, command):
+    from mgwiki_editor import control
+
+    monkeypatch.setenv("MGWIKI_BROKER_SOCKET", "/broker/socket")
+    monkeypatch.setenv("MGWIKI_CAPABILITY_FILE", "/broker/cap")
+    monkeypatch.setattr(cli, "Wiki", lambda: pytest.fail("Configured broker bypassed"))
+    calls = []
+    def client(socket, capfile, action, arguments):
+        calls.append((action, arguments))
+        return {"ok": True, "result": {"run": "water"}}
+    monkeypatch.setattr(control, "client", client)
+    assert cli.main([command, "--job", "runs/water"]) == 0
+    assert calls[0] == ("status", {})
+    assert calls[1][0] == command
+
+
+def test_license_report_routes_through_configured_broker_without_direct_read(monkeypatch):
+    from mgwiki_editor import control
+
+    monkeypatch.setenv("MGWIKI_BROKER_SOCKET", "/broker/socket")
+    monkeypatch.setenv("MGWIKI_CAPABILITY_FILE", "/broker/cap")
+    monkeypatch.setattr(cli, "license_report", lambda *a: pytest.fail("Broker bypassed"))
+    calls = []
+    def client(socket, capfile, action, arguments):
+        calls.append((action, arguments))
+        return {"ok": True, "result": {"run": "water"}}
+    monkeypatch.setattr(control, "client", client)
+    assert cli.main(["license-report", "--job", "runs/water", "--evidence", "evidence/file.json",
+                     "--filename", "Exact.svg"]) == 0
+    assert calls[-1] == ("license-report", {"evidence": "evidence/file.json",
+                                           "filename": "Exact.svg"})
+
+
+def test_license_capture_respects_explicit_broker_without_direct_fallback(monkeypatch, capsys):
+    from mgwiki_editor import control
+
+    monkeypatch.setenv("MGWIKI_BROKER_SOCKET", "/broker/socket")
+    monkeypatch.setenv("MGWIKI_CAPABILITY_FILE", "/broker/cap")
+    monkeypatch.setattr(cli, "Wiki", lambda: pytest.fail("Configured broker bypassed"))
+    calls = []
+    def client(socket, capfile, action, arguments):
+        calls.append((action, arguments))
+        return {"ok": False, "decision": {"outcome": "DENY"}}
+
+    monkeypatch.setattr(control, "client", client)
+    assert cli.main(["license-evidence", "--filename", "Exact.svg"]) == 1
+    assert calls == [("license-evidence", {"filename": "Exact.svg"})]
+    assert json.loads(capsys.readouterr().out)["decision"]["outcome"] == "DENY"

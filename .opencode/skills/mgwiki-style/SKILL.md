@@ -49,6 +49,14 @@ official translations, name components, or local template names.
   split a mononym, or reorder uncertain components. Preserve source spelling and
   name order verbatim inside quotations, original work titles, and citation
   metadata; document uncertain identity/name structure outside the article.
+- Transcribe foreign names written in non-Latin scripts into the Latin alphabet
+  in new Malagasy prose, captions, and translated link labels. Use a
+  source-supported transcription/romanization, preserving the culturally
+  established name order; do not guess pronunciation or invent a Latin form.
+  The original-script form may accompany the transcription when useful. Preserve
+  originals in quotations, original titles, citation metadata, exact link targets,
+  identifiers, and URLs. Record unresolved transcription uncertainty outside the
+  article and follow the existing publication-blocking rules.
 - Italicize mentioned book, movie/film, and paper/research-article titles using
   MediaWiki paired apostrophes, including short paper titles that English MoS
   would normally put in quotation marks. This is an explicit project override.
@@ -118,7 +126,16 @@ official translations, name components, or local template names.
 
 - Translate supported claims, not a source article's vandalism or obvious errors.
   Check questionable claims, especially living-person, medical, and legal claims.
-  Flag unresolved problems outside the article and stop the publication gate.
+  Source inconsistencies and article contradictions are nonblocking review issues:
+  record them in runs/<job>/source-issues.md with pinned revision/path/section,
+  conflicting claims/citations, draft handling, status, and next review action.
+  Workers record them in section notes.wiki for coordinator consolidation. Retain
+  history after publication/rebase; link the memory from notes.wiki and handoff.
+  Translate conflicting accounts faithfully with existing attribution/uncertainty;
+  do not invent a reconciliation, pick an unsupported winner, or add translator
+  TODOs. Source disagreement alone must not fail review gates or block publication.
+  Independent unknown translation meanings, unsafe sensitive content, copyright,
+  citation integrity, topic/merge identity, and technical/save guards still apply.
 - Preserve citations at the claims they support, named references and reuse,
   bibliography, URLs, DOI/ISBN identifiers, page numbers, and access dates.
   Citation metadata keeps original titles; translations may supplement them only
@@ -131,15 +148,26 @@ official translations, name components, or local template names.
   Pywikibot CLI reads/previews or read-only dictionary lookups. If a material
   factual conflict cannot be resolved, flag it rather than browsing around the
   restriction or pretending it was verified.
-- Translate internal link labels; resolve Malagasy targets via actual pages or
-  interlanguage links. Do not create plausible-looking links to wrong topics.
-  Plain unlinked text is better than a wrong link; record unresolved targets.
+- Preserve the original article's internal links throughout the requested scope,
+  including links in infoboxes, tables, galleries, and captions. Translate labels
+  and resolve same-topic Malagasy targets via actual pages or interlanguage
+  links; adapt same-page section anchors to translated headings. Do not silently
+  strip links or create plausible-looking links to wrong topics. Plain unlinked
+  text is better than a wrong link; record each unresolved target and fallback
+  in notes.wiki. Category and language-link safety rules below still apply.
 - Do not copy foreign templates blindly. Verify local template and parameter
   support. Prefer native wikitext or a simpler verified equivalent if absent;
   do not silently lose scientific data, references, or accessibility information.
-- Keep Commons filenames unchanged. Translate captions/alt descriptions. Verify
-  locally hosted/non-free images separately; foreign-local files may not exist
-  or be reusable on mg.wikipedia.org.
+- Include the original article's images throughout the requested scope, including
+  lead/infobox images, inline illustrations, and galleries. Keep Commons filenames
+  unchanged and preserve meaningful placement, order, and display options while
+  adapting unsupported templates to verified local markup. Translate captions/alt
+  descriptions without losing their links or references. Verify locally hosted/
+  non-free images separately; foreign-local files may not exist or be reusable on
+  mg.wikipedia.org. Do not upload or import files as part of translation. Record
+  every omitted or replaced image and its reason in notes.wiki; never silently
+  drop images. Use permitted Wikipedia metadata and offline markup/preview checks,
+  not image downloads or external-resource loading.
 - Preserve sourced Malagasy contributions in existing articles. No unsupported
   synthesis, removal of inconvenient claims, or unreviewed full replacement.
 - Add relevant Malagasy category links (Sokajy) at the end of the article, after
@@ -158,7 +186,26 @@ official translations, name components, or local template names.
   `<nowiki>ISBN 0-393-97141-4</nowiki>` when needed to prevent that side effect;
   check the rendered result and never disable the no-categories guard.
 
-## Wikitext only
+## Article wikitext; non-article output
+
+Use MediaWiki wikitext only for Malagasy translation/article content.
+User-facing replies, progress logs, handoffs, and memories use plain text or
+Markdown, never MediaWiki formatting. Use caveman ultra for all non-article
+natural-language output, including new commentary in legacy notes.wiki and
+unknown-vocabulary.wiki files. Preserve machine formats and verbatim evidence.
+For internal compaction summaries and conversation checkpoints, follow
+OpenCode's supplied Markdown template exactly, preserving required headings,
+order, labels, and structure. Do not translate, rename, compress, wrap, or convert
+the template to MediaWiki wikitext. Use caveman ultra for free-text summary
+bodies: remove filler and repetition, not substance. Preserve exact paths,
+commands, identifiers, hashes, revisions, URLs, errors, decisions, blockers,
+pending actions, authorization limits, and safety guards. Never compress required
+template text or change its meaning; clarity wins. Article prose stays uncompressed.
+
+### Article formatting only
+
+The rules below apply only to translated article/section content, never to
+user-facing replies, handoffs, or memory commentary.
 
 - Article artifact: UTF-8 draft.wiki, containing only page wikitext.
 - Sections: == Tantara == and === Zana-pizarana ===; never ATX headings.

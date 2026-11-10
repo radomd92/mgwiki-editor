@@ -22,7 +22,10 @@ tasks. More than 25 distinct skipped tasks in same continuous outage + fresh
 simple assessment paragraph including evidence, blocked tasks and memo path.
 Never bypass cooldowns, reset lookup budgets, or retry uncertain saves.
 Local python3 scripts are available: inspect/run/create task-relevant helpers.
-Use the shared paced Wikipedia gateway; no parallel fetching, immediate retries
+Independent article tasks may run concurrently; keep each job's remote calls
+serial through the shared paced Wikipedia gateway. Shared-slot contention may
+wait up to 600 seconds total per gate; server cooldown waits retain a separate
+10-second limit. No parallel fetching within a job, immediate retries
 after HTTP 429, or blind save retries. Use MediaWiki wikitext only for Malagasy
 translation/article content. User-facing replies, progress logs, handoffs, and
 memories use plain text or Markdown, never MediaWiki formatting. Use caveman ultra

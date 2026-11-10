@@ -46,7 +46,7 @@ def gate(tmp_path: Path) -> tuple[RequestGate, Clock]:
     """Use a private shared-state file and deterministic zero jitter."""
     clock = Clock()
     return RequestGate(tmp_path / "requests.json", clock=clock.time,
-                       sleep=clock.sleep, jitter=lambda *args: 0), clock
+                       sleep=clock.sleep, monotonic=clock.time, jitter=lambda *args: 0), clock
 
 
 def response(status: int = 200, *, error: str = "", retry_after: str = "") -> SimpleNamespace:
@@ -60,7 +60,8 @@ def response(status: int = 200, *, error: str = "", retry_after: str = "") -> Si
 def test_state_shared_between_gate_instances(gate: tuple[RequestGate, Clock]) -> None:
     """Separate CLI processes coordinate through the same file, not per-site memory."""
     first, clock = gate
-    second = RequestGate(first.path, clock=clock.time, sleep=clock.sleep, jitter=lambda *args: 0)
+    second = RequestGate(first.path, clock=clock.time, sleep=clock.sleep,
+                         monotonic=clock.time, jitter=lambda *args: 0)
     first.wait()
     second.wait()
     assert clock.sleeps == [10]
@@ -84,7 +85,7 @@ def test_ten_second_spacing_reserves_jitter_for_backoff(tmp_path: Path) -> None:
     """Ordinary request gaps are 10 seconds; overload backoff still includes jitter."""
     clock = Clock()
     limiter = RequestGate(tmp_path / "requests.json", clock=clock.time,
-                          sleep=clock.sleep, jitter=lambda *args: 0.5)
+                          sleep=clock.sleep, monotonic=clock.time, jitter=lambda *args: 0.5)
     limiter.wait()
     limiter.wait()
     assert clock.sleeps == [10]
@@ -382,14 +383,14 @@ def test_native_process_multiplicity_cannot_add_minutes_of_sleep(
     assert clock.sleeps == [10]
 
 
-def test_competing_worker_cannot_keep_sleeping_for_minutes(
+def test_competing_worker_cannot_extend_wait_past_ten_minutes(
     tmp_path: Path,
 ) -> None:
-    """A moving shared deadline stops the caller after one ordinary pacing wait."""
+    """A moving shared deadline gets one cumulative budget, never a renewed timeout."""
     clock = Clock()
     events = []
     limiter = RequestGate(tmp_path / "requests.json", clock=clock.time,
-                          sleep=clock.sleep, report=events.append)
+                          sleep=clock.sleep, monotonic=clock.time, report=events.append)
     limiter.wait()
 
     def competing_sleep(seconds):
@@ -401,8 +402,100 @@ def test_competing_worker_cannot_keep_sleeping_for_minutes(
     limiter.sleep = competing_sleep
     with pytest.raises(NetworkPolicyError, match="task deferred"):
         limiter.wait()
+    assert clock.sleeps == [10] * 60
+    assert [event["event"] for event in events] == ["network_wait"] * 60 + ["network_deferred"]
+    assert events[-1]["budget_seconds"] == 600
+    assert events[-1]["waited_seconds"] == 600
+
+
+def test_competing_workers_can_finish_after_several_spacing_waits(tmp_path: Path) -> None:
+    """Transient contention between independent jobs is pacing, not a failed request."""
+    clock = Clock()
+    limiter = RequestGate(tmp_path / "requests.json", clock=clock.time,
+                          sleep=clock.sleep, monotonic=clock.time, report=lambda event: None)
+    limiter.wait()
+
+    def competing_sleep(seconds):
+        clock.sleep(seconds)
+        if len(clock.sleeps) <= 3:
+            with limiter.state() as state:
+                state["next_request"] = clock.now + 10
+
+    limiter.sleep = competing_sleep
+    limiter.wait(write=True)
+    assert clock.sleeps == [10] * 4
+    state = json.loads(limiter.path.read_text())
+    assert state["next_request"] == state["next_write"] == clock.now + 10
+
+
+@pytest.mark.parametrize("delay, allowed", [(600, True), (600.1, False)])
+def test_spacing_budget_boundary(gate: tuple[RequestGate, Clock], delay, allowed) -> None:
+    """Exactly ten minutes is allowed; a longer queue preserves its deadline and defers."""
+    limiter, clock = gate
+    deadline = clock.now + delay
+    with limiter.state() as state:
+        state["next_request"] = deadline
+    if allowed:
+        limiter.wait()
+        assert clock.sleeps == [delay]
+    else:
+        with pytest.raises(NetworkPolicyError, match="600-second gate budget"):
+            limiter.wait()
+        assert clock.sleeps == []
+        assert json.loads(limiter.path.read_text())["next_request"] == deadline
+
+
+def test_new_server_cooldown_interrupts_contention_wait(tmp_path: Path) -> None:
+    """The longer contention budget cannot turn server backoff into an automatic retry."""
+    clock = Clock()
+    events = []
+    limiter = RequestGate(tmp_path / "requests.json", clock=clock.time,
+                          sleep=clock.sleep, monotonic=clock.time,
+                          jitter=lambda *args: 0, report=events.append)
+    limiter.wait()
+
+    def overload_during_wait(seconds):
+        clock.sleep(seconds)
+        limiter.backoff("120")
+
+    limiter.sleep = overload_during_wait
+    with pytest.raises(NetworkPolicyError, match="10-second gate budget.*server_cooldown"):
+        limiter.wait()
     assert clock.sleeps == [10]
-    assert [event["event"] for event in events] == ["network_wait", "network_deferred"]
+    assert events[-1]["reason"] == "server_cooldown"
+    assert json.loads(limiter.path.read_text())["cooldown_until"] == clock.now + 120
+
+
+def test_oversleep_cannot_reserve_slot_after_budget(tmp_path: Path) -> None:
+    """Account for actual monotonic elapsed time, not only requested sleep durations."""
+    clock = Clock()
+    limiter = RequestGate(tmp_path / "requests.json", clock=clock.time,
+                          sleep=clock.sleep, monotonic=clock.time, report=lambda event: None)
+    limiter.wait()
+    deadline = json.loads(limiter.path.read_text())["next_request"]
+    limiter.sleep = lambda seconds: clock.sleep(601)
+    with pytest.raises(NetworkPolicyError, match="600-second gate budget"):
+        limiter.wait()
+    assert json.loads(limiter.path.read_text())["next_request"] == deadline
+
+
+def test_wall_clock_rollback_cannot_restart_contention_budget(tmp_path: Path) -> None:
+    """A wall-clock correction does not grant another ten minutes of queue waiting."""
+    clock = Clock()
+    wall = [clock.now]
+    limiter = RequestGate(tmp_path / "requests.json", clock=lambda: wall[0],
+                          monotonic=clock.time, report=lambda event: None)
+    limiter.wait()
+
+    def rollback(seconds):
+        clock.sleep(seconds)
+        wall[0] -= 1
+
+    limiter.sleep = rollback
+    with pytest.raises(NetworkPolicyError, match="600-second gate budget"):
+        limiter.wait()
+    assert sum(clock.sleeps) <= 600
+    assert clock.now > wall[0]
 
 
 def test_transport_progress_reports_real_requests_without_sensitive_values(

@@ -24,7 +24,8 @@ from . import observations
 
 REQUEST_INTERVAL = 10
 EDIT_INTERVAL = 10
-MAX_GATE_WAIT = 10
+MAX_GATE_WAIT = 600
+MAX_COOLDOWN_WAIT = 10
 
 
 class NetworkPolicyError(RuntimeError):
@@ -57,6 +58,7 @@ class RequestGate:
     def __init__(
         self, path: Path | None = None, *, clock: Callable[[], float] = time.time,
         sleep: Callable[[float], None] = time.sleep,
+        monotonic: Callable[[], float] = time.monotonic,
         jitter: Callable[[float, float], float] = random.uniform,
         report: Callable[[dict[str, Any]], None] = report_progress,
     ) -> None:
@@ -64,6 +66,7 @@ class RequestGate:
         state_home = Path(os.getenv("XDG_STATE_HOME", str(Path.home() / ".local/state")))
         self.path = path or state_home / "mgwiki-editor/wikimedia-requests.json"
         self.clock, self.sleep, self.jitter = clock, sleep, jitter
+        self.monotonic = monotonic
         self.report = report
 
     @contextmanager
@@ -97,7 +100,8 @@ class RequestGate:
                 fcntl.flock(stream, fcntl.LOCK_UN)
 
     def wait(self, *, write: bool = False) -> None:
-        """Use the conservative 10-second end of the requested 5–10 second request range."""
+        """Tolerate shared-slot contention for up to ten minutes; retain overload deferral."""
+        started = self.monotonic()
         waited = 0.0
         while True:
             with self.state() as state:
@@ -110,21 +114,27 @@ class RequestGate:
                     "server_cooldown" if state.get("cooldown_until", 0) > now
                     else "shared_request_spacing"
                 )
-                if not delay:
+                budget = MAX_COOLDOWN_WAIT if reason == "server_cooldown" else MAX_GATE_WAIT
+                elapsed = max(waited, self.monotonic() - started)
+                if not delay and elapsed <= MAX_GATE_WAIT:
                     state["next_request"] = now + REQUEST_INTERVAL
                     if write:
                         state["next_write"] = now + EDIT_INTERVAL
                     return
-            if delay > MAX_GATE_WAIT - waited:
+            if delay > budget - elapsed:
                 self.report({
                     "event": "network_deferred", "reason": reason,
                     "retry_in_seconds": round(delay, 1),
+                    "waited_seconds": round(elapsed, 1), "budget_seconds": budget,
                 })
                 raise NetworkPolicyError(
-                    f"Network wait {delay:.1f}s exceeds the {MAX_GATE_WAIT}-second gate budget "
+                    f"Network wait {delay:.1f}s exceeds the {budget}-second gate budget "
                     f"({reason}); task deferred, cooldown preserved. Do not poll or retry now.",
                 )
-            self.report({"event": "network_wait", "reason": reason, "seconds": round(delay, 1)})
+            self.report({
+                "event": "network_wait", "reason": reason, "seconds": round(delay, 1),
+                "waited_seconds": round(elapsed, 1), "budget_seconds": budget,
+            })
             self.sleep(delay)
             waited += delay
 

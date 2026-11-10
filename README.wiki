@@ -406,15 +406,18 @@ Only required HTTPS Wikipedia APIs and central-auth API endpoints are allowed;
 redirects are rejected. Requests are spaced by 10 seconds, the conservative end
 of the requested 5–10 second range; edits are at least 10 seconds apart. Longer
 server cooldowns take precedence. Dictionary requests share pacing because they may
-cause upstream reads. Reuse job evidence/caches; one wiki worker, no parallel
-fetching or per-paragraph rendering.
+cause upstream reads. Independent article translation tasks may run concurrently;
+each coordinator keeps remote operations serial through the same shared gate.
+Reuse job evidence/caches; no within-job parallel fetching or per-paragraph rendering.
 
 429/503, maxlag and ratelimited stop the current command and persist exponential
 backoff starting at 30 seconds plus jitter. Retry-After seconds and HTTP dates
 are honored without truncation. Three consecutive overloads open a 15-minute
-circuit; a gate waits at most 10 seconds total. Longer server cooldowns and
-repeatedly extended deadlines defer the task immediately rather than leaving it
-sleeping for minutes; the cooldown is preserved, not shortened or reset.
+circuit. Shared-slot contention may wait up to 600 seconds total per gate;
+repeated extensions do not restart the budget. Server cooldown waits retain a
+separate 10-second gate limit; longer cooldowns defer immediately. Cooldowns are
+preserved, not shortened or reset. This queue budget does not extend socket
+timeouts, replay HTTP requests, or authorize concurrent writes to one sandbox.
 Do not immediately rerun a failed command, poll aggressively, reset shared state,
 or switch account/process to evade cooldowns. Socket timeouts and maxlag=5
 provide additional bounds. Uncertain writes are never

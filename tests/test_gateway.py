@@ -67,7 +67,10 @@ def rig(tmp_path, monkeypatch):
     store.create()
     now = [1000.0]
     wiki = MemoryWiki()
-    gate = RequestGate(tmp_path / "gate.json", clock=lambda: now[0], jitter=lambda *a: 0)
+    def advance(seconds):
+        now[0] += seconds
+    gate = RequestGate(tmp_path / "gate.json", clock=lambda: now[0], sleep=advance,
+                       monotonic=lambda: now[0], jitter=lambda *a: 0)
     gateway = Gateway(tmp_path, store, wiki=wiki, clock=lambda: now[0], monotonic=lambda: now[0],
                       boot="test-boot", gate=gate)
     manifest = {"intent": "sandbox_edit", "source_language": "en",

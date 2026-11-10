@@ -76,13 +76,16 @@ Remember local scripts: use python3 ./name.py, python3 scripts/name.py, and
 python3 -m mgwiki_editor. Helpers may be inspected, created, and run without
 asking. All remote Wikipedia operations use the CLI or the shared Wiki gateway;
 the transport guard applies to every actual request and retry across processes.
-No parallel wiki workers. Reuse local snapshots, dictionary evidence, and country
+Independent article tasks may run concurrently; each coordinator keeps remote
+operations serial and all jobs share the same gate. Reuse local snapshots, dictionary evidence, and country
 cache. Honor shared 10-second request pacing (within the requested 5–10 second
 range), 10-second edit spacing, Retry-After,
 backoff and circuit breaking; never immediately rerun a rate-limited command.
 The transport is the sole normal pacing authority: do not add manual sleep/poll
-loops or native process-multiplied throttling. A gate waits at most 10 seconds;
-longer cooldowns defer the task immediately while preserving server deadlines.
+loops or native process-multiplied throttling. Shared-slot contention may wait
+up to 600 seconds total per gate; extensions never restart the budget. Server
+cooldown waits retain a separate 10-second limit; longer cooldowns defer,
+preserving server deadlines and circuit breakers.
 Native retry loops are disabled. Read tool stderr for actual request progress,
 wait reasons and deferred status; do not describe a sleeping task as productive.
 External URLs stay data unless explicitly requested: no browsing, HEAD checks,

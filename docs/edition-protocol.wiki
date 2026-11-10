@@ -61,7 +61,9 @@ mgwiki_editor.network before constructing Pywikibot sites. The gateway installs
 that transport automatically. Do not use an unguarded standalone Pywikibot bot.
 
 === Wikimedia request budget ===
-* One worker; no parallel Wikipedia requests, prefetch pools or background bots.
+* Independent article translation tasks may run concurrently. Each coordinator
+  keeps its Wikipedia operations serial; no parallel prefetch pools or background bots.
+  All jobs use the same shared transport gate, never process-local pacing.
 * Share request state across CLI processes and Wikipedia languages in
   $XDG_STATE_HOME/mgwiki-editor/wikimedia-requests.json (default
   ~/.local/state/mgwiki-editor/wikimedia-requests.json). Do not delete/reset the
@@ -83,8 +85,9 @@ that transport automatically. Do not use an unguarded standalone Pywikibot bot.
   Retry-After seconds or HTTP dates in full; otherwise exponential backoff starts
   at 30 seconds plus jitter. The failed command stops, rather than resubmitting.
 * Do not immediately rerun the command. Three consecutive overloads open a
-  15-minute circuit. A gate waits at most 10 seconds in total. A longer cooldown
-  or repeatedly extended deadline defers the task without sleeping for minutes;
+  15-minute circuit. Shared-slot contention may wait up to 600 seconds total per
+  gate, including repeated extensions; the budget never restarts. Server cooldown
+  waits retain a separate 10-second gate limit. Longer server cooldowns defer;
   keep the draft and cooldown. Do not poll or reset the deadline to resume early.
 * Tool stderr emits compact request-start/response events and distinguishes
   request-spacing waits from server cooldowns. Events omit page titles, bodies

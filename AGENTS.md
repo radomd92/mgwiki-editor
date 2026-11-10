@@ -195,15 +195,17 @@ account, sandbox, revision, proposal, receipt, uncertain-save and transport guar
 Inspect/run/create task-relevant helpers with `python3 ./name.py` or
 `python3 scripts/name.py`, without asking permission. Wikipedia helpers must use
 `mgwiki_editor.core.Wiki` or install its transport guard before Pywikibot use.
-No parallel Wikipedia workers: share pacing across processes/languages (10s
+Independent article translation tasks may run concurrently; each coordinator
+keeps its own Wikipedia operations serial. All jobs share pacing across processes/languages (10s
 between requests, the conservative end of the requested 5–10s range; >=10s
 between edits), reuse snapshots and lookup/cache
 files, honor Retry-After and persisted exponential cooldowns for 429/503/maxlag.
 Do not immediately rerun a rate-limited command or retry an uncertain save.
 Three consecutive overloads open a 15-minute circuit. The shared transport is
 the only normal pacing authority; no native process-multiplied delays or native
-retry loops. Wait at most 10s per gate; longer/extended cooldown means defer,
-preserving work and deadlines rather than sleeping for minutes. No manual shell
+retry loops. Shared-slot contention may wait up to 600s total per gate; extensions
+do not reset that budget. Server cooldown waits retain a separate 10s gate limit;
+longer cooldowns/circuits defer, preserving deadlines. No manual shell
 sleep/poll loops. Tool stderr reports actual request progress and wait reasons.
 
 No external-link access through any tool/script/browser, HEAD request, redirect,

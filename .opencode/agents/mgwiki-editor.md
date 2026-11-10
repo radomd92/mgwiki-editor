@@ -188,8 +188,11 @@ exponential backoff. Do not immediately rerun the failed command. No automatic
 resubmission of writes; three consecutive overloads open a 15-minute circuit.
 Use only the shared transport limiter, not an additional sleep before/after each
 CLI command. Native process-scaled throttling and native retry loops are disabled.
-Wait at most 10 seconds per gate; longer/extended cooldowns mean retain draft and
-report deferred status, not minutes of sleeping. Never run manual shell sleep or
+Independent article tasks may run concurrently, each coordinator's remote calls
+serial and all jobs sharing the same gate. Shared-slot contention may wait up to
+600 seconds total per gate; repeated extensions never restart the budget. Server
+cooldown waits retain a separate 10-second limit; longer cooldowns mean retain
+draft and report deferred status. Never run manual shell sleep or
 poll loops. Tool stderr distinguishes actual requests/responses from waiting;
 use that evidence instead of claiming work is progressing during a cooldown.
 Never evade limits using another account, host, IP, script or process.

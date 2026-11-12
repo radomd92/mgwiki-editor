@@ -65,7 +65,22 @@ For each non-trivial term record:
    failed lookup alone does not make an otherwise clear meaning unresolved;
    preserve the error evidence, review the definition against the pinned source
    context, and record the reasoning. Genuine uncertainty about material meaning
-   remains unresolved and blocks preparation/publication.
+    remains unresolved and blocks preparation/publication.
+
+## Lean evidence storage
+
+New jobs: keep each current sense/definition/choice/status in its record. Raw
+lookup metadata/check objects and review history live once in pinned evidence
+files, not repeated coordinator_* or dictionary_checks snapshots in every record.
+Keep relevant raw files directly in evidence_files: an index alone does not bind
+its dependencies. Shared reviews may use the existing hash-bound editorial-state
+review_evidence map; never invent a replacement review attestation.
+Use vocabulary-view for paginated current choices, not to certify senses without
+reading raw evidence. vocabulary-report --output NEW_PATH --summary retains full
+reports outside conversation. vocabulary-pack creates a NEW lean candidate plus
+lossless auxiliary archive; all original direct evidence paths remain bound and
+statuses/meanings remain unchanged. Review before adoption; never bulk-rewrite
+old jobs, repack prepared jobs or reset uncertain saves. See docs/token-efficient-workflow.md.
 
 ## Cached Kajy mathematics vocabulary
 

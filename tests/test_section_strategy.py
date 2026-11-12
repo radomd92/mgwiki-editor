@@ -22,14 +22,41 @@ def section_worker_rules() -> list[tuple[str, str, str]]:
     ]
 
 
-def test_coordinator_allows_only_section_and_issue_subagents() -> None:
+def test_coordinator_allows_article_section_and_issue_subagents() -> None:
     text = (ROOT / ".opencode/agents/mgwiki-editor.md").read_text(encoding="utf-8")
     assert ('action: subagent\n    resource: "*"\n    effect: deny') in text
     allowed = re.findall(
         r"action: subagent\n    resource: (.+)\n    effect: allow", text,
     )
-    assert set(allowed) == {"mgwiki-section", "Mgwiki-editor-issues-solver"}
+    assert set(allowed) == {"mgwiki-article", "mgwiki-section", "Mgwiki-editor-issues-solver"}
     assert "You alone merge accepted fragments" in text
+
+
+def test_article_coordinator_cannot_recursively_spawn_articles() -> None:
+    text = (ROOT / ".opencode/agents/mgwiki-article.md").read_text(encoding="utf-8")
+    allowed = re.findall(r"action: subagent\n    resource: (.+)\n    effect: allow", text)
+    assert set(allowed) == {"mgwiki-section", "Mgwiki-editor-issues-solver"}
+    assert "mode: subagent" in text
+    for guard in ("ONE assigned article", "frontmatter does not grant tools", "draft-only/no-save",
+                  "uncertain writes", "confirmed receipt", "Do not edit batch/shared queue"):
+        assert guard in text
+
+
+def test_batch_dispatch_is_before_expensive_coordinator_setup() -> None:
+    text = (ROOT / ".opencode/agents/mgwiki-editor.md").read_text(encoding="utf-8")
+    assert text.index("Batch dispatch first") < text.index("At the start load")
+    for guard in ("fresh mgwiki-article", "never pass this conversation", "same child",
+                  "duplicate active owners", "Do not load article skills/guides"):
+        assert guard in text
+
+
+def test_worker_skips_only_coordinator_procedures_not_style_or_evidence() -> None:
+    text = (ROOT / ".opencode/agents/mgwiki-section.md").read_text(encoding="utf-8")
+    assert "Load mgwiki-style and mg-vocab" in text
+    assert "local style references in full once" in text
+    assert "do not load mgwiki-edition" in text
+    assert "relevant evidence" in text
+    assert "no remote requests" in text
 
 
 def test_section_worker_is_offline_and_has_separate_outputs() -> None:

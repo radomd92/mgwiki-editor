@@ -143,7 +143,15 @@ and preserved local content before preparation. Missing/failed sections block
 completion; retain successful work and retry only the affected section, never
 silently fall back to whole-article generation.
 
-Load `mgwiki-style`, `mgwiki-edition`, and `mg-vocab` before translating.
+Coordinators load `mgwiki-style`, `mgwiki-edition`, and `mg-vocab` before translating.
+Offline `mgwiki-section` role exception: load `mgwiki-style` and `mg-vocab`, read
+local style references fully once per session; do not load coordinator-only
+edition/recovery/broker procedures. Worker assignment/prompt retains all offline,
+exclusive-output, coverage and editorial restrictions. No gate or save waiver.
+Batch requests: primary acts as queue only, delegates one fresh `mgwiki-article`
+coordinator per article; each delegates `mgwiki-section` workers. No cross-article
+transcript replay, recursive article coordinators or duplicate active job owners.
+See `docs/token-efficient-workflow.md`; existing jobs never bulk-rewritten.
 Follow the edition protocol for new AND existing articles. Autonomous mode is
 default: no questions, tool/script approval prompts, or draft-signoff requests.
 A translation/edit request authorizes checked sandbox publication unless the
@@ -154,7 +162,7 @@ Source disagreements alone follow the nonblocking source-issues.md policy above.
 Never write mainspace, move pages, edit Wiktionary, or bypass exact proposal,
 revision, editorial, account, or uncertain-save guards.
 
-Deferred issues/service recovery: read docs/issue-recovery.md. Autonomous mode
+Deferred issues/service recovery: coordinators read docs/issue-recovery.md. Autonomous mode
 default unless user specifies otherwise; no questions during autonomous run.
 Potential blockers → runs/<job>/deferred-issues.md (runs/<run-id>/ before init):
 stable IDs, evidence/errors, affected tasks/dependencies, retained work, next

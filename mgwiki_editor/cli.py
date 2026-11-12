@@ -14,6 +14,7 @@ from .citations import citation_audit
 from .core import (
     Wiki,
     country_names,
+    digest,
     initialize,
     json_bytes,
     lint_wikitext,
@@ -23,9 +24,11 @@ from .core import (
 )
 from .licenses import file_name, license_evidence, license_report
 from .links import build_link_map
-from .memos import dictionary_index, vocabulary_report
+from .memos import dictionary_index, pack_vocabulary, vocabulary_report, vocabulary_view
 from .metadata import metadata_audit
+from .reporting import report_summary
 from .terminology import audit_mathematical_terms
+from .usage import session_usage
 from .vocabulary import vocabulary
 from .workflow import assemble_sections, coverage_report, plan_sections
 
@@ -153,6 +156,37 @@ def parser() -> argparse.ArgumentParser:
     memo.add_argument("--vocabulary", required=True, help="Job-relative vocabulary JSON")
     memo.add_argument("--lookup", action="append", default=[], help="Job-relative lookup JSON")
     memo.add_argument("--output", type=Path)
+    view = commands.add_parser(
+        "vocabulary-view", help="Offline paginated current decisions; not evidence validation",
+    )
+    view.add_argument("--job", type=Path, required=True)
+    view.add_argument("--vocabulary", default="vocabulary.json", help="Job-relative memo path")
+    view.add_argument("--offset", type=int, default=0)
+    view.add_argument("--limit", type=int, default=20)
+    view.add_argument("--section", help="Exact section_id filter")
+    view.add_argument("--term", help="Exact source_term filter; never merges senses")
+    view.add_argument("--include-evidence", action="store_true",
+                      help="Include direct evidence paths/archive pointers for selected records")
+    view.add_argument("--output", type=Path)
+    pack = commands.add_parser(
+        "vocabulary-pack", help="New lean candidate + lossless auxiliary archive; no adoption",
+    )
+    pack.add_argument("--job", type=Path, required=True)
+    pack.add_argument("--vocabulary", required=True, help="Job-relative vocabulary list")
+    pack.add_argument("--output", type=Path, required=True, help="New directory inside job")
+    usage = commands.add_parser(
+        "session-usage", help="Offline OpenCode session-counter JSON; never queries live server",
+    )
+    usage.add_argument("--input", type=Path, required=True, help="Session list/API data response")
+    usage.add_argument("--session", action="append", default=[],
+                       help="Exact ID; default roots only")
+    usage.add_argument("--output", type=Path)
+    for operation in (read, dictionary, vocab, audit, coverage, citations, metadata,
+                      license_check, license_capture, links, index, memo, view, usage):
+        operation.add_argument(
+            "--summary", action="store_true",
+            help="Require --output; save complete JSON, print only hash/signals/counts",
+        )
     broker = commands.add_parser("broker", help="Scoped broker operation; no raw HTTP/shell")
     broker.add_argument("--socket", type=Path, required=True)
     broker.add_argument("--capability-file", type=Path, required=True)
@@ -173,6 +207,11 @@ def main(argv: list[str] | None = None) -> int:
     """Dispatch one tool, returning nonzero for all failed gates or remote failures."""
     args = parser().parse_args(argv)
     try:
+        if getattr(args, "summary", False):
+            if args.output is None:
+                raise ValueError("--summary requires --output; complete evidence must be retained.")
+            if args.output.exists() or args.output.is_symlink():
+                raise ValueError(f"Output exists; preserve it: {args.output}")
         broker_socket = os.getenv("MGWIKI_BROKER_SOCKET")
         capfile = os.getenv("MGWIKI_CAPABILITY_FILE")
         if args.command == "broker":
@@ -186,6 +225,8 @@ def main(argv: list[str] | None = None) -> int:
         if broker_socket or capfile:
             if not broker_socket or not capfile:
                 raise ValueError("Both broker socket and capability file required; no fallback.")
+            if args.command in {"vocabulary-view", "vocabulary-pack", "session-usage"}:
+                raise ValueError(f"{args.command} unsupported by configured broker; no fallback.")
             if args.command in {
                 "init", "read", "lookup", "countries", "prepare", "publish", "sections-plan",
                 "sections-assemble", "vocab", "vocab-audit", "coverage", "links-build",
@@ -236,6 +277,16 @@ def main(argv: list[str] | None = None) -> int:
             result = dictionary_index(args.job, args.lookup)
         elif args.command == "vocabulary-report":
             result = vocabulary_report(args.job, args.vocabulary, args.lookup)
+        elif args.command == "vocabulary-view":
+            result = vocabulary_view(args.job, args.vocabulary, offset=args.offset,
+                                     limit=args.limit, section=args.section, term=args.term,
+                                     include_evidence=args.include_evidence)
+        elif args.command == "vocabulary-pack":
+            result = pack_vocabulary(args.job, args.vocabulary, args.output)
+        elif args.command == "session-usage":
+            raw = args.input.read_bytes()
+            result = session_usage(json.loads(raw), sessions=args.session)
+            result["source"] = {"path": str(args.input), "sha256": digest(raw)}
         elif args.command == "read":
             result = wiki.snapshot(args.lang, args.title, sandbox=args.sandbox)
         elif args.command == "validate":
@@ -246,8 +297,11 @@ def main(argv: list[str] | None = None) -> int:
             result = prepare(wiki, args.job)
         else:
             result = publish(wiki, args.job, args.approve)
-        if getattr(args, "output", None) and args.command != "sections-assemble":
+        if (getattr(args, "output", None)
+                and args.command not in {"sections-assemble", "vocabulary-pack"}):
             write_new({args.output: json_bytes(result)})
+        if getattr(args, "summary", False):
+            result = report_summary(args.command, result, args.output)
         # JSON escapes preserve Unicode even on ASCII/Latin-1 terminal streams.
         # Local evidence files remain UTF-8; printing must not turn a successful
         # lookup/prepare/save into an apparent failure after its side effects.
@@ -327,5 +381,9 @@ def _broker_dispatch(args, socket: Path, capfile: Path) -> int:
     response = client(socket, capfile, action, parameters)
     if response.get("ok") and getattr(args, "output", None):
         write_new({args.output: json_bytes(response["result"])})
+        if getattr(args, "summary", False):
+            response = {**response, "result": report_summary(
+                args.command, response["result"], args.output,
+            )}
     print(json.dumps(response, ensure_ascii=True, indent=2))
     return 0 if response.get("ok") else 1

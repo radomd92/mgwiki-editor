@@ -189,8 +189,10 @@ An article without headings still gets a lead assignment; do not invent sections
 Give each worker an exclusive runs/<job>/sections/<id>/ directory and the pinned
 local paths/context it needs: assigned source and local text, article outline,
 terminology/naming evidence, image/link inventory, shared reference definitions,
-and cross-section anchor/dependency information. Workers load the same three
-skills and saved style references. They write section.wiki, notes.wiki, and a
+and cross-section anchor/dependency information. Workers load mgwiki-style and
+mg-vocab and read the saved style references fully once per section session;
+coordinator-only edition/recovery/broker procedures are not worker setup.
+Workers write section.wiki, notes.wiki, and a
 section-local vocabulary.json, never shared draft/evidence/proposal files.
 
 Independent local section tasks may run concurrently. This does not relax the

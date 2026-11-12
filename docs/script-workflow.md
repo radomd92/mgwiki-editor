@@ -1,6 +1,7 @@
 # Generic Python workflow
 
 Active code: `mgwiki_editor/`. Entry point: `python3 -m mgwiki_editor`.
+Token/context policy and lean commands: [token-efficient-workflow.md](token-efficient-workflow.md).
 Maintenance/import tools: `scripts/`.
 Historical article recipes: `scripts/legacy/`; originals preserved, not imported by active code.
 

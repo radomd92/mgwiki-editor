@@ -7,8 +7,8 @@ from pathlib import Path
 from typing import Any
 from urllib.parse import unquote, urlsplit
 
-from .artifacts import evidence_path, read_evidence
-from .core import GuardError, digest
+from .artifacts import evidence_path, read_evidence, write_new
+from .core import GuardError, digest, json_bytes
 
 
 def vocabulary_records(data: Any) -> list[dict[str, Any]]:
@@ -18,6 +18,112 @@ def vocabulary_records(data: Any) -> list[dict[str, Any]]:
     if not isinstance(data, list) or any(not isinstance(row, dict) for row in data):
         raise GuardError("Vocabulary must be a list or a terms/entries wrapper.")
     return data
+
+
+CURRENT_FIELDS = (
+    "section_id", "source_language", "source_term", "source_sense", "domain",
+    "chosen_expression", "english_definition", "definition_origin", "malagasy_definition",
+    "status", "reason", "locations", "alternatives_rejected", "french_bridge",
+    "selected_source_numbers", "database_sha256",
+)
+
+
+def vocabulary_view(
+    job: Path, filename: str, *, offset: int = 0, limit: int = 20,
+    section: str | None = None, term: str | None = None, include_evidence: bool = False,
+) -> dict[str, Any]:
+    """Page current decisions, keeping exact source ordinals and a full-file hash."""
+    if type(offset) is not int or offset < 0 or type(limit) is not int or not 1 <= limit <= 100:
+        raise GuardError("Vocabulary view needs offset >= 0 and limit between 1 and 100.")
+    pinned = read_evidence(job, filename)
+    records = vocabulary_records(pinned.data)
+    matches = [(index, record) for index, record in enumerate(records)
+               if (section is None or record.get("section_id") == section)
+               and (term is None or record.get("source_term") == term)]
+    page = []
+    for index, record in matches[offset:offset + limit]:
+        evidence = record.get("evidence_files", [])
+        if not isinstance(evidence, list) or any(not isinstance(name, str) for name in evidence):
+            raise GuardError("Vocabulary evidence_files must be a list of job-relative paths.")
+        fields = set(CURRENT_FIELDS) | ({"evidence_files", "packed_details"}
+                                        if include_evidence else set())
+        page.append({"record_index": index,
+                     "current": {key: record[key] for key in sorted(fields) if key in record},
+                     "evidence_count": len(evidence),
+                     "omitted_fields": sorted(set(record) - fields)})
+    end = offset + len(page)
+    return {
+        "schema": 1, "view": "current_decisions_only",
+        "source": {"path": pinned.name, "sha256": pinned.sha256},
+        "total_records": len(records), "matching_records": len(matches),
+        "offset": offset, "next_offset": end if end < len(matches) else None,
+        "records": page,
+        "limits": "Paginated view, not validation or review. Exact term/section filters only; "
+                  "history omitted; evidence paths opt-in. Read original records and relevant raw "
+                  "evidence before verifying a sense. Statuses unchanged; no publication approval.",
+    }
+
+
+def pack_vocabulary(job: Path, filename: str, output: Path) -> dict[str, Any]:
+    """Create a lean candidate, archiving auxiliary fields once; never adopt or approve it."""
+    job = job.resolve()
+    if output.exists() or output.is_symlink():
+        raise GuardError("Vocabulary candidate exists; preserve it.")
+    output = output.resolve()
+    if not output.is_relative_to(job) or output == job:
+        raise GuardError("Vocabulary candidate must be a new directory inside the job.")
+    if output.exists():
+        raise GuardError("Vocabulary candidate exists; preserve it.")
+    if any((job / name).exists() or (job / name).is_symlink()
+           for name in ("proposal.json", "receipt.json")):
+        raise GuardError("Prepared/save-attempt job: never repack its vocabulary.")
+    pinned = read_evidence(job, filename)
+    if not isinstance(pinned.data, list):
+        raise GuardError("Pack requires a job-relative vocabulary list, not a worker wrapper.")
+    records = vocabulary_records(pinned.data)
+    archive_name = (output / "details.json").relative_to(job).as_posix()
+    objects, entries, candidate = {}, [], []
+    kept_fields = set(CURRENT_FIELDS) | {"evidence_files"}
+    for index, record in enumerate(records):
+        if "packed_details" in record:
+            raise GuardError("Already packed: retain archive and use targeted corrections.")
+        evidence = record.get("evidence_files")
+        if (not isinstance(evidence, list) or not evidence
+                or any(not isinstance(name, str) for name in evidence)):
+            raise GuardError("Vocabulary entries need nonempty evidence_files.")
+        for name in evidence:
+            evidence_path(job, name)
+        fields = {}
+        for key, value in record.items():
+            if key not in kept_fields:
+                sha256 = digest(json_bytes(value))
+                objects[sha256] = value
+                fields[key] = sha256
+        entries.append(fields)
+        lean = {key: value for key, value in record.items() if key in kept_fields}
+        # Retain ALL direct raw-evidence dependencies; no implicit manifest traversal.
+        lean["evidence_files"] = [*evidence, archive_name]
+        lean["packed_details"] = {"archive": archive_name, "record_index": index}
+        candidate.append(lean)
+    archive = {"schema": 1, "kind": "vocabulary_auxiliary_archive",
+               "source": {"path": pinned.name, "sha256": pinned.sha256},
+               "objects": objects, "records": entries}
+    files = {output / "vocabulary.json": json_bytes(candidate),
+             output / "details.json": json_bytes(archive)}
+    write_new(files)
+    return {
+        "schema": 1, "status": "candidate_only", "records": len(records),
+        "source_sha256": pinned.sha256, "unique_auxiliary_values": len(objects),
+        "candidate_bytes": len(files[output / "vocabulary.json"]),
+        "archive_bytes": len(files[output / "details.json"]),
+        "artifacts": {path.relative_to(job).as_posix(): digest(raw)
+                      for path, raw in files.items()},
+        "limits": "Source untouched; all original direct evidence paths retained. Auxiliary "
+                  "fields archived by exact JSON value, not discarded. "
+                  "Statuses/meanings unchanged. "
+                  "Coordinator must inspect archive and review candidate before adoption; no "
+                  "review gates, preparation or publication performed.",
+    }
 
 
 def _lookup_identity(data: dict[str, Any]) -> tuple[str, str]:
@@ -104,7 +210,9 @@ def vocabulary_report(job: Path, filename: str, lookups: list[str]) -> dict[str,
             raise GuardError("Vocabulary evidence_files must be a list of job-relative paths.")
         for name in evidence:
             path = evidence_path(job, name)
-            artifacts[path.relative_to(job.resolve()).as_posix()] = digest(path.read_bytes())
+            canonical = path.relative_to(job.resolve()).as_posix()
+            if canonical not in artifacts:
+                artifacts[canonical] = digest(path.read_bytes())
         required = ("source_sense", "chosen_expression", "english_definition",
                     "definition_origin", "malagasy_definition", "reason")
         missing = [field for field in required if not record.get(field)]

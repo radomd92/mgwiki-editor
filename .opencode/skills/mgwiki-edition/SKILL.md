@@ -5,7 +5,9 @@ description: Mandatory new/existing Wikipedia article edition protocol, review g
 
 # Edition protocol
 
-Read ../../../docs/edition-protocol.wiki in full. Follow its phases in order.
+Coordinator: read ../../../docs/edition-protocol.wiki in full. Follow its phases in order.
+Offline section workers do not load this coordinator skill; their own role prompt,
+mgwiki-style/mg-vocab and supplied assignment retain all editorial/offline limits.
 Do not skip existing-article/sandbox comparison even when asked to translate a
 new source. Autonomous mode: do not ask questions, script permission, or draft
 approval. Translation/edit requests authorize checked sandbox completion unless

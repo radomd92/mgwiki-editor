@@ -6,6 +6,11 @@ agent: mgwiki-editor
 Translate the following Wikipedia article using mgwiki-style, mgwiki-edition,
 and mg-vocab: $ARGUMENTS
 
+If multiple articles: follow docs/token-efficient-workflow.md; primary queues only,
+fresh mgwiki-article coordinator per article, compact path/status handoffs. Do not
+load full article evidence into batch context. Below protocol applies inside each
+single-article coordinator. Never duplicate an active job or reset an uncertain save.
+
 Work autonomously: initialize a job, inspect existing Malagasy and sandbox text,
 prepare and review Malagasy MediaWiki wikitext, and save the checked proposal to
 Mpikambana:Bot-Jagwar/<article-title> unless I specify draft-only/no-save. Do not

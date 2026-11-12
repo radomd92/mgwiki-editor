@@ -322,8 +322,10 @@ No live interwiki or Wikidata changes.
 Section hatnotes: when a source section begins with a main-article or
 detailed-article header (Main, Main article, Further, Details), render it with
 the verified local template {{lahatsoratra antsipirihany|Target}}. Use one call
-per target and preserve target order. Do not leave the English template or
-replace the hatnote with a bare link.
+per target and preserve target order. Target is the verified translated Malagasy
+article title, never the English source title; unresolved targets need
+coordinator review. Do not leave the English template or replace the hatnote
+with a bare link.
 No unresolved translator comments, TODOs, or research notes in article text.
 
 == 6. Editorial quality gate ==

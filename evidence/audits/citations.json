@@ -1,0 +1,605 @@
+{
+  "draft": {
+    "empty": false,
+    "references": {
+      "anonymous_count": 26,
+      "conflicts": [],
+      "errors": [],
+      "groups": [
+        ""
+      ],
+      "missing_renderers": [],
+      "named": [
+        {
+          "body": "{{cite book|title=Advanced Biology|author1=M. b. v. Roberts |author2=Michael Reiss |author3=Grace Monger |pages=164–165|publisher=Nelson|year=2000|location=London, UK}}",
+          "calls": 2,
+          "group": "",
+          "name": "Advanced Biology"
+        },
+        {
+          "body": "{{cite web| url = http://www.people.eku.edu/ritchisong/birdrespiration.html | title = BIO 554/754 – Ornithology: Avian respiration | access-date = 2009-04-23 | last = Ritchson | first = G | publisher = Department of Biological Sciences, Eastern Kentucky University }}",
+          "calls": 15,
+          "group": "",
+          "name": "AvResp"
+        },
+        {
+          "body": "{{cite book |last1=Campbell |first1=Neil A. |title=Biology |date=1990 |publisher=Benjamin/Cummings Pub. Co. |location=Redwood City, Calif. |isbn=0-8053-1800-3 |pages=834–835 |edition=2nd}}",
+          "calls": 1,
+          "group": "",
+          "name": "Biology"
+        },
+        {
+          "body": "{{cite journal |last1=Koen |first1=Chrisvan L. |last2=Koeslag |first2=Johan H. | title=On the stability of subatmospheric intrapleural and intracranial pressures |journal= News in Physiological Sciences | date=1995 |volume=10 |issue=4 |pages=176–178 |doi=10.1152/physiologyonline.1995.10.4.176}}",
+          "calls": 2,
+          "group": "",
+          "name": "Chrisvan L 1995"
+        },
+        {
+          "body": "{{cite book |first=E. L. |last=Cussler |title=Diffusion: Mass Transfer in Fluid Systems |edition=2nd |publisher=Cambridge University Press |location=New York |year=1997 |isbn=0-521-45078-0 }}",
+          "calls": 1,
+          "group": "",
+          "name": "Cussler"
+        },
+        {
+          "body": "{{cite journal |vauthors=Fisher JW, Koury S, Ducey T, Mendel S |title=Erythropoietin production by interstitial cells of hypoxic monkey kidneys |journal=British Journal of Haematology |volume=95 |issue=1 |pages=27–32 |year=1996 |pmid=8857934 |doi=10.1046/j.1365-2141.1996.d01-1864.x |s2cid=38309595 }}",
+          "calls": 1,
+          "group": "",
+          "name": "Fisher1996"
+        },
+        {
+          "body": "{{cite book| last = Gilbertson| first = Lance|title = Zoology Laboratory Manual| publisher = McGraw-Hill | year = 1999| location = New York|isbn= 0-07-237716-X}}",
+          "calls": 1,
+          "group": "",
+          "name": "Gilbertson"
+        },
+        {
+          "body": "{{cite journal |last1=Hsia |first1=CC |last2=Hyde |first2=DM |last3=Weibel |first3=ER |author3-link=ER Weibel |title=Lung Structure and the Intrinsic Challenges of Gas Exchange. |journal=Comprehensive Physiology |date=15 March 2016 |volume=6 |issue=2 |pages=827–95 |doi=10.1002/cphy.c150028 |pmid=27065169|pmc=5026132 }}",
+          "calls": 1,
+          "group": "",
+          "name": "Hsia"
+        },
+        {
+          "body": "{{Cite journal| author=Hughes GM| title=Morphometrics of fish gills| journal=Respiration Physiology| volume=14| issue=1–2| year=1972| pages=1–25| doi=10.1016/0034-5687(72)90014-x| pmid=5042155}}",
+          "calls": 3,
+          "group": "",
+          "name": "Hughes1972"
+        },
+        {
+          "body": "{{cite book|last1=Kacmarek|first1=Robert M.|last2=Dimas|first2=Steven|last3=Mack|first3=Craig W.|title=Essentials of Respiratory Care - E-Book|url=https://books.google.com/books?id=FV9PAQAAQBAJ&pg=PA81|publisher=Elsevier Health Sciences|language=en|date=13 August 2013|isbn=9780323277785}}",
+          "calls": 1,
+          "group": "",
+          "name": "Kacmarek"
+        },
+        {
+          "body": "{{cite book|last=Krautwald-Junghanns|first=Maria-Elisabeth|title=Diagnostic Imaging of Exotic Pets: Birds, Small Mammals, Reptiles|year=2010|publisher=Manson Publishing|location=Germany|isbn=978-3-89993-049-8|display-authors=etal}}",
+          "calls": 1,
+          "group": "",
+          "name": "Krautwald-Junghanns, et al. 2010"
+        },
+        {
+          "body": "{{cite book|last1=Maina|first1=John N.|title=The lung air sac system of birds development, structure, and function; with 6 tables|date=2005|publisher=Springer|location=Berlin|isbn=978-3-540-25595-6|pages=3.2–3.3 \"Lung\", \"Airway (Bronchiol) System\" 66–82|url=https://books.google.com/books?id=-wtoEg7fcjkC&q=neopulmonic+parabronchi&pg=PA66}}",
+          "calls": 2,
+          "group": "",
+          "name": "Maina2005"
+        },
+        {
+          "body": "{{cite book|last1=Netter|first1=Frank H.|title=Atlas of Human Anatomy Including Student Consult Interactive Ancillaries and Guides.|date=2014|publisher=W B Saunders Co|location=Philadelphia, Penn.|isbn=978-1-4557-0418-7|page=200|edition=6th}}",
+          "calls": 1,
+          "group": "",
+          "name": "Netter"
+        },
+        {
+          "body": "{{Cite journal| author=Newstead James D | title=Fine structure of the respiratory lamellae of teleostean gills| journal=[[Cell and Tissue Research]]| volume=79| issue=3| year=1967| pages=396–428| doi=10.1007/bf00335484| pmid=5598734| s2cid=20771899}}",
+          "calls": 1,
+          "group": "",
+          "name": "Newstead1967"
+        },
+        {
+          "body": "Pinter, H. (1986). Labyrinth Fish. Barron's Educational Series, Inc., <nowiki>ISBN 0-8120-5635-3</nowiki>",
+          "calls": 2,
+          "group": "",
+          "name": "Pinter"
+        },
+        {
+          "body": "{{cite book|last1=Pocock|first1=Gillian|last2=Richards|first2=Christopher D.|title=Human physiology : the basis of medicine|date=2006|publisher=Oxford University Press|location=Oxford|isbn=978-0-19-856878-0|pages=315–317|edition=3rd}}",
+          "calls": 2,
+          "group": "",
+          "name": "Pocock"
+        },
+        {
+          "body": "{{cite book|last=Romer|first=Alfred Sherwood|title=The Vertebrate body|edition=Fourth|publisher=W.B. Saunders|location=Philadelphia|date=1970|pages=[https://archive.org/details/vertebratebody00holt/page/323 323–324]|isbn=0-7216-7667-7|url=https://archive.org/details/vertebratebody00holt/page/323}}",
+          "calls": 1,
+          "group": "",
+          "name": "Romer"
+        },
+        {
+          "body": "{{cite book |author=Romer, Alfred Sherwood|author2=Parsons, Thomas S.|year=1977|title=The Vertebrate Body |publisher=Holt-Saunders International|location= Philadelphia, PA|pages= 316–327|isbn= 0-03-910284-X|author-link=Alfred Romer}}",
+          "calls": 1,
+          "group": "",
+          "name": "VB"
+        },
+        {
+          "body": "{{cite book |first1=James R. |last1=Welty |first2=Charles E. |last2=Wicks |first3=Robert E. |last3=Wilson |first4=Gregory |last4=Rorrer |title=Fundamentals of Momentum, Heat, and Mass Transfer |publisher=Wiley |year=2001 |isbn=978-0-470-12868-8 }}",
+          "calls": 1,
+          "group": "",
+          "name": "Welty"
+        },
+        {
+          "body": "{{cite book|last1=Whittow|first1=G. Causey|title=Sturkie's Avian Physiology|year=2000|publisher=Academic Press|location=San Diego, California|isbn=978-0-12-747605-6 |pages=233–241}}",
+          "calls": 2,
+          "group": "",
+          "name": "Whittow 2000 233–241"
+        },
+        {
+          "body": "{{cite book |last1=West |first1=J.B. |title=Respiratory physiology: the essentials. |location=Baltimore |publisher=Williams & Wilkins |date=1985| pages= 21–30, 84–84, 98–101 }}",
+          "calls": 2,
+          "group": "",
+          "name": "Williams & Wilkins"
+        },
+        {
+          "body": "{{cite web|url=http://www.altitude.org/calculators/air_pressure.php|title=Online high altitude oxygen calculator|publisher=altitude.org|access-date=15 August 2007|url-status=dead|archive-url=https://archive.today/20120729214053/http://www.altitude.org/calculators/air_pressure.php|archive-date=29 July 2012}}",
+          "calls": 2,
+          "group": "",
+          "name": "altitude"
+        },
+        {
+          "body": "[http://www.cco.caltech.edu/~brokawc/Bi145/Diffusion.html Diffusion<!-- Bot generated title -->]",
+          "calls": 2,
+          "group": "",
+          "name": "caltech"
+        },
+        {
+          "body": "{{cite book|last1=Campbell|first1=Neil A.|title=Biology|date=1990|publisher=Benjamin/Cummings Pub. Co.|location=Redwood City, Calif.|isbn=0-8053-1800-3|pages=836–844|edition=2nd}}",
+          "calls": 7,
+          "group": "",
+          "name": "campbell"
+        },
+        {
+          "body": "{{cite book|last1=Campbell|first1=Neil A.|title= Biology|edition= Second|publisher= Benjamin/Cummings Publishing Company, Inc|location= Redwood City, California|date= 1990|pages=836–838|isbn=0-8053-1800-3}}",
+          "calls": 3,
+          "group": "",
+          "name": "campbell3"
+        },
+        {
+          "body": "{{cite web\n|url=https://health.clevelandclinic.org/breathe-mouth-nose/\n|title=Should You Breathe Through Your Mouth or Your Nose?\n|access-date=2020-06-28\n|last=Turowski\n|first=Jason\n|date=2016-04-29\n|publisher=[[Cleveland Clinic]]\n}}",
+          "calls": 1,
+          "group": "",
+          "name": "cc"
+        },
+        {
+          "body": "{{cite book |last1=Diem |first1=K. | last2=Lentner |first2=C. | chapter= Blood – Inorganic substances| title= in: Scientific Tables | edition= Seventh |location=Basle, Switzerland |publisher=CIBA-GEIGY Ltd. |date=1970 |page=571}}",
+          "calls": 1,
+          "group": "",
+          "name": "ciba"
+        },
+        {
+          "body": "{{Cite web |url=http://www.crcpress.com/product/isbn/9781439820773 |title=CRC Press Online: CRC Handbook of Chemistry and Physics, Section 6, 91st Edition |access-date=2017-08-06 |archive-date=2011-07-16 |archive-url=https://web.archive.org/web/20110716073635/http://www.crcpress.com/product/isbn/9781439820773 |url-status=dead }}",
+          "calls": 2,
+          "group": "",
+          "name": "crc"
+        },
+        {
+          "body": "{{cite journal | author = Fowler W.S. | year = 1948 | title = Lung Function studies. II. The respiratory dead space | journal = Am. J. Physiol. | volume = 154 | issue = 3| pages = 405–416 | doi=10.1152/ajplegacy.1948.154.3.405| pmid = 18101134 }}",
+          "calls": 3,
+          "group": "",
+          "name": "fowler1948"
+        },
+        {
+          "body": "{{cite book|last1=Gilroy|first1=Anne M.|last2=MacPherson|first2= Brian R.|last3= Ross|first3=Lawrence M.|title= Atlas of Anatomy|publisher=Thieme|location=Stuttgart|date=2008|pages=108–111|isbn=978-1-60406-062-1}}",
+          "calls": 2,
+          "group": "",
+          "name": "gilroy"
+        },
+        {
+          "body": "{{cite journal|last=Scott|first=Graham R.|title=Commentary: Elevated performance: the unique physiology of birds that fly at high altitudes|journal=Journal of Experimental Biology|volume= 214|issue=Pt 15|pages=2455–2462|date=2011|doi=10.1242/jeb.052548|pmid=21753038|doi-access=|s2cid=27550864 }}",
+          "calls": 3,
+          "group": "",
+          "name": "graham"
+        },
+        {
+          "body": "{{cite book |last1=Williams |first1=Peter L. |last2=Warwick |first2=Roger |last3=Dyson|first3=Mary |last4=Bannister |first4=Lawrence H. |title=Gray's Anatomy| pages=1278–1282 |location=Edinburgh|publisher=Churchill Livingstone | edition=Thirty-seventh |date=1989|isbn= 0443-041776 }}",
+          "calls": 3,
+          "group": "",
+          "name": "grays"
+        },
+        {
+          "body": "{{cite web|title=Your Nose, the Guardian of Your Lungs|url=https://www.bmc.org/otolaryngology-head-neck-surgery/resources/your-nose-guardian-your-lungs|access-date=2020-06-29|publisher=[[Boston Medical Center]]}}",
+          "calls": 1,
+          "group": "",
+          "name": "guardian"
+        },
+        {
+          "body": "{{cite web\n|url=https://www.nbcnews.com/healthmain/mouth-breathing-gross-harmful-your-health-1C6437430\n|title='Mouth-breathing' gross, harmful to your health\n|access-date=2020-06-28\n|last=Dahl\n|first=Melissa\n|date=2011-01-11\n|publisher=NBC News\n}}",
+          "calls": 1,
+          "group": "",
+          "name": "harmful"
+        },
+        {
+          "body": "{{cite web\n|url=https://www.npr.org/transcripts/862963172\n|title=How The 'Lost Art' Of Breathing Can Impact Sleep And Resilience\n|access-date=2020-06-23\n|last=Gross\n|first=Terry\n|date=2020-05-27\n|publisher=[[NPR|National Public Radio (NPR)]]/[[Fresh Air]]\n}}",
+          "calls": 1,
+          "group": "",
+          "name": "nesnpr"
+        },
+        {
+          "body": "{{cite journal | vauthors = Henry RP, Swenson ER | title = The distribution and physiological significance of carbonic anhydrase in vertebrate gas exchange organs | journal = Respiration Physiology | volume = 121 | issue = 1 | pages = 1–12 | date = June 2000 | pmid = 10854618 | doi = 10.1016/S0034-5687(00)00110-9}}",
+          "calls": 1,
+          "group": "",
+          "name": "pmid10854618"
+        },
+        {
+          "body": "{{cite journal | vauthors = Halperin J, Ansaldo M, Pellerano GN, Luquet CM | title = Bimodal breathing in the estuarine crab Chasmagnathus granulatus Dana 1851--physiological and morphological studies | journal = Comparative Biochemistry and Physiology. Part A, Molecular & Integrative Physiology | volume = 126 | issue = 3 | pages = 341–9 | date = July 2000 | pmid = 10964029 | doi = 10.1016/S1095-6433(00)00216-6}}",
+          "calls": 1,
+          "group": "",
+          "name": "pmid10964029"
+        },
+        {
+          "body": "{{cite web|title=Respiration|url=http://people.eku.edu/ritchisong/301notes6.htm|publisher=Harvey Project|access-date=27 July 2012}}",
+          "calls": 2,
+          "group": "",
+          "name": "ritchisong"
+        },
+        {
+          "body": "{{cite book|last1=Storer|first1=Tracy I.|last2=Usinger|first2=R. L.|last3=Stebbins|first3=Robert C.|last4=Nybakken|first4=James W.|title=General Zoology|edition=sixth|publisher=McGraw-Hill|location=New York|date=1997|pages=[https://archive.org/details/generalzoolog00stor/page/668 668–670]|isbn=0-07-061780-5|url=https://archive.org/details/generalzoolog00stor/page/668}}",
+          "calls": 6,
+          "group": "",
+          "name": "storer"
+        },
+        {
+          "body": "{{cite book|last1=Storer|first1=Tracy I.|last2=Usinger|first2=R. L.|last3=Stebbins|first3=Robert C.|last4=Nybakken|first4=James W.|title=General Zoology|edition=sixth|publisher=McGraw-Hill|location=New York|date=1997|pages=[https://archive.org/details/generalzoolog00stor/page/752 752–753]|isbn=0-07-061780-5|url=https://archive.org/details/generalzoolog00stor/page/752}}",
+          "calls": 1,
+          "group": "",
+          "name": "storer3"
+        },
+        {
+          "body": "{{cite book |last1= Stryer |first1= Lubert | title=In: Biochemistry. |chapter= Photosynthesis |edition= Fourth |location= New York |publisher= W.H. FreeMan and Company|date= 1995 |pages= 653–680 |isbn= 0-7167-2009-4 }}",
+          "calls": 2,
+          "group": "",
+          "name": "stryer"
+        },
+        {
+          "body": "{{cite book|last=Sturkie |first= P.D. |editor1-first= P. D |editor1-last= Sturkie |title=Avian Physiology | publisher=Springer Verlag |location= New York |date= 1976 |page = 201 |isbn= 978-1-4612-9335-4 |doi= 10.1007/978-1-4612-4862-0|s2cid= 36415426 }}",
+          "calls": 2,
+          "group": "",
+          "name": "sturkie"
+        },
+        {
+          "body": "{{cite journal |last=Taylor |first=D |title=The Valsalva Manoeuvre: A critical review |journal=South Pacific Underwater Medicine Society Journal |volume=26 |issue=1 |year=1996 |issn=0813-1988 |oclc=16986801 |url=http://archive.rubicon-foundation.org/6264 |access-date=14 March 2016 |archive-date=31 January 2010 |archive-url=https://web.archive.org/web/20100131114931/http://archive.rubicon-foundation.org/6264 |url-status=usurped }}",
+          "calls": 1,
+          "group": "",
+          "name": "taylor"
+        },
+        {
+          "body": "{{cite book |last1= Tortora |first1= Gerard J. |last2=Anagnostakos|first2=Nicholas P.| title=Principles of anatomy and physiology |url= https://archive.org/details/principlesofanat05tort |url-access= registration |pages=[https://archive.org/details/principlesofanat05tort/page/444 444–445]|edition= Fifth |location= New York |publisher= Harper & Row, Publishers|date= 1987 |isbn= 0-06-350729-3 }}",
+          "calls": 2,
+          "group": "",
+          "name": "tortora"
+        },
+        {
+          "body": "{{cite book |last1= Tortora |first1= Gerard J. |last2=Anagnostakos|first2=Nicholas P.| title=Principles of anatomy and physiology |url= https://archive.org/details/principlesofan1987tort |url-access= registration |pages=[https://archive.org/details/principlesofan1987tort/page/556 556–586]|edition= Fifth |location= New York |publisher= Harper & Row, Publishers|date= 1987 |isbn= 0-06-350729-3 }}",
+          "calls": 22,
+          "group": "",
+          "name": "tortora1"
+        },
+        {
+          "body": "{{cite book |last1= Tortora |first1= Gerard J. |last2=Anagnostakos|first2=Nicholas P.| title=Principles of anatomy and physiology |url= https://archive.org/details/principlesofanat05tort |url-access= registration |pages=[https://archive.org/details/principlesofanat05tort/page/570 570–572]|edition= Fifth |location= New York |publisher= Harper & Row, Publishers|date= 1987 |isbn= 0-06-350729-3 }}",
+          "calls": 2,
+          "group": "",
+          "name": "tortora8"
+        }
+      ],
+      "rendered_groups": [
+        ""
+      ],
+      "undefined": []
+    },
+    "short_citations": []
+  },
+  "inputs": {
+    "draft": {
+      "path": "draft.wiki",
+      "sha256": "90ebd140938ab64b7f20417476e0fa52fcd806015fbf9fde290dbc6350837913"
+    },
+    "source": {
+      "path": "source.wiki",
+      "sha256": "3aceefaa5a8724d5690707281d8b613ed75633864d42f74016b81c1572bc5557"
+    }
+  },
+  "limits": "Literal native/core #tag references and explicit bibliography entries only. Surname matches are candidates, never identified works, editions or quotation antecedents. No repair, external lookup, source-disagreement classification, citation-gate clearance or publication authorization.",
+  "schema": 1,
+  "source": {
+    "empty": false,
+    "references": {
+      "anonymous_count": 26,
+      "conflicts": [],
+      "errors": [],
+      "groups": [
+        ""
+      ],
+      "missing_renderers": [
+        ""
+      ],
+      "named": [
+        {
+          "body": "{{cite book|title=Advanced Biology|author1=M. b. v. Roberts |author2=Michael Reiss |author3=Grace Monger |pages=164–165|publisher=Nelson|year=2000|location=London, UK}}",
+          "calls": 2,
+          "group": "",
+          "name": "Advanced Biology"
+        },
+        {
+          "body": "{{cite web| url = http://www.people.eku.edu/ritchisong/birdrespiration.html | title = BIO 554/754 – Ornithology: Avian respiration | access-date = 2009-04-23 | last = Ritchson | first = G | publisher = Department of Biological Sciences, Eastern Kentucky University }}",
+          "calls": 15,
+          "group": "",
+          "name": "AvResp"
+        },
+        {
+          "body": "{{cite book |last1=Campbell |first1=Neil A. |title=Biology |date=1990 |publisher=Benjamin/Cummings Pub. Co. |location=Redwood City, Calif. |isbn=0-8053-1800-3 |pages=834–835 |edition=2nd}}",
+          "calls": 1,
+          "group": "",
+          "name": "Biology"
+        },
+        {
+          "body": "{{cite journal |last1=Koen |first1=Chrisvan L. |last2=Koeslag |first2=Johan H. | title=On the stability of subatmospheric intrapleural and intracranial pressures |journal= News in Physiological Sciences | date=1995 |volume=10 |issue=4 |pages=176–178 |doi=10.1152/physiologyonline.1995.10.4.176}}",
+          "calls": 2,
+          "group": "",
+          "name": "Chrisvan L 1995"
+        },
+        {
+          "body": "{{cite book |first=E. L. |last=Cussler |title=Diffusion: Mass Transfer in Fluid Systems |edition=2nd |publisher=Cambridge University Press |location=New York |year=1997 |isbn=0-521-45078-0 }}",
+          "calls": 1,
+          "group": "",
+          "name": "Cussler"
+        },
+        {
+          "body": "{{cite journal |vauthors=Fisher JW, Koury S, Ducey T, Mendel S |title=Erythropoietin production by interstitial cells of hypoxic monkey kidneys |journal=British Journal of Haematology |volume=95 |issue=1 |pages=27–32 |year=1996 |pmid=8857934 |doi=10.1046/j.1365-2141.1996.d01-1864.x |s2cid=38309595 }}",
+          "calls": 1,
+          "group": "",
+          "name": "Fisher1996"
+        },
+        {
+          "body": "{{cite book| last = Gilbertson| first = Lance|title = Zoology Laboratory Manual| publisher = McGraw-Hill | year = 1999| location = New York|isbn= 0-07-237716-X}}",
+          "calls": 1,
+          "group": "",
+          "name": "Gilbertson"
+        },
+        {
+          "body": "{{cite journal |last1=Hsia |first1=CC |last2=Hyde |first2=DM |last3=Weibel |first3=ER |author3-link=ER Weibel |title=Lung Structure and the Intrinsic Challenges of Gas Exchange. |journal=Comprehensive Physiology |date=15 March 2016 |volume=6 |issue=2 |pages=827–95 |doi=10.1002/cphy.c150028 |pmid=27065169|pmc=5026132 }}",
+          "calls": 1,
+          "group": "",
+          "name": "Hsia"
+        },
+        {
+          "body": "{{Cite journal| author=Hughes GM| title=Morphometrics of fish gills| journal=Respiration Physiology| volume=14| issue=1–2| year=1972| pages=1–25| doi=10.1016/0034-5687(72)90014-x| pmid=5042155}}",
+          "calls": 3,
+          "group": "",
+          "name": "Hughes1972"
+        },
+        {
+          "body": "{{cite book|last1=Kacmarek|first1=Robert M.|last2=Dimas|first2=Steven|last3=Mack|first3=Craig W.|title=Essentials of Respiratory Care - E-Book|url=https://books.google.com/books?id=FV9PAQAAQBAJ&pg=PA81|publisher=Elsevier Health Sciences|language=en|date=13 August 2013|isbn=9780323277785}}",
+          "calls": 1,
+          "group": "",
+          "name": "Kacmarek"
+        },
+        {
+          "body": "{{cite book|last=Krautwald-Junghanns|first=Maria-Elisabeth|title=Diagnostic Imaging of Exotic Pets: Birds, Small Mammals, Reptiles|year=2010|publisher=Manson Publishing|location=Germany|isbn=978-3-89993-049-8|display-authors=etal}}",
+          "calls": 1,
+          "group": "",
+          "name": "Krautwald-Junghanns, et al. 2010"
+        },
+        {
+          "body": "{{cite book|last1=Maina|first1=John N.|title=The lung air sac system of birds development, structure, and function; with 6 tables|date=2005|publisher=Springer|location=Berlin|isbn=978-3-540-25595-6|pages=3.2–3.3 \"Lung\", \"Airway (Bronchiol) System\" 66–82|url=https://books.google.com/books?id=-wtoEg7fcjkC&q=neopulmonic+parabronchi&pg=PA66}}",
+          "calls": 2,
+          "group": "",
+          "name": "Maina2005"
+        },
+        {
+          "body": "{{cite book|last1=Netter|first1=Frank H.|title=Atlas of Human Anatomy Including Student Consult Interactive Ancillaries and Guides.|date=2014|publisher=W B Saunders Co|location=Philadelphia, Penn.|isbn=978-1-4557-0418-7|page=200|edition=6th}}",
+          "calls": 1,
+          "group": "",
+          "name": "Netter"
+        },
+        {
+          "body": "{{Cite journal| author=Newstead James D | title=Fine structure of the respiratory lamellae of teleostean gills| journal=[[Cell and Tissue Research]]| volume=79| issue=3| year=1967| pages=396–428| doi=10.1007/bf00335484| pmid=5598734| s2cid=20771899}}",
+          "calls": 1,
+          "group": "",
+          "name": "Newstead1967"
+        },
+        {
+          "body": "Pinter, H. (1986). Labyrinth Fish. Barron's Educational Series, Inc., {{ISBN|0-8120-5635-3}}",
+          "calls": 2,
+          "group": "",
+          "name": "Pinter"
+        },
+        {
+          "body": "{{cite book|last1=Pocock|first1=Gillian|last2=Richards|first2=Christopher D.|title=Human physiology : the basis of medicine|date=2006|publisher=Oxford University Press|location=Oxford|isbn=978-0-19-856878-0|pages=315–317|edition=3rd}}",
+          "calls": 2,
+          "group": "",
+          "name": "Pocock"
+        },
+        {
+          "body": "{{cite book|last=Romer|first=Alfred Sherwood|title=The Vertebrate body|edition=Fourth|publisher=W.B. Saunders|location=Philadelphia|date=1970|pages=[https://archive.org/details/vertebratebody00holt/page/323 323–324]|isbn=0-7216-7667-7|url=https://archive.org/details/vertebratebody00holt/page/323}}",
+          "calls": 1,
+          "group": "",
+          "name": "Romer"
+        },
+        {
+          "body": "{{cite book |author=Romer, Alfred Sherwood|author2=Parsons, Thomas S.|year=1977|title=The Vertebrate Body |publisher=Holt-Saunders International|location= Philadelphia, PA|pages= 316–327|isbn= 0-03-910284-X|author-link=Alfred Romer}}",
+          "calls": 1,
+          "group": "",
+          "name": "VB"
+        },
+        {
+          "body": "{{cite book |first1=James R. |last1=Welty |first2=Charles E. |last2=Wicks |first3=Robert E. |last3=Wilson |first4=Gregory |last4=Rorrer |title=Fundamentals of Momentum, Heat, and Mass Transfer |publisher=Wiley |year=2001 |isbn=978-0-470-12868-8 }}",
+          "calls": 1,
+          "group": "",
+          "name": "Welty"
+        },
+        {
+          "body": "{{cite book|last=Whittow|first=G. Causey|title=Sturkie's Avian Physiology|year=2000|publisher=Academic Press|location=San Diego, California|isbn=978-0-12-747605-6 |pages=233–241}}",
+          "calls": 2,
+          "group": "",
+          "name": "Whittow 2000 233–241"
+        },
+        {
+          "body": "{{cite book |last1=West |first1=J.B. |title=Respiratory physiology: the essentials. |location=Baltimore |publisher=Williams & Wilkins |date=1985| pages= 21–30, 84–84, 98–101 }}",
+          "calls": 2,
+          "group": "",
+          "name": "Williams & Wilkins"
+        },
+        {
+          "body": "{{cite web|url=http://www.altitude.org/calculators/air_pressure.php|title=Online high altitude oxygen calculator|publisher=altitude.org|access-date=15 August 2007|url-status=dead|archive-url=https://archive.today/20120729214053/http://www.altitude.org/calculators/air_pressure.php|archive-date=29 July 2012}}",
+          "calls": 2,
+          "group": "",
+          "name": "altitude"
+        },
+        {
+          "body": "[http://www.cco.caltech.edu/~brokawc/Bi145/Diffusion.html Diffusion<!-- Bot generated title -->]",
+          "calls": 2,
+          "group": "",
+          "name": "caltech"
+        },
+        {
+          "body": "{{cite book|last1=Campbell|first1=Neil A.|title=Biology|date=1990|publisher=Benjamin/Cummings Pub. Co.|location=Redwood City, Calif.|isbn=0-8053-1800-3|pages=836–844|edition=2nd}}",
+          "calls": 7,
+          "group": "",
+          "name": "campbell"
+        },
+        {
+          "body": "{{cite book|last1=Campbell|first1=Neil A.|title= Biology|edition= Second|publisher= Benjamin/Cummings Publishing Company, Inc|location= Redwood City, California|date= 1990|pages=836–838|isbn=0-8053-1800-3}}",
+          "calls": 3,
+          "group": "",
+          "name": "campbell3"
+        },
+        {
+          "body": "{{cite web\n|url=https://health.clevelandclinic.org/breathe-mouth-nose/\n|title=Should You Breathe Through Your Mouth or Your Nose?\n|access-date=2020-06-28\n|last=Turowski\n|first=Jason\n|date=2016-04-29\n|publisher=[[Cleveland Clinic]]\n}}",
+          "calls": 1,
+          "group": "",
+          "name": "cc"
+        },
+        {
+          "body": "{{cite book |last1=Diem |first1=K. | last2=Lentner |first2=C. | chapter= Blood – Inorganic substances| title= in: Scientific Tables | edition= Seventh |location=Basle, Switzerland |publisher=CIBA-GEIGY Ltd. |date=1970 |page=571}}",
+          "calls": 1,
+          "group": "",
+          "name": "ciba"
+        },
+        {
+          "body": "{{Cite web |url=http://www.crcpress.com/product/isbn/9781439820773 |title=CRC Press Online: CRC Handbook of Chemistry and Physics, Section 6, 91st Edition |access-date=2017-08-06 |archive-date=2011-07-16 |archive-url=https://web.archive.org/web/20110716073635/http://www.crcpress.com/product/isbn/9781439820773 |url-status=dead }}",
+          "calls": 2,
+          "group": "",
+          "name": "crc"
+        },
+        {
+          "body": "{{cite journal | author = Fowler W.S. | year = 1948 | title = Lung Function studies. II. The respiratory dead space | journal = Am. J. Physiol. | volume = 154 | issue = 3| pages = 405–416 | doi=10.1152/ajplegacy.1948.154.3.405| pmid = 18101134 }}",
+          "calls": 3,
+          "group": "",
+          "name": "fowler1948"
+        },
+        {
+          "body": "{{cite book|last1=Gilroy|first1=Anne M.|last2=MacPherson|first2= Brian R.|last3= Ross|first3=Lawrence M.|title= Atlas of Anatomy|publisher=Thieme|location=Stuttgart|date=2008|pages=108–111|isbn=978-1-60406-062-1}}",
+          "calls": 2,
+          "group": "",
+          "name": "gilroy"
+        },
+        {
+          "body": "{{cite journal|last=Scott|first=Graham R.|title=Commentary: Elevated performance: the unique physiology of birds that fly at high altitudes|journal=Journal of Experimental Biology|volume= 214|issue=Pt 15|pages=2455–2462|date=2011|doi=10.1242/jeb.052548|pmid=21753038|doi-access=|s2cid=27550864 }}",
+          "calls": 3,
+          "group": "",
+          "name": "graham"
+        },
+        {
+          "body": "{{cite book |last1=Williams |first1=Peter L. |last2=Warwick |first2=Roger |last3=Dyson|first3=Mary |last4=Bannister |first4=Lawrence H. |title=Gray's Anatomy| pages=1278–1282 |location=Edinburgh|publisher=Churchill Livingstone | edition=Thirty-seventh |date=1989|isbn= 0443-041776 }}",
+          "calls": 3,
+          "group": "",
+          "name": "grays"
+        },
+        {
+          "body": "{{cite web|title=Your Nose, the Guardian of Your Lungs|url=https://www.bmc.org/otolaryngology-head-neck-surgery/resources/your-nose-guardian-your-lungs|access-date=2020-06-29|publisher=[[Boston Medical Center]]}}",
+          "calls": 1,
+          "group": "",
+          "name": "guardian"
+        },
+        {
+          "body": "{{cite web\n|url=https://www.nbcnews.com/healthmain/mouth-breathing-gross-harmful-your-health-1C6437430\n|title='Mouth-breathing' gross, harmful to your health\n|access-date=2020-06-28\n|last=Dahl\n|first=Melissa\n|date=2011-01-11\n|publisher=NBC News\n}}",
+          "calls": 1,
+          "group": "",
+          "name": "harmful"
+        },
+        {
+          "body": "{{cite web\n|url=https://www.npr.org/transcripts/862963172\n|title=How The 'Lost Art' Of Breathing Can Impact Sleep And Resilience\n|access-date=2020-06-23\n|last=Gross\n|first=Terry\n|date=2020-05-27\n|publisher=[[NPR|National Public Radio (NPR)]]/[[Fresh Air]]\n}}",
+          "calls": 1,
+          "group": "",
+          "name": "nesnpr"
+        },
+        {
+          "body": "{{cite journal | vauthors = Henry RP, Swenson ER | title = The distribution and physiological significance of carbonic anhydrase in vertebrate gas exchange organs | journal = Respiration Physiology | volume = 121 | issue = 1 | pages = 1–12 | date = June 2000 | pmid = 10854618 | doi = 10.1016/S0034-5687(00)00110-9}}",
+          "calls": 1,
+          "group": "",
+          "name": "pmid10854618"
+        },
+        {
+          "body": "{{cite journal | vauthors = Halperin J, Ansaldo M, Pellerano GN, Luquet CM | title = Bimodal breathing in the estuarine crab Chasmagnathus granulatus Dana 1851--physiological and morphological studies | journal = Comparative Biochemistry and Physiology. Part A, Molecular & Integrative Physiology | volume = 126 | issue = 3 | pages = 341–9 | date = July 2000 | pmid = 10964029 | doi = 10.1016/S1095-6433(00)00216-6}}",
+          "calls": 1,
+          "group": "",
+          "name": "pmid10964029"
+        },
+        {
+          "body": "{{cite web|title=Respiration|url=http://people.eku.edu/ritchisong/301notes6.htm|publisher=Harvey Project|access-date=27 July 2012}}",
+          "calls": 2,
+          "group": "",
+          "name": "ritchisong"
+        },
+        {
+          "body": "{{cite book|last1=Storer|first1=Tracy I.|last2=Usinger|first2=R. L.|last3=Stebbins|first3=Robert C.|last4=Nybakken|first4=James W.|title=General Zoology|edition=sixth|publisher=McGraw-Hill|location=New York|date=1997|pages=[https://archive.org/details/generalzoolog00stor/page/668 668–670]|isbn=0-07-061780-5|url=https://archive.org/details/generalzoolog00stor/page/668}}",
+          "calls": 6,
+          "group": "",
+          "name": "storer"
+        },
+        {
+          "body": "{{cite book|last1=Storer|first1=Tracy I.|last2=Usinger|first2=R. L.|last3=Stebbins|first3=Robert C.|last4=Nybakken|first4=James W.|title=General Zoology|edition=sixth|publisher=McGraw-Hill|location=New York|date=1997|pages=[https://archive.org/details/generalzoolog00stor/page/752 752–753]|isbn=0-07-061780-5|url=https://archive.org/details/generalzoolog00stor/page/752}}",
+          "calls": 1,
+          "group": "",
+          "name": "storer3"
+        },
+        {
+          "body": "{{cite book |last1= Stryer |first1= Lubert | title=In: Biochemistry. |chapter= Photosynthesis |edition= Fourth |location= New York |publisher= W.H. FreeMan and Company|date= 1995 |pages= 653–680 |isbn= 0-7167-2009-4 }}",
+          "calls": 2,
+          "group": "",
+          "name": "stryer"
+        },
+        {
+          "body": "{{cite book|last=Sturkie |first= P.D. |editor1-first= P. D |editor1-last= Sturkie |title=Avian Physiology | publisher=Springer Verlag |location= New York |date= 1976 |page = 201 |isbn= 978-1-4612-9335-4 |doi= 10.1007/978-1-4612-4862-0|s2cid= 36415426 }}",
+          "calls": 2,
+          "group": "",
+          "name": "sturkie"
+        },
+        {
+          "body": "{{cite journal |last=Taylor |first=D |title=The Valsalva Manoeuvre: A critical review |journal=South Pacific Underwater Medicine Society Journal |volume=26 |issue=1 |year=1996 |issn=0813-1988 |oclc=16986801 |url=http://archive.rubicon-foundation.org/6264 |access-date=14 March 2016 |archive-date=31 January 2010 |archive-url=https://web.archive.org/web/20100131114931/http://archive.rubicon-foundation.org/6264 |url-status=usurped }}",
+          "calls": 1,
+          "group": "",
+          "name": "taylor"
+        },
+        {
+          "body": "{{cite book |last1= Tortora |first1= Gerard J. |last2=Anagnostakos|first2=Nicholas P.| title=Principles of anatomy and physiology |url= https://archive.org/details/principlesofanat05tort |url-access= registration |pages=[https://archive.org/details/principlesofanat05tort/page/444 444–445]|edition= Fifth |location= New York |publisher= Harper & Row, Publishers|date= 1987 |isbn= 0-06-350729-3 }}",
+          "calls": 2,
+          "group": "",
+          "name": "tortora"
+        },
+        {
+          "body": "{{cite book |last1= Tortora |first1= Gerard J. |last2=Anagnostakos|first2=Nicholas P.| title=Principles of anatomy and physiology |url= https://archive.org/details/principlesofan1987tort |url-access= registration |pages=[https://archive.org/details/principlesofan1987tort/page/556 556–586]|edition= Fifth |location= New York |publisher= Harper & Row, Publishers|date= 1987 |isbn= 0-06-350729-3 }}",
+          "calls": 22,
+          "group": "",
+          "name": "tortora1"
+        },
+        {
+          "body": "{{cite book |last1= Tortora |first1= Gerard J. |last2=Anagnostakos|first2=Nicholas P.| title=Principles of anatomy and physiology |url= https://archive.org/details/principlesofanat05tort |url-access= registration |pages=[https://archive.org/details/principlesofanat05tort/page/570 570–572]|edition= Fifth |location= New York |publisher= Harper & Row, Publishers|date= 1987 |isbn= 0-06-350729-3 }}",
+          "calls": 2,
+          "group": "",
+          "name": "tortora8"
+        }
+      ],
+      "rendered_groups": [],
+      "undefined": []
+    },
+    "short_citations": []
+  },
+  "status": "review_required"
+}

@@ -178,9 +178,10 @@ official translations, name components, or local template names.
   convert inert [[:Sokajy:Name]] links to live in article output. Foreign
   Category: links stay inert or are removed. Record additions and conversions in
   notes.wiki.
-- Render source main-article/detailed-article hatnotes (Main, Main article,
-  Further, Details) with {{lahatsoratra antsipirihany|Target}}, one call per
-  target, preserving order. Do not leave the English template or use a bare link.
+- Render Main/Main article/Further/Details hatnotes with
+  {{lahatsoratra antsipirihany|Target}}, one call per verified Malagasy target,
+  in order; never the English source title. Unresolved targets go to review;
+  do not leave the English template or a bare link.
   Avoid live interwiki language
   links, DEFAULTSORT, redirects, and templates that categorize the sandbox.
   Do not edit Wikidata; save proposed metadata in local notes instead.

@@ -79,10 +79,11 @@ sort keys. Do not guess category targets. Use live article categories
 link; convert any inert `[[:Sokajy:Name]]` form to live when saving article
 output. Foreign `Category:` links stay inert or are removed.
 
-Section hatnotes: render source "main article" and "detailed article" headers
-(`Main`, `Main article`, `Further`, `Details`) at the start of a section with
-`{{lahatsoratra antsipirihany|Target}}`, one call per target, preserving order.
-Do not leave the English template or replace the hatnote with a bare link.
+Section hatnotes: render source "main article"/"detailed article" headers
+(`Main`, `Main article`, `Further`, `Details`) with
+`{{lahatsoratra antsipirihany|Target}}`, one call per target, in order. Target is
+the verified Malagasy article title, never the English source title; unresolved
+targets need coordinator review. Do not leave the English template or a bare link.
 
 Vocabulary: define unfamiliar terms in simple English, then translate the
 definition into Malagasy; keep English in parentheses when useful. Label manual

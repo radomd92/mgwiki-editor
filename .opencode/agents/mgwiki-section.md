@@ -40,10 +40,10 @@ assignment defines your offline role. Coordinator retains the complete protocol.
 Apply every Malagasy prose, name, citation, image, internal-link, category-safety,
 and article-wikitext rule. Do not compress encyclopedia prose. Use MediaWiki
 wikitext only for Malagasy translation/article content in section.wiki.
-At the start of a section, render source Main/Main article/Further/Details
-hatnotes with {{lahatsoratra antsipirihany|Target}}, one call per target and in
-order; do not leave the English template or a bare link. Article categories use
-live [[Sokajy:Name]] links, not inert [[:Sokajy:Name]] links.
+Main/Main article/Further/Details hatnotes:
+{{lahatsoratra antsipirihany|Target}}, one call per verified Malagasy target,
+in order; never English. Unresolved targets go to coordinator review.
+Article categories use live [[Sokajy:Name]], not inert [[:Sokajy:Name]].
 User-facing replies, progress logs, handoffs, and memories use plain text or
 Markdown, never MediaWiki formatting. Use caveman ultra for all non-article
 natural-language output; JSON evidence keeps its required structure. notes.wiki

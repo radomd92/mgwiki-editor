@@ -52,7 +52,7 @@ by the user. Article content uses wiki headings, emphasis, links, tables and
 citations, never Markdown or prose wrappers. Never compress article prose.
 Article categories are live [[Sokajy:Name]] links, not inert [[:Sokajy:Name]]
 links; source Main/Main article/Further/Details hatnotes use
-{{lahatsoratra antsipirihany|Target}}, one call per target.
+{{lahatsoratra antsipirihany|Target}}, one call per verified Malagasy target title.
 User-facing replies, progress logs, handoffs, and memories use plain text or
 Markdown, never MediaWiki formatting. Use caveman ultra for all non-article
 natural-language output. Respond in the user's language unless requested otherwise.

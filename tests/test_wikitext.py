@@ -119,6 +119,29 @@ def test_related_hatnotes_preserve_multiple_targets_and_are_idempotent() -> None
     assert ledger == []
 
 
+def test_related_hatnotes_use_translated_malagasy_targets() -> None:
+    mapping = {
+        "Dentistry": {"mg": "Fitsaboana nify"},
+        "History of dentistry": {"mg": "Tantaran' ny fitsaboana nify"},
+        "Unmapped topic": {"mg": None},
+    }
+    text, ledger = convert_related_hatnotes(
+        "{{Main|Dentistry}}{{Further|History of dentistry#Modern era}}{{Details|Unmapped topic}}",
+        mapping,
+    )
+    assert "{{lahatsoratra antsipirihany|Fitsaboana nify}}" in text
+    assert "{{lahatsoratra antsipirihany|Tantaran' ny fitsaboana nify#Modern era}}" in text
+    assert "{{lahatsoratra antsipirihany|Unmapped topic}}" in text
+    assert "Dentistry|" not in text
+    assert len(ledger) == 3
+
+
+def test_related_hatnote_target_already_local_is_not_remapped() -> None:
+    mapping = {"Dentistry": {"mg": "Fitsaboana nify"}}
+    text, _ = convert_related_hatnotes("{{Main|Fitsaboana nify}}", mapping)
+    assert text == "{{lahatsoratra antsipirihany|Fitsaboana nify}}"
+
+
 def test_unrelated_templates_are_not_rewritten() -> None:
     text = "{{Jereo koa|Topic}}{{Infobox|name=X}}"
     result, ledger = convert_related_hatnotes(text)

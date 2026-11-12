@@ -66,8 +66,6 @@ merely by reading this manual.
   control, or category-producing templates blindly. Article categories use live
   [[Sokajy:Name]] links; foreign Category: links stay inert. No mainspace edits,
   redirect creation or Wikidata changes.
-* Render source main-article/detailed-article hatnotes with
-  {{lahatsoratra antsipirihany|Target}}, one call per target, preserving order.
 
 == Capitalization and typography ==
 * Prefer sentence case in headings and ordinary Malagasy prose. Capitalize

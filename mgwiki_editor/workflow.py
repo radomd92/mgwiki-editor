@@ -220,7 +220,7 @@ def assemble_sections(
         if mapping is not None:
             fragment, decisions = adapt_links(fragment, mapping)
             link_decisions.extend({"section_id": row["id"], **item} for item in decisions)
-        fragment, converted_hatnotes = convert_related_hatnotes(fragment)
+        fragment, converted_hatnotes = convert_related_hatnotes(fragment, mapping)
         hatnotes.extend({"section_id": row["id"], **item} for item in converted_hatnotes)
         fragment, converted_categories = promote_article_categories(fragment)
         category_conversions.extend({"section_id": row["id"], **item}

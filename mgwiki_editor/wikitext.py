@@ -134,21 +134,36 @@ def promote_article_categories(text: str) -> tuple[str, list[dict[str, str]]]:
     return str(code), conversions
 
 
-def convert_related_hatnotes(text: str) -> tuple[str, list[dict[str, str]]]:
+def convert_related_hatnotes(
+    text: str, mapping: dict[str, Any] | None = None,
+) -> tuple[str, list[dict[str, str]]]:
     """Render source main/further/details hatnotes with the verified Malagasy template.
 
     The local template takes one positional article title. Multiple source parameters
-    become one template call each, preserving every target and their order.
+    become one template call each, preserving every target and their order. When a
+    link map is supplied, the target is the verified Malagasy title, never the
+    English source title; unresolved targets are left for coordinator review.
     """
     code = mw.parse(text)
     conversions = []
+    local = {row.get("mg") for row in (mapping or {}).values() if row.get("mg")}
     for template in reversed(code.filter_templates()):
         name = str(template.name).strip().replace("_", " ").casefold()
         name = re.sub(r"^(?:endrika|template)\s*:\s*", "", name).strip()
         if name not in RELATED_HATNOTE_SOURCES:
             continue
-        values = [str(param.value).strip() for param in template.params]
-        values = [value for value in values if value]
+        values = []
+        for param in template.params:
+            value = str(param.value).strip()
+            if not value:
+                continue
+            if mapping and value not in local:
+                base, separator, anchor = value.partition("#")
+                row = mapping.get(base.replace("_", " ").strip())
+                destination = row.get("mg") if isinstance(row, dict) else None
+                if destination:
+                    value = destination + (separator + anchor if separator else "")
+            values.append(value)
         if not values:
             continue
         original = str(template)

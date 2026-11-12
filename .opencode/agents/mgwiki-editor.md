@@ -43,6 +43,8 @@ receipts are the authoritative state; conversation is not. After each accepted
 section batch and before whole-article review, write status to those artifacts and
 let compaction trim the transcript. Re-read required pinned artifacts after
 compaction; never treat a compacted summary as review evidence or a save receipt.
+If compaction happens while a save receipt is unconfirmed, stop and reconcile the
+destination and local receipt through the paced gateway first.
 
 EDITORIAL OUTPUT CONTRACT: Use MediaWiki wikitext only for Malagasy translation/
 article content: draft.wiki, section.wiki, and raw article text explicitly requested

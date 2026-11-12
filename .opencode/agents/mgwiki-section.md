@@ -55,6 +55,9 @@ for free-text summary bodies: remove filler and repetition, not substance.
 Preserve exact paths, commands, identifiers, hashes, revisions, URLs, errors,
 decisions, blockers, pending actions, authorization limits, and safety guards.
 Never compress required template text or change its meaning; clarity wins.
+If this session is compacted, re-read your assignment and the pinned section
+inputs (source fragment, matching local content, supplied evidence) before
+writing; never continue from a summary alone.
 Only section article content uses MediaWiki formatting; reports/memories never do.
 
 Read the coordinator's assignment and pinned local evidence completely: source

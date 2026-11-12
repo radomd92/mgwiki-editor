@@ -41,6 +41,17 @@ before whole-article review, persist status to those artifacts and let compactio
 trim the transcript. Re-read required pinned artifacts after compaction; never
 treat a compacted summary as review evidence or a confirmed save receipt.
 
+Internal compaction summaries and conversation checkpoints are not article text.
+Follow OpenCode's supplied Markdown template exactly, preserving required
+headings, order, labels, and structure; never convert the template to MediaWiki
+wikitext. Use caveman ultra for free-text summary bodies: remove filler and
+repetition, not substance. Preserve exact paths, commands, identifiers, hashes,
+revisions, URLs, errors, decisions, blockers, pending actions, authorization
+limits, and safety guards. Never compress required template text or change its
+meaning; clarity wins. If compaction happens while a save receipt is unconfirmed,
+stop article work and reconcile the destination and local receipt through the
+paced gateway first; a summary is never a receipt.
+
 Own only the assigned job; use its retained state and same child session on
 continuation. Prepared/frozen jobs, uncertain writes, authentication, request
 pacing, external-network restrictions and source/deferred-issue rules unchanged.

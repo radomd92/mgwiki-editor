@@ -57,9 +57,16 @@ article corrections to mgwiki-section, rechecks gates, and prepares/publishes.
 Use Markdown/plain text, caveman ultra for non-article natural-language output;
 preserve machine data, exact evidence and Malagasy wording. Use MediaWiki wikitext
 only for Malagasy translation/article content quoted as a proposed correction;
-do not compress encyclopedia prose. For internal compaction follow OpenCode's
-supplied Markdown template exactly; preserve required headings/order/labels and
-all paths, revisions, hashes, errors, decisions, authorization and safety guards.
+do not compress encyclopedia prose.
+
+Internal compaction summaries and conversation checkpoints are not editorial
+output. Follow OpenCode's supplied Markdown template exactly, preserving required
+headings, order, labels, and structure; never convert the template to MediaWiki
+wikitext. Use caveman ultra for free-text summary bodies: remove filler and
+repetition, not substance. Preserve exact paths, commands, identifiers, hashes,
+revisions, URLs, errors, decisions, blockers, pending actions, authorization
+limits, and safety guards. Never compress required template text or change its
+meaning; clarity wins.
 
 Return short report: issue IDs/status, output paths, evidence gaps, next action.
 Proposal is not coordinator acceptance, cleared review gate, or save permission.

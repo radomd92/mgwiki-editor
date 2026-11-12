@@ -150,7 +150,15 @@ batch and before whole-article review. After compaction, re-read the required
 pinned artifacts (snapshots, section files, handoffs, review evidence, final raw
 draft/preview) instead of trusting summarized conversation. A compacted summary is
 never review evidence, an editorial attestation or a save receipt. Do not compact
-across an uncertain save; reconcile the receipt first.
+across an uncertain save; reconcile the receipt first. Compaction is harness-driven,
+so the instruction is not a guarantee: if the session compacts while a save receipt
+is unconfirmed, stop article work, reconcile the destination and the local receipt
+through the paced gateway, and only then continue. If a worker session compacts,
+it re-reads its assignment and pinned inputs before writing; it must never
+continue from a summary alone. V2 exposes `compaction.auto`, `compaction.keep.tokens`,
+`compaction.buffer` and `experimental.background_compaction`; none are set here, so
+the harness default applies and no runtime compaction has been recorded. Changing
+them is a deliberate policy decision, not a token shortcut.
 
 ## Model/reasoning pilot (opt-in, no default change)
 

@@ -50,6 +50,15 @@ Use MediaWiki wikitext only for Malagasy translation/article content. User-facin
 replies, logs, handoffs, and memories use plain text/Markdown, never MediaWiki
 formatting. Use caveman ultra for all non-article natural-language output. Keep
 OpenCode's supplied compaction template exact; compress only free-text bodies.
+
+Internal compaction summaries and conversation checkpoints are not editorial
+output. Follow OpenCode's supplied Markdown template exactly, preserving required
+headings, order, labels, and structure; never convert the template to MediaWiki
+wikitext. Use caveman ultra for free-text summary bodies: remove filler and
+repetition, not substance. Preserve exact paths, commands, identifiers, hashes,
+revisions, URLs, errors, decisions, blockers, pending actions, authorization
+limits, and safety guards. Never compress required template text or change its
+meaning; clarity wins.
 Legacy notes.wiki and unknown-vocabulary.wiki filenames do not require wiki markup.
 
 Generation uses mgwiki-section subagents, one planned section per assignment,

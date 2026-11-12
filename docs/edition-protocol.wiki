@@ -43,6 +43,15 @@ non-article natural-language output. Preserve code, JSON, exact evidence, and
 OpenCode's required compaction template; compress only its free-text bodies.
 Never compress encyclopedia prose. Legacy notes.wiki and unknown-vocabulary.wiki
 filenames stay supported; new commentary inside them is plain text/Markdown.
+
+Internal compaction summaries and conversation checkpoints are not editorial
+output. Follow OpenCode's supplied Markdown template exactly, preserving required
+headings, order, labels, and structure; never convert the template to MediaWiki
+wikitext. Use caveman ultra for free-text summary bodies: remove filler and
+repetition, not substance. Preserve exact paths, commands, identifiers, hashes,
+revisions, URLs, errors, decisions, blockers, pending actions, authorization
+limits, and safety guards. Never compress required template text or change its
+meaning; clarity wins.
 Read the style skill's saved manual-of-style.wiki and words-to-watch.wiki in
 full. They adapt the requested English Wikipedia guides and explicitly identify
 the user's Malagasy overrides. Reuse these references offline, not per-article

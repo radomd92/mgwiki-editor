@@ -1,0 +1,2231 @@
+{
+  "draft": {
+    "empty": false,
+    "references": {
+      "anonymous_count": 145,
+      "conflicts": [],
+      "errors": [],
+      "groups": [
+        ""
+      ],
+      "missing_renderers": [],
+      "named": [
+        {
+          "body": "''[https://clinicalinfo.hiv.gov/en/guidelines/hiv-clinical-guidelines-adult-and-adolescent-arv/whats-new HIV Clinical Guidelines: Adult and Adolescent ARV - What's New in the Guidelines]''. clinicalinfo.hiv.gov, March 23, 2023. Nojerena tamin' ny December 1, 2023. URL mbola miasa; [https://web.archive.org/web/20231126215220/https://clinicalinfo.hiv.gov/en/guidelines/hiv-clinical-guidelines-adult-and-adolescent-arv/whats-new tahiry] tamin' ny November 26, 2023.",
+          "calls": 2,
+          "group": "",
+          "name": ":1"
+        },
+        {
+          "body": "Geneva: Joint United Nations Programme on HIV/AIDS. [https://www.unaids.org/sites/default/files/media_asset/JC3032_AIDS_Data_book_2021_En.pdf ''UNAIDS Data 2021'']. UNAIDS 2021 Reference. Notsidihina December 1, 2023. [https://web.archive.org/web/20231207155450/https://www.unaids.org/sites/default/files/media_asset/JC3032_AIDS_Data_book_2021_En.pdf Tahiry tamin' ny December 7, 2023]. Rohy niaviany: mbola mandeha.",
+          "calls": 3,
+          "group": "",
+          "name": ":2"
+        },
+        {
+          "body": "[https://www.cdc.gov/hiv/statistics/overview/index.html ''Statistics Overview''] (August 10, 2022). U.S. Centers for Disease Control and Prevention (CDC). Notsidihina December 1, 2023. [https://web.archive.org/web/20181207084250/https://www.cdc.gov/hiv/statistics/overview/index.html Tahiry tamin' ny December 7, 2018]. Rohy niaviany: tsy mandeha intsony.",
+          "calls": 3,
+          "group": "",
+          "name": ":3"
+        },
+        {
+          "body": "[https://www.unaids.org/sites/default/files/media_asset/climate-crisis-HIV-policy-brief_en.pdf ''The Climate Crisis and Its Impact on HIV: A Policy Brief from UNDP and UNAIDS'']. Geneva: Joint United Nations Programme on HIV/AIDS (2024). Notsidihina December 24, 2025. [https://web.archive.org/web/20251210081607/https://www.unaids.org/sites/default/files/media_asset/climate-crisis-HIV-policy-brief_en.pdf Tahiry tamin' ny December 10, 2025]. Rohy niaviany: mbola mandeha.",
+          "calls": 1,
+          "group": "",
+          "name": ":5"
+        },
+        {
+          "body": "The Lancet HIV (February 2024). [https://linkinghub.elsevier.com/retrieve/pii/S2352301824000092 ''Effect of climate change on the HIV response'']. ''The Lancet HIV'' 11 (2): e63. Teny anglisy. DOI: 10.1016/S2352-3018(24)00009-2. <nowiki>PMID 38296360</nowiki>. Notsidihina December 24, 2025. [https://web.archive.org/web/20250614012439/https://linkinghub.elsevier.com/retrieve/pii/S2352301824000092 Tahiry tamin' ny June 14, 2025]. Rohy niaviany: mbola mandeha.",
+          "calls": 1,
+          "group": "",
+          "name": ":6"
+        },
+        {
+          "body": "[https://aidsetc.org/guide/hiv-classification-cdc-and-who-staging-systems ''HIV Classification: CDC and WHO Staging Systems'']. AIDS Education & Training Center Program. Notsidihina: September 10, 2017. [https://web.archive.org/web/20171018065658/https://aidsetc.org/guide/hiv-classification-cdc-and-who-staging-systems Tahiry]: October 18, 2017. URL niaviany voamarika ho tsy mandeha.",
+          "calls": 1,
+          "group": "",
+          "name": "AETC-staging"
+        },
+        {
+          "body": "Kripke C. ''Antiretroviral prophylaxis for occupational exposure to HIV''. ''American Family Physician'', 76 (3), 375–76, August 2007. <nowiki>PMID 17708137</nowiki>.",
+          "calls": 4,
+          "group": "",
+          "name": "AFP2007"
+        },
+        {
+          "body": "[https://www.hiv.gov/hiv-basics/overview/about-hiv-and-aids/what-are-hiv-and-aids ''What Are HIV and AIDS?'']. HIV.gov. May 15, 2017. Notsidihina: September 10, 2017. [https://web.archive.org/web/20190922044900/https://www.hiv.gov/hiv-basics/overview/about-hiv-and-aids/what-are-hiv-and-aids Tahiry]: September 22, 2019. URL niaviany voamarika ho tsy mandeha.",
+          "calls": 4,
+          "group": "",
+          "name": "AIDS2010GOV"
+        },
+        {
+          "body": "Alimonti JB, Ball TB, Fowke KR. ''Mechanisms of CD4+ T lymphocyte cell death in human immunodeficiency virus infection and AIDS''. ''The Journal of General Virology'', boky 84, laharana Pt 7, p. 1649–61, July 2003. <nowiki>PMID 12810858</nowiki>. DOI: <nowiki>10.1099/vir.0.19110-0</nowiki> (fidirana malalaka).",
+          "calls": 1,
+          "group": "",
+          "name": "Alimonti"
+        },
+        {
+          "body": "Altman, Lawrence K. ''[https://www.nytimes.com/1982/05/11/science/new-homosexual-disorder-worries-health-officials.html New homosexual disorder worries health officials]''. ''[[The New York Times]]'', May 11, 1982. Nojerena tamin' ny August 31, 2011. [https://web.archive.org/web/20130430231803/http://www.nytimes.com/1982/05/11/science/new-homosexual-disorder-worries-health-officials.html Tahiry], April 30, 2013; URL niaviany: mandeha araka ny loharano.",
+          "calls": 1,
+          "group": "",
+          "name": "Altman"
+        },
+        {
+          "body": "Anglemyer A, Rutherford GW, Horvath T, Baggaley RC, Egger M, Siegfried N. ''Antiretroviral therapy for prevention of HIV transmission in HIV-discordant couples''. ''The Cochrane Database of Systematic Reviews''. April 2013; 2013(4): CD009153. DOI: 10.1002/14651858.CD009153.pub3. <nowiki>PMID 23633367</nowiki>. PMC: 4026368.",
+          "calls": 2,
+          "group": "",
+          "name": "Anglemyer2013"
+        },
+        {
+          "body": "[https://www.bbc.co.uk/news/uk-england-london-14406818 ''Church HIV prayer cure claims 'cause three deaths'<nowiki />'']. ''BBC News''. October 18, 2011. Nojerena tamin' ny October 18, 2011. [https://web.archive.org/web/20111018164909/http://www.bbc.co.uk/news/uk-england-london-14406818 Tahiry] tamin' ny October 18, 2011. Satan' ny URL voalazan' ny loharano: live.",
+          "calls": 2,
+          "group": "",
+          "name": "BBC18102011"
+        },
+        {
+          "body": "Basavapathruni A, Anderson KS. ''Reverse transcription of the HIV-1 pandemic''. ''FASEB Journal'', December 2007, 21 (14), pp. 3795–808. <nowiki>PMID 17639073</nowiki>; DOI: 10.1096/fj.07-8697rev (azo vakina maimaim-poana); S2CID 24960391.",
+          "calls": 2,
+          "group": "",
+          "name": "Basavapathruni_2007"
+        },
+        {
+          "body": "Bell C, Devarajan S, Gersbach H (2003). ''[http://econ.worldbank.org/external/default/main?pagePK=64165259&theSitePK=478060&piPK=64165421&menuPK=64166093&entityID=000160016_20031110113834 The long-run economic costs of AIDS: theory and an application to South Africa]''. World Bank Policy Research Working Paper No. 3152. PDF. Nojerena tamin' ny April 28, 2008. URL tany am-boalohany: tsy mandeha, araka ny loharano. [https://web.archive.org/web/20130605151302/http://econ.worldbank.org/external/default/main?pagePK=64165259&theSitePK=478060&piPK=64165421&menuPK=64166093&entityID=000160016_20031110113834 Tahiry tamin' ny June 5, 2013].",
+          "calls": 1,
+          "group": "",
+          "name": "Bell-et-al-2003"
+        },
+        {
+          "body": "Elizabeth Donegan; Maria Stuart; Joyce C. Niland; Henry S. Sacks; Stanley P. Azen; Shelby L. Dietrich; Cheryl Faucett; Mary Ann Fletcher; Steven H. Kleinman; Eva A. Operskalski; Herbert A. Perkins; Johanna Pindyck; Eugene R. Schiff; Daniel P. Stites; Peter A. Tomasulo; James W. Mosley. [https://annals.org/aim/article-abstract/704236/infection-human-immunodeficiency-virus-type-1-hiv-1-among-recipients?doi=10.7326%2f0003-4819-113-10-733 ''Infection with Human Immunodeficiency Virus Type 1 (HIV-1) among Recipients of Antibody-Positive Blood Donations'']. ''Annals of Internal Medicine'', 113 (10), 733–739, November 15, 1990. DOI: 10.7326/0003-4819-113-10-733. <nowiki>PMID 2240875</nowiki>. Notsidihina: May 11, 2020. [https://web.archive.org/web/20180603040936/http://annals.org/aim/article-abstract/704236/infection-human-immunodeficiency-virus-type-1-hiv-1-among-recipients?doi=10.7326/0003-4819-113-10-733 Tahiry], June 3, 2018. Rohy mbola miasa; mila famandrihana.",
+          "calls": 2,
+          "group": "",
+          "name": "Blood Transfusion Risk"
+        },
+        {
+          "body": "Boshoff C, Weiss R. ''AIDS-related malignancies''. ''Nature Reviews. Cancer'', 2 (5), 373–82, May 2002. <nowiki>PMID 12044013</nowiki>; DOI: 10.1038/nrc797; S2CID: 13513517.",
+          "calls": 1,
+          "group": "",
+          "name": "Boshoff2002"
+        },
+        {
+          "body": "Brown TT, Qaqish RB. ''Antiretroviral therapy and the prevalence of osteopenia and osteoporosis: a meta-analytic review''. ''AIDS'', 20 (17), 2165–74, November 2006. <nowiki>PMID 17086056</nowiki>; DOI: 10.1097/QAD.0b013e32801022eb (azo vakina malalaka); S2CID: 19217950.",
+          "calls": 1,
+          "group": "",
+          "name": "Brown2006"
+        },
+        {
+          "body": "Burgoyne RW, Tan DH. ''Prolongation and quality of life for HIV-infected adults treated with highly active antiretroviral therapy (HAART): a balancing act''. ''Journal of Antimicrobial Chemotherapy'', 61 (3), p. 469–73, March 2008. <nowiki>PMID 18174196</nowiki>. DOI: 10.1093/jac/dkm499 (azo vakina maimaim-poana).",
+          "calls": 3,
+          "group": "",
+          "name": "Burgoyne2008"
+        },
+        {
+          "body": "Wayne J. Crans. [http://www.rci.rutgers.edu/%7Einsects/aids.htm ''Why Mosquitoes Cannot Transmit AIDS'']. Rutgers University. New Jersey Agricultural Experiment Station Publication No. H-40101-01-93. June 1, 2010. Access-date: March 29, 2014. [https://web.archive.org/web/20140329183346/http://www.rci.rutgers.edu/~insects/aids.htm Archive-url], archive-date: March 29, 2014.",
+          "calls": 1,
+          "group": "",
+          "name": "C4Wauto-8503951"
+        },
+        {
+          "body": "Centers for Disease Control Prevention (CDC) (April 2014). ''[https://www.cdc.gov/mmwr/pdf/rr/rr6303.pdf Revised surveillance case definition for HIV infection – United States, 2014]''. ''MMWR. Recommendations and Reports'' 63 (RR-03): 1–10. <nowiki>PMID 24717910</nowiki>. Nojerena October 17, 2020. URL: live. [https://web.archive.org/web/20201017133412/https://www.cdc.gov/mmwr/pdf/rr/rr6303.pdf Tahiry], October 17, 2020.",
+          "calls": 3,
+          "group": "",
+          "name": "CDC2014Clas"
+        },
+        {
+          "body": "''[https://www.cdc.gov/hiv/pdf/group/msm/cdc-hiv-msm.pdf HIV Among Gay and Bisexual Men]''. access-date: January 1, 2017. [https://web.archive.org/web/20161218225712/https://www.cdc.gov/hiv/pdf/group/msm/cdc-hiv-msm.pdf Tahiry], archive-date: December 18, 2016; url-status: dead.",
+          "calls": 1,
+          "group": "",
+          "name": "CDC2016Bi"
+        },
+        {
+          "body": "[https://www.cdc.gov/hiv/basics/whatishiv.html ''About HIV/AIDS'']. U.S. ''Centers for Disease Control and Prevention'' (CDC). December 6, 2015. Notsidihina: February 11, 2016. [https://web.archive.org/web/20160224101946/http://www.cdc.gov/hiv/basics/whatishiv.html Tahiry]: February 24, 2016. URL niaviany voamarika ho tsy mandeha.",
+          "calls": 4,
+          "group": "",
+          "name": "CDC21015Bas"
+        },
+        {
+          "body": "[https://www.cdc.gov/hiv/topics/basic/ ''Basic Information about HIV and AIDS'']. Center for Disease Control and Prevention. April 2012. [https://web.archive.org/web/20170618025129/https://www.cdc.gov/hiv/topics/basic/ Archive-url], archive-date: June 18, 2017. url-status: dead.",
+          "calls": 2,
+          "group": "",
+          "name": "CDCBasics2012"
+        },
+        {
+          "body": "Schneider E, Whitmore S, Glynn KM, Dominguez K, Mitsch A, McKenna MT (December 2008). ''[https://www.cdc.gov/mmwr/PDF/rr/rr5710.pdf Revised surveillance case definitions for HIV infection among adults, adolescents, and children aged &lt;18 months and for HIV infection and AIDS among children aged 18 months to &lt;13 years – United States, 2008]''. ''MMWR. Recommendations and Reports'' 57 (RR-10): 1–12. <nowiki>PMID 19052530</nowiki>. Nojerena October 17, 2020. URL: live. [https://web.archive.org/web/20201017160943/https://www.cdc.gov/mmwr/PDF/rr/rr5710.pdf Tahiry], October 17, 2020.",
+          "calls": 3,
+          "group": "",
+          "name": "CDCCase2008"
+        },
+        {
+          "body": "Eugene McCray; Jonathan Mermin. [https://www.cdc.gov/hiv/library/dcl/dcl/092717.html ''Dear Colleague: September 27, 2017'']. September 27, 2017. U.S. ''Centers for Disease Control and Prevention'' (CDC). Notsidihina: February 1, 2018. [https://web.archive.org/web/20180130231157/https://www.cdc.gov/hiv/library/dcl/dcl/092717.html Tahiry]: January 30, 2018. URL niaviany voamarika ho mandeha.",
+          "calls": 2,
+          "group": "",
+          "name": "CDCUndetectable"
+        },
+        {
+          "body": "U.S. ''Centers for Disease Control and Prevention'' (CDC). [https://www.cdc.gov/HIV/pubs/facts/transmission.htm ''HIV and Its Transmission'']. 2003. Notsidihina: May 23, 2006. [https://web.archive.org/web/20050204141148/http://www.cdc.gov/HIV/pubs/facts/transmission.htm Tahiry]: February 4, 2005.",
+          "calls": 1,
+          "group": "",
+          "name": "CDCtransmission"
+        },
+        {
+          "body": "Campbell GR, Pasquier E, Watkins J, Bourgarel-Rey V, Peyrot V, Esquieu D, Barbier P, de Mareuil J, Braguer D, Kaleebu P, Yirrell DL, Loret EP. ''The glutamine-rich region of the HIV-1 Tat protein is involved in T-cell apoptosis''. ''The Journal of Biological Chemistry'', 279 (46), 48197–204, November 2004. <nowiki>PMID 15331610</nowiki>; DOI: 10.1074/jbc.M406195200 (azo vakina malalaka); bibcode: 2004JBiCh.27948197C.",
+          "calls": 1,
+          "group": "",
+          "name": "Campbell"
+        },
+        {
+          "body": "Campbell GR, Watkins JD, Esquieu D, Pasquier E, Loret EP, Spector SA. ''The C terminus of HIV-1 Tat modulates the extent of CD178-mediated apoptosis of T cells''. ''The Journal of Biological Chemistry'', 280 (46), 38376–82, November 2005. <nowiki>PMID 16155003</nowiki>; DOI: 10.1074/jbc.M506630200 (azo vakina malalaka).",
+          "calls": 1,
+          "group": "",
+          "name": "Campbell2"
+        },
+        {
+          "body": "Cheung MC, Pantanowitz L, Dezube BJ. ''AIDS-related malignancies: emerging challenges in the era of highly active antiretroviral therapy''. ''The Oncologist'', 10 (6), 412–26, Jun–Jul 2005. <nowiki>PMID 15967835</nowiki>; DOI: 10.1634/theoncologist.10-6-412; S2CID: 24329763.",
+          "calls": 2,
+          "group": "",
+          "name": "Cancer2005"
+        },
+        {
+          "body": "Kellerman S, Essajee S (July 2010). ''HIV testing for children in resource-limited settings: what are we waiting for?'' ''PLOS Medicine'', boky 7, laharana 7, lahatsoratra e1000285. doi:10.1371/journal.pmed.1000285 (azo vakina malalaka). <nowiki>PMID 20652012</nowiki>; PMC 2907270.",
+          "calls": 2,
+          "group": "",
+          "name": "ChildDiag2010"
+        },
+        {
+          "body": "Chitnis A, Rawls D, Moore J. ''Origin of HIV type 1 in colonial French Equatorial Africa?''. ''AIDS Research and Human Retroviruses'', 16 (1), pp. 5–8, January 2000. <nowiki>PMID 10628811</nowiki>; DOI: 10.1089/088922200309548; S2CID: 17783758. Mitaky famandrihana.",
+          "calls": 1,
+          "group": "",
+          "name": "Chitnis2000"
+        },
+        {
+          "body": "Chou R, Selph S, Dana T, Bougatsos C, Zakher B, Blazina I, Korthuis PT. ''Screening for HIV: systematic review to update the 2005 U.S. Preventive Services Task Force recommendation''. ''Annals of Internal Medicine''. November 2012; 157(10): 706–18. DOI: 10.7326/0003-4819-157-10-201211200-00007. <nowiki>PMID 23165662</nowiki>. S2CID: 27494096.",
+          "calls": 1,
+          "group": "",
+          "name": "Chou2012"
+        },
+        {
+          "body": "Young TN, Arens FJ, Kennedy GE, Laurie JW, Rutherford GW. ''Antiretroviral post-exposure prophylaxis (PEP) for occupational HIV exposure''. ''The Cochrane Database of Systematic Reviews'', boky 2012, laharana 1, lahatsoratra CD002835, January 2007. Mpandrindra: Taryn Young. <nowiki>PMID 17253483</nowiki>. DOI: 10.1002/14651858.CD002835.pub3. PMC: 8989146.",
+          "calls": 1,
+          "group": "",
+          "name": "CochranePEP2007"
+        },
+        {
+          "body": "Ng BE, Butler LM, Horvath T, Rutherford GW. ''Population-based biomedical sexually transmitted infection control interventions for reducing HIV infection''. ''The Cochrane Database of Systematic Reviews''. March 2011; issue: 3; article-number: CD001220. <nowiki>PMID 21412869</nowiki>; DOI: [https://doi.org/10.1002/14651858.CD001220.pub3 10.1002/14651858.CD001220.pub3]. editor1-last: Butler; editor1-first: Lisa M.",
+          "calls": 2,
+          "group": "",
+          "name": "CochraneSTI2012"
+        },
+        {
+          "body": "Cohen MS, Hellmann N, Levy JA, DeCock K, Lange J (April 2008). ''The spread, treatment, and prevention of HIV-1: evolution of a global pandemic''. ''The Journal of Clinical Investigation'' 118 (4): 1244–54. DOI: 10.1172/JCI34706. <nowiki>PMID 18382737</nowiki>. PMC: 2276790.",
+          "calls": 1,
+          "group": "",
+          "name": "Cohen2008"
+        },
+        {
+          "body": "Chu C, Selwyn PA. ''Complications of HIV infection: a systems-based approach''. ''American Family Physician''. February 2011; 83 (4): 395–406. <nowiki>PMID 21322514</nowiki>.",
+          "calls": 1,
+          "group": "",
+          "name": "Complications2011"
+        },
+        {
+          "body": "Coovadia H. ''Antiretroviral agents—how best to protect infants from HIV and save their mothers from AIDS''. ''N. Engl. J. Med.'', 351 (3), 289–292, 2004. <nowiki>PMID 15247337</nowiki>. DOI: 10.1056/NEJMe048128.",
+          "calls": 1,
+          "group": "",
+          "name": "Coovadia"
+        },
+        {
+          "body": "''[http://aidsinfo.nih.gov/contentfiles/lvguidelines/AdultandAdolescentGL.pdf Guidelines for the Use of Antiretroviral Agents in HIV-1-Infected Adults and Adolescents]''. ''Department of Health and Human Services'' (Departemanta misahana ny Fahasalamana sy ny Tolotra ho an' ny Mponina), February 12, 2013, p. i. Nojerena tamin' ny January 3, 2014. URL tsy miasa; [https://web.archive.org/web/20161101202407/https://aidsinfo.nih.gov/contentfiles/lvguidelines/adultandadolescentgl.pdf tahiry] tamin' ny November 1, 2016.",
+          "calls": 1,
+          "group": "",
+          "name": "DHHS2013"
+        },
+        {
+          "body": "''[http://aidsinfo.nih.gov/contentfiles/lvguidelines/pedarv_recsonly.pdf Guidelines for the Use of Antiretroviral Agents in Pediatric HIV Infection]''. ''Department of Health and Human Services, February 2014'' (Departemanta misahana ny Fahasalamana sy ny Tolotra ho an' ny Mponina), March 2014. URL tsy miasa; [https://web.archive.org/web/20150914053159/https://aidsinfo.nih.gov/contentfiles/lvguidelines/pedarv_recsonly.pdf tahiry] tamin' ny September 14, 2015.",
+          "calls": 1,
+          "group": "",
+          "name": "DHHS2014"
+        },
+        {
+          "body": "Vogel M, Schwarze-Zander C, Wasmuth JC, Spengler U, Sauerbruch T, Rockstroh JK. ''The treatment of patients with HIV''. ''Deutsches Ärzteblatt International'', 107 (28–29), p. 507–15; quiz 516, July 2010. <nowiki>PMID 20703338</nowiki>. PMC: 2915483. DOI: 10.3238/arztebl.2010.0507.",
+          "calls": 18,
+          "group": "",
+          "name": "Deut2010"
+        },
+        {
+          "body": "[http://www.dw.com/en/germanys-most-famous-gay-rights-activist-filmmaker-rosa-von-praunheim-at-75/a-41514818 ''Germany's most famous gay rights activist: Rosa von Praunheim'']. ''Deutsche Welle''. [https://web.archive.org/web/20210723132748/https://www.dw.com/en/germanys-most-famous-gay-rights-activist-filmmaker-rosa-von-praunheim-at-75/a-41514818 Dika voatahiry] tamin' ny July 23, 2021. Satan' ny URL ao amin' ny loharano: live. Nojerena tamin' ny June 14, 2018.",
+          "calls": 1,
+          "group": "",
+          "name": "DeutscheWelle"
+        },
+        {
+          "body": "Dosekun O, Fox J. ''An overview of the relative risks of different sexual behaviours on HIV transmission''. ''Current Opinion in HIV and AIDS'', 5 (4), 291–97, July 2010. <nowiki>PMID 20543603</nowiki>. DOI: 10.1097/COH.0b013e32833a88a3. S2CID: 25541753.",
+          "calls": 7,
+          "group": "",
+          "name": "Dosekun2010"
+        },
+        {
+          "body": "Duesberg P (July 1988). ''HIV is not the cause of AIDS''. ''Science'', 241 (4865), pp. 514, 517. <nowiki>PMID 3399880</nowiki>. DOI: [https://doi.org/10.1126/science.3399880 10.1126/science.3399880]. Bibcode: 1988Sci...241..514D. Cohen J (December 1994). ''[http://www.sciencemag.org/feature/data/cohen/266-5191-1642a.pdf The Duesberg phenomenon]''. ''Science'', 266 (5191), pp. 1642–44. <nowiki>PMID 7992043</nowiki>. DOI: [https://doi.org/10.1126/science.7992043 10.1126/science.7992043]. Bibcode: 1994Sci...266.1642C. [https://web.archive.org/web/20070101111630/http://www.sciencemag.org/feature/data/cohen/266-5191-1642a.pdf Tahiry January 1, 2007]. Satan' ny URL tao amin' ny loharano: dead.",
+          "calls": 1,
+          "group": "",
+          "name": "Duesberg"
+        },
+        {
+          "body": "James P. Dunn (2022). [https://link.springer.com/rwe/10.1007/978-3-030-42634-7_32 ''HIV Retinopathy'']. Ao amin' ny ''Albert and Jakobiec's Principles and Practice of Ophthalmology'', pp. 3167–3177. Springer, Cham. language: en. DOI: 10.1007/978-3-030-42634-7_32. <nowiki>ISBN 978-3-030-42634-7</nowiki>.",
+          "calls": 2,
+          "group": "",
+          "name": "Dunn"
+        },
+        {
+          "body": "''[https://www.ema.europa.eu/en/news/first-long-acting-injectable-antiretroviral-therapy-hiv-recommended-approval First long-acting injectable antiretroviral therapy for HIV recommended approval]''. Fanambarana ho an' ny mpanao gazety. ''European Medicines Agency'' (Sampan-draharaha Eorôpeana misahana ny Fanafody), EMA, October 16, 2020. Nojerena tamin' ny October 16, 2020. URL mbola miasa; [https://web.archive.org/web/20201017014521/https://www.ema.europa.eu/en/news/first-long-acting-injectable-antiretroviral-therapy-hiv-recommended-approval tahiry] tamin' ny October 17, 2020.",
+          "calls": 2,
+          "group": "",
+          "name": "EMA PR"
+        },
+        {
+          "body": "''[https://www.fda.gov/news-events/press-announcements/fda-approves-first-extended-release-injectable-drug-regimen-adults-living-hiv FDA Approves First Extended-Release, Injectable Drug Regimen for Adults Living with HIV]''. Fanambarana ho an' ny mpanao gazety. U.S. ''Food and Drug Administration'' (Fitantanan-draharaha misahana ny Sakafo sy ny Fanafody any Etazonia), FDA, January 21, 2021. Nojerena tamin' ny January 21, 2021. URL tsy miasa; [https://web.archive.org/web/20210121213203/http://www.fda.gov/news-events/press-announcements/fda-approves-first-extended-release-injectable-drug-regimen-adults-living-hiv tahiry] tamin' ny January 21, 2021. Misy lahatsoratra avy amin' ity loharano ity, izay tsy eo ambanin' ny zon' ny mpamorona, nampidirina ato.",
+          "calls": 1,
+          "group": "",
+          "name": "FDA PR"
+        },
+        {
+          "body": "Gallo RC, Sarin PS, Gelmann EP, Robert-Guroff M, Richardson E, Kalyanaraman VS, Mann D, Sidhu GD, Stahl RE, Zolla-Pazner S, Leibowitch J, Popovic M. ''Isolation of human T-cell leukemia virus in acquired immune deficiency syndrome (AIDS)''. ''Science'', May 1983, 220 (4599), pp. 865–67. <nowiki>PMID 6601823</nowiki>; DOI: 10.1126/science.6601823; Bibcode: 1983Sci...220..865G.",
+          "calls": 1,
+          "group": "",
+          "name": "Gallo"
+        },
+        {
+          "body": "Gallo RC. ''A reflection on HIV/AIDS research after 25 years''. ''Retrovirology'', 3 (1): 72. October 2006. doi:10.1186/1742-4690-3-72; azo vakina maimaim-poana amin' ny alalan' ny DOI. PMC 1629027. <nowiki>PMID 17054781</nowiki>.",
+          "calls": 2,
+          "group": "",
+          "name": "Gallo2"
+        },
+        {
+          "body": "Goodier JL, Kazazian HH. ''Retrotransposons revisited: the restraint and rehabilitation of parasites''. ''Cell'', 135 (1), pp. 23–35, October 2008. <nowiki>PMID 18854152</nowiki>; DOI: 10.1016/j.cell.2008.09.022 (azo vakina maimaim-poana); Bibcode: 2008Cell..135...23G; S2CID: 3093360. Mitaky famandrihana.",
+          "calls": 1,
+          "group": "",
+          "name": "Goodier"
+        },
+        {
+          "body": "Greener, Robert (2002). ''[http://pdf.usaid.gov/pdf_docs/PNACP969.pdf AIDS and macroeconomic impact]''. Ao amin' i Forsyth, Steven (mpandrindra), ''State of The Art: AIDS and Economics''. IAEN, p. 49–55. URL tany am-boalohany: tsy mandeha, araka ny loharano. [https://web.archive.org/web/20121012090520/http://pdf.usaid.gov/pdf_docs/PNACP969.pdf Tahiry tamin' ny October 12, 2012].",
+          "calls": 2,
+          "group": "",
+          "name": "Greener"
+        },
+        {
+          "body": "Herek GM, Capitanio JP (1999). [http://psychology.ucdavis.edu/rainbow/html/abs99_sp.pdf ''AIDS Stigma and sexual prejudice'']. ''American Behavioral Scientist'', 42 (7), 1130–47. DOI: 10.1177/0002764299042007006. S2CID: 143508360. Nojerena tamin' ny March 27, 2006. URL tsy niasa araka ny loharano; [https://web.archive.org/web/20060409034211/http://psychology.ucdavis.edu/rainbow/html/abs99_sp.pdf tahiry] tamin' ny April 9, 2006.",
+          "calls": 3,
+          "group": "",
+          "name": "Herek1999"
+        },
+        {
+          "body": "Herek GM, Capitanio JP, Widaman KF (March 2002). ''HIV-related stigma and knowledge in the United States: prevalence and trends, 1991–1999''. ''American Journal of Public Health'', 92 (3), 371–77. DOI: 10.2105/AJPH.92.3.371. <nowiki>PMID 11867313</nowiki>. PMC: 1447082.",
+          "calls": 1,
+          "group": "",
+          "name": "Herek2002"
+        },
+        {
+          "body": "Holmes CB, Losina E, Walensky RP, Yazdanpanah Y, Freedberg KA. ''Review of human immunodeficiency virus type 1-related opportunistic infections in sub-Saharan Africa''. ''Clinical Infectious Diseases''. March 2003; 36 (5): 652–62. <nowiki>PMID 12594648</nowiki>. doi:10.1086/367655 (fidirana malalaka).",
+          "calls": 1,
+          "group": "",
+          "name": "Holmes"
+        },
+        {
+          "body": "Marrazzo JM, del Rio C, Holtgrave DR, Cohen MS, Kalichman SC, Mayer KH, Montaner JS, Wheeler DP, Grant RM, Grinsztejn B, Kumarasamy N, Shoptaw S, Walensky RP, Dabis F, Sugarman J, Benson CA. ''HIV prevention in clinical care settings: 2014 recommendations of the International Antiviral Society–USA Panel''. ''JAMA'', 312 (4), p. 390–409, July 23–30, 2014. DOI: 10.1001/jama.2014.7999. PMC: 6309682. <nowiki>PMID 25038358</nowiki>.",
+          "calls": 1,
+          "group": "",
+          "name": "IAS2014"
+        },
+        {
+          "body": "International Committee on Taxonomy of Viruses. [https://www.ncbi.nlm.nih.gov/ICTVdb/ICTVdB/61000000.htm ''61. Retroviridae'']. National Institutes of Health, 2002. ''Men's Journal''. Notsidihina: June 25, 2012. [https://web.archive.org/web/20011217155644/http://www.ncbi.nlm.nih.gov/ictvdb/ictvdb/61000000.htm Tahiry], December 17, 2001. Toetran' ny URL: <nowiki>dead</nowiki>.",
+          "calls": 1,
+          "group": "",
+          "name": "ICTV61."
+        },
+        {
+          "body": "International Committee on Taxonomy of Viruses. [https://www.ncbi.nlm.nih.gov/ICTVdb/ICTVdB/61060000.htm ''61.0.6. Lentivirus'']. National Institutes of Health, 2002. ''Men's Journal''. Notsidihina: June 25, 2012. [https://web.archive.org/web/20060418135608/http://www.ncbi.nlm.nih.gov/ICTVdb/ICTVdB/61060000.htm Tahiry], April 18, 2006.",
+          "calls": 1,
+          "group": "",
+          "name": "ICTV61.0.6"
+        },
+        {
+          "body": "Sudharshan, Sridharan; Nair, Nivedita; Curi, Andre; Banker, Alay; Kempen, John H. (September 2020). ''Human immunodeficiency virus and intraocular inflammation in the era of highly active anti retroviral therapy – An update''. ''Indian Journal of Ophthalmology'', 68 (9), 1787–1798. Fiteny: en-US. DOI: [https://doi.org/10.4103/ijo.IJO_1248_20 10.4103/ijo.IJO_1248_20] (azo vakina malalaka araka ny loharano). <nowiki>PMID 32823395</nowiki>; <nowiki>PMC 7690468</nowiki>; ISSN 0301-4738.",
+          "calls": 1,
+          "group": "",
+          "name": "IJO"
+        },
+        {
+          "body": "Smith, Blaine T. (mpandrindra). [https://books.google.com/books?id=G46DrdlxNJAC&pg=PA143 ''Concepts in immunology and immunotherapeutics'']. Fanontana 4th, Bethesda, MD: American Society of Health-System Pharmacists, 2008, p. 143. <nowiki>ISBN 978-1-58528-127-5</nowiki>. Nojerena: June 27, 2015. URL miasa araka ny loharano; [https://web.archive.org/web/20151128082820/https://books.google.com/books?id=G46DrdlxNJAC&pg=PA143 tahiry tamin' ny November 28, 2015].",
+          "calls": 2,
+          "group": "",
+          "name": "InfectionBook2008"
+        },
+        {
+          "body": "Smith JA, Daniel R. ''Following the path of the virus: the exploitation of host DNA repair mechanisms by retroviruses''. ''ACS Chemical Biology'', boky 1, laharana 4, p. 217–26, May 2006. <nowiki>PMID 17163676</nowiki>. DOI: <nowiki>10.1021/cb600131q</nowiki>.",
+          "calls": 1,
+          "group": "",
+          "name": "JASmith"
+        },
+        {
+          "body": "Jolly C, Kashefi K, Hollinshead M, Sattentau QJ. ''HIV-1 cell to cell transfer across an Env-induced, actin-dependent synapse''. ''The Journal of Experimental Medicine'', boky 199, laharana 2, p. 283–93, January 2004. <nowiki>PMID 14734528</nowiki>; PMC: <nowiki>2211771</nowiki>. DOI: <nowiki>10.1084/jem.20030648</nowiki>.",
+          "calls": 1,
+          "group": "",
+          "name": "Jolly"
+        },
+        {
+          "body": "Julio Aliberti (mpandrindra) (2011). [https://books.google.com/books?id=TKMpo5aINVIC&pg=PA145 ''Control of Innate and Adaptive Immune Responses During Infectious Diseases'']. New York: Springer Verlag, p. 145. <nowiki>ISBN 978-1-4614-0483-5</nowiki>. access-date: June 27, 2015. [https://web.archive.org/web/20150924083412/https://books.google.com/books?id=TKMpo5aINVIC&pg=PA145 Tahiry], archive-date: September 24, 2015. url-status: live.",
+          "calls": 2,
+          "group": "",
+          "name": "Julio2011"
+        },
+        {
+          "body": "Seth Kalichman (2009). ''[https://archive.org/details/denyingaidsconsp0000kali Denying AIDS: Conspiracy Theories, Pseudoscience, and Human Tragedy]''. New York: Copernicus Books (Springer Science+Business Media). <nowiki>ISBN 978-0-387-79475-4</nowiki>. Mila fisoratana anarana ny fidirana amin' ny URL.",
+          "calls": 1,
+          "group": "",
+          "name": "Kalichman"
+        },
+        {
+          "body": "Kalish ML, Wolfe ND, Ndongmo CB, McNicholl J, Robbins KE, Aidoo M, Fonjungo PN, Alemnji G, Zeh C, Djoko CF, Mpoudi-Ngole E, Burke DS, Folks TM. ''Central African hunters exposed to simian immunodeficiency virus''. ''Emerging Infectious Diseases'', 11 (12), pp. 1928–30, December 2005. <nowiki>PMID 16485481</nowiki>; PMC: 3367631; DOI: 10.3201/eid1112.050394. Anarana feno voafaritra ao amin' ny tahirin' ny fanondroana: Aidoo, Michael; Fonjungo, Peter N.; Alemnji, George; Zeh, Clement.",
+          "calls": 1,
+          "group": "",
+          "name": "Kalish2005"
+        },
+        {
+          "body": "Kallings LO. ''The first postmodern pandemic: 25 years of HIV/AIDS''. ''Journal of Internal Medicine'', 263 (3): 218–43. March 2008. <nowiki>PMID 18205765</nowiki>. doi:10.1111/j.1365-2796.2007.01910.x; azo vakina maimaim-poana amin' ny alalan' ny DOI. S2CID 205339589. (subscription required)",
+          "calls": 1,
+          "group": "",
+          "name": "Kallings"
+        },
+        {
+          "body": "Keele BF, Van Heuverswyn F, Li Y, Bailes E, Takehisa J, Santiago ML, Bibollet-Ruche F, Chen Y, Wain LV, Liegeois F, Loul S, Ngole EM, Bienvenue Y, Delaporte E, Brookfield JF, Sharp PM, Shaw GM, Peeters M, Hahn BH. ''Chimpanzee reservoirs of pandemic and nonpandemic HIV-1''. ''Science'', 313 (5786), pp. 523–26, July 2006. <nowiki>PMID 16728595</nowiki>; PMC: 2442710; DOI: 10.1126/science.1126531; Bibcode: 2006Sci...313..523K.",
+          "calls": 1,
+          "group": "",
+          "name": "Keele"
+        },
+        {
+          "body": "Kher, Unmesh. ''[http://www.time.com/time/80days/820727.html A Name for the Plague]''. ''Time'', July 27, 1982. Nojerena tamin' ny March 10, 2008. [https://web.archive.org/web/20080307015307/http://www.time.com/time/80days/820727.html Tahiry], March 7, 2008; URL niaviany: tsy mandeha araka ny loharano.",
+          "calls": 1,
+          "group": "",
+          "name": "Kher"
+        },
+        {
+          "body": "Knoll B, Lassmann B, Temesgen Z. ''Current status of HIV infection: a review for non-HIV-treating physicians''. ''International Journal of Dermatology'', 46 (12), 1219–28, December 2007. <nowiki>PMID 18173512</nowiki>; DOI: 10.1111/j.1365-4632.2007.03520.x; S2CID: 26248996.",
+          "calls": 3,
+          "group": "",
+          "name": "Knoll2007"
+        },
+        {
+          "body": "Kurth AE, Celum C, Baeten JM, Vermund SH (Sten H. Vermund), Wasserheit JN. ''Combination HIV prevention: significance, challenges, and opportunities''. ''Current HIV/AIDS Reports''. March 2011; 8(1): 62–72. DOI: 10.1007/s11904-010-0063-3. <nowiki>PMID 20941553</nowiki>. PMC: 3036787.",
+          "calls": 2,
+          "group": "",
+          "name": "Kurth2011"
+        },
+        {
+          "body": "May MT, Ingle SM (December 2011). ''Life expectancy of HIV-positive adults: a review''. ''Sexual Health'', 8 (4), 526–33. <nowiki>PMID 22127039</nowiki>. DOI: [https://doi.org/10.1071/SH11046 10.1071/SH11046].",
+          "calls": 1,
+          "group": "",
+          "name": "LE2011"
+        },
+        {
+          "body": "Blankson JN. (March 2010). ''Control of HIV-1 replication in elite suppressors''. ''Discovery Medicine'', 9 (46), pp. 261–66. <nowiki>PMID 20350494</nowiki>.",
+          "calls": 2,
+          "group": "",
+          "name": "LT2010"
+        },
+        {
+          "body": "Boily MC, Baggaley RF, Wang L, Masse B, White RG, Hayes RJ, Alary M. ''Heterosexual risk of HIV-1 infection per sexual act: systematic review and meta-analysis of observational studies.'' ''The Lancet Infectious Diseases'', 9 (2), 118–29, February 2009. <nowiki>PMID 19179227</nowiki>. DOI: 10.1016/S1473-3099(09)70021-0. PMC: 4467783.",
+          "calls": 9,
+          "group": "",
+          "name": "LancetT2009"
+        },
+        {
+          "body": "Laurence J. ''Hepatitis A and B virus immunization in HIV-infected persons''. ''The AIDS Reader''. January 2006; 16 (1): 15–17. <nowiki>PMID 16433468</nowiki>.",
+          "calls": 1,
+          "group": "",
+          "name": "Laurence"
+        },
+        {
+          "body": "Lawn SD. ''AIDS in Africa: the impact of coinfections on the pathogenesis of HIV-1 infection''. ''The Journal of Infection'', 48 (1), 1–12, January 2004. <nowiki>PMID 14667787</nowiki>; DOI: 10.1016/j.jinf.2003.09.001.",
+          "calls": 1,
+          "group": "",
+          "name": "Lawn"
+        },
+        {
+          "body": "Levy JA. ''HIV pathogenesis and long-term survival''. ''AIDS'', boky 7, laharana 11, p. 1401–10, November 1993. <nowiki>PMID 8280406</nowiki>. DOI: <nowiki>10.1097/00002030-199311000-00001</nowiki>.",
+          "calls": 1,
+          "group": "",
+          "name": "Levy"
+        },
+        {
+          "body": "Antiretroviral Therapy Cohort Collaboration. ''Life expectancy of individuals on combination antiretroviral therapy in high-income countries: a collaborative analysis of 14 cohort studies''. ''The Lancet'', 372 (9635), 293–99, July 2008. <nowiki>PMID 18657708</nowiki>; PMC: 3130543; DOI: 10.1016/S0140-6736(08)61113-7.",
+          "calls": 2,
+          "group": "",
+          "name": "LifeExpecr2008"
+        },
+        {
+          "body": "[[#boky-mandell-2010|Mandell, Bennett, and Dolan (2010)]]. Chapter 117.",
+          "calls": 3,
+          "group": "",
+          "name": "M117"
+        },
+        {
+          "body": "[[#boky-mandell-2010|Mandell, Bennett, and Dolan (2010)]]. Chapter 118.",
+          "calls": 17,
+          "group": "",
+          "name": "M118"
+        },
+        {
+          "body": "[[#boky-mandell-2010|Mandell, Bennett, and Dolan (2010)]]. Chapter 121.",
+          "calls": 6,
+          "group": "",
+          "name": "M121"
+        },
+        {
+          "body": "[[#boky-mandell-2010|Mandell, Bennett, and Dolan (2010)]]. Chapter 169.",
+          "calls": 5,
+          "group": "",
+          "name": "M169"
+        },
+        {
+          "body": "Centers for Disease Control (CDC). ''[https://www.cdc.gov/mmwr/preview/mmwrhtml/00001096.htm Persistent, generalized lymphadenopathy among homosexual males]''. ''Morbidity and Mortality Weekly Report'', May 1982, 31 (19), pp. 249–51. <nowiki>PMID 6808340</nowiki>. [https://web.archive.org/web/20111018015418/http://cdc.gov/mmwr/preview/mmwrhtml/00001096.htm Tahiry], October 18, 2011; URL niaviany: mandeha araka ny loharano.",
+          "calls": 1,
+          "group": "",
+          "name": "MMWR1982a"
+        },
+        {
+          "body": "Centers for Disease Control (CDC). ''[https://www.cdc.gov/mmwr/preview/mmwrhtml/00001123.htm Opportunistic infections and Kaposi's sarcoma among Haitians in the United States]''. ''Morbidity and Mortality Weekly Report'', July 1982, 31 (26), pp. 353–54, 360–61. <nowiki>PMID 6811853</nowiki>. [https://web.archive.org/web/20110920181924/http://www.cdc.gov/mmwr/preview/mmwrhtml/00001123.htm Tahiry], September 20, 2011; URL niaviany: mandeha araka ny loharano.",
+          "calls": 2,
+          "group": "",
+          "name": "MMWR1982b"
+        },
+        {
+          "body": "Centers for Disease Control (CDC). ''Update on acquired immune deficiency syndrome (AIDS) – United States''. ''Morbidity and Mortality Weekly Report'', September 1982, 31 (37), pp. 507–08, 513–14. <nowiki>PMID 6815471</nowiki>.",
+          "calls": 1,
+          "group": "",
+          "name": "MMWR1982c"
+        },
+        {
+          "body": "Gottlieb MS. ''[https://www.cdc.gov/mmwr/preview/mmwrhtml/june_5.htm Pneumocystis pneumonia – Los Angeles. 1981]''. ''American Journal of Public Health'', June 2006, 96 (6), pp. 980–81; discussion 982–83. <nowiki>PMID 16714472</nowiki>; PMC 1470612; DOI: 10.2105/AJPH.96.6.980. [https://web.archive.org/web/20090422042240/http://www.cdc.gov/mmwr/preview/mmwrhtml/june_5.htm Tahiry], April 22, 2009; URL niaviany: mandeha araka ny loharano.",
+          "calls": 1,
+          "group": "",
+          "name": "MMWR2"
+        },
+        {
+          "body": "Smith DK, Grohskopf LA, Black RJ, Auerbach JD, Veronese F, Struble KA, Cheever L, Johnson M, Paxton LA, Onorato IM, Greenberg AE. ''Antiretroviral postexposure prophylaxis after sexual, injection-drug use, or other nonoccupational exposure to HIV in the United States: recommendations from the U.S. Department of Health and Human Services.'' ''MMWR. Recommendations and Reports'', 54 (RR-2), 1–20, January 21, 2005. <nowiki>PMID 15660015</nowiki>.",
+          "calls": 1,
+          "group": "",
+          "name": "MMWR2005"
+        },
+        {
+          "body": "Marx PA, Alcabes PG, Drucker E. ''Serial human passage of simian immunodeficiency virus by unsterile injections and the emergence of epidemic human immunodeficiency virus in Africa''. ''Philosophical Transactions of the Royal Society of London. Series B, Biological Sciences'', 356 (1410), pp. 911–20, June 2001. <nowiki>PMID 11405938</nowiki>; PMC: 1088484; DOI: 10.1098/rstb.2001.0867.",
+          "calls": 2,
+          "group": "",
+          "name": "Marx2001"
+        },
+        {
+          "body": "McNeil, Donald G. Jr. [https://www.nytimes.com/2010/09/17/health/17aids.html ''Precursor to H.I.V. Was in Monkeys for Millennia'']. ''[[The New York Times]]'', September 16, 2010 (famakiana voafetra). Nojerena September 17, 2010. [https://web.archive.org/web/20110511230019/http://www.nytimes.com/2010/09/17/health/17aids.html Tahiry], May 11, 2011; sata URL: live. Teny notsongaina amin' ny teny anglisy: “Dr. Marx believes that the crucial event was the introduction into Africa of millions of inexpensive, mass-produced syringes in the 1950s.&nbsp;... suspect that the growth of colonial cities is to blame. Before 1910, no Central African town had more than 10,000 people. But urban migration rose, increasing sexual contacts and leading to red-light districts.”",
+          "calls": 1,
+          "group": "",
+          "name": "McNeil"
+        },
+        {
+          "body": "Barré-Sinoussi F, Chermann JC, Rey F, Nugeyre MT, Chamaret S, Gruest J, Dauguet C, Axler-Blin C, Vézinet-Brun F, Rouzioux C, Rozenbaum W, Montagnier L. ''Isolation of a T-lymphotropic retrovirus from a patient at risk for acquired immune deficiency syndrome (AIDS)''. ''Science'', May 1983, 220 (4599), pp. 868–71. <nowiki>PMID 6189183</nowiki>; DOI: 10.1126/science.6189183; Bibcode: 1983Sci...220..868B; S2CID 390173.",
+          "calls": 2,
+          "group": "",
+          "name": "Montagnier"
+        },
+        {
+          "body": "Montessori V, Press N, Harris M, Akagi L, Montaner JS. ''Adverse effects of antiretroviral therapy for HIV infection''. ''Canadian Medical Association Journal'', 170 (2), p. 229–38, January 2004. <nowiki>PMID 14734438</nowiki>. PMC: 315530.",
+          "calls": 3,
+          "group": "",
+          "name": "Montessori2004"
+        },
+        {
+          "body": "Morgan D, Mahe C, Mayanja B, Okongo JM, Lubega R, Whitworth JA. ''HIV-1 infection in rural Africa: is there a difference in median time to AIDS and survival compared with that in industrialized countries?'' ''AIDS'', 16 (4), 597–603, March 2002. <nowiki>PMID 11873003</nowiki>; DOI: 10.1097/00002030-200203080-00011 (azo vakina malalaka); S2CID: 35450422.",
+          "calls": 2,
+          "group": "",
+          "name": "Morgan2"
+        },
+        {
+          "body": "Coutsoudis A, Kwaan L, Thomson M. ''Prevention of vertical transmission of HIV-1 in resource-limited settings''. ''Expert Review of Anti-Infective Therapy'', volume 8, laharana 10, pejy 1163–75, October 2010. <nowiki>PMID 20954881</nowiki>. doi:10.1586/eri.10.94. S2CID 46624541.",
+          "calls": 4,
+          "group": "",
+          "name": "Mother2010"
+        },
+        {
+          "body": "Linden JA. ''Clinical practice. Care of the adult patient after sexual assault''. ''The New England Journal of Medicine'', boky 365, laharana 9, p. 834–41, September 2011. <nowiki>PMID 21879901</nowiki>. DOI: 10.1056/NEJMcp1102869; azo vakina maimaim-poana amin' ny alalan' ny DOI. S2CID: 8388126.",
+          "calls": 1,
+          "group": "",
+          "name": "NEJM2011Sex"
+        },
+        {
+          "body": "[https://www.who.int/occupational_health/activities/2needguid.pdf ''Needlestick Prevention Guide'']. 2002, p. 5–6. Access-date: November 10, 2019. [https://web.archive.org/web/20180712204534/http://www.who.int/occupational_health/activities/2needguid.pdf Archive-url], archive-date: July 12, 2018. url-status: dead.",
+          "calls": 1,
+          "group": "",
+          "name": "Needle2002"
+        },
+        {
+          "body": "Nicholas PK, Kemppainen JK, Canaval GE, Corless IB, Sefcik EF, Nokes KM, Bain CA, Kirksey KM, Eller LS, Dole PJ, Hamilton MJ, Coleman CL, Holzemer WL, Reynolds NR, Portillo CJ, Bunch EH, Wantland DJ, Voss J, Phillips R, Tsai YF, Mendez MR, Lindgren TG, Davis SM, Gallagher DM. ''Symptom management and self-care for peripheral neuropathy in HIV/AIDS''. ''AIDS Care'', 19 (2), 179–89, February 2007. <nowiki>PMID 17364396</nowiki>; DOI: 10.1080/09540120600971083; S2CID: 30220269.",
+          "calls": 1,
+          "group": "",
+          "name": "Nicholas2007"
+        },
+        {
+          "body": "Ogden J, Nyblade L (2005). [http://www.icrw.org/docs/2005_report_stigma_synthesis.pdf ''Common at its core: HIV-related stigma across contexts'']. International Center for Research on Women. Nojerena tamin' ny February 15, 2007. URL tsy niasa araka ny loharano; [https://web.archive.org/web/20070217044825/http://www.icrw.org/docs/2005_report_stigma_synthesis.pdf tahiry] tamin' ny February 17, 2007.",
+          "calls": 1,
+          "group": "",
+          "name": "Ogden"
+        },
+        {
+          "body": "Paul M. Sharp; Beatrice H. Hahn. ''Origins of HIV and the AIDS Pandemic''. ''Cold Spring Harbor Perspectives in Medicine'', 1 (1): a006841. September 2011. doi:10.1101/cshperspect.a006841. ISSN 2157-1422. PMC 3234451. <nowiki>PMID 22229120</nowiki>.",
+          "calls": 3,
+          "group": "",
+          "name": "Orgin2011"
+        },
+        {
+          "body": "Huang L, Cattamanchi A, Davis JL, den Boon S, Kovacs J, Meshnick S, Miller RF, Walzer PD, Worodria W, Masur H. ''HIV-associated Pneumocystis pneumonia''. ''Proceedings of the American Thoracic Society''. June 2011; 8 (3): 294–300. <nowiki>PMID 21653531</nowiki>. PMC: 3132788. DOI: [https://doi.org/10.1513/pats.201009-062WR 10.1513/pats.201009-062WR].",
+          "calls": 1,
+          "group": "",
+          "name": "PCP2011"
+        },
+        {
+          "body": "Department of Health and Human Services. ''Treating opportunistic infections among HIV-infected adults and adolescents. Recommendations from CDC, the National Institutes of Health, and the HIV Medicine Association/Infectious Diseases Society of America''. February 2, 2007. [https://www.cdc.gov/mmwr/preview/mmwrhtml/rr5315a1.htm Rohy niaviany] (mandeha). Nojerena July 26, 2018. [https://web.archive.org/web/20180727024527/https://www.cdc.gov/mmwr/preview/mmwrhtml/rr5315a1.htm Tahiry], July 27, 2018.",
+          "calls": 1,
+          "group": "",
+          "name": "PEPpocketguide"
+        },
+        {
+          "body": "Pantaleo G, Demarest JF, Schacker T, Vaccarezza M, Cohen OJ, Daucher M, Graziosi C, Schnittman SS, Quinn TC, Shaw GM, Perrin L, Tambussi G, Lazzarin A, Sekaly RP, Soudeyns H, Corey L, Fauci AS (January 1997). ''The qualitative nature of the primary immune response to HIV infection is a prognosticator of disease progression independent of the initial level of plasma viremia''. ''Proceedings of the National Academy of Sciences of the United States of America'', 94 (1), 254–58. DOI: 10.1073/pnas.94.1.254 (azo vakina malalaka). <nowiki>PMID 8990195</nowiki>. PMC: 19306. Bibcode: 1997PNAS...94..254P.",
+          "calls": 1,
+          "group": "",
+          "name": "Pantaleo1998"
+        },
+        {
+          "body": "Patel VL, Yoskowitz NA, Kaufman DR, Shortliffe EH. ''Discerning patterns of human immunodeficiency virus risk in healthy young adults''. ''The American Journal of Medicine'', 121 (9), 758–64, September 2008. <nowiki>PMID 18724961</nowiki>. PMC 2597652. DOI: 10.1016/j.amjmed.2008.04.022.",
+          "calls": 1,
+          "group": "",
+          "name": "Patel2008"
+        },
+        {
+          "body": "Piatak M, Saag MS, Yang LC, Clark SJ, Kappes JC, Luk KC, Hahn BH, Shaw GM, Lifson JD (March 1993). ''High levels of HIV-1 in plasma during all stages of infection determined by competitive PCR''. ''Science'', 259 (5102), 1749–54. DOI: 10.1126/science.8096089. <nowiki>PMID 8096089</nowiki>. Bibcode: 1993Sci...259.1749P. S2CID: 12158927.",
+          "calls": 1,
+          "group": "",
+          "name": "Piatak"
+        },
+        {
+          "body": "Post FA, Holt SG. ''Recent developments in HIV and the kidney''. ''Current Opinion in Infectious Diseases'', 22 (1), 43–48, February 2009. <nowiki>PMID 19106702</nowiki>; DOI: 10.1097/QCO.0b013e328320ffec; S2CID: 23085633.",
+          "calls": 1,
+          "group": "",
+          "name": "Post2009"
+        },
+        {
+          "body": "''HIV exposure through contact with body fluids''. ''Prescrire International'', boky 21, laharana 126, p. 100–01, 103–05, April 2012. <nowiki>PMID 22515138</nowiki>.",
+          "calls": 2,
+          "group": "",
+          "name": "Prevention2012"
+        },
+        {
+          "body": "Pépin, Jacques. [https://books.google.com/books?id=dTaMBrPBK6EC ''The Origin of Aids'']. Cambridge University Press, 2011, p. 188. <nowiki>ISBN 978-0-521-18637-7</nowiki>. Nojerena March 13, 2016. [https://web.archive.org/web/20160509120414/https://books.google.com/books?id=dTaMBrPBK6EC&printsec=frontcover Tahiry], May 9, 2016; sata URL: live.",
+          "calls": 2,
+          "group": "",
+          "name": "Pépin"
+        },
+        {
+          "body": "Jonathan Glazzard; Samuel Stones (2020). ''[https://books.google.com/books?id=8ZnpDwAAQBAJ&pg=PA87 Relationships and Sex Education for Secondary Schools (2020): A Practical Toolkit for Teachers]''. Critical Publishing, p. 87. <nowiki>ISBN 978-1913063689</nowiki>. Nojerena December 10, 2021. [https://web.archive.org/web/20231221043746/https://books.google.com/books?id=8ZnpDwAAQBAJ&pg=PA87#v=onepage&q&f=false Tahiry December 21, 2023]. Satan' ny URL tao amin' ny loharano: live.",
+          "calls": 1,
+          "group": "",
+          "name": "RASEFSS"
+        },
+        {
+          "body": "Reeves JD, Doms RW. ''Human immunodeficiency virus type 2''. ''The Journal of General Virology'', boky 83, laharana Pt 6, p. 1253–65, June 2002. <nowiki>PMID 12029140</nowiki>. DOI: <nowiki>10.1099/0022-1317-83-6-1253</nowiki> (fidirana malalaka).",
+          "calls": 2,
+          "group": "",
+          "name": "Reeves"
+        },
+        {
+          "body": "J LeMessurier; G Traversy; O Varsaneux; M Weekes; MT Avey; O Niragira; R Gervais; G Guyatt; R Rodin. ''Risk of sexual transmission of human immunodeficiency virus with antiretroviral therapy, suppressed viral load and condom use: a systematic review''. ''Canadian Medical Association Journal'', 190 (46): E1350–E1360. November 19, 2018. doi:10.1503/cmaj.180311. <nowiki>PMID 30455270</nowiki>. PMC 6239917.",
+          "calls": 2,
+          "group": "",
+          "name": "Risk of sexual transmission of huma"
+        },
+        {
+          "body": "Baggaley RF, Boily MC, White RG, Alary M. ''Risk of HIV-1 transmission for parenteral exposure and blood transfusion: a systematic review and meta-analysis''. ''AIDS''. April 2006; 20 (6): 805–12. DOI: <nowiki>10.1097/01.aids.0000218543.46963.6d</nowiki>. <nowiki>PMID 16549963</nowiki>. S2CID: 22674060. doi-access: free.",
+          "calls": 1,
+          "group": "",
+          "name": "Risk2006"
+        },
+        {
+          "body": "Sattentau Q. ''Avoiding the void: cell-to-cell spread of human viruses''. ''Nature Reviews. Microbiology'', boky 6, laharana 11, p. 815–26, November 2008. <nowiki>PMID 18923409</nowiki>. DOI: <nowiki>10.1038/nrmicro1972</nowiki> (fidirana malalaka). S2CID: <nowiki>20991705</nowiki>.",
+          "calls": 1,
+          "group": "",
+          "name": "Sattentau"
+        },
+        {
+          "body": "Schackman BR, Gebo KA, Walensky RP, Losina E, Muccio T, Sax PE, Weinstein MC, Seage GR, Moore RD, Freedberg KA. ''The lifetime cost of current human immunodeficiency virus care in the United States''. ''Medical Care'', 44 (11), 990–97, November 2006. <nowiki>PMID 17063130</nowiki>; DOI: 10.1097/01.mlr.0000228021.89490.2a; S2CID: 21175266.",
+          "calls": 1,
+          "group": "",
+          "name": "Schack2006"
+        },
+        {
+          "body": "''American Association for the Advancement of Science'' (Fikambanana Amerikanina ho an' ny Fampandrosoana ny Siansa). ''[http://www.scienceonline.org/cgi/reprint/313/5786/470b.pdf Making Headway Under Hellacious Circumstances]'', July 28, 2006. Nojerena tamin' ny June 23, 2008. [https://web.archive.org/web/20080624235131/http://www.scienceonline.org/cgi/reprint/313/5786/470b.pdf Tahiry], June 24, 2008; URL niaviany: tsy mandeha araka ny loharano.",
+          "calls": 1,
+          "group": "",
+          "name": "SciRep470b"
+        },
+        {
+          "body": "Sharp PM, Bailes E, Chaudhuri RR, Rodenburg CM, Santiago MO, Hahn BH. ''The origins of acquired immune deficiency syndrome viruses: where and when?''. ''Philosophical Transactions of the Royal Society of London. Series B, Biological Sciences'', 356 (1410), pp. 867–76, June 2001. <nowiki>PMID 11405934</nowiki>; PMC: 1088480; DOI: 10.1098/rstb.2001.0863.",
+          "calls": 1,
+          "group": "",
+          "name": "Sharp2001"
+        },
+        {
+          "body": "Siegfried N, Irlam JH, Visser ME, Rollins NN (March 2012). ''Micronutrient supplementation in pregnant women with HIV infection''. ''The Cochrane Database of Systematic Reviews'', laharana 3, lahatsoratra CD009755. <nowiki>PMID 22419344</nowiki>; DOI: 10.1002/14651858.CD009755; <nowiki>PMC 11747962</nowiki>.",
+          "calls": 2,
+          "group": "",
+          "name": "Siegfried2012"
+        },
+        {
+          "body": "Sigal A, Kim JT, Balazs AB, Dekel E, Mayo A, Milo R, Baltimore D. ''[https://resolver.caltech.edu/CaltechAUTHORS:20110922-140553274 Cell-to-cell spread of HIV permits ongoing replication despite antiretroviral therapy]''. ''Nature'', boky 477, laharana 7362, p. 95–98, August 2011. <nowiki>PMID 21849975</nowiki>. DOI: <nowiki>10.1038/nature10347</nowiki>. bibcode: <nowiki>2011Natur.477...95S</nowiki>; S2CID: <nowiki>4409389</nowiki>. Notsidihina: March 1, 2025. [https://web.archive.org/web/20161228132053/http://resolver.caltech.edu/CaltechAUTHORS:20110922-140553274/ Tahiry], December 28, 2016. Toetran' ny URL: <nowiki>live</nowiki>.",
+          "calls": 1,
+          "group": "",
+          "name": "Sigal"
+        },
+        {
+          "body": "Smith TC, Novella SP (August 2007). ''HIV denial in the Internet era''. ''PLOS Medicine'', 4 (8), lahatsoratra e256. <nowiki>PMID 17713982</nowiki>. PMC: 1949841. DOI: [https://doi.org/10.1371/journal.pmed.0040256 10.1371/journal.pmed.0040256] (azo vakina malalaka).",
+          "calls": 1,
+          "group": "",
+          "name": "SmithNovella"
+        },
+        {
+          "body": "Snyder M, Omoto AM, Crain AL (1999). ''Punished for their good deeds: stigmatization for AIDS volunteers''. ''American Behavioral Scientist'', 42 (7), 1175–92. DOI: 10.1177/0002764299042007009. S2CID: 144929159.",
+          "calls": 1,
+          "group": "",
+          "name": "Snyder"
+        },
+        {
+          "body": "de Sousa JD, Müller V, Lemey P, Vandamme AM. ''High GUD incidence in the early 20th century created a particularly permissive time window for the origin and initial spread of epidemic HIV strains''. ''PLOS One'', 5 (4), lahatsoratra e9936, April 2010. Mpandrindra: Martin, Darren P. <nowiki>PMID 20376191</nowiki>; PMC: 2848574; DOI: 10.1371/journal.pone.0009936 (azo vakina maimaim-poana); Bibcode: 2010PLoSO...5.9936S.",
+          "calls": 2,
+          "group": "",
+          "name": "Sousa2010"
+        },
+        {
+          "body": "Kaberi B. Feroze; Peter G. Gulick (2025). [http://www.ncbi.nlm.nih.gov/books/NBK470530/ ''HIV Retinopathy'']. ''StatPearls''. Treasure Island (FL): StatPearls Publishing. <nowiki>PMID 29261911</nowiki>. access-date: 2025-07-28. [https://web.archive.org/web/20231119091214/https://www.ncbi.nlm.nih.gov/books/NBK470530/ Tahiry], archive-date: November 19, 2023. url-status: live.",
+          "calls": 4,
+          "group": "",
+          "name": "StatPearls"
+        },
+        {
+          "body": "Tang J, Kaslow RA. ''The impact of host genetics on HIV infection and disease progression in the era of highly active antiretroviral therapy''. ''AIDS'', 17 (Suppl 4), S51–60, 2003. <nowiki>PMID 15080180</nowiki>; DOI: 10.1097/00002030-200317004-00006 (azo vakina malalaka).",
+          "calls": 1,
+          "group": "",
+          "name": "Tang"
+        },
+        {
+          "body": "[https://www.ewtnnews.com/world/us/thirty-years-after-aids-discovery-appreciation-growing-for-catholic-approach ''Thirty years after AIDS discovery, appreciation growing for Catholic approach'']. Catholicnewsagency.com. June 5, 2011. Nojerena tamin' ny November 1, 2011. [https://web.archive.org/web/20111016214921/http://www.catholicnewsagency.com/news/thirty-years-after-aids-discovery-appreciation-growing-for-catholic-approach/ Tahiry] tamin' ny October 16, 2011. Satan' ny URL voalazan' ny loharano: live.",
+          "calls": 2,
+          "group": "",
+          "name": "Thirty years after AIDS discovery, appreciation growing for Catholic approach"
+        },
+        {
+          "body": "Gilbert MT, Rambaut A, Wlasiuk G, Spira TJ, Pitchenik AE, Worobey M. ''The emergence of HIV/AIDS in the Americas and beyond''. ''Proceedings of the National Academy of Sciences of the United States of America'', 104 (47), pp. 18566–70, November 2007. <nowiki>PMID 17978186</nowiki>; PMC: 2141817; DOI: 10.1073/pnas.0705329104 (azo vakina maimaim-poana); Bibcode: 2007PNAS..10418566G.",
+          "calls": 3,
+          "group": "",
+          "name": "Thomas_Gilbert"
+        },
+        {
+          "body": "[http://www.unaids.org/documents/20101123_FS_Global_em_en.pdf ''Global Report Fact Sheet'']. UNAIDS (2010). [https://web.archive.org/web/20130916231221/http://www.unaids.org/documents/20101123_FS_Global_em_en.pdf Tahiry tamin' ny September 16, 2013]. Rohy niaviany: tsy mandeha intsony.",
+          "calls": 1,
+          "group": "",
+          "name": "TotalDeath2010"
+        },
+        {
+          "body": "[https://www.cdc.gov/hiv/topics/surveillance/resources/factsheets/us_overview.htm ''HIV in the United States: An Overview'']. Center for Disease Control and Prevention. March 2012. [https://web.archive.org/web/20130501102910/http://www.cdc.gov/hiv/topics/surveillance/resources/factsheets/us_overview.htm Archive-url], archive-date: May 1, 2013. url-status: dead.",
+          "calls": 1,
+          "group": "",
+          "name": "TransmissionCDC2012"
+        },
+        {
+          "body": "Rom WN; Markowitz SB (mpandrindra). [https://books.google.com/books?id=H4Sv9XY296oC&pg=PA745 ''Environmental and occupational medicine'']. Wolters Kluwer/Lippincott Williams & Wilkins, Philadelphia, 2007. Fanontana: 4th. p. 745. <nowiki>ISBN 978-0-7817-6299-1</nowiki>. Notsidihina: June 27, 2015. [https://web.archive.org/web/20150911155744/https://books.google.com/books?id=H4Sv9XY296oC&pg=PA745 Tahiry]: September 11, 2015. URL niaviany voamarika ho mandeha.",
+          "calls": 9,
+          "group": "",
+          "name": "TransmissionM2007"
+        },
+        {
+          "body": "[[#boky-unaids-2011|UNAIDS 2011]] pg. 70–80",
+          "calls": 3,
+          "group": "",
+          "name": "UN2011Eighty"
+        },
+        {
+          "body": "[[#boky-unaids-2011|UNAIDS 2011]], pp. 40–50.",
+          "calls": 1,
+          "group": "",
+          "name": "UN2011Fifty"
+        },
+        {
+          "body": "[[#boky-unaids-2011|UNAIDS 2011 pg. 150–160]]",
+          "calls": 2,
+          "group": "",
+          "name": "UN2011ONESIXTY"
+        },
+        {
+          "body": "[[#boky-unaids-2011|UNAIDS 2011]] pg. 60–70",
+          "calls": 1,
+          "group": "",
+          "name": "UN2011Seventy"
+        },
+        {
+          "body": "[[#boky-unaids-2011|UNAIDS 2011 pg. 1–10]].",
+          "calls": 1,
+          "group": "",
+          "name": "UN2011Ten"
+        },
+        {
+          "body": "UNAIDS. [http://www.unaids.org/en/resources/presscentre/featurestories/2012/may/20120518vaccinesday/ ''The quest for an HIV vaccine'']. May 18, 2012. [https://web.archive.org/web/20120524051113/http://www.unaids.org/en/resources/presscentre/featurestories/2012/may/20120518vaccinesday/ Tahiry]: May 24, 2012. URL niaviany voamarika ho mandeha.",
+          "calls": 3,
+          "group": "",
+          "name": "UN2012Vac"
+        },
+        {
+          "body": "[https://www.unaids.org/en/resources/fact-sheet ''Global HIV & AIDS statistics — 2022 fact sheet'']. UNAIDS. Notsidihina: July 20, 2023. [https://web.archive.org/web/20191204021652/https://www.unaids.org/en/resources/fact-sheet Tahiry]: December 4, 2019. URL niaviany voamarika ho mandeha.",
+          "calls": 1,
+          "group": "",
+          "name": "UN2022"
+        },
+        {
+          "body": "''2006 Report on the global AIDS epidemic''. UNAIDS, 2006. <nowiki>ISBN 978-92-9173-479-5</nowiki>. Toko: [http://data.unaids.org/pub/GlobalReport/2006/2006_GR_CH04_en.pdf ''The impact of AIDS on people and societies'']. Notsidihina: June 16, 2006. [https://web.archive.org/web/20061004001821/http://data.unaids.org/pub/GlobalReport/2006/2006_GR_CH04_en.pdf Tahiry]: October 4, 2006. URL niaviany voamarika ho tsy mandeha.",
+          "calls": 3,
+          "group": "",
+          "name": "UNAIDS2006Ch4"
+        },
+        {
+          "body": "UNAIDS; World Health Organization. [http://data.unaids.org/pub/EPISlides/2007/2007_epiupdate_en.pdf ''2007 AIDS epidemic update'']. December 2007. Notsidihina: March 12, 2008. [https://web.archive.org/web/20080527201701/http://data.unaids.org/pub/EPISlides/2007/2007_epiupdate_en.pdf Tahiry]: May 27, 2008. URL niaviany voamarika ho tsy mandeha.",
+          "calls": 3,
+          "group": "",
+          "name": "UNAIDS2007"
+        },
+        {
+          "body": "[https://www.unaids.org/en/resources/fact-sheet ''Global HIV & AIDS statistics — 2025 fact sheet'']. UNAIDS. Notsidihina: July 9, 2026. [https://web.archive.org/web/20260705123250/http://www.unaids.org/en/resources/fact-sheet Tahiry]: July 5, 2026. URL niaviany voamarika ho mandeha.",
+          "calls": 10,
+          "group": "",
+          "name": "UNAIDS2025Factsheet"
+        },
+        {
+          "body": "US Preventive Services Task Force; Owens DK; Davidson KW; Krist AH; Barry MJ; Cabana M; Caughey AB; Curry SJ; Doubeni CA; Epling JW Jr; Kubik M; Landefeld CS; Mangione CM; Pbert L; Silverstein M; Simon MA; Tseng CW; Wong JB. ''Screening for HIV Infection: US Preventive Services Task Force Recommendation Statement.'' ''JAMA''. June 18, 2019; 321 (23): 2326–2336. DOI: [https://doi.org/10.1001/jama.2019.6587 10.1001/jama.2019.6587] (azo vakina maimaim-poana; doi-access=free). <nowiki>PMID 31184701</nowiki>.",
+          "calls": 2,
+          "group": "",
+          "name": "USP2019Screen"
+        },
+        {
+          "body": "Reid SR. ''Injection drug use, unsafe medical injections, and HIV in Africa: a systematic review''. ''Harm Reduction Journal''. August 2009; 6: 24. <nowiki>PMID 19715601</nowiki>. PMC: 2741434. DOI: <nowiki>10.1186/1477-7517-6-24</nowiki>. doi-access: free.",
+          "calls": 3,
+          "group": "",
+          "name": "UnsafeInjection2009"
+        },
+        {
+          "body": "Celum C, Baeten JM. ''Tenofovir-based pre-exposure prophylaxis for HIV prevention: evolving evidence''. ''Current Opinion in Infectious Diseases'', 25 (1), 51–57, February 2012. <nowiki>PMID 22156901</nowiki>. PMC 3266126. DOI: 10.1097/QCO.0b013e32834ef5ef.",
+          "calls": 2,
+          "group": "",
+          "name": "VagGel2012"
+        },
+        {
+          "body": "Over, Mead (1992). ''[http://www.worldbank.org/aidsecon/macro.pdf The macroeconomic impact of AIDS in Sub-Saharan Africa, Population and Human Resources Department]''. World Bank. Nojerena tamin' ny May 3, 2008. URL tany am-boalohany: tsy mandeha, araka ny loharano. [https://web.archive.org/web/20080527201655/http://www.worldbank.org/aidsecon/macro.pdf Tahiry tamin' ny May 27, 2008].",
+          "calls": 1,
+          "group": "",
+          "name": "WBank"
+        },
+        {
+          "body": "World Health Organization. [https://www.who.int/inf-pr-2000/en/pr2000-25.html ''Blood safety&nbsp;... for too few'']. 2001. [https://web.archive.org/web/20050117092135/http://www.who.int/inf-pr-2000/en/pr2000-25.html Archive-url], archive-date: January 17, 2005.",
+          "calls": 1,
+          "group": "",
+          "name": "WHO070401"
+        },
+        {
+          "body": "World Health Organization. [https://www.who.int/tb/publications/global_report/2011/gtbr11_executive_summary.pdf ''Global tuberculosis control 2011'']. World Health Organization, 2011. <nowiki>ISBN 978-92-4-156438-0</nowiki>. Nojerena: August 29, 2012. URL tsy miasa araka ny loharano; [https://web.archive.org/web/20120906223650/http://www.who.int/tb/publications/global_report/2011/gtbr11_executive_summary.pdf tahiry tamin' ny September 6, 2012].",
+          "calls": 1,
+          "group": "",
+          "name": "WHO2011"
+        },
+        {
+          "body": "''[https://www.who.int/elena/titles/bbc/hiv_infant_feeding/en/ Infant feeding in the context of HIV]''. [[Fikambanana Maneran-Tany momba ny Fahasalamana|''World Health Organization'']] (Fikambanana Maneran-Tany momba ny Fahasalamana), April 2011. Notsidihina: March 9, 2017. [https://web.archive.org/web/20170309062212/http://www.who.int/elena/titles/bbc/hiv_infant_feeding/en/ Tahiry]: March 9, 2017. Toetry ny URL: dead.",
+          "calls": 3,
+          "group": "",
+          "name": "WHO2011Breast"
+        },
+        {
+          "body": "[https://www.who.int/mediacentre/factsheets/fs360/en/ ''HIV/AIDS Fact sheet N°360'']. ''World Health Organization'' ([[Fikambanana Maneran-Tany momba ny Fahasalamana]]). November 2015. Notsidihina: February 11, 2016. [https://web.archive.org/web/20160217160830/http://www.who.int/mediacentre/factsheets/fs360/en/ Tahiry]: February 17, 2016. URL niaviany voamarika ho mandeha.",
+          "calls": 12,
+          "group": "",
+          "name": "WHO2015Fact"
+        },
+        {
+          "body": "[http://apps.who.int/iris/bitstream/10665/186275/1/9789241509565_eng.pdf?ua=1 ''Guideline on when to start antiretroviral therapy and on pre-exposure prophylaxis for HIV'']. ''World Health Organization'' (Fikambanana Maneran-Tany momba ny Fahasalamana), 2015. p. 13. <nowiki>ISBN 978-92-4-150956-5</nowiki>. [https://web.archive.org/web/20151014071803/http://apps.who.int/iris/bitstream/10665/186275/1/9789241509565_eng.pdf?ua=1 Tahiry]: October 14, 2015. URL niaviany voamarika ho mandeha.",
+          "calls": 2,
+          "group": "",
+          "name": "WHO2015Tx"
+        },
+        {
+          "body": "[https://www.who.int/en/news-room/fact-sheets/detail/hiv-aids ''HIV and AIDS'']. ''World Health Organization'' ([[Fikambanana Maneran-Tany momba ny Fahasalamana]]). 22 July 2024. Notsidihina: 26 October 2024. [https://web.archive.org/web/20171224054738/http://www.who.int/mediacentre/factsheets/fs360/en/ Tahiry]: December 24, 2017. URL niaviany voamarika ho mandeha.",
+          "calls": 6,
+          "group": "",
+          "name": "WHO2024Factsheet"
+        },
+        {
+          "body": "''[https://www.who.int/hiv/pub/guidelines/arv2013/art/WHO_CG_table_7.4.pdf?ua=1 Summary of recommendations on when to start ART in children]''. ''Consolidated ARV guidelines, June 2013'', June 2013. PDF. URL tsy miasa; [https://web.archive.org/web/20141018175301/http://www.who.int/hiv/pub/guidelines/arv2013/art/WHO_CG_table_7.4.pdf?ua=1 tahiry] tamin' ny October 18, 2014.",
+          "calls": 1,
+          "group": "",
+          "name": "WHOCARV2013"
+        },
+        {
+          "body": "''[https://www.who.int/hiv/pub/guidelines/HIVstaging150307.pdf WHO case definitions of HIV for surveillance and revised clinical staging and immunological classification of HIV-related disease in adults and children]''. Geneva: World Health Organization, 2007, pp. 6–16. <nowiki>ISBN 978-92-4-159562-9</nowiki>. URL: live. [https://web.archive.org/web/20131031044253/http://www.who.int/hiv/pub/guidelines/HIVstaging150307.pdf Tahiry], October 31, 2013.",
+          "calls": 16,
+          "group": "",
+          "name": "WHOCase2007"
+        },
+        {
+          "body": "''[http://www.wpro.who.int/mediacentre/factsheets/fs_200308_Condoms/en/index.html Condom Facts and Figures]''. Mpamoaka: World Health Organization. August 2003. Nojerena tamin' ny January 17, 2006. URL tsy miasa; [https://web.archive.org/web/20121018145513/http://www.wpro.who.int/mediacentre/factsheets/fs_200308_Condoms/en/index.html tahiry tamin' ny October 18, 2012].",
+          "calls": 1,
+          "group": "",
+          "name": "WHOCondoms"
+        },
+        {
+          "body": "''Guidelines for intensified tuberculosis case-finding and isoniazid preventive therapy for people living with HIV in resource-constrained settings''. Department of HIV/AIDS, World Health Organization 2011. 2011. PDF. [http://whqlibdoc.who.int/publications/2011/9789241500708_eng.pdf?ua=1 Rohy niaviany] (tsy mandeha). [https://web.archive.org/web/20141019114659/http://whqlibdoc.who.int/publications/2011/9789241500708_eng.pdf?ua=1 Tahiry], October 19, 2014.",
+          "calls": 1,
+          "group": "",
+          "name": "WHOHIVTB2011"
+        },
+        {
+          "body": "''[http://whqlibdoc.who.int/publications/2010/9789241599764_eng.pdf Antiretroviral therapy for HIV infection in adults and adolescents: recommendations for a public health approach]''. Mpamoaka: ''World Health Organization'' (Fikambanana Maneran-Tany momba ny Fahasalamana), 2010, p. 19–20. <nowiki>ISBN 978-92-4-159976-4</nowiki>. URL tsy miasa; [https://web.archive.org/web/20120709184257/http://whqlibdoc.who.int/publications/2010/9789241599764_eng.pdf tahiry] tamin' ny July 9, 2012.",
+          "calls": 3,
+          "group": "",
+          "name": "WHOTx2010Pg19"
+        },
+        {
+          "body": "World Health Organization (May 2003). ''[https://www.who.int/nutrition/publications/Content_nutrient_requirements.pdf Nutrient requirements for people living with HIV/AIDS: Report of a technical consultation]''. Geneva: World Health Organization. Nojerena tamin' ny March 31, 2009. URL tsy mandeha; [https://web.archive.org/web/20090325030154/http://www.who.int/nutrition/publications/Content_nutrient_requirements.pdf tahiry tamin' ny March 25, 2009].",
+          "calls": 2,
+          "group": "",
+          "name": "WHO_nutrients"
+        },
+        {
+          "body": "Gail Ukockis (2016). ''[https://books.google.com/books?id=MNsmDAAAQBAJ&pg=PA407 Women's Issues for a New Generation: A Social Work Perspective]''. Oxford University Press, p. 407. <nowiki>ISBN 978-0190239404</nowiki>. Nojerena December 10, 2021. [https://web.archive.org/web/20231221043736/https://books.google.com/books?id=MNsmDAAAQBAJ&pg=PA407#v=onepage&q&f=false Tahiry December 21, 2023]. Satan' ny URL tao amin' ny loharano: live.",
+          "calls": 1,
+          "group": "",
+          "name": "WIFANG"
+        },
+        {
+          "body": "Walker BD. (August–September 2007). ''Elite control of HIV Infection: implications for vaccines and treatment''. ''Topics in HIV Medicine'', 15 (4), pp. 134–36. <nowiki>PMID 17720999</nowiki>.",
+          "calls": 2,
+          "group": "",
+          "name": "Walker2007"
+        },
+        {
+          "body": "Woods SP, Moore DJ, Weber E, Grant I. ''Cognitive neuropsychology of HIV-associated neurocognitive disorders''. ''Neuropsychology Review'', 19 (2), 152–68, June 2009. <nowiki>PMID 19462243</nowiki>; PMC: 2690857; DOI: 10.1007/s11065-009-9102-5.",
+          "calls": 1,
+          "group": "",
+          "name": "Woods2009"
+        },
+        {
+          "body": "Worobey M, Gemmel M, Teuwen DE, Haselkorn T, Kunstman K, Bunce M, Muyembe JJ, Kabongo JM, Kalengayi RM, Van Marck E, Gilbert MT, Wolinsky SM. ''Direct evidence of extensive diversity of HIV-1 in Kinshasa by 1960''. ''Nature'', 455 (7213), pp. 661–64, October 2008. <nowiki>PMID 18833279</nowiki>; PMC: 3682493; DOI: 10.1038/nature07390; Bibcode: 2008Natur.455..661W. Mitaky famandrihana.",
+          "calls": 1,
+          "group": "",
+          "name": "Worobey2008"
+        },
+        {
+          "body": "Yarchoan R, Tosato G, Little RF. [https://zenodo.org/record/1233371 ''Therapy insight: AIDS-related malignancies – the influence of antiviral therapy on pathogenesis and management'']. ''Nature Clinical Practice Oncology'', 2 (8), 406–15; quiz 423, August 2005. <nowiki>PMID 16130937</nowiki>; DOI: 10.1038/ncponc0253; S2CID: 23476060. Nojerena: December 7, 2019. URL miasa araka ny loharano; [https://web.archive.org/web/20211031110334/https://zenodo.org/record/1233371 tahiry tamin' ny October 31, 2021].",
+          "calls": 1,
+          "group": "",
+          "name": "Yarchoan2005"
+        },
+        {
+          "body": "Zhang C, Zhou S, Groppelli E, Pellegrino P, Williams I, Borrow P, Chain BM, Jolly C. ''Hybrid spreading mechanisms and T cell activation shape the dynamics of HIV-1 infection''. ''PLOS Computational Biology'', boky 11, laharana 4, lahatsoratra e1004179, April 2015. <nowiki>PMID 25837979</nowiki>; PMC: <nowiki>4383537</nowiki>. DOI: <nowiki>10.1371/journal.pcbi.1004179</nowiki> (fidirana malalaka). arXiv: <nowiki>1503.08992</nowiki>; bibcode: <nowiki>2015PLSCB..11E4179Z</nowiki>.",
+          "calls": 3,
+          "group": "",
+          "name": "Zhang"
+        },
+        {
+          "body": "Zhu T, Korber BT, Nahmias AJ, Hooper E, Sharp PM, Ho DD. ''An African HIV-1 sequence from 1959 and implications for the origin of the epidemic''. ''Nature'', 391 (6667), pp. 594–97, February 1998. <nowiki>PMID 9468138</nowiki>; DOI: 10.1038/35400 (azo vakina maimaim-poana); Bibcode: 1998Natur.391..594Z; S2CID: 4416837.",
+          "calls": 1,
+          "group": "",
+          "name": "Zhu"
+        },
+        {
+          "body": "Roser, Max; Ritchie, Hannah (April 3, 2018). [https://ourworldindata.org/hiv-aids ''HIV / AIDS'']. ''Our World in Data''. Notsidihina October 4, 2019. [https://web.archive.org/web/20191004044032/https://ourworldindata.org/hiv-aids Tahiry tamin' ny October 4, 2019]. Rohy niaviany: mbola mandeha.",
+          "calls": 1,
+          "group": "",
+          "name": "auto"
+        },
+        {
+          "body": "Joseph Berger (October 3, 1985). [https://archive.nytimes.com/www.nytimes.com/library/national/science/aids/100385sci-aids.html ''Rock Hudson, Screen Idol, Dies at 59'']. ''[[The New York Times]]''. [https://web.archive.org/web/20170728124316/http://partners.nytimes.com/library/national/science/aids/100385sci-aids.html Dika voatahiry] tamin' ny July 28, 2017. Satan' ny URL ao amin' ny loharano: live. Nojerena tamin' ny November 6, 2022.",
+          "calls": 1,
+          "group": "",
+          "name": "autogenerated4"
+        },
+        {
+          "body": "Various (January 14, 2010). ''[https://www.niaid.nih.gov/topics/HIVAIDS/Understanding/howHIVCausesAIDS/Pages/HIVcausesAIDS.aspx Resources and Links, HIV-AIDS Connection]''. National Institute of Allergy and Infectious Diseases. Nojerena February 22, 2009. [https://web.archive.org/web/20100407225045/http://www.niaid.nih.gov/topics/HIVAIDS/Understanding/howHIVCausesAIDS/pages/hivcausesaids.aspx Tahiry April 7, 2010]. Satan' ny URL tao amin' ny loharano: dead.",
+          "calls": 1,
+          "group": "",
+          "name": "consensus"
+        },
+        {
+          "body": "Thomas Boghardt (2009). ''[https://www.cia.gov/library/center-for-the-study-of-intelligence/csi-publications/csi-studies/studies/vol53no4/soviet-bloc-intelligence-and-its-aids.html Operation INFEKTION Soviet Bloc Intelligence and Its AIDS Disinformation Campaign]''. Central Intelligence Agency. [https://web.archive.org/web/20110514230328/https://www.cia.gov/library/center-for-the-study-of-intelligence/csi-publications/csi-studies/studies/vol53no4/soviet-bloc-intelligence-and-its-aids.html Tahiry May 14, 2011]. Satan' ny URL tao amin' ny loharano: dead.",
+          "calls": 1,
+          "group": "",
+          "name": "infektion"
+        },
+        {
+          "body": "Victoria Angela Harden. ''AIDS at 30: A History''. Potomac Books Inc, 2012. p. 324. <nowiki>ISBN 978-1-59797-294-9</nowiki>.",
+          "calls": 1,
+          "group": "",
+          "name": "isbn1-59797-294-0"
+        },
+        {
+          "body": "Lutge EE, Gray A, Siegfried N. ''The medical use of cannabis for reducing morbidity and mortality in patients with HIV/AIDS''. ''The Cochrane Database of Systematic Reviews'', volume 2013, issue 4, article-number CD005175. April 2013. PMID: <nowiki>23633327</nowiki>; DOI: 10.1002/14651858.CD005175.pub3; PMC: 12127901.",
+          "calls": 1,
+          "group": "",
+          "name": "lutge_2013"
+        },
+        {
+          "body": "Sepkowitz KA. ''AIDS – the first 20 years''. ''The New England Journal of Medicine'', 344 (23): 1764–72. June 2001. <nowiki>PMID 11396444</nowiki>. doi:10.1056/NEJM200106073442306; azo vakina maimaim-poana amin' ny alalan' ny DOI. ISSN 0028-4793.",
+          "calls": 1,
+          "group": "",
+          "name": "pmid11396444"
+        },
+        {
+          "body": "Mehandru S, Poles MA, Tenner-Racz K, Horowitz A, Hurley A, Hogan C, Boden D, Racz P, Markowitz M (September 2004). ''Primary HIV-1 infection is associated with preferential depletion of CD4+ T lymphocytes from effector sites in the gastrointestinal tract''. ''The Journal of Experimental Medicine'', 200 (6), 761–70. DOI: 10.1084/jem.20041196. <nowiki>PMID 15365095</nowiki>. PMC: 2211967.",
+          "calls": 1,
+          "group": "",
+          "name": "pmid15365095"
+        },
+        {
+          "body": "Brenchley JM, Schacker TW, Ruff LE, Price DA, Taylor JH, Beilman GJ, Nguyen PL, Khoruts A, Larson M, Haase AT, Douek DC (September 2004). ''CD4+ T cell depletion during all stages of HIV disease occurs predominantly in the gastrointestinal tract''. ''The Journal of Experimental Medicine'', 200 (6), 749–59. DOI: 10.1084/jem.20040874. <nowiki>PMID 15365096</nowiki>. PMC: 2211962.",
+          "calls": 1,
+          "group": "",
+          "name": "pmid15365096"
+        },
+        {
+          "body": "Mills E, Wu P, Ernst E. ''Complementary therapies for the treatment of HIV: in search of the evidence''. ''International Journal of STD & AIDS'', volume 16, issue 6, pp. 395–403. June 2005. PMID: <nowiki>15969772</nowiki>; DOI: 10.1258/0956462054093962; S2CID: 7411052.",
+          "calls": 1,
+          "group": "",
+          "name": "pmid15969772"
+        },
+        {
+          "body": "Hel Z, McGhee JR, Mestecky J (June 2006). ''HIV infection: first battle decides the war''. ''Trends in Immunology'', 27 (6), 274–81. DOI: 10.1016/j.it.2006.04.007. <nowiki>PMID 16679064</nowiki>.",
+          "calls": 1,
+          "group": "",
+          "name": "pmid16679064"
+        },
+        {
+          "body": "Brenchley JM, Price DA, Schacker TW, Asher TE, Silvestri G, Rao S, Kazzaz Z, Bornstein E, Lambotte O, Altmann D, Blazar BR, Rodriguez B, Teixeira-Johnson L, Landay A, Martin JN, Hecht FM, Picker LJ, Lederman MM, Deeks SG, Douek DC (December 2006). ''Microbial translocation is a cause of systemic immune activation in chronic HIV infection''. ''Nature Medicine'', 12 (12), 1365–71. DOI: 10.1038/nm1511. <nowiki>PMID 17115046</nowiki>. PMC: 1717013. Bibcode: 2006NatMe..12.1365B.",
+          "calls": 1,
+          "group": "",
+          "name": "pmid17115046"
+        },
+        {
+          "body": "Appay V, Sauce D (January 2008). ''Immune activation and inflammation in HIV-1 infection: causes and consequences''. ''The Journal of Pathology'', 214 (2), 231–41. DOI: 10.1002/path.2276 (azo vakina malalaka). <nowiki>PMID 18161758</nowiki>. S2CID: 26830006.",
+          "calls": 1,
+          "group": "",
+          "name": "pmid18161758"
+        },
+        {
+          "body": "Littlewood RA, Vanable PA. ''Complementary and alternative medicine use among HIV-positive people: research synthesis and implications for HIV care''. ''AIDS Care'', volume 20, issue 8, pp. 1002–18. September 2008. PMID: <nowiki>18608078</nowiki>; PMC: 2570227; DOI: 10.1080/09540120701767216.",
+          "calls": 1,
+          "group": "",
+          "name": "pmid18608078"
+        },
+        {
+          "body": "Eaton L, Kalichman SC. ''Behavioral aspects of male circumcision for the prevention of HIV infection''. ''Current HIV/AIDS Reports'', 6 (4), 187–93, November 2009. <nowiki>PMID 19849961</nowiki>. PMC 3557929. DOI: 10.1007/s11904-009-0025-9. (Mila famandrihana.)",
+          "calls": 1,
+          "group": "",
+          "name": "pmid19849961"
+        },
+        {
+          "body": "Nachega JB, Marconi VC, van Zyl GU, Gardner EM, Preiser W, Hong SY, Mills EJ, Gross R. ''HIV treatment adherence, drug resistance, virologic failure: evolving concepts''. ''Infectious Disorders Drug Targets'', 11 (2), p. 167–74, April 2011. <nowiki>PMID 21406048</nowiki>. PMC: 5072419. DOI: 10.2174/187152611795589663.",
+          "calls": 1,
+          "group": "",
+          "name": "pmid21406048"
+        },
+        {
+          "body": "Tolli MV. ''Effectiveness of peer education interventions for HIV prevention, adolescent pregnancy prevention and sexual health promotion for young people: a systematic review of European studies''. ''Health Education Research'', 27 (5), 904–13, October 2012. <nowiki>PMID 22641791</nowiki>. DOI: 10.1093/her/cys055 (azo vakina maimaim-poana).",
+          "calls": 1,
+          "group": "",
+          "name": "pmid22641791"
+        },
+        {
+          "body": "Hymes KB, Cheung T, Greene JB, Prose NS, Marcus A, Ballard H, William DC, Laubenstein LJ. ''Kaposi's sarcoma in homosexual men-a report of eight cases''. ''The Lancet'', September 1981, 2 (8247), pp. 598–600. <nowiki>PMID 6116083</nowiki>; DOI: 10.1016/S0140-6736(81)92740-9; S2CID 43529542.",
+          "calls": 1,
+          "group": "",
+          "name": "pmid6116083"
+        },
+        {
+          "body": "Friedman-Kien AE. ''Disseminated Kaposi's sarcoma syndrome in young homosexual men''. ''Journal of the American Academy of Dermatology'', October 1981, 5 (4), pp. 468–71. <nowiki>PMID 7287964</nowiki>; DOI: 10.1016/S0190-9622(81)80010-2.",
+          "calls": 1,
+          "group": "",
+          "name": "pmid7287964"
+        },
+        {
+          "body": "Gao F, Bailes E, Robertson DL, Chen Y, Rodenburg CM, Michael SF, Cummins LB, Arthur LO, Peeters M, Shaw GM, Sharp PM, Hahn BH. ''Origin of HIV-1 in the chimpanzee Pan troglodytes troglodytes''. ''Nature'', 397 (6718), pp. 436–41, February 1999. <nowiki>PMID 9989410</nowiki>; DOI: 10.1038/17130 (azo vakina maimaim-poana); Bibcode: 1999Natur.397..436G; S2CID: 4432185.",
+          "calls": 1,
+          "group": "",
+          "name": "pmid9989410"
+        },
+        {
+          "body": "Davis, Nicola (March 8, 2020). [https://www.theguardian.com/science/2020/mar/09/second-person-cleared-hiv-adam-castillejo-reveals-identity ''Second Person Ever to Be Cleared of HIV Reveals Identity'']. ''The Guardian''. Nojerena tamin' ny March 8, 2020. [https://web.archive.org/web/20201006095735/https://www.theguardian.com/science/2020/mar/09/second-person-cleared-hiv-adam-castillejo-reveals-identity/ Tahiry tamin' ny October 6, 2020]; mbola niasa ny URL araka ny loharano.",
+          "calls": 1,
+          "group": "",
+          "name": "two"
+        }
+      ],
+      "rendered_groups": [
+        ""
+      ],
+      "undefined": []
+    },
+    "short_citations": [
+      {
+        "author_label": "UNAIDS 2011",
+        "candidates": [
+          {
+            "basis": "same_author_label_only",
+            "text": "[[#boky-unaids-2011|UNAIDS 2011]] pg. 60–70"
+          },
+          {
+            "basis": "same_author_label_only",
+            "text": "[[#boky-unaids-2011|UNAIDS 2011]] pg. 70–80"
+          },
+          {
+            "basis": "same_author_label_only",
+            "text": "[[#boky-unaids-2011|UNAIDS 2011 pg. 1–10]]."
+          },
+          {
+            "basis": "same_author_label_only",
+            "text": "[[#boky-unaids-2011|UNAIDS 2011 pg. 150–160]]"
+          }
+        ],
+        "group": "",
+        "name": "UN2011Fifty",
+        "reference": "<ref name=\"UN2011Fifty\">[[#boky-unaids-2011|UNAIDS 2011]], pp. 40–50.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "candidates_require_review"
+      }
+    ]
+  },
+  "inputs": {
+    "draft": {
+      "path": "draft.wiki",
+      "sha256": "92427a776f8fef8a0d03a8294227c7d471f9b9275bc5d55087cd1d0fc9c4ec05"
+    },
+    "source": {
+      "path": "source.wiki",
+      "sha256": "d0366f5d40bd323481e23c2f9c0ff2af38731608450ee4cea45d21cd6c351faf"
+    }
+  },
+  "limits": "Literal native/core #tag references and explicit bibliography entries only. Surname matches are candidates, never identified works, editions or quotation antecedents. No repair, external lookup, source-disagreement classification, citation-gate clearance or publication authorization.",
+  "schema": 1,
+  "source": {
+    "empty": false,
+    "references": {
+      "anonymous_count": 145,
+      "conflicts": [],
+      "errors": [],
+      "groups": [
+        ""
+      ],
+      "missing_renderers": [
+        ""
+      ],
+      "named": [
+        {
+          "body": "{{cite web |date=March 23, 2023 |title=HIV Clinical Guidelines: Adult and Adolescent ARV - What's New in the Guidelines |url=https://clinicalinfo.hiv.gov/en/guidelines/hiv-clinical-guidelines-adult-and-adolescent-arv/whats-new |access-date=December 1, 2023 |website=clinicalinfo.hiv.gov |archive-date=November 26, 2023 |archive-url=https://web.archive.org/web/20231126215220/https://clinicalinfo.hiv.gov/en/guidelines/hiv-clinical-guidelines-adult-and-adolescent-arv/whats-new |url-status=live }}",
+          "calls": 2,
+          "group": "",
+          "name": ":1"
+        },
+        {
+          "body": "{{cite web |last=Geneva: Joint United Nations Programme on HIV/AIDS |title=UNAIDS Data 2021 |url=https://www.unaids.org/sites/default/files/media_asset/JC3032_AIDS_Data_book_2021_En.pdf |access-date=December 1, 2023 |website=UNAIDS 2021 Reference |archive-date=December 7, 2023 |archive-url=https://web.archive.org/web/20231207155450/https://www.unaids.org/sites/default/files/media_asset/JC3032_AIDS_Data_book_2021_En.pdf |url-status=live }}",
+          "calls": 3,
+          "group": "",
+          "name": ":2"
+        },
+        {
+          "body": "{{cite web |date=August 10, 2022 |title=Statistics Overview |url=https://www.cdc.gov/hiv/statistics/overview/index.html |access-date=December 1, 2023 |website=U.S. [[Centers for Disease Control and Prevention]] (CDC) |archive-date=December 7, 2018 |archive-url=https://web.archive.org/web/20181207084250/https://www.cdc.gov/hiv/statistics/overview/index.html |url-status=dead }}",
+          "calls": 3,
+          "group": "",
+          "name": ":3"
+        },
+        {
+          "body": "{{Cite book |url=https://www.unaids.org/sites/default/files/media_asset/climate-crisis-HIV-policy-brief_en.pdf |title=The Climate Crisis and Its Impact on HIV: A Policy Brief from UNDP and UNAIDS |publisher=Joint United Nations Programme on HIV/AIDS |year=2024 |location=Geneva |archive-date=December 10, 2025 |access-date=December 24, 2025 |archive-url=https://web.archive.org/web/20251210081607/https://www.unaids.org/sites/default/files/media_asset/climate-crisis-HIV-policy-brief_en.pdf |url-status=live}}",
+          "calls": 1,
+          "group": "",
+          "name": ":5"
+        },
+        {
+          "body": "{{Cite journal |last=The Lancet HIV |date=February 2024 |title=Effect of climate change on the HIV response |url=https://linkinghub.elsevier.com/retrieve/pii/S2352301824000092 |journal=The Lancet HIV |language=en |volume=11 |issue=2 |pages=e63 |doi=10.1016/S2352-3018(24)00009-2 |pmid=38296360 |archive-date=June 14, 2025 |access-date=December 24, 2025 |archive-url=https://web.archive.org/web/20250614012439/https://linkinghub.elsevier.com/retrieve/pii/S2352301824000092 |url-status=live}}",
+          "calls": 1,
+          "group": "",
+          "name": ":6"
+        },
+        {
+          "body": "{{cite web |title=HIV Classification: CDC and WHO Staging Systems |url=https://aidsetc.org/guide/hiv-classification-cdc-and-who-staging-systems |publisher=AIDS Education & Training Center Program |access-date=September 10, 2017 |archive-url=https://web.archive.org/web/20171018065658/https://aidsetc.org/guide/hiv-classification-cdc-and-who-staging-systems |archive-date=October 18, 2017 |url-status=dead }}",
+          "calls": 1,
+          "group": "",
+          "name": "AETC-staging"
+        },
+        {
+          "body": "{{cite journal |vauthors=Kripke C |title=Antiretroviral prophylaxis for occupational exposure to HIV |journal=American Family Physician |volume=76 |issue=3 |pages=375–76 |date=August 2007 |pmid=17708137}}",
+          "calls": 4,
+          "group": "",
+          "name": "AFP2007"
+        },
+        {
+          "body": "{{cite web |title=What Are HIV and AIDS? |url=https://www.hiv.gov/hiv-basics/overview/about-hiv-and-aids/what-are-hiv-and-aids |website=HIV.gov |access-date=September 10, 2017 |date=May 15, 2017 |archive-url=https://web.archive.org/web/20190922044900/https://www.hiv.gov/hiv-basics/overview/about-hiv-and-aids/what-are-hiv-and-aids |archive-date=September 22, 2019 |url-status=dead }}",
+          "calls": 4,
+          "group": "",
+          "name": "AIDS2010GOV"
+        },
+        {
+          "body": "{{cite journal | vauthors = Alimonti JB, Ball TB, Fowke KR | title = Mechanisms of CD4+ T lymphocyte cell death in human immunodeficiency virus infection and AIDS | journal = The Journal of General Virology | volume = 84 | issue = Pt 7 | pages = 1649–61 | date = July 2003 | pmid = 12810858 | doi = 10.1099/vir.0.19110-0 | doi-access = free }}",
+          "calls": 1,
+          "group": "",
+          "name": "Alimonti"
+        },
+        {
+          "body": "{{cite news |last=Altman |first=Lawrence K. |url=https://www.nytimes.com/1982/05/11/science/new-homosexual-disorder-worries-health-officials.html |title=New homosexual disorder worries health officials |work=[[The New York Times]] |date=May 11, 1982 |access-date=August 31, 2011 |url-status=live |archive-url=https://web.archive.org/web/20130430231803/http://www.nytimes.com/1982/05/11/science/new-homosexual-disorder-worries-health-officials.html |archive-date=April 30, 2013 }}",
+          "calls": 1,
+          "group": "",
+          "name": "Altman"
+        },
+        {
+          "body": "{{cite journal |vauthors=Anglemyer A, Rutherford GW, Horvath T, Baggaley RC, Egger M, Siegfried N |title=Antiretroviral therapy for prevention of HIV transmission in HIV-discordant couples |journal=The Cochrane Database of Systematic Reviews |volume=2013 |issue=4 |article-number=CD009153 |date=April 2013 |pmid=23633367 |pmc=4026368 |doi=10.1002/14651858.CD009153.pub3}}",
+          "calls": 2,
+          "group": "",
+          "name": "Anglemyer2013"
+        },
+        {
+          "body": "{{cite news |url=https://www.bbc.co.uk/news/uk-england-london-14406818 |title=Church HIV prayer cure claims 'cause three deaths' |date=October 18, 2011|access-date=October 18, 2011 |work=BBC News |url-status=live |archive-url=https://web.archive.org/web/20111018164909/http://www.bbc.co.uk/news/uk-england-london-14406818 |archive-date=October 18, 2011 }}",
+          "calls": 2,
+          "group": "",
+          "name": "BBC18102011"
+        },
+        {
+          "body": "{{cite journal |vauthors=Basavapathruni A, Anderson KS |title=Reverse transcription of the HIV-1 pandemic |journal=FASEB Journal |volume=21 |issue=14 |pages=3795–808 |date=December 2007 |pmid=17639073 |doi=10.1096/fj.07-8697rev|doi-access=free |s2cid=24960391 }}",
+          "calls": 2,
+          "group": "",
+          "name": "Basavapathruni_2007"
+        },
+        {
+          "body": "{{cite report |vauthors=Bell C, Devarajan S, Gersbach H |year=2003 |url=http://econ.worldbank.org/external/default/main?pagePK=64165259&theSitePK=478060&piPK=64165421&menuPK=64166093&entityID=000160016_20031110113834 |title=The long-run economic costs of AIDS: theory and an application to South Africa |access-date=April 28, 2008 |version=World Bank Policy Research Working Paper No. 3152 |format=PDF |url-status=dead |archive-url=https://web.archive.org/web/20130605151302/http://econ.worldbank.org/external/default/main?pagePK=64165259&theSitePK=478060&piPK=64165421&menuPK=64166093&entityID=000160016_20031110113834 |archive-date=June 5, 2013 }}",
+          "calls": 1,
+          "group": "",
+          "name": "Bell-et-al-2003"
+        },
+        {
+          "body": "{{cite journal |last1=Donegan |first1=Elizabeth |last2=Stuart |first2=Maria |last3=Niland |first3=Joyce C. |last4=Sacks |first4=Henry S. |last5=Azen |first5=Stanley P. |last6=Dietrich |first6=Shelby L. |last7=Faucett |first7=Cheryl |last8=Fletcher |first8=Mary Ann |last9=Kleinman |first9=Steven H. |last10=Operskalski |first10=Eva A. |last11=Perkins |first11=Herbert A. |last12=Pindyck |first12=Johanna |last13=Schiff |first13=Eugene R. |last14=Stites |first14=Daniel P. |last15=Tomasulo |first15=Peter A. |last16=Mosley |first16=James W. |title=Infection with Human Immunodeficiency Virus Type 1 (HIV-1) among Recipients of Antibody-Positive Blood Donations |journal=Annals of Internal Medicine |date=November 15, 1990 |volume=113 |issue=10 |pages=733–739 |doi=10.7326/0003-4819-113-10-733 |pmid=2240875 |url=https://annals.org/aim/article-abstract/704236/infection-human-immunodeficiency-virus-type-1-hiv-1-among-recipients?doi=10.7326%2f0003-4819-113-10-733 |access-date=May 11, 2020 |archive-date=June 3, 2018 |archive-url=https://web.archive.org/web/20180603040936/http://annals.org/aim/article-abstract/704236/infection-human-immunodeficiency-virus-type-1-hiv-1-among-recipients?doi=10.7326/0003-4819-113-10-733 |url-status=live |url-access=subscription }}",
+          "calls": 2,
+          "group": "",
+          "name": "Blood Transfusion Risk"
+        },
+        {
+          "body": "{{cite journal |vauthors=Boshoff C, Weiss R |title=AIDS-related malignancies |journal=Nature Reviews. Cancer |volume=2 |issue=5 |pages=373–82 |date=May 2002 |pmid=12044013 |doi=10.1038/nrc797|s2cid=13513517 }}",
+          "calls": 1,
+          "group": "",
+          "name": "Boshoff2002"
+        },
+        {
+          "body": "{{cite journal |vauthors=Brown TT, Qaqish RB |title=Antiretroviral therapy and the prevalence of osteopenia and osteoporosis: a meta-analytic review |journal=AIDS |volume=20 |issue=17 |pages=2165–74 |date=November 2006 |pmid=17086056 |doi=10.1097/QAD.0b013e32801022eb|s2cid=19217950 |doi-access=free }}",
+          "calls": 1,
+          "group": "",
+          "name": "Brown2006"
+        },
+        {
+          "body": "{{cite journal |vauthors=Burgoyne RW, Tan DH |title=Prolongation and quality of life for HIV-infected adults treated with highly active antiretroviral therapy (HAART): a balancing act |journal=[[Journal of Antimicrobial Chemotherapy]] |volume=61 |issue=3 |pages=469–73 |date=March 2008 |pmid=18174196 |doi=10.1093/jac/dkm499|doi-access=free }}",
+          "calls": 3,
+          "group": "",
+          "name": "Burgoyne2008"
+        },
+        {
+          "body": "{{cite web |url=http://www.rci.rutgers.edu/%7Einsects/aids.htm |title=Why Mosquitoes Cannot Transmit AIDS |website=[[Rutgers University]] |id=New Jersey Agricultural Experiment Station Publication No. H-40101-01-93 |date=June 1, 2010 |access-date=March 29, 2014 |first=Wayne J. |last=Crans |archive-url=https://web.archive.org/web/20140329183346/http://www.rci.rutgers.edu/~insects/aids.htm |archive-date=March 29, 2014}}",
+          "calls": 1,
+          "group": "",
+          "name": "C4Wauto-8503951"
+        },
+        {
+          "body": "{{cite journal |title=Revised surveillance case definition for HIV infection – United States, 2014 |journal=MMWR. Recommendations and Reports |volume=63 |issue=RR-03 |pages=1–10 |date=April 2014 |pmid=24717910 |author1=Centers for Disease Control Prevention (CDC) |url=https://www.cdc.gov/mmwr/pdf/rr/rr6303.pdf |access-date=October 17, 2020 |archive-date=October 17, 2020 |archive-url=https://web.archive.org/web/20201017133412/https://www.cdc.gov/mmwr/pdf/rr/rr6303.pdf |url-status=live }}",
+          "calls": 3,
+          "group": "",
+          "name": "CDC2014Clas"
+        },
+        {
+          "body": "{{cite web |title=HIV Among Gay and Bisexual Men |url=https://www.cdc.gov/hiv/pdf/group/msm/cdc-hiv-msm.pdf |access-date=January 1, 2017 |url-status=dead |archive-url=https://web.archive.org/web/20161218225712/https://www.cdc.gov/hiv/pdf/group/msm/cdc-hiv-msm.pdf |archive-date=December 18, 2016 }}",
+          "calls": 1,
+          "group": "",
+          "name": "CDC2016Bi"
+        },
+        {
+          "body": "{{cite web |title=About HIV/AIDS |url=https://www.cdc.gov/hiv/basics/whatishiv.html |website=U.S. [[Centers for Disease Control and Prevention]] (CDC) |access-date=February 11, 2016 |date=December 6, 2015 |archive-url=https://web.archive.org/web/20160224101946/http://www.cdc.gov/hiv/basics/whatishiv.html |archive-date=February 24, 2016 |url-status=dead }}",
+          "calls": 4,
+          "group": "",
+          "name": "CDC21015Bas"
+        },
+        {
+          "body": "{{cite web |title=Basic Information about HIV and AIDS|url=https://www.cdc.gov/hiv/topics/basic/|website=Center for Disease Control and Prevention |date=April 2012 |url-status=dead |archive-url=https://web.archive.org/web/20170618025129/https://www.cdc.gov/hiv/topics/basic/ |archive-date=June 18, 2017 }}",
+          "calls": 2,
+          "group": "",
+          "name": "CDCBasics2012"
+        },
+        {
+          "body": "{{cite journal |vauthors=Schneider E, Whitmore S, Glynn KM, Dominguez K, Mitsch A, McKenna MT |title=Revised surveillance case definitions for HIV infection among adults, adolescents, and children aged <18 months and for HIV infection and AIDS among children aged 18 months to <13 years – United States, 2008 |journal=MMWR. Recommendations and Reports |volume=57 |issue=RR-10 |pages=1–12 |date=December 2008 |pmid=19052530 |url=https://www.cdc.gov/mmwr/PDF/rr/rr5710.pdf |access-date=October 17, 2020 |archive-date=October 17, 2020 |archive-url=https://web.archive.org/web/20201017160943/https://www.cdc.gov/mmwr/PDF/rr/rr5710.pdf |url-status=live }}",
+          "calls": 3,
+          "group": "",
+          "name": "CDCCase2008"
+        },
+        {
+          "body": "{{cite web |url=https://www.cdc.gov/hiv/library/dcl/dcl/092717.html |title=Dear Colleague: September 27, 2017 |last1=McCray |first1=Eugene |last2=Mermin |first2=Jonathan |date=September 27, 2017 |publisher=U.S. [[Centers for Disease Control and Prevention]] (CDC) |access-date=February 1, 2018 |archive-url=https://web.archive.org/web/20180130231157/https://www.cdc.gov/hiv/library/dcl/dcl/092717.html |archive-date=January 30, 2018 |url-status=live }}",
+          "calls": 2,
+          "group": "",
+          "name": "CDCUndetectable"
+        },
+        {
+          "body": "{{cite web |publisher=U.S. [[Centers for Disease Control and Prevention]] (CDC) |year=2003 |url=https://www.cdc.gov/HIV/pubs/facts/transmission.htm |title=HIV and Its Transmission |access-date=May 23, 2006 |archive-url=https://web.archive.org/web/20050204141148/http://www.cdc.gov/HIV/pubs/facts/transmission.htm |archive-date=February 4, 2005}}",
+          "calls": 1,
+          "group": "",
+          "name": "CDCtransmission"
+        },
+        {
+          "body": "{{cite journal | vauthors = Campbell GR, Pasquier E, Watkins J, Bourgarel-Rey V, Peyrot V, Esquieu D, Barbier P, de Mareuil J, Braguer D, Kaleebu P, Yirrell DL, Loret EP | title = The glutamine-rich region of the HIV-1 Tat protein is involved in T-cell apoptosis | journal = The Journal of Biological Chemistry | volume = 279 | issue = 46 | pages = 48197–204 | date = November 2004 | pmid = 15331610 | doi = 10.1074/jbc.M406195200 | doi-access = free | bibcode = 2004JBiCh.27948197C }}",
+          "calls": 1,
+          "group": "",
+          "name": "Campbell"
+        },
+        {
+          "body": "{{cite journal | vauthors = Campbell GR, Watkins JD, Esquieu D, Pasquier E, Loret EP, Spector SA | title = The C terminus of HIV-1 Tat modulates the extent of CD178-mediated apoptosis of T cells | journal = The Journal of Biological Chemistry | volume = 280 | issue = 46 | pages = 38376–82 | date = November 2005 | pmid = 16155003 | doi = 10.1074/jbc.M506630200 | doi-access = free }}",
+          "calls": 1,
+          "group": "",
+          "name": "Campbell2"
+        },
+        {
+          "body": "{{cite journal | vauthors = Cheung MC, Pantanowitz L, Dezube BJ | title = AIDS-related malignancies: emerging challenges in the era of highly active antiretroviral therapy | journal = The Oncologist | volume = 10 | issue = 6 | pages = 412–26 | date = Jun–Jul 2005 | pmid = 15967835 | doi = 10.1634/theoncologist.10-6-412 | s2cid = 24329763 }}",
+          "calls": 2,
+          "group": "",
+          "name": "Cancer2005"
+        },
+        {
+          "body": "{{cite journal |vauthors=Kellerman S, Essajee S |title=HIV testing for children in resource-limited settings: what are we waiting for? |journal=[[PLOS Medicine]] |volume=7 |issue=7 |article-number=e1000285 |date=July 2010 |pmid=20652012 |pmc=2907270 |doi=10.1371/journal.pmed.1000285 |doi-access=free }}",
+          "calls": 2,
+          "group": "",
+          "name": "ChildDiag2010"
+        },
+        {
+          "body": "{{cite journal |vauthors=Chitnis A, Rawls D, Moore J |title=Origin of HIV type 1 in colonial French Equatorial Africa? |journal=AIDS Research and Human Retroviruses |volume=16 |issue=1 |pages=5–8 |date=January 2000 |pmid=10628811 |doi=10.1089/088922200309548|s2cid=17783758 }}(subscription required)",
+          "calls": 1,
+          "group": "",
+          "name": "Chitnis2000"
+        },
+        {
+          "body": "{{cite journal |vauthors=Chou R, Selph S, Dana T, Bougatsos C, Zakher B, Blazina I, Korthuis PT |title=Screening for HIV: systematic review to update the 2005 U.S. Preventive Services Task Force recommendation |journal=Annals of Internal Medicine |volume=157 |issue=10 |pages=706–18 |date=November 2012 |pmid=23165662 |doi=10.7326/0003-4819-157-10-201211200-00007|s2cid=27494096 }}",
+          "calls": 1,
+          "group": "",
+          "name": "Chou2012"
+        },
+        {
+          "body": "{{cite journal |vauthors=Young TN, Arens FJ, Kennedy GE, Laurie JW, Rutherford GW |title=Antiretroviral post-exposure prophylaxis (PEP) for occupational HIV exposure |journal=The Cochrane Database of Systematic Reviews |issue=1 |article-number=CD002835 |date=January 2007 |volume=2012 |pmid=17253483 |doi=10.1002/14651858.CD002835.pub3 |pmc=8989146 |editor1-last=Young |editor1-first=Taryn }}",
+          "calls": 1,
+          "group": "",
+          "name": "CochranePEP2007"
+        },
+        {
+          "body": "{{cite journal |vauthors=Ng BE, Butler LM, Horvath T, Rutherford GW |title=Population-based biomedical sexually transmitted infection control interventions for reducing HIV infection |journal=[[The Cochrane Database of Systematic Reviews]] |issue=3 |article-number=CD001220 |date=March 2011 |pmid=21412869 |doi=10.1002/14651858.CD001220.pub3 |editor1-last=Butler |editor1-first=Lisa M}}",
+          "calls": 2,
+          "group": "",
+          "name": "CochraneSTI2012"
+        },
+        {
+          "body": "{{cite journal |vauthors=Cohen MS, Hellmann N, Levy JA, DeCock K, Lange J |title=The spread, treatment, and prevention of HIV-1: evolution of a global pandemic |journal=The Journal of Clinical Investigation |volume=118 |issue=4 |pages=1244–54 |date=April 2008 |pmid=18382737 |pmc=2276790 |doi=10.1172/JCI34706}}",
+          "calls": 1,
+          "group": "",
+          "name": "Cohen2008"
+        },
+        {
+          "body": "{{cite journal |vauthors=Chu C, Selwyn PA |title=Complications of HIV infection: a systems-based approach |journal=American Family Physician |volume=83 |issue=4 |pages=395–406 |date=February 2011 |pmid=21322514}}",
+          "calls": 1,
+          "group": "",
+          "name": "Complications2011"
+        },
+        {
+          "body": "{{cite journal | author = Coovadia H | title = Antiretroviral agents—how best to protect infants from HIV and save their mothers from AIDS | journal = N. Engl. J. Med. | volume = 351 | issue = 3 | pages = 289–292 | year = 2004 | pmid = 15247337 | doi = 10.1056/NEJMe048128 }}",
+          "calls": 1,
+          "group": "",
+          "name": "Coovadia"
+        },
+        {
+          "body": "{{cite web |title=Guidelines for the Use of Antiretroviral Agents in HIV-1-Infected Adults and Adolescents |url=http://aidsinfo.nih.gov/contentfiles/lvguidelines/AdultandAdolescentGL.pdf |website=Department of Health and Human Services |access-date=January 3, 2014 |page=i |date=February 12, 2013 |url-status=dead |archive-url=https://web.archive.org/web/20161101202407/https://aidsinfo.nih.gov/contentfiles/lvguidelines/adultandadolescentgl.pdf |archive-date=November 1, 2016 }}",
+          "calls": 1,
+          "group": "",
+          "name": "DHHS2013"
+        },
+        {
+          "body": "{{cite web |title=Guidelines for the Use of Antiretroviral Agents in Pediatric HIV Infection |url=http://aidsinfo.nih.gov/contentfiles/lvguidelines/pedarv_recsonly.pdf |website=Department of Health and Human Services, February 2014 |date=March 2014 |url-status=dead |archive-url=https://web.archive.org/web/20150914053159/https://aidsinfo.nih.gov/contentfiles/lvguidelines/pedarv_recsonly.pdf |archive-date=September 14, 2015 }}",
+          "calls": 1,
+          "group": "",
+          "name": "DHHS2014"
+        },
+        {
+          "body": "{{cite journal |vauthors=Vogel M, Schwarze-Zander C, Wasmuth JC, Spengler U, Sauerbruch T, Rockstroh JK |title=The treatment of patients with HIV |journal=Deutsches Ärzteblatt International |volume=107 |issue=28–29 |pages=507–15; quiz 516 |date=July 2010 |pmid=20703338 |pmc=2915483 |doi=10.3238/arztebl.2010.0507}}",
+          "calls": 18,
+          "group": "",
+          "name": "Deut2010"
+        },
+        {
+          "body": "{{cite web |title=Germany's most famous gay rights activist: Rosa von Praunheim |url=http://www.dw.com/en/germanys-most-famous-gay-rights-activist-filmmaker-rosa-von-praunheim-at-75/a-41514818 |work=[[Deutsche Welle]] |access-date=June 14, 2018 |archive-date=July 23, 2021 |archive-url=https://web.archive.org/web/20210723132748/https://www.dw.com/en/germanys-most-famous-gay-rights-activist-filmmaker-rosa-von-praunheim-at-75/a-41514818 |url-status=live }}",
+          "calls": 1,
+          "group": "",
+          "name": "DeutscheWelle"
+        },
+        {
+          "body": "{{cite journal |vauthors=Dosekun O, Fox J |title=An overview of the relative risks of different sexual behaviours on HIV transmission |journal=[[Current Opinion in HIV and AIDS]] |volume=5 |issue=4 |pages=291–97 |date=July 2010 |pmid=20543603 |doi=10.1097/COH.0b013e32833a88a3|s2cid=25541753 }}",
+          "calls": 7,
+          "group": "",
+          "name": "Dosekun2010"
+        },
+        {
+          "body": "{{cite journal |vauthors=Duesberg P |title=HIV is not the cause of AIDS |journal=Science |volume=241 |issue=4865 |pages=514, 517 |date=July 1988 |pmid=3399880 |doi=10.1126/science.3399880 |bibcode=1988Sci...241..514D}}{{cite journal |vauthors=Cohen J |title=The Duesberg phenomenon |journal=Science |volume=266 |issue=5191 |pages=1642–44 |date=December 1994 |pmid=7992043 |doi=10.1126/science.7992043 |url=http://www.sciencemag.org/feature/data/cohen/266-5191-1642a.pdf |url-status=dead |archive-url=https://web.archive.org/web/20070101111630/http://www.sciencemag.org/feature/data/cohen/266-5191-1642a.pdf  |bibcode=1994Sci...266.1642C |archive-date=January 1, 2007}}",
+          "calls": 1,
+          "group": "",
+          "name": "Duesberg"
+        },
+        {
+          "body": "{{Citation |last=Dunn |first=James P. |chapter=HIV Retinopathy |date=2022 |title=Albert and Jakobiec's Principles and Practice of Ophthalmology |pages=3167–3177 |chapter-url=https://link.springer.com/rwe/10.1007/978-3-030-42634-7_32 |publisher=Springer, Cham |language=en |doi=10.1007/978-3-030-42634-7_32 |isbn=978-3-030-42634-7}}",
+          "calls": 2,
+          "group": "",
+          "name": "Dunn"
+        },
+        {
+          "body": "{{cite press release | title=First long-acting injectable antiretroviral therapy for HIV recommended approval | website=[[European Medicines Agency]] (EMA) | date=October 16, 2020 | url=https://www.ema.europa.eu/en/news/first-long-acting-injectable-antiretroviral-therapy-hiv-recommended-approval | access-date=October 16, 2020 | archive-date=October 17, 2020 | archive-url=https://web.archive.org/web/20201017014521/https://www.ema.europa.eu/en/news/first-long-acting-injectable-antiretroviral-therapy-hiv-recommended-approval | url-status=live }}",
+          "calls": 2,
+          "group": "",
+          "name": "EMA PR"
+        },
+        {
+          "body": "{{cite press release | title=FDA Approves First Extended-Release, Injectable Drug Regimen for Adults Living with HIV | website=U.S. [[Food and Drug Administration]] (FDA) | date=January 21, 2021 | url=https://www.fda.gov/news-events/press-announcements/fda-approves-first-extended-release-injectable-drug-regimen-adults-living-hiv | access-date=January 21, 2021 | archive-date=January 21, 2021 | archive-url=https://web.archive.org/web/20210121213203/http://www.fda.gov/news-events/press-announcements/fda-approves-first-extended-release-injectable-drug-regimen-adults-living-hiv | url-status=dead }} {{PD-notice}}",
+          "calls": 1,
+          "group": "",
+          "name": "FDA PR"
+        },
+        {
+          "body": "{{cite journal |vauthors=Gallo RC, Sarin PS, Gelmann EP, Robert-Guroff M, Richardson E, Kalyanaraman VS, Mann D, Sidhu GD, Stahl RE, Zolla-Pazner S, Leibowitch J, Popovic M |title=Isolation of human T-cell leukemia virus in acquired immune deficiency syndrome (AIDS) |journal=Science |volume=220 |issue=4599 |pages=865–67 |date=May 1983 |pmid=6601823 |doi=10.1126/science.6601823 |bibcode=1983Sci...220..865G}}",
+          "calls": 1,
+          "group": "",
+          "name": "Gallo"
+        },
+        {
+          "body": "{{cite journal |vauthors=Gallo RC |date=October 2006 |title=A reflection on HIV/AIDS research after 25 years |journal=[[Retrovirology (journal)|Retrovirology]] |volume=3 |issue=1 |article-number=72 |doi=10.1186/1742-4690-3-72 |pmc=1629027 |pmid=17054781 |doi-access=free }}",
+          "calls": 2,
+          "group": "",
+          "name": "Gallo2"
+        },
+        {
+          "body": "{{cite journal |vauthors=Goodier JL, Kazazian HH |title=Retrotransposons revisited: the restraint and rehabilitation of parasites |journal=Cell |volume=135 |issue=1 |pages=23–35 |date=October 2008 |pmid=18854152 |doi=10.1016/j.cell.2008.09.022|bibcode=2008Cell..135...23G |s2cid=3093360 |doi-access=free }}(subscription required)",
+          "calls": 1,
+          "group": "",
+          "name": "Goodier"
+        },
+        {
+          "body": "{{cite book |last=Greener |first=Robert |year=2002 |title=State of The Art: AIDS and Economics |chapter=AIDS and macroeconomic impact |editor-last=Forsyth |editor-first=Steven |pages=49–55 |publisher=IAEN |chapter-url=http://pdf.usaid.gov/pdf_docs/PNACP969.pdf |url-status=dead |archive-url=https://web.archive.org/web/20121012090520/http://pdf.usaid.gov/pdf_docs/PNACP969.pdf |archive-date=October 12, 2012 }}",
+          "calls": 2,
+          "group": "",
+          "name": "Greener"
+        },
+        {
+          "body": "{{cite journal |vauthors=Herek GM, Capitanio JP |journal=American Behavioral Scientist |year=1999 |url=http://psychology.ucdavis.edu/rainbow/html/abs99_sp.pdf |title=AIDS Stigma and sexual prejudice |access-date=March 27, 2006 |volume=42 |issue=7 |pages=1130–47 |doi=10.1177/0002764299042007006 |s2cid=143508360 |url-status=dead |archive-url=https://web.archive.org/web/20060409034211/http://psychology.ucdavis.edu/rainbow/html/abs99_sp.pdf |archive-date=April 9, 2006 }}",
+          "calls": 3,
+          "group": "",
+          "name": "Herek1999"
+        },
+        {
+          "body": "{{cite journal |vauthors=Herek GM, Capitanio JP, Widaman KF |title=HIV-related stigma and knowledge in the United States: prevalence and trends, 1991–1999 |journal=American Journal of Public Health |volume=92 |issue=3 |pages=371–77 |date=March 2002 |pmid=11867313 |pmc=1447082 |doi=10.2105/AJPH.92.3.371}}",
+          "calls": 1,
+          "group": "",
+          "name": "Herek2002"
+        },
+        {
+          "body": "{{cite journal |vauthors=Holmes CB, Losina E, Walensky RP, Yazdanpanah Y, Freedberg KA |title=Review of human immunodeficiency virus type 1-related opportunistic infections in sub-Saharan Africa |journal=[[Clinical Infectious Diseases]] |volume=36 |issue=5 |pages=652–62 |date=March 2003 |pmid=12594648 |doi=10.1086/367655|doi-access=free }}",
+          "calls": 1,
+          "group": "",
+          "name": "Holmes"
+        },
+        {
+          "body": "{{cite journal|vauthors=Marrazzo JM, del Rio C, Holtgrave DR, Cohen MS, Kalichman SC, Mayer KH, Montaner JS, Wheeler DP, Grant RM, Grinsztejn B, Kumarasamy N, Shoptaw S, Walensky RP, Dabis F, Sugarman J, Benson CA|date=July 23–30, 2014|title=HIV prevention in clinical care settings: 2014 recommendations of the International Antiviral Society–USA Panel|journal=JAMA|volume=312|issue=4|pages=390–409|doi=10.1001/jama.2014.7999|pmc=6309682|pmid=25038358}}",
+          "calls": 1,
+          "group": "",
+          "name": "IAS2014"
+        },
+        {
+          "body": "{{cite web | author=International Committee on Taxonomy of Viruses | publisher=National Institutes of Health | year=2002 | url=https://www.ncbi.nlm.nih.gov/ICTVdb/ICTVdB/61000000.htm | title=61. Retroviridae | newspaper=Men's Journal | archive-url=https://web.archive.org/web/20011217155644/http://www.ncbi.nlm.nih.gov/ictvdb/ictvdb/61000000.htm | access-date=June 25, 2012 | archive-date=December 17, 2001 | url-status=dead }}",
+          "calls": 1,
+          "group": "",
+          "name": "ICTV61."
+        },
+        {
+          "body": "{{cite web | author=International Committee on Taxonomy of Viruses| author-link=International Committee on Taxonomy of Viruses | publisher=[[National Institutes of Health]] | year=2002 | url=https://www.ncbi.nlm.nih.gov/ICTVdb/ICTVdB/61060000.htm |archive-url=https://web.archive.org/web/20060418135608/http://www.ncbi.nlm.nih.gov/ICTVdb/ICTVdB/61060000.htm | title=61.0.6. Lentivirus | newspaper=Men's Journal | access-date=June 25, 2012 |archive-date=April 18, 2006}}",
+          "calls": 1,
+          "group": "",
+          "name": "ICTV61.0.6"
+        },
+        {
+          "body": "{{Cite journal |last1=Sudharshan |first1=Sridharan |last2=Nair |first2=Nivedita |last3=Curi |first3=Andre |last4=Banker |first4=Alay |last5=Kempen |first5=John H. |date=September 2020 |title=Human immunodeficiency virus and intraocular inflammation in the era of highly active anti retroviral therapy – An update |journal=Indian Journal of Ophthalmology |language=en-US |volume=68 |issue=9 |pages=1787–1798 |doi=10.4103/ijo.IJO_1248_20 |pmid=32823395 |pmc=7690468 |doi-access=free |issn=0301-4738}}",
+          "calls": 1,
+          "group": "",
+          "name": "IJO"
+        },
+        {
+          "body": "{{cite book|editor-last=Smith|editor-first=Blaine T.|title=Concepts in immunology and immunotherapeutics|year=2008|publisher=American Society of Health-System Pharmacists|location=Bethesda, MD|isbn=978-1-58528-127-5|page=143|url=https://books.google.com/books?id=G46DrdlxNJAC&pg=PA143|edition=4th|access-date=June 27, 2015|archive-url=https://web.archive.org/web/20151128082820/https://books.google.com/books?id=G46DrdlxNJAC&pg=PA143|archive-date=November 28, 2015|url-status=live}}",
+          "calls": 2,
+          "group": "",
+          "name": "InfectionBook2008"
+        },
+        {
+          "body": "{{cite journal | vauthors = Smith JA, Daniel R | title = Following the path of the virus: the exploitation of host DNA repair mechanisms by retroviruses | journal = ACS Chemical Biology | volume = 1 | issue = 4 | pages = 217–26 | date = May 2006 | pmid = 17163676 | doi = 10.1021/cb600131q }}",
+          "calls": 1,
+          "group": "",
+          "name": "JASmith"
+        },
+        {
+          "body": "{{cite journal | vauthors = Jolly C, Kashefi K, Hollinshead M, Sattentau QJ | title = HIV-1 cell to cell transfer across an Env-induced, actin-dependent synapse | journal = [[The Journal of Experimental Medicine]] | volume = 199 | issue = 2 | pages = 283–93 | date = January 2004 | pmid = 14734528 | pmc = 2211771 | doi = 10.1084/jem.20030648 }}",
+          "calls": 1,
+          "group": "",
+          "name": "Jolly"
+        },
+        {
+          "body": "{{cite book |editor-last=Aliberti |editor-first=Julio |title=Control of Innate and Adaptive Immune Responses During Infectious Diseases |publisher=Springer Verlag |location=New York |isbn=978-1-4614-0483-5 |page=145 |url=https://books.google.com/books?id=TKMpo5aINVIC&pg=PA145 |year=2011  |access-date=June 27, 2015 |archive-url=https://web.archive.org/web/20150924083412/https://books.google.com/books?id=TKMpo5aINVIC&pg=PA145 |archive-date=September 24, 2015 |url-status=live }}",
+          "calls": 2,
+          "group": "",
+          "name": "Julio2011"
+        },
+        {
+          "body": "{{cite book |last=Kalichman |first=Seth |author-link=Seth Kalichman |title=Denying AIDS: Conspiracy Theories, Pseudoscience, and Human Tragedy |publisher=Copernicus Books ([[Springer Science+Business Media]]) |location=New York |year=2009 |isbn=978-0-387-79475-4 |url=https://archive.org/details/denyingaidsconsp0000kali|url-access=registration }}",
+          "calls": 1,
+          "group": "",
+          "name": "Kalichman"
+        },
+        {
+          "body": "{{cite journal |vauthors=Kalish ML, Wolfe ND, Ndongmo CB, McNicholl J, Robbins KE, Aidoo M, Fonjungo PN, Alemnji G, Zeh C, Djoko CF, Mpoudi-Ngole E, Burke DS, Folks TM |title=Central African hunters exposed to simian immunodeficiency virus |journal=Emerging Infectious Diseases |volume=11 |issue=12 |pages=1928–30 |date=December 2005 |pmid=16485481 |pmc=3367631 |doi=10.3201/eid1112.050394 |first8=George |last9=Zeh |last8=Alemnji |first9=Clement |last7=Fonjungo |last6=Aidoo |first6=Michael |first7=Peter N.}}",
+          "calls": 1,
+          "group": "",
+          "name": "Kalish2005"
+        },
+        {
+          "body": "{{cite journal |vauthors=Kallings LO |title=The first postmodern pandemic: 25 years of HIV/AIDS |journal=Journal of Internal Medicine |volume=263 |issue=3 |pages=218–43 |date=March 2008 |pmid=18205765 |doi=10.1111/j.1365-2796.2007.01910.x|s2cid=205339589 |doi-access=free }}(subscription required)",
+          "calls": 1,
+          "group": "",
+          "name": "Kallings"
+        },
+        {
+          "body": "{{cite journal |vauthors=Keele BF, Van Heuverswyn F, Li Y, Bailes E, Takehisa J, Santiago ML, Bibollet-Ruche F, Chen Y, Wain LV, Liegeois F, Loul S, Ngole EM, Bienvenue Y, Delaporte E, Brookfield JF, Sharp PM, Shaw GM, Peeters M, Hahn BH |title=Chimpanzee reservoirs of pandemic and nonpandemic HIV-1 |journal=Science |volume=313 |issue=5786 |pages=523–26 |date=July 2006 |pmid=16728595 |pmc=2442710 |doi=10.1126/science.1126531 |bibcode=2006Sci...313..523K}}",
+          "calls": 1,
+          "group": "",
+          "name": "Keele"
+        },
+        {
+          "body": "{{cite magazine |last=Kher |first=Unmesh |title=A Name for the Plague |magazine=Time |date=July 27, 1982 |url=http://www.time.com/time/80days/820727.html |access-date=March 10, 2008 |archive-url=https://web.archive.org/web/20080307015307/http://www.time.com/time/80days/820727.html |archive-date=March 7, 2008 |url-status=dead}}",
+          "calls": 1,
+          "group": "",
+          "name": "Kher"
+        },
+        {
+          "body": "{{cite journal | vauthors = Knoll B, Lassmann B, Temesgen Z | title = Current status of HIV infection: a review for non-HIV-treating physicians | journal = International Journal of Dermatology | volume = 46 | issue = 12 | pages = 1219–28 | date = December 2007 | pmid = 18173512 | doi = 10.1111/j.1365-4632.2007.03520.x | s2cid = 26248996 }}",
+          "calls": 3,
+          "group": "",
+          "name": "Knoll2007"
+        },
+        {
+          "body": "{{cite journal|author4-link=Sten H. Vermund |vauthors=Kurth AE, Celum C, Baeten JM, Vermund SH, Wasserheit JN |title=Combination HIV prevention: significance, challenges, and opportunities |journal=Current HIV/AIDS Reports |volume=8 |issue=1 |pages=62–72 |date=March 2011 |pmid=20941553 |pmc=3036787 |doi=10.1007/s11904-010-0063-3}}",
+          "calls": 2,
+          "group": "",
+          "name": "Kurth2011"
+        },
+        {
+          "body": "{{cite journal |vauthors=May MT, Ingle SM |title=Life expectancy of HIV-positive adults: a review |journal=Sexual Health |volume=8 |issue=4 |pages=526–33 |date=December 2011 |pmid=22127039 |doi=10.1071/SH11046}}",
+          "calls": 1,
+          "group": "",
+          "name": "LE2011"
+        },
+        {
+          "body": "{{cite journal |vauthors=Blankson JN |title=Control of HIV-1 replication in elite suppressors |journal=Discovery Medicine |volume=9 |issue=46 |pages=261–66 |date=March 2010 |pmid=20350494}}",
+          "calls": 2,
+          "group": "",
+          "name": "LT2010"
+        },
+        {
+          "body": "{{cite journal |vauthors=Boily MC, Baggaley RF, Wang L, Masse B, White RG, Hayes RJ, Alary M | title = Heterosexual risk of HIV-1 infection per sexual act: systematic review and meta-analysis of observational studies. | journal = The Lancet Infectious Diseases | volume = 9 | issue = 2 | pages = 118–29 | date = February 2009 | pmid = 19179227 | doi = 10.1016/S1473-3099(09)70021-0 | pmc=4467783}}",
+          "calls": 9,
+          "group": "",
+          "name": "LancetT2009"
+        },
+        {
+          "body": "{{cite journal |vauthors=Laurence J |title=Hepatitis A and B virus immunization in HIV-infected persons |journal=The AIDS Reader |volume=16 |issue=1 |pages=15–17 |date=January 2006 |pmid=16433468}}",
+          "calls": 1,
+          "group": "",
+          "name": "Laurence"
+        },
+        {
+          "body": "{{cite journal | vauthors = Lawn SD | title = AIDS in Africa: the impact of coinfections on the pathogenesis of HIV-1 infection | journal = The Journal of Infection | volume = 48 | issue = 1 | pages = 1–12 | date = January 2004 | pmid = 14667787 | doi = 10.1016/j.jinf.2003.09.001 }}",
+          "calls": 1,
+          "group": "",
+          "name": "Lawn"
+        },
+        {
+          "body": "{{cite journal | vauthors = Levy JA | title = HIV pathogenesis and long-term survival | journal = AIDS | volume = 7 | issue = 11 | pages = 1401–10 | date = November 1993 | pmid = 8280406 | doi = 10.1097/00002030-199311000-00001 }}",
+          "calls": 1,
+          "group": "",
+          "name": "Levy"
+        },
+        {
+          "body": "{{cite journal |author=Antiretroviral Therapy Cohort Collaboration | title = Life expectancy of individuals on combination antiretroviral therapy in high-income countries: a collaborative analysis of 14 cohort studies | journal = The Lancet | volume = 372 | issue = 9635 | pages = 293–99 | date = July 2008 | pmid = 18657708 | pmc = 3130543 | doi = 10.1016/S0140-6736(08)61113-7 }}",
+          "calls": 2,
+          "group": "",
+          "name": "LifeExpecr2008"
+        },
+        {
+          "body": "Mandell, Bennett, and Dolan (2010). Chapter 117.",
+          "calls": 3,
+          "group": "",
+          "name": "M117"
+        },
+        {
+          "body": "Mandell, Bennett, and Dolan (2010). Chapter 118.",
+          "calls": 17,
+          "group": "",
+          "name": "M118"
+        },
+        {
+          "body": "Mandell, Bennett, and Dolan (2010). Chapter 121.",
+          "calls": 6,
+          "group": "",
+          "name": "M121"
+        },
+        {
+          "body": "Mandell, Bennett, and Dolan (2010). Chapter 169.",
+          "calls": 5,
+          "group": "",
+          "name": "M169"
+        },
+        {
+          "body": "{{cite journal |author=Centers for Disease Control (CDC) |title=Persistent, generalized lymphadenopathy among homosexual males |journal=Morbidity and Mortality Weekly Report |volume=31 |issue=19 |pages=249–51 |date=May 1982 |pmid=6808340 |url=https://www.cdc.gov/mmwr/preview/mmwrhtml/00001096.htm |archive-url=https://web.archive.org/web/20111018015418/http://cdc.gov/mmwr/preview/mmwrhtml/00001096.htm  |url-status=live |archive-date=October 18, 2011}}",
+          "calls": 1,
+          "group": "",
+          "name": "MMWR1982a"
+        },
+        {
+          "body": "{{cite journal |author=Centers for Disease Control (CDC) |title=Opportunistic infections and Kaposi's sarcoma among Haitians in the United States |journal=Morbidity and Mortality Weekly Report |volume=31 |issue=26 |pages=353–54, 360–61 |date=July 1982 |pmid=6811853 |url=https://www.cdc.gov/mmwr/preview/mmwrhtml/00001123.htm |archive-url=https://web.archive.org/web/20110920181924/http://www.cdc.gov/mmwr/preview/mmwrhtml/00001123.htm  |url-status=live |archive-date=September 20, 2011}}",
+          "calls": 2,
+          "group": "",
+          "name": "MMWR1982b"
+        },
+        {
+          "body": "{{cite journal |author=Centers for Disease Control (CDC) |title=Update on acquired immune deficiency syndrome (AIDS) – United States |journal=Morbidity and Mortality Weekly Report |volume=31 |issue=37 |pages=507–08, 513–14 |date=September 1982 |pmid=6815471}}",
+          "calls": 1,
+          "group": "",
+          "name": "MMWR1982c"
+        },
+        {
+          "body": "{{cite journal |vauthors=Gottlieb MS |title=Pneumocystis pneumonia – Los Angeles. 1981 |journal=[[American Journal of Public Health]] |volume=96 |issue=6 |pages=980–81; discussion 982–83 |date=June 2006 |pmid=16714472 |pmc=1470612 |doi=10.2105/AJPH.96.6.980 |url=https://www.cdc.gov/mmwr/preview/mmwrhtml/june_5.htm |archive-url=https://web.archive.org/web/20090422042240/http://www.cdc.gov/mmwr/preview/mmwrhtml/june_5.htm |url-status=live |archive-date=April 22, 2009}}",
+          "calls": 1,
+          "group": "",
+          "name": "MMWR2"
+        },
+        {
+          "body": "{{cite journal |vauthors=Smith DK, Grohskopf LA, Black RJ, Auerbach JD, Veronese F, Struble KA, Cheever L, Johnson M, Paxton LA, Onorato IM, Greenberg AE | title = Antiretroviral postexposure prophylaxis after sexual, injection-drug use, or other nonoccupational exposure to HIV in the United States: recommendations from the U.S. Department of Health and Human Services. | journal = MMWR. Recommendations and Reports | volume = 54 | issue = RR-2 | pages = 1–20 | date = January 21, 2005 | pmid = 15660015 }}",
+          "calls": 1,
+          "group": "",
+          "name": "MMWR2005"
+        },
+        {
+          "body": "{{cite journal |vauthors=Marx PA, Alcabes PG, Drucker E |title=Serial human passage of simian immunodeficiency virus by unsterile injections and the emergence of epidemic human immunodeficiency virus in Africa |journal=Philosophical Transactions of the Royal Society of London. Series B, Biological Sciences |volume=356 |issue=1410 |pages=911–20 |date=June 2001 |pmid=11405938 |pmc=1088484 |doi=10.1098/rstb.2001.0867 }}",
+          "calls": 2,
+          "group": "",
+          "name": "Marx2001"
+        },
+        {
+          "body": "{{cite news | last=McNeil |first=Donald G. Jr. |author-link=Donald G. McNeil Jr. |title=Precursor to H.I.V. Was in Monkeys for Millennia |url=https://www.nytimes.com/2010/09/17/health/17aids.html |url-access=limited |quote=Dr. Marx believes that the crucial event was the introduction into Africa of millions of inexpensive, mass-produced syringes in the 1950s.&nbsp;... suspect that the growth of colonial cities is to blame. Before 1910, no Central African town had more than 10,000 people. But urban migration rose, increasing sexual contacts and leading to red-light districts. |work=[[The New York Times]] |date=September 16, 2010 |access-date=September 17, 2010 |url-status=live |archive-url=https://web.archive.org/web/20110511230019/http://www.nytimes.com/2010/09/17/health/17aids.html |archive-date=May 11, 2011 }}",
+          "calls": 1,
+          "group": "",
+          "name": "McNeil"
+        },
+        {
+          "body": "{{cite journal |vauthors=Barré-Sinoussi F, Chermann JC, Rey F, Nugeyre MT, Chamaret S, Gruest J, Dauguet C, Axler-Blin C, Vézinet-Brun F, Rouzioux C, Rozenbaum W, Montagnier L |title=Isolation of a T-lymphotropic retrovirus from a patient at risk for acquired immune deficiency syndrome (AIDS) |journal=Science |volume=220 |issue=4599 |pages=868–71 |date=May 1983 |pmid=6189183 |doi=10.1126/science.6189183 |bibcode=1983Sci...220..868B|s2cid=390173 }}",
+          "calls": 2,
+          "group": "",
+          "name": "Montagnier"
+        },
+        {
+          "body": "{{cite journal |vauthors=Montessori V, Press N, Harris M, Akagi L, Montaner JS |title=Adverse effects of antiretroviral therapy for HIV infection |journal=Canadian Medical Association Journal |volume=170 |issue=2 |pages=229–38 |date=January 2004 |pmid=14734438 |pmc=315530}}",
+          "calls": 3,
+          "group": "",
+          "name": "Montessori2004"
+        },
+        {
+          "body": "{{cite journal | vauthors = Morgan D, Mahe C, Mayanja B, Okongo JM, Lubega R, Whitworth JA | title = HIV-1 infection in rural Africa: is there a difference in median time to AIDS and survival compared with that in industrialized countries? | journal = AIDS | volume = 16 | issue = 4 | pages = 597–603 | date = March 2002 | pmid = 11873003 | doi = 10.1097/00002030-200203080-00011 | s2cid = 35450422 | doi-access = free }}",
+          "calls": 2,
+          "group": "",
+          "name": "Morgan2"
+        },
+        {
+          "body": "{{cite journal |vauthors=Coutsoudis A, Kwaan L, Thomson M |title=Prevention of vertical transmission of HIV-1 in resource-limited settings |journal=Expert Review of Anti-Infective Therapy |volume=8 |issue=10 |pages=1163–75 |date=October 2010 |pmid=20954881 |doi=10.1586/eri.10.94|s2cid=46624541 }}",
+          "calls": 4,
+          "group": "",
+          "name": "Mother2010"
+        },
+        {
+          "body": "{{cite journal |vauthors=Linden JA |title=Clinical practice. Care of the adult patient after sexual assault |journal=The New England Journal of Medicine |volume=365 |issue=9 |pages=834–41 |date=September 2011 |pmid=21879901 |doi=10.1056/NEJMcp1102869|s2cid=8388126 |doi-access=free }}",
+          "calls": 1,
+          "group": "",
+          "name": "NEJM2011Sex"
+        },
+        {
+          "body": "{{cite web |title=Needlestick Prevention Guide |url=https://www.who.int/occupational_health/activities/2needguid.pdf |access-date=November 10, 2019 |pages=5–6 |date=2002 |archive-url=https://web.archive.org/web/20180712204534/http://www.who.int/occupational_health/activities/2needguid.pdf |archive-date=July 12, 2018 |url-status=dead }}",
+          "calls": 1,
+          "group": "",
+          "name": "Needle2002"
+        },
+        {
+          "body": "{{cite journal |vauthors=Nicholas PK, Kemppainen JK, Canaval GE, Corless IB, Sefcik EF, Nokes KM, Bain CA, Kirksey KM, Eller LS, Dole PJ, Hamilton MJ, Coleman CL, Holzemer WL, Reynolds NR, Portillo CJ, Bunch EH, Wantland DJ, Voss J, Phillips R, Tsai YF, Mendez MR, Lindgren TG, Davis SM, Gallagher DM |title=Symptom management and self-care for peripheral neuropathy in HIV/AIDS |journal=AIDS Care |volume=19 |issue=2 |pages=179–89 |date=February 2007 |pmid=17364396 |doi=10.1080/09540120600971083|s2cid=30220269 }}",
+          "calls": 1,
+          "group": "",
+          "name": "Nicholas2007"
+        },
+        {
+          "body": "{{cite web |vauthors=Ogden J, Nyblade L |website=[[International Center for Research on Women]] |year=2005 |title=Common at its core: HIV-related stigma across contexts |url=http://www.icrw.org/docs/2005_report_stigma_synthesis.pdf |access-date=February 15, 2007 |url-status=dead |archive-url=https://web.archive.org/web/20070217044825/http://www.icrw.org/docs/2005_report_stigma_synthesis.pdf |archive-date=February 17, 2007 }}",
+          "calls": 1,
+          "group": "",
+          "name": "Ogden"
+        },
+        {
+          "body": "{{cite journal |last1=Sharp |first1=Paul M. |last2=Hahn |first2=Beatrice H. |date=September 2011 |title=Origins of HIV and the AIDS Pandemic |journal=Cold Spring Harbor Perspectives in Medicine |volume=1 |issue=1 |article-number=a006841 |doi=10.1101/cshperspect.a006841 |issn=2157-1422 |pmc=3234451 |pmid=22229120}}",
+          "calls": 3,
+          "group": "",
+          "name": "Orgin2011"
+        },
+        {
+          "body": "{{cite journal |vauthors=Huang L, Cattamanchi A, Davis JL, den Boon S, Kovacs J, Meshnick S, Miller RF, Walzer PD, Worodria W, Masur H |title=HIV-associated Pneumocystis pneumonia |journal=Proceedings of the American Thoracic Society |volume=8 |issue=3 |pages=294–300 |date=June 2011 |pmid=21653531 |pmc=3132788 |doi=10.1513/pats.201009-062WR}}",
+          "calls": 1,
+          "group": "",
+          "name": "PCP2011"
+        },
+        {
+          "body": "{{cite web |publisher=[[United States Department of Health and Human Services|Department of Health and Human Services]] |date=February 2, 2007 |url=https://www.cdc.gov/mmwr/preview/mmwrhtml/rr5315a1.htm |access-date=July 26, 2018 |title=Treating opportunistic infections among HIV-infected adults and adolescents. Recommendations from CDC, the National Institutes of Health, and the HIV Medicine Association/Infectious Diseases Society of America |archive-url=https://web.archive.org/web/20180727024527/https://www.cdc.gov/mmwr/preview/mmwrhtml/rr5315a1.htm |archive-date=July 27, 2018 |url-status=live }}",
+          "calls": 1,
+          "group": "",
+          "name": "PEPpocketguide"
+        },
+        {
+          "body": "{{cite journal | vauthors = Pantaleo G, Demarest JF, Schacker T, Vaccarezza M, Cohen OJ, Daucher M, Graziosi C, Schnittman SS, Quinn TC, Shaw GM, Perrin L, Tambussi G, Lazzarin A, Sekaly RP, Soudeyns H, Corey L, Fauci AS | title = The qualitative nature of the primary immune response to HIV infection is a prognosticator of disease progression independent of the initial level of plasma viremia | journal = [[Proceedings of the National Academy of Sciences of the United States of America]] | volume = 94 | issue = 1 | pages = 254–58 | date = January 1997 | pmid = 8990195 | pmc = 19306 | doi = 10.1073/pnas.94.1.254 | bibcode = 1997PNAS...94..254P | doi-access = free }}",
+          "calls": 1,
+          "group": "",
+          "name": "Pantaleo1998"
+        },
+        {
+          "body": "{{cite journal |vauthors=Patel VL, Yoskowitz NA, Kaufman DR, Shortliffe EH |title=Discerning patterns of human immunodeficiency virus risk in healthy young adults |journal=[[The American Journal of Medicine]] |volume=121 |issue=9 |pages=758–64 |date=September 2008 |pmid=18724961 |pmc=2597652 |doi=10.1016/j.amjmed.2008.04.022}}",
+          "calls": 1,
+          "group": "",
+          "name": "Patel2008"
+        },
+        {
+          "body": "{{cite journal | vauthors = Piatak M, Saag MS, Yang LC, Clark SJ, Kappes JC, Luk KC, Hahn BH, Shaw GM, Lifson JD | title = High levels of HIV-1 in plasma during all stages of infection determined by competitive PCR | journal = Science | volume = 259 | issue = 5102 | pages = 1749–54 | date = March 1993 | pmid = 8096089 | doi = 10.1126/science.8096089 | bibcode = 1993Sci...259.1749P | s2cid = 12158927 }}",
+          "calls": 1,
+          "group": "",
+          "name": "Piatak"
+        },
+        {
+          "body": "{{cite journal |vauthors=Post FA, Holt SG |title=Recent developments in HIV and the kidney |journal =Current Opinion in Infectious Diseases |volume=22 |issue=1 |pages=43–48 |date=February 2009 |pmid=19106702 |doi=10.1097/QCO.0b013e328320ffec|s2cid=23085633 }}",
+          "calls": 1,
+          "group": "",
+          "name": "Post2009"
+        },
+        {
+          "body": "{{cite journal |title=HIV exposure through contact with body fluids |journal=Prescrire International |volume=21 |issue=126 |pages=100–01, 103–05 |date=April 2012 |pmid=22515138 }}",
+          "calls": 2,
+          "group": "",
+          "name": "Prevention2012"
+        },
+        {
+          "body": "{{cite book |url=https://books.google.com/books?id=dTaMBrPBK6EC |title=The Origin of Aids |last=Pépin |first=Jacques |page=188 |year=2011 |publisher=Cambridge University Press |isbn=978-0-521-18637-7  |access-date=March 13, 2016 |archive-url=https://web.archive.org/web/20160509120414/https://books.google.com/books?id=dTaMBrPBK6EC&printsec=frontcover |archive-date=May 9, 2016 |url-status=live }}",
+          "calls": 2,
+          "group": "",
+          "name": "Pépin"
+        },
+        {
+          "body": "{{cite book|url=https://books.google.com/books?id=8ZnpDwAAQBAJ&pg=PA87|title=Relationships and Sex Education for Secondary Schools (2020): A Practical Toolkit for Teachers|isbn=978-1913063689|publisher=Critical Publishing|last1=Glazzard|first1=Jonathan|last2=Stones|first2=Samuel|date=2020|page=87|access-date=December 10, 2021|archive-date=December 21, 2023|archive-url=https://web.archive.org/web/20231221043746/https://books.google.com/books?id=8ZnpDwAAQBAJ&pg=PA87#v=onepage&q&f=false|url-status=live}}",
+          "calls": 1,
+          "group": "",
+          "name": "RASEFSS"
+        },
+        {
+          "body": "{{cite journal | vauthors = Reeves JD, Doms RW | title = Human immunodeficiency virus type 2 | journal = The Journal of General Virology | volume = 83 | issue = Pt 6 | pages = 1253–65 | date = June 2002 | pmid = 12029140 | doi = 10.1099/0022-1317-83-6-1253 | doi-access = free }}",
+          "calls": 2,
+          "group": "",
+          "name": "Reeves"
+        },
+        {
+          "body": "{{cite journal |last1=LeMessurier |first1=J |last2=Traversy |first2=G |last3=Varsaneux |first3=O |last4=Weekes |first4=M |last5=Avey |first5=MT |last6=Niragira |first6=O |last7=Gervais |first7=R |last8=Guyatt |first8=G |last9=Rodin |first9=R |date=November 19, 2018 |title=Risk of sexual transmission of human immunodeficiency virus with antiretroviral therapy, suppressed viral load and condom use: a systematic review |journal=[[Canadian Medical Association Journal]] |volume=190 |issue=46 |pages=E1350–E1360 |doi=10.1503/cmaj.180311 |pmid=30455270 |pmc=6239917}}",
+          "calls": 2,
+          "group": "",
+          "name": "Risk of sexual transmission of huma"
+        },
+        {
+          "body": "{{cite journal |vauthors=Baggaley RF, Boily MC, White RG, Alary M |title=Risk of HIV-1 transmission for parenteral exposure and blood transfusion: a systematic review and meta-analysis |journal=AIDS |volume=20 |issue=6 |pages=805–12 |date=April 2006 |pmid=16549963 |doi=10.1097/01.aids.0000218543.46963.6d|s2cid=22674060 |doi-access=free }}",
+          "calls": 1,
+          "group": "",
+          "name": "Risk2006"
+        },
+        {
+          "body": "{{cite journal | vauthors = Sattentau Q | title = Avoiding the void: cell-to-cell spread of human viruses | journal = Nature Reviews. Microbiology | volume = 6 | issue = 11 | pages = 815–26 | date = November 2008 | pmid = 18923409 | doi = 10.1038/nrmicro1972 | s2cid = 20991705 | doi-access = free }}",
+          "calls": 1,
+          "group": "",
+          "name": "Sattentau"
+        },
+        {
+          "body": "{{cite journal | vauthors = Schackman BR, Gebo KA, Walensky RP, Losina E, Muccio T, Sax PE, Weinstein MC, Seage GR, Moore RD, Freedberg KA | title = The lifetime cost of current human immunodeficiency virus care in the United States | journal = Medical Care | volume = 44 | issue = 11 | pages = 990–97 | date = November 2006 | pmid = 17063130 | doi = 10.1097/01.mlr.0000228021.89490.2a | s2cid = 21175266 }}",
+          "calls": 1,
+          "group": "",
+          "name": "Schack2006"
+        },
+        {
+          "body": "{{cite web |publisher=[[American Association for the Advancement of Science]] |date=July 28, 2006 |url=http://www.scienceonline.org/cgi/reprint/313/5786/470b.pdf |title=Making Headway Under Hellacious Circumstances |access-date=June 23, 2008 |url-status=dead |archive-url=https://web.archive.org/web/20080624235131/http://www.scienceonline.org/cgi/reprint/313/5786/470b.pdf |archive-date=June 24, 2008 }}",
+          "calls": 1,
+          "group": "",
+          "name": "SciRep470b"
+        },
+        {
+          "body": "{{cite journal |vauthors=Sharp PM, Bailes E, Chaudhuri RR, Rodenburg CM, Santiago MO, Hahn BH |title=The origins of acquired immune deficiency syndrome viruses: where and when? |journal=Philosophical Transactions of the Royal Society of London. Series B, Biological Sciences |volume=356 |issue=1410 |pages=867–76 |date=June 2001 |pmid=11405934 |pmc=1088480 |doi=10.1098/rstb.2001.0863 }}",
+          "calls": 1,
+          "group": "",
+          "name": "Sharp2001"
+        },
+        {
+          "body": "{{cite journal | vauthors = Siegfried N, Irlam JH, Visser ME, Rollins NN | title = Micronutrient supplementation in pregnant women with HIV infection | journal = The Cochrane Database of Systematic Reviews | issue = 3 | article-number = CD009755 | date = March 2012 | pmid = 22419344 | doi = 10.1002/14651858.CD009755 | pmc = 11747962 }}",
+          "calls": 2,
+          "group": "",
+          "name": "Siegfried2012"
+        },
+        {
+          "body": "{{cite journal | vauthors = Sigal A, Kim JT, Balazs AB, Dekel E, Mayo A, Milo R, Baltimore D | title = Cell-to-cell spread of HIV permits ongoing replication despite antiretroviral therapy | journal = [[Nature (journal)|Nature]] | volume = 477 | issue = 7362 | pages = 95–98 | date = August 2011 | pmid = 21849975 | doi = 10.1038/nature10347 | bibcode = 2011Natur.477...95S | s2cid = 4409389 | url = https://resolver.caltech.edu/CaltechAUTHORS:20110922-140553274 | archive-date = December 28, 2016 | access-date = March 1, 2025 | archive-url = https://web.archive.org/web/20161228132053/http://resolver.caltech.edu/CaltechAUTHORS:20110922-140553274/ | url-status = live }}",
+          "calls": 1,
+          "group": "",
+          "name": "Sigal"
+        },
+        {
+          "body": "{{cite journal |vauthors=Smith TC, Novella SP |title=HIV denial in the Internet era |journal=PLOS Medicine |volume=4 |issue=8 |article-number=e256 |date=August 2007 |pmid=17713982 |pmc=1949841 |doi=10.1371/journal.pmed.0040256 |doi-access=free }}",
+          "calls": 1,
+          "group": "",
+          "name": "SmithNovella"
+        },
+        {
+          "body": "{{cite journal |vauthors=Snyder M, Omoto AM, Crain AL |title=Punished for their good deeds: stigmatization for AIDS volunteers |journal=American Behavioral Scientist |year=1999 |pages=1175–92 |volume=42 |issue=7 |doi=10.1177/0002764299042007009|s2cid=144929159 }}",
+          "calls": 1,
+          "group": "",
+          "name": "Snyder"
+        },
+        {
+          "body": "{{cite journal |vauthors=de Sousa JD, Müller V, Lemey P, Vandamme AM |title=High GUD incidence in the early 20th century created a particularly permissive time window for the origin and initial spread of epidemic HIV strains |journal=[[PLOS One]] |volume=5 |issue=4 |article-number=e9936 |date=April 2010 |pmid=20376191 |pmc=2848574 |doi=10.1371/journal.pone.0009936 |editor1-last=Martin |editor1-first=Darren P. |bibcode=2010PLoSO...5.9936S|doi-access=free }}",
+          "calls": 2,
+          "group": "",
+          "name": "Sousa2010"
+        },
+        {
+          "body": "{{Citation |last1=Feroze |first1=Kaberi B. |title=HIV Retinopathy |date=2025 |work=StatPearls |url=http://www.ncbi.nlm.nih.gov/books/NBK470530/ |access-date=2025-07-28 |place=Treasure Island (FL) |publisher=StatPearls Publishing |pmid=29261911 |last2=Gulick |first2=Peter G. |archive-date=November 19, 2023 |archive-url=https://web.archive.org/web/20231119091214/https://www.ncbi.nlm.nih.gov/books/NBK470530/ |url-status=live}}",
+          "calls": 4,
+          "group": "",
+          "name": "StatPearls"
+        },
+        {
+          "body": "{{cite journal | vauthors = Tang J, Kaslow RA | title = The impact of host genetics on HIV infection and disease progression in the era of highly active antiretroviral therapy | journal = AIDS | volume = 17 | issue = Suppl 4 | pages = S51–60 | year = 2003 | pmid = 15080180 | doi = 10.1097/00002030-200317004-00006 | doi-access = free }}",
+          "calls": 1,
+          "group": "",
+          "name": "Tang"
+        },
+        {
+          "body": "{{cite web |url=https://www.ewtnnews.com/world/us/thirty-years-after-aids-discovery-appreciation-growing-for-catholic-approach |title=Thirty years after AIDS discovery, appreciation growing for Catholic approach |website=Catholicnewsagency.com |date=June 5, 2011 |access-date=November 1, 2011 |url-status=live |archive-url=https://web.archive.org/web/20111016214921/http://www.catholicnewsagency.com/news/thirty-years-after-aids-discovery-appreciation-growing-for-catholic-approach/ |archive-date=October 16, 2011 }}",
+          "calls": 2,
+          "group": "",
+          "name": "Thirty years after AIDS discovery, appreciation growing for Catholic approach"
+        },
+        {
+          "body": "{{cite journal |vauthors=Gilbert MT, Rambaut A, Wlasiuk G, Spira TJ, Pitchenik AE, Worobey M |title=The emergence of HIV/AIDS in the Americas and beyond |journal=Proceedings of the National Academy of Sciences of the United States of America |volume=104 |issue=47 |pages=18566–70 |date=November 2007 |pmid=17978186 |pmc=2141817 |doi=10.1073/pnas.0705329104  |bibcode=2007PNAS..10418566G |doi-access=free }}",
+          "calls": 3,
+          "group": "",
+          "name": "Thomas_Gilbert"
+        },
+        {
+          "body": "{{cite web |title=Global Report Fact Sheet |url=http://www.unaids.org/documents/20101123_FS_Global_em_en.pdf |website=UNAIDS |year=2010 |url-status=dead |archive-url=https://web.archive.org/web/20130916231221/http://www.unaids.org/documents/20101123_FS_Global_em_en.pdf |archive-date=September 16, 2013 }}",
+          "calls": 1,
+          "group": "",
+          "name": "TotalDeath2010"
+        },
+        {
+          "body": "{{cite web |title=HIV in the United States: An Overview |url=https://www.cdc.gov/hiv/topics/surveillance/resources/factsheets/us_overview.htm |website=Center for Disease Control and Prevention |date=March 2012 |url-status=dead |archive-url=https://web.archive.org/web/20130501102910/http://www.cdc.gov/hiv/topics/surveillance/resources/factsheets/us_overview.htm |archive-date=May 1, 2013 }}",
+          "calls": 1,
+          "group": "",
+          "name": "TransmissionCDC2012"
+        },
+        {
+          "body": "{{cite book |veditors=Rom WN, Markowitz SB |title=Environmental and occupational medicine |year=2007 |publisher=[[Wolters Kluwer]]/Lippincott Williams & Wilkins |location=Philadelphia |isbn=978-0-7817-6299-1 |page=745 |url=https://books.google.com/books?id=H4Sv9XY296oC&pg=PA745 |edition=4th  |access-date=June 27, 2015 |archive-url=https://web.archive.org/web/20150911155744/https://books.google.com/books?id=H4Sv9XY296oC&pg=PA745 |archive-date=September 11, 2015 |url-status=live }}",
+          "calls": 9,
+          "group": "",
+          "name": "TransmissionM2007"
+        },
+        {
+          "body": "UNAIDS 2011 pg. 70–80",
+          "calls": 3,
+          "group": "",
+          "name": "UN2011Eighty"
+        },
+        {
+          "body": "UNAIDS 2011 pp. 40–50",
+          "calls": 1,
+          "group": "",
+          "name": "UN2011Fifty"
+        },
+        {
+          "body": "UNAIDS 2011 pg. 150–160",
+          "calls": 2,
+          "group": "",
+          "name": "UN2011ONESIXTY"
+        },
+        {
+          "body": "UNAIDS 2011 pg. 60–70",
+          "calls": 1,
+          "group": "",
+          "name": "UN2011Seventy"
+        },
+        {
+          "body": "UNAIDS 2011 pg. 1–10",
+          "calls": 1,
+          "group": "",
+          "name": "UN2011Ten"
+        },
+        {
+          "body": "{{cite news |author=UNAIDS |date=May 18, 2012 |title=The quest for an HIV vaccine |url=http://www.unaids.org/en/resources/presscentre/featurestories/2012/may/20120518vaccinesday/ |url-status=live |archive-url=https://web.archive.org/web/20120524051113/http://www.unaids.org/en/resources/presscentre/featurestories/2012/may/20120518vaccinesday/ |archive-date=May 24, 2012 }}",
+          "calls": 3,
+          "group": "",
+          "name": "UN2012Vac"
+        },
+        {
+          "body": "{{cite web |url=https://www.unaids.org/en/resources/fact-sheet |title=Global HIV & AIDS statistics — 2022 fact sheet |website=[[UNAIDS]] |access-date=July 20, 2023 |archive-date=December 4, 2019 |archive-url=https://web.archive.org/web/20191204021652/https://www.unaids.org/en/resources/fact-sheet |url-status=live }}",
+          "calls": 1,
+          "group": "",
+          "name": "UN2022"
+        },
+        {
+          "body": "{{cite book |title=2006 Report on the global AIDS epidemic |publisher=[[Joint United Nations Programme on HIV/AIDS|UNAIDS]] |year=2006 |isbn=978-92-9173-479-5 |chapter=The impact of AIDS on people and societies |chapter-url=http://data.unaids.org/pub/GlobalReport/2006/2006_GR_CH04_en.pdf |access-date=June 16, 2006 |archive-date=October 4, 2006 |archive-url=https://web.archive.org/web/20061004001821/http://data.unaids.org/pub/GlobalReport/2006/2006_GR_CH04_en.pdf |url-status=dead }}",
+          "calls": 3,
+          "group": "",
+          "name": "UNAIDS2006Ch4"
+        },
+        {
+          "body": "{{cite web |author1=UNAIDS |author2=World Health Organization |date=December 2007 |title=2007 AIDS epidemic update |url=http://data.unaids.org/pub/EPISlides/2007/2007_epiupdate_en.pdf |url-status=dead |archive-url=https://web.archive.org/web/20080527201701/http://data.unaids.org/pub/EPISlides/2007/2007_epiupdate_en.pdf |archive-date=May 27, 2008 |access-date=March 12, 2008}}",
+          "calls": 3,
+          "group": "",
+          "name": "UNAIDS2007"
+        },
+        {
+          "body": "{{cite web |url=https://www.unaids.org/en/resources/fact-sheet |title=Global HIV & AIDS statistics — 2025 fact sheet |website=[[UNAIDS]] |access-date=July 9, 2026 |archive-date=July 5, 2026 |archive-url=https://web.archive.org/web/20260705123250/http://www.unaids.org/en/resources/fact-sheet |url-status=live }}",
+          "calls": 10,
+          "group": "",
+          "name": "UNAIDS2025Factsheet"
+        },
+        {
+          "body": "{{cite journal |last1=US Preventive Services Task |first1=Force |last2=Owens |first2=DK |last3=Davidson |first3=KW |last4=Krist |first4=AH |last5=Barry |first5=MJ |last6=Cabana |first6=M |last7=Caughey |first7=AB |last8=Curry |first8=SJ |last9=Doubeni |first9=CA |last10=Epling JW |first10=Jr |last11=Kubik |first11=M |last12=Landefeld |first12=CS |last13=Mangione |first13=CM |last14=Pbert |first14=L |last15=Silverstein |first15=M |last16=Simon |first16=MA |last17=Tseng |first17=CW |last18=Wong |first18=JB |title=Screening for HIV Infection: US Preventive Services Task Force Recommendation Statement. |journal=JAMA |date=June 18, 2019 |volume=321 |issue=23 |pages=2326–2336 |doi=10.1001/jama.2019.6587 |pmid=31184701|doi-access=free }}",
+          "calls": 2,
+          "group": "",
+          "name": "USP2019Screen"
+        },
+        {
+          "body": "{{cite journal |vauthors=Reid SR |title=Injection drug use, unsafe medical injections, and HIV in Africa: a systematic review |journal=[[Harm Reduction Journal]] |volume=6 |page=24 |date=August 2009 |pmid=19715601 |pmc=2741434 |doi=10.1186/1477-7517-6-24 |doi-access=free }}",
+          "calls": 3,
+          "group": "",
+          "name": "UnsafeInjection2009"
+        },
+        {
+          "body": "{{cite journal |vauthors=Celum C, Baeten JM |title=Tenofovir-based pre-exposure prophylaxis for HIV prevention: evolving evidence |journal=Current Opinion in Infectious Diseases |volume=25 |issue=1 |pages=51–57 |date=February 2012 |pmid=22156901 |pmc=3266126 |doi=10.1097/QCO.0b013e32834ef5ef}}",
+          "calls": 2,
+          "group": "",
+          "name": "VagGel2012"
+        },
+        {
+          "body": "{{cite report |last=Over |first=Mead |title=The macroeconomic impact of AIDS in Sub-Saharan Africa, Population and Human Resources Department |publisher=World Bank |year=1992 |url=http://www.worldbank.org/aidsecon/macro.pdf |access-date=May 3, 2008 |archive-url=https://web.archive.org/web/20080527201655/http://www.worldbank.org/aidsecon/macro.pdf |archive-date=May 27, 2008 |url-status=dead}}",
+          "calls": 1,
+          "group": "",
+          "name": "WBank"
+        },
+        {
+          "body": "{{cite web |publisher=World Health Organization |year=2001 |url=https://www.who.int/inf-pr-2000/en/pr2000-25.html |title=Blood safety&nbsp;... for too few |archive-date=January 17, 2005 |archive-url=https://web.archive.org/web/20050117092135/http://www.who.int/inf-pr-2000/en/pr2000-25.html}}",
+          "calls": 1,
+          "group": "",
+          "name": "WHO070401"
+        },
+        {
+          "body": "{{cite book |title=Global tuberculosis control 2011 |author=World Health Organization |url=https://www.who.int/tb/publications/global_report/2011/gtbr11_executive_summary.pdf |year=2011 |publisher=World Health Organization |isbn=978-92-4-156438-0 |access-date=August 29, 2012 |url-status=dead |archive-url=https://web.archive.org/web/20120906223650/http://www.who.int/tb/publications/global_report/2011/gtbr11_executive_summary.pdf |archive-date=September 6, 2012 }}",
+          "calls": 1,
+          "group": "",
+          "name": "WHO2011"
+        },
+        {
+          "body": "{{cite web |title=Infant feeding in the context of HIV |url=https://www.who.int/elena/titles/bbc/hiv_infant_feeding/en/ |website=[[World Health Organization]] |access-date=March 9, 2017 |date=April 2011 |url-status=dead |archive-url=https://web.archive.org/web/20170309062212/http://www.who.int/elena/titles/bbc/hiv_infant_feeding/en/ |archive-date=March 9, 2017 }}",
+          "calls": 3,
+          "group": "",
+          "name": "WHO2011Breast"
+        },
+        {
+          "body": "{{cite web |title=HIV/AIDS Fact sheet N°360 |url=https://www.who.int/mediacentre/factsheets/fs360/en/ |publisher=[[World Health Organization]] |access-date=February 11, 2016 |date=November 2015 |url-status=live |archive-url=https://web.archive.org/web/20160217160830/http://www.who.int/mediacentre/factsheets/fs360/en/ |archive-date=February 17, 2016 }}",
+          "calls": 12,
+          "group": "",
+          "name": "WHO2015Fact"
+        },
+        {
+          "body": "{{cite book |url=http://apps.who.int/iris/bitstream/10665/186275/1/9789241509565_eng.pdf?ua=1 |title=Guideline on when to start antiretroviral therapy and on pre-exposure prophylaxis for HIV |date=2015 |publisher=World Health Organization |isbn=978-92-4-150956-5 |page=13 |archive-url=https://web.archive.org/web/20151014071803/http://apps.who.int/iris/bitstream/10665/186275/1/9789241509565_eng.pdf?ua=1 |archive-date=October 14, 2015 |url-status=live }}",
+          "calls": 2,
+          "group": "",
+          "name": "WHO2015Tx"
+        },
+        {
+          "body": "{{cite web|title=HIV and AIDS|url=https://www.who.int/en/news-room/fact-sheets/detail/hiv-aids|publisher=[[World Health Organization]]|date=22 July 2024|access-date=26 October 2024|archive-date=December 24, 2017|archive-url=https://web.archive.org/web/20171224054738/http://www.who.int/mediacentre/factsheets/fs360/en/|url-status=live}}",
+          "calls": 6,
+          "group": "",
+          "name": "WHO2024Factsheet"
+        },
+        {
+          "body": "{{cite web |title=Summary of recommendations on when to start ART in children |url=https://www.who.int/hiv/pub/guidelines/arv2013/art/WHO_CG_table_7.4.pdf?ua=1 |website=Consolidated ARV guidelines, June 2013 |format=PDF |date=June 2013 |url-status=dead |archive-url=https://web.archive.org/web/20141018175301/http://www.who.int/hiv/pub/guidelines/arv2013/art/WHO_CG_table_7.4.pdf?ua=1 |archive-date=October 18, 2014 }}",
+          "calls": 1,
+          "group": "",
+          "name": "WHOCARV2013"
+        },
+        {
+          "body": "{{cite book |title=WHO case definitions of HIV for surveillance and revised clinical staging and immunological classification of HIV-related disease in adults and children |pages=6–16 |url=https://www.who.int/hiv/pub/guidelines/HIVstaging150307.pdf |year=2007 |publisher=World Health Organization |location=Geneva |isbn=978-92-4-159562-9 |url-status=live |archive-url=https://web.archive.org/web/20131031044253/http://www.who.int/hiv/pub/guidelines/HIVstaging150307.pdf |archive-date=October 31, 2013 }}",
+          "calls": 16,
+          "group": "",
+          "name": "WHOCase2007"
+        },
+        {
+          "body": "{{cite web |publisher=World Health Organization |date=August 2003 |url=http://www.wpro.who.int/mediacentre/factsheets/fs_200308_Condoms/en/index.html |title=Condom Facts and Figures |access-date=January 17, 2006 |url-status=dead |archive-url=https://web.archive.org/web/20121018145513/http://www.wpro.who.int/mediacentre/factsheets/fs_200308_Condoms/en/index.html |archive-date=October 18, 2012 }}",
+          "calls": 1,
+          "group": "",
+          "name": "WHOCondoms"
+        },
+        {
+          "body": "{{cite web |title=Guidelines for intensified tuberculosis case-finding and isoniazid preventive therapy for people living with HIV in resource-constrained settings |url=http://whqlibdoc.who.int/publications/2011/9789241500708_eng.pdf?ua=1 |website=Department of HIV/AIDS, World Health Organization 2011 |format=PDF |date=2011 |url-status=dead |archive-url=https://web.archive.org/web/20141019114659/http://whqlibdoc.who.int/publications/2011/9789241500708_eng.pdf?ua=1 |archive-date=October 19, 2014 }}",
+          "calls": 1,
+          "group": "",
+          "name": "WHOHIVTB2011"
+        },
+        {
+          "body": "{{cite book |title=Antiretroviral therapy for HIV infection in adults and adolescents: recommendations for a public health approach |year=2010 |publisher=World Health Organization |isbn=978-92-4-159976-4 |pages=19–20 |url=http://whqlibdoc.who.int/publications/2010/9789241599764_eng.pdf |url-status=dead |archive-url=https://web.archive.org/web/20120709184257/http://whqlibdoc.who.int/publications/2010/9789241599764_eng.pdf |archive-date=July 9, 2012 }}",
+          "calls": 3,
+          "group": "",
+          "name": "WHOTx2010Pg19"
+        },
+        {
+          "body": "{{cite book |last=World Health Organization |title=Nutrient requirements for people living with HIV/AIDS: Report of a technical consultation |date=May 2003 |publisher=World Health Organization |location=Geneva |url=https://www.who.int/nutrition/publications/Content_nutrient_requirements.pdf |access-date=March 31, 2009 |archive-url=https://web.archive.org/web/20090325030154/http://www.who.int/nutrition/publications/Content_nutrient_requirements.pdf |archive-date=March 25, 2009 |url-status=dead}}",
+          "calls": 2,
+          "group": "",
+          "name": "WHO_nutrients"
+        },
+        {
+          "body": "{{cite book|url=https://books.google.com/books?id=MNsmDAAAQBAJ&pg=PA407|title=Women's Issues for a New Generation: A Social Work Perspective|isbn=978-0190239404|publisher=Oxford University Press|last=Ukockis|first=Gail|date=2016|page=407|access-date=December 10, 2021|archive-date=December 21, 2023|archive-url=https://web.archive.org/web/20231221043736/https://books.google.com/books?id=MNsmDAAAQBAJ&pg=PA407#v=onepage&q&f=false|url-status=live}}",
+          "calls": 1,
+          "group": "",
+          "name": "WIFANG"
+        },
+        {
+          "body": "{{cite journal |vauthors=Walker BD |title=Elite control of HIV Infection: implications for vaccines and treatment |journal=Topics in HIV Medicine |volume=15 |issue=4 |pages=134–36 |date=August–September 2007 |pmid=17720999}}",
+          "calls": 2,
+          "group": "",
+          "name": "Walker2007"
+        },
+        {
+          "body": "{{cite journal |vauthors=Woods SP, Moore DJ, Weber E, Grant I |title=Cognitive neuropsychology of HIV-associated neurocognitive disorders |journal=[[Neuropsychology Review]] |volume=19 |issue=2 |pages=152–68 |date=June 2009 |pmid=19462243 |pmc=2690857 |doi= 10.1007/s11065-009-9102-5}}",
+          "calls": 1,
+          "group": "",
+          "name": "Woods2009"
+        },
+        {
+          "body": "{{cite journal |vauthors=Worobey M, Gemmel M, Teuwen DE, Haselkorn T, Kunstman K, Bunce M, Muyembe JJ, Kabongo JM, Kalengayi RM, Van Marck E, Gilbert MT, Wolinsky SM |title=Direct evidence of extensive diversity of HIV-1 in Kinshasa by 1960 |journal=[[Nature (journal)|Nature]] |volume=455 |issue=7213 |pages=661–64 |date=October 2008 |pmid=18833279 |pmc=3682493 |doi=10.1038/nature07390 |bibcode=2008Natur.455..661W}} (subscription required)",
+          "calls": 1,
+          "group": "",
+          "name": "Worobey2008"
+        },
+        {
+          "body": "{{cite journal |vauthors=Yarchoan R, Tosato G, Little RF |title=Therapy insight: AIDS-related malignancies – the influence of antiviral therapy on pathogenesis and management |journal=Nature Clinical Practice Oncology |volume=2 |issue=8 |pages=406–15; quiz 423 |date=August 2005 |pmid=16130937 |doi=10.1038/ncponc0253 |s2cid=23476060 |url=https://zenodo.org/record/1233371 |access-date=December 7, 2019 |archive-date=October 31, 2021 |archive-url=https://web.archive.org/web/20211031110334/https://zenodo.org/record/1233371 |url-status=live }}",
+          "calls": 1,
+          "group": "",
+          "name": "Yarchoan2005"
+        },
+        {
+          "body": "{{cite journal | vauthors = Zhang C, Zhou S, Groppelli E, Pellegrino P, Williams I, Borrow P, Chain BM, Jolly C | title = Hybrid spreading mechanisms and T cell activation shape the dynamics of HIV-1 infection | journal = PLOS Computational Biology | volume = 11 | issue = 4 | article-number= e1004179 | date = April 2015 | pmid = 25837979 | pmc = 4383537 | doi = 10.1371/journal.pcbi.1004179 | arxiv = 1503.08992 | bibcode = 2015PLSCB..11E4179Z | doi-access = free }}",
+          "calls": 3,
+          "group": "",
+          "name": "Zhang"
+        },
+        {
+          "body": "{{cite journal |vauthors=Zhu T, Korber BT, Nahmias AJ, Hooper E, Sharp PM, Ho DD |title=An African HIV-1 sequence from 1959 and implications for the origin of the epidemic |journal=Nature |volume=391 |issue=6667 |pages=594–97 |date= February 1998 |pmid=9468138 |doi=10.1038/35400  |bibcode=1998Natur.391..594Z|s2cid=4416837 |doi-access=free }}",
+          "calls": 1,
+          "group": "",
+          "name": "Zhu"
+        },
+        {
+          "body": "{{cite journal |last1=Roser |first1=Max |author1-link=Max Roser |last2=Ritchie |first2=Hannah |author2-link=Hannah Ritchie |title=HIV / AIDS |url=https://ourworldindata.org/hiv-aids |journal=Our World in Data |access-date=October 4, 2019 |date=April 3, 2018 |archive-url=https://web.archive.org/web/20191004044032/https://ourworldindata.org/hiv-aids |archive-date=October 4, 2019 |url-status=live }}",
+          "calls": 1,
+          "group": "",
+          "name": "auto"
+        },
+        {
+          "body": "{{cite web |last=Berger |first=Joseph |date=October 3, 1985 |title=Rock Hudson, Screen Idol, Dies at 59 |url=https://archive.nytimes.com/www.nytimes.com/library/national/science/aids/100385sci-aids.html |access-date=November 6, 2022 |website=[[The New York Times]] |archive-date=July 28, 2017 |archive-url=https://web.archive.org/web/20170728124316/http://partners.nytimes.com/library/national/science/aids/100385sci-aids.html |url-status=live }}",
+          "calls": 1,
+          "group": "",
+          "name": "autogenerated4"
+        },
+        {
+          "body": "{{cite web |author=Various |publisher=[[National Institute of Allergy and Infectious Diseases]] |date=January 14, 2010 |url=https://www.niaid.nih.gov/topics/HIVAIDS/Understanding/howHIVCausesAIDS/Pages/HIVcausesAIDS.aspx |title=Resources and Links, HIV-AIDS Connection |access-date=February 22, 2009 |url-status=dead |archive-url=https://web.archive.org/web/20100407225045/http://www.niaid.nih.gov/topics/HIVAIDS/Understanding/howHIVCausesAIDS/pages/hivcausesaids.aspx |archive-date=April 7, 2010 }}",
+          "calls": 1,
+          "group": "",
+          "name": "consensus"
+        },
+        {
+          "body": "{{cite web |last=Boghardt |first=Thomas |title=Operation INFEKTION Soviet Bloc Intelligence and Its AIDS Disinformation Campaign |url=https://www.cia.gov/library/center-for-the-study-of-intelligence/csi-publications/csi-studies/studies/vol53no4/soviet-bloc-intelligence-and-its-aids.html |publisher=Central Intelligence Agency |year=2009 |url-status=dead |archive-url=https://web.archive.org/web/20110514230328/https://www.cia.gov/library/center-for-the-study-of-intelligence/csi-publications/csi-studies/studies/vol53no4/soviet-bloc-intelligence-and-its-aids.html |archive-date=May 14, 2011 }}",
+          "calls": 1,
+          "group": "",
+          "name": "infektion"
+        },
+        {
+          "body": "{{cite book |last=Harden |first=Victoria Angela |title=AIDS at 30: A History |publisher=Potomac Books Inc |year=2012 |isbn=978-1-59797-294-9 |page=324}}",
+          "calls": 1,
+          "group": "",
+          "name": "isbn1-59797-294-0"
+        },
+        {
+          "body": "{{cite journal | vauthors = Lutge EE, Gray A, Siegfried N | title = The medical use of cannabis for reducing morbidity and mortality in patients with HIV/AIDS | journal = The Cochrane Database of Systematic Reviews | volume = 2013 | issue = 4 | article-number= CD005175 | date = April 2013 | pmid = 23633327 | doi = 10.1002/14651858.CD005175.pub3 | pmc = 12127901 }}",
+          "calls": 1,
+          "group": "",
+          "name": "lutge_2013"
+        },
+        {
+          "body": "{{cite journal |vauthors=Sepkowitz KA |title=AIDS – the first 20 years |journal=[[The New England Journal of Medicine]] |volume=344 |issue=23 |pages=1764–72 |date=June 2001 |pmid=11396444 |doi=10.1056/NEJM200106073442306|doi-access=free  | issn=0028-4793 }}",
+          "calls": 1,
+          "group": "",
+          "name": "pmid11396444"
+        },
+        {
+          "body": "{{cite journal |vauthors=Mehandru S, Poles MA, Tenner-Racz K, Horowitz A, Hurley A, Hogan C, Boden D, Racz P, Markowitz M |title=Primary HIV-1 infection is associated with preferential depletion of CD4+ T lymphocytes from effector sites in the gastrointestinal tract |journal=The Journal of Experimental Medicine |volume=200 |issue=6 |pages=761–70 |date=September 2004 |pmid=15365095 |pmc=2211967 |doi=10.1084/jem.20041196}}",
+          "calls": 1,
+          "group": "",
+          "name": "pmid15365095"
+        },
+        {
+          "body": "{{cite journal |vauthors=Brenchley JM, Schacker TW, Ruff LE, Price DA, Taylor JH, Beilman GJ, Nguyen PL, Khoruts A, Larson M, Haase AT, Douek DC |title=CD4+ T cell depletion during all stages of HIV disease occurs predominantly in the gastrointestinal tract |journal=The Journal of Experimental Medicine |volume=200 |issue=6 | pages=749–59 |date=September 2004 |pmid=15365096 |pmc=2211962 |doi=10.1084/jem.20040874}}",
+          "calls": 1,
+          "group": "",
+          "name": "pmid15365096"
+        },
+        {
+          "body": "{{cite journal | vauthors = Mills E, Wu P, Ernst E | title = Complementary therapies for the treatment of HIV: in search of the evidence | journal = International Journal of STD & AIDS | volume = 16 | issue = 6 | pages = 395–403 | date = June 2005 | pmid = 15969772 | doi = 10.1258/0956462054093962 | s2cid = 7411052 }}",
+          "calls": 1,
+          "group": "",
+          "name": "pmid15969772"
+        },
+        {
+          "body": "{{cite journal |vauthors=Hel Z, McGhee JR, Mestecky J |title=HIV infection: first battle decides the war |journal=Trends in Immunology |volume=27 |issue=6 |pages=274–81 |date=June 2006 |pmid=16679064 |doi=10.1016/j.it.2006.04.007}}",
+          "calls": 1,
+          "group": "",
+          "name": "pmid16679064"
+        },
+        {
+          "body": "{{cite journal |vauthors=Brenchley JM, Price DA, Schacker TW, Asher TE, Silvestri G, Rao S, Kazzaz Z, Bornstein E, Lambotte O, Altmann D, Blazar BR, Rodriguez B, Teixeira-Johnson L, Landay A, Martin JN, Hecht FM, Picker LJ, Lederman MM, Deeks SG, Douek DC |title=Microbial translocation is a cause of systemic immune activation in chronic HIV infection |journal=Nature Medicine |volume=12 |issue=12 |pages=1365–71 |date=December 2006 |pmid=17115046 |pmc=1717013 |doi=10.1038/nm1511 |bibcode=2006NatMe..12.1365B }}",
+          "calls": 1,
+          "group": "",
+          "name": "pmid17115046"
+        },
+        {
+          "body": "{{cite journal |vauthors=Appay V, Sauce D |title=Immune activation and inflammation in HIV-1 infection: causes and consequences |journal=The Journal of Pathology |volume=214 |issue=2 |pages=231–41 |date=January 2008 |pmid=18161758 |doi=10.1002/path.2276|s2cid=26830006 |doi-access=free }}",
+          "calls": 1,
+          "group": "",
+          "name": "pmid18161758"
+        },
+        {
+          "body": "{{cite journal | vauthors = Littlewood RA, Vanable PA | title = Complementary and alternative medicine use among HIV-positive people: research synthesis and implications for HIV care | journal = AIDS Care | volume = 20 | issue = 8 | pages = 1002–18 | date = September 2008 | pmid = 18608078 | pmc = 2570227 | doi = 10.1080/09540120701767216 }}",
+          "calls": 1,
+          "group": "",
+          "name": "pmid18608078"
+        },
+        {
+          "body": "{{cite journal |vauthors=Eaton L, Kalichman SC |title=Behavioral aspects of male circumcision for the prevention of HIV infection |journal=Current HIV/AIDS Reports |volume=6 |issue=4 |pages=187–93 |date=November 2009 |pmid=19849961 |pmc=3557929 |doi=10.1007/s11904-009-0025-9}}(subscription required)",
+          "calls": 1,
+          "group": "",
+          "name": "pmid19849961"
+        },
+        {
+          "body": "{{cite journal |vauthors=Nachega JB, Marconi VC, van Zyl GU, Gardner EM, Preiser W, Hong SY, Mills EJ, Gross R |title=HIV treatment adherence, drug resistance, virologic failure: evolving concepts |journal=Infectious Disorders Drug Targets |volume=11 |issue=2 |pages=167–74 |date=April 2011 |pmid=21406048 |pmc=5072419 |doi=10.2174/187152611795589663}}",
+          "calls": 1,
+          "group": "",
+          "name": "pmid21406048"
+        },
+        {
+          "body": "{{cite journal |vauthors=Tolli MV |title=Effectiveness of peer education interventions for HIV prevention, adolescent pregnancy prevention and sexual health promotion for young people: a systematic review of European studies |journal=[[Health Education Research]] |volume=27 |issue=5 |pages=904–13 |date=October 2012 |pmid=22641791 |doi=10.1093/her/cys055|doi-access=free }}",
+          "calls": 1,
+          "group": "",
+          "name": "pmid22641791"
+        },
+        {
+          "body": "{{cite journal |vauthors=Hymes KB, Cheung T, Greene JB, Prose NS, Marcus A, Ballard H, William DC, Laubenstein LJ |title=Kaposi's sarcoma in homosexual men-a report of eight cases |journal=The Lancet |volume=2 |issue=8247 |pages=598–600 |date=September 1981 |pmid=6116083 |doi=10.1016/S0140-6736(81)92740-9|s2cid=43529542 }}",
+          "calls": 1,
+          "group": "",
+          "name": "pmid6116083"
+        },
+        {
+          "body": "{{cite journal |vauthors=Friedman-Kien AE |title=Disseminated Kaposi's sarcoma syndrome in young homosexual men |journal=[[Journal of the American Academy of Dermatology]] |volume=5 |issue=4 |pages=468–71 |date=October 1981 |pmid=7287964 |doi=10.1016/S0190-9622(81)80010-2}}",
+          "calls": 1,
+          "group": "",
+          "name": "pmid7287964"
+        },
+        {
+          "body": "{{cite journal |vauthors=Gao F, Bailes E, Robertson DL, Chen Y, Rodenburg CM, Michael SF, Cummins LB, Arthur LO, Peeters M, Shaw GM, Sharp PM, Hahn BH |title=Origin of HIV-1 in the chimpanzee Pan troglodytes troglodytes |journal=Nature |volume=397 |issue=6718 |pages=436–41 |date=February 1999 |pmid=9989410 |doi=10.1038/17130 |bibcode=1999Natur.397..436G|s2cid=4432185 |doi-access=free }}",
+          "calls": 1,
+          "group": "",
+          "name": "pmid9989410"
+        },
+        {
+          "body": "{{cite web |url=https://www.theguardian.com/science/2020/mar/09/second-person-cleared-hiv-adam-castillejo-reveals-identity |title=Second Person Ever to Be Cleared of HIV Reveals Identity |last=Davis |first=Nicola |date=March 8, 2020 |access-date=March 8, 2020 |work=[[The Guardian]] |archive-date=October 6, 2020 |archive-url=https://web.archive.org/web/20201006095735/https://www.theguardian.com/science/2020/mar/09/second-person-cleared-hiv-adam-castillejo-reveals-identity/ |url-status=live }}",
+          "calls": 1,
+          "group": "",
+          "name": "two"
+        }
+      ],
+      "rendered_groups": [],
+      "undefined": []
+    },
+    "short_citations": [
+      {
+        "author_label": "UNAIDS 2011",
+        "candidates": [
+          {
+            "basis": "same_author_label_only",
+            "text": "UNAIDS 2011 pg. 60–70"
+          },
+          {
+            "basis": "same_author_label_only",
+            "text": "UNAIDS 2011 pg. 70–80"
+          },
+          {
+            "basis": "same_author_label_only",
+            "text": "UNAIDS 2011 pg. 1–10"
+          },
+          {
+            "basis": "same_author_label_only",
+            "text": "UNAIDS 2011 pg. 150–160"
+          }
+        ],
+        "group": "",
+        "name": "UN2011Fifty",
+        "reference": "<ref name=\"UN2011Fifty\">UNAIDS 2011 pp. 40–50</ref>",
+        "shorthand": "author_page_locator",
+        "status": "candidates_require_review"
+      }
+    ]
+  },
+  "status": "review_required"
+}

@@ -161,11 +161,12 @@ def test_fallbacks_anchors_and_category_safety() -> None:
     result, ledger = adapt_links(text, mapping)
     assert result == ("[[Kendrena|label]] plain label [[#Nadika|local label]] "
                       "[[Kendrena]] [[Kendrena#Local|local]] "
-                      "[[:Sokajy:Keep|Sort]][[:Sokajy:Already|Key]][[:Category:Foreign]]")
+                      "[[Sokajy:Keep|Sort]][[Sokajy:Already|Key]][[:Category:Foreign]]")
     assert {r["action"] for r in ledger} >= {
         "mapped_anchor_omitted", "plain_text_no_verified_target",
         "same_page_anchor_requires_review",
-        "local_anchor_requires_review", "category_made_inert", "category_unchanged",
+        "local_anchor_requires_review", "category_made_live", "category_unchanged",
+        "category_foreign_made_inert",
     }
 
 

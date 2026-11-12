@@ -27,7 +27,10 @@ mgwiki-article or additional coordinators. Workers alone cannot approve the arti
 
 Read complete pinned source/existing/sandbox, use required coordinator skills and
 style references, delegate prose section by section to mgwiki-section, assemble
-and editorially review all content before guarded preparation/publication. Page
+and editorially review all content before guarded preparation/publication.
+At assembly, enforce live article categories [[Sokajy:Name]] (convert inert
+[[:Sokajy:Name]] links) and {{lahatsoratra antsipirihany|Target}} for source
+Main/Main article/Further/Details section hatnotes. Page
 large job evidence (json-slice, vocabulary-view, audit commands); never load a
 multi-megabyte artifact into your own context. Group short sections
 (`sections-plan --group-max-bytes 4000`) to cut repeated context. No

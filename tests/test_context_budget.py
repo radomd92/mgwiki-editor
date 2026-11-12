@@ -9,18 +9,18 @@ ROOT = Path(__file__).resolve().parents[1]
 # Always-loaded rules: system prompt policy, required skills, local style references,
 # agent prompts. Ceilings are the reviewed 2026-11-12 sizes; raising one is a policy
 # decision (shorter is always allowed) and should be explained in the same change.
-# The 2026-11-12 compaction patch added the template block to the edition skill and
-# the article prompt and the post-compaction recovery/receipt rules to three files.
+# The 2026-11-12 category/hatnote policy change added live Sokajy output and the
+# {{lahatsoratra antsipirihany}} section-hatnote rule.
 BUDGET = {
-    "AGENTS.md": 17_600,
-    ".opencode/skills/mgwiki-style/SKILL.md": 15_800,
-    ".opencode/skills/mgwiki-style/references/manual-of-style.wiki": 17_000,
+    "AGENTS.md": 17_900,
+    ".opencode/skills/mgwiki-style/SKILL.md": 15_900,
+    ".opencode/skills/mgwiki-style/references/manual-of-style.wiki": 17_150,
     ".opencode/skills/mgwiki-style/references/words-to-watch.wiki": 10_300,
     ".opencode/skills/mg-vocab/SKILL.md": 16_000,
     ".opencode/skills/mgwiki-edition/SKILL.md": 7_750,
-    ".opencode/agents/mgwiki-editor.md": 18_600,
-    ".opencode/agents/mgwiki-article.md": 3_700,
-    ".opencode/agents/mgwiki-section.md": 7_800,
+    ".opencode/agents/mgwiki-editor.md": 18_800,
+    ".opencode/agents/mgwiki-article.md": 3_900,
+    ".opencode/agents/mgwiki-section.md": 8_100,
     ".opencode/commands/mgtranslate.md": 5_400,
 }
 

@@ -107,3 +107,54 @@ def convert_citations(text: str) -> tuple[str, list[dict[str, str]]]:
             code.replace(template, replacement)
             conversions.append({"source": original, "replacement": replacement})
     return str(code), conversions
+
+
+RELATED_HATNOTE = "lahatsoratra antsipirihany"
+RELATED_HATNOTE_SOURCES = {"main", "main article", "further", "details"}
+
+
+def promote_article_categories(text: str) -> tuple[str, list[dict[str, str]]]:
+    """Convert inert Malagasy category links to live article membership.
+
+    Foreign Category: links remain untouched for separate removal/inerting review.
+    """
+    code = mw.parse(text)
+    conversions = []
+    for link in list(code.filter_wikilinks()):
+        target = str(link.title)
+        stripped = target.lstrip()
+        if not stripped.startswith(":") or not stripped[1:].casefold().startswith("sokajy:"):
+            continue
+        prefix = len(target) - len(stripped)
+        before = str(link)
+        link.title = stripped[1:]
+        if prefix:
+            link.title = target[:prefix] + str(link.title)
+        conversions.append({"source": before, "replacement": str(link)})
+    return str(code), conversions
+
+
+def convert_related_hatnotes(text: str) -> tuple[str, list[dict[str, str]]]:
+    """Render source main/further/details hatnotes with the verified Malagasy template.
+
+    The local template takes one positional article title. Multiple source parameters
+    become one template call each, preserving every target and their order.
+    """
+    code = mw.parse(text)
+    conversions = []
+    for template in reversed(code.filter_templates()):
+        name = str(template.name).strip().replace("_", " ").casefold()
+        name = re.sub(r"^(?:endrika|template)\s*:\s*", "", name).strip()
+        if name not in RELATED_HATNOTE_SOURCES:
+            continue
+        values = [str(param.value).strip() for param in template.params]
+        values = [value for value in values if value]
+        if not values:
+            continue
+        original = str(template)
+        replacement = "\n".join(
+            "{{" + RELATED_HATNOTE + "|" + value + "}}" for value in values
+        )
+        code.replace(template, replacement)
+        conversions.append({"source": original, "replacement": replacement})
+    return str(code), conversions

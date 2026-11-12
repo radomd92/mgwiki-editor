@@ -313,11 +313,17 @@ article, after all sections and appendices. Preserve category links already
 present in the existing Malagasy article or sandbox: do not translate, rename,
 remove, reorder, or duplicate them; keep their targets, labels, and sort keys.
 Do not guess category targets or blindly import foreign-language categories.
-Sandbox safety remains mandatory: new category links use [[:Sokajy:Name]], and
-the only permitted change to an existing live category link is adding the
-leading colon needed to make it inert. Already-inert links stay byte-for-byte
-unchanged. Record category additions and any safety-only change in notes.wiki.
+Use live article categories [[Sokajy:Name]] so the saved page joins the category
+instead of showing a link. Convert existing inert [[:Sokajy:Name]] links to the
+live form in article output; foreign Category: links stay inert or are removed.
+Record category additions and conversions in notes.wiki.
 No live interwiki or Wikidata changes.
+
+Section hatnotes: when a source section begins with a main-article or
+detailed-article header (Main, Main article, Further, Details), render it with
+the verified local template {{lahatsoratra antsipirihany|Target}}. Use one call
+per target and preserve target order. Do not leave the English template or
+replace the hatnote with a bare link.
 No unresolved translator comments, TODOs, or research notes in article text.
 
 == 6. Editorial quality gate ==
@@ -348,9 +354,10 @@ notes.wiki; set each review.json gate true only when actually checked:
 * links_templates: correct local targets, supported templates/parameters, usable
   files with unchanged Commons filenames, translated captions/alt text, working
   same-page anchors, no silently lost source links/images, new Sokajy links at the
-  end, existing category links preserved (except
-  the required inerting colon), no duplicate category additions, and no
-  accidental categorization or interwiki side effects.
+  end in live [[Sokajy:...]] form, existing category links preserved except
+  inert-to-live conversion, no duplicate category additions, and no
+  accidental foreign-category/interwiki side effects.
+  Main/detailed-article hatnotes use {{lahatsoratra antsipirihany|Target}}.
 * neutrality: no promotion, unsupported synthesis, or changed evidential weight.
   Review all words-to-watch categories and Malagasy equivalents in context, not
   through a blacklist. Do not sanitize/rewrite source quotations, titles or
@@ -367,7 +374,8 @@ list syntax is legal; do not reject ordinary MediaWiki lists.
 == 7. Preview and proposal ==
 Run prepare --job …. This verifies gates, checks all pinned live revisions,
 renders through mgwiki Pywikibot action=parse, rejects visible parser errors and
-category/interwiki side effects, and writes preview.html, proposal.json, and
+interwiki side effects (live Sokajy membership is expected), and writes
+preview.html, proposal.json, and
 changes.diff. Autonomously review raw wikitext and offline rendered text,
 references, tables, image markup, and link metadata without fetching resources;
 parser success alone does not prove factual or linguistic correctness.

@@ -218,9 +218,16 @@ def adapt_links(text: str, mapping: dict[str, Any]) -> tuple[str, list[dict[str,
                     record(node, "file_target_unchanged")
                     if node.text is not None:
                         walk(node.text)
-                elif bare.casefold().startswith(("sokajy:", "category:")):
-                    record(node, "category_unchanged" if target.startswith(":") else
-                           "category_made_inert")
+                elif bare.casefold().startswith("sokajy:"):
+                    record(node, "category_unchanged" if not target.startswith(":") else
+                           "category_made_live")
+                    if target.startswith(":"):
+                        raw = str(node.title)
+                        prefix = len(raw) - len(raw.lstrip())
+                        node.title = raw[:prefix] + raw[prefix + 1:]
+                elif bare.casefold().startswith("category:"):
+                    record(node, "category_foreign_unchanged" if target.startswith(":") else
+                           "category_foreign_made_inert")
                     if not target.startswith(":"):
                         raw = str(node.title)
                         prefix = len(raw) - len(raw.lstrip())

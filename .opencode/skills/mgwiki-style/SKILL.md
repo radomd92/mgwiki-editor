@@ -174,11 +174,14 @@ official translations, name components, or local template names.
   all sections and appendices. Preserve existing Malagasy article/sandbox category
   links: do not translate, rename, remove, reorder, or duplicate them; retain their
   targets, labels, and sort keys. Do not guess targets or blindly import foreign
-  categories. Already-inert links remain byte-for-byte unchanged; adding a leading
-  colon to an existing live link is the sole sandbox-safety exception.
-- Keep sandbox categories inert using [[:Sokajy:Name]] (or colon-prefixed source
-  category links for review). Record additions and safety-only changes in notes.wiki.
-  Avoid live category membership, interwiki language
+  categories. Use live [[Sokajy:Name]] links so the article joins the category;
+  convert inert [[:Sokajy:Name]] links to live in article output. Foreign
+  Category: links stay inert or are removed. Record additions and conversions in
+  notes.wiki.
+- Render source main-article/detailed-article hatnotes (Main, Main article,
+  Further, Details) with {{lahatsoratra antsipirihany|Target}}, one call per
+  target, preserving order. Do not leave the English template or use a bare link.
+  Avoid live interwiki language
   links, DEFAULTSORT, redirects, and templates that categorize the sandbox.
   Do not edit Wikidata; save proposed metadata in local notes instead.
 - Plain ISBN magic links can add tracking categories on mgwiki even without any

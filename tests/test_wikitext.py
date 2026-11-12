@@ -7,7 +7,13 @@ from pathlib import Path
 import pytest
 
 from mgwiki_editor.core import GuardError
-from mgwiki_editor.wikitext import convert_citations, inventory, reference_inventory
+from mgwiki_editor.wikitext import (
+    convert_citations,
+    convert_related_hatnotes,
+    inventory,
+    promote_article_categories,
+    reference_inventory,
+)
 
 
 def test_reference_groups_and_exact_metadata() -> None:
@@ -90,6 +96,49 @@ def test_citation_conversion_does_not_silently_drop_maintenance_or_other_templat
 def test_empty_citation_requires_explicit_handling() -> None:
     with pytest.raises(GuardError, match="Empty citation"):
         convert_citations("{{cite book}}")
+
+
+@pytest.mark.parametrize("source", [
+    "{{Main|Fitsaboana}}", "{{Main article|Fitsaboana}}",
+    "{{Further|Fitsaboana}}", "{{Details|Fitsaboana}}",
+    "{{main|Fitsaboana}}", "{{Template:Main|Fitsaboana}}",
+])
+def test_related_hatnotes_use_verified_malagasy_template(source: str) -> None:
+    text, ledger = convert_related_hatnotes(source)
+    assert text == "{{lahatsoratra antsipirihany|Fitsaboana}}"
+    assert ledger == [{"source": source, "replacement": text}]
+
+
+def test_related_hatnotes_preserve_multiple_targets_and_are_idempotent() -> None:
+    text, ledger = convert_related_hatnotes("{{Main|Iray|Roa}}")
+    assert text == ("{{lahatsoratra antsipirihany|Iray}}\n"
+                    "{{lahatsoratra antsipirihany|Roa}}")
+    assert len(ledger) == 1
+    unchanged, ledger = convert_related_hatnotes("{{lahatsoratra antsipirihany|Iray}}")
+    assert unchanged == "{{lahatsoratra antsipirihany|Iray}}"
+    assert ledger == []
+
+
+def test_unrelated_templates_are_not_rewritten() -> None:
+    text = "{{Jereo koa|Topic}}{{Infobox|name=X}}"
+    result, ledger = convert_related_hatnotes(text)
+    assert result == text
+    assert ledger == []
+
+
+def test_inert_malagasy_categories_become_live_membership() -> None:
+    text = "[[Sokajy:Keep|Sort]][[:Sokajy:Add|Key]][[:Category:Foreign]]"
+    result, ledger = promote_article_categories(text)
+    assert result == "[[Sokajy:Keep|Sort]][[Sokajy:Add|Key]][[:Category:Foreign]]"
+    assert ledger == [{"source": "[[:Sokajy:Add|Key]]",
+                       "replacement": "[[Sokajy:Add|Key]]"}]
+
+
+def test_live_categories_are_left_unchanged() -> None:
+    text = "[[Sokajy:Keep|Sort]] [[:Category:Foreign]]"
+    result, ledger = promote_article_categories(text)
+    assert result == text
+    assert ledger == []
 
 
 def test_archive_manifest_preserves_original_scripts() -> None:

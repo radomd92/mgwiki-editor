@@ -234,8 +234,9 @@ valid during dictionary outage; unknown material meaning remains blocked.
 
 Generated partial markup coverage report surfaces losses; missing images/citation
 URLs need explicit reasons. Existing category strings/order preserved except
-inerting colon; additions require genuine mgwiki namespace evidence. Semantic
-coverage, relevance, caption accuracy and safe licensing remain editorial review.
+inert-to-live conversion; additions require genuine mgwiki namespace evidence.
+Semantic coverage, relevance, caption accuracy and safe licensing remain editorial
+review.
 
 Review/evidence snapshot binds actual referenced bytes, not merely pointer hashes.
 Prepare then inspect raw text/offline HTML/diff without resource loading, attest

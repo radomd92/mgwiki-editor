@@ -368,14 +368,15 @@ but unresolved source issues are not publication blockers. Older jobs without
 that memory remain supported; never rewrite historical evidence merely to migrate it.
 
 Lint rejects common Markdown, broken named-reference reuse, missing native
-reference renderers, live categories, interwiki links, and placeholders. It
+reference renderers, inert [[:Sokajy:...]] article categories, live foreign
+Category: links, interwiki links, and placeholders. It
 permits MediaWiki * and # lists and {| tables. Markdown and MediaWiki share some
 syntax; no lexical validator can prove the absence of all Markdown. Raw-text and
 rendered autonomous editorial review remain mandatory. For predictable reference validation,
 use native <nowiki><references /></nowiki> instead of reference-rendering templates.
 
-Rendered previews reject parser errors and template-driven categorization or
-language links. They do not automatically verify every local template parameter,
+Rendered previews reject parser errors and language links. Live Sokajy membership
+is expected article output. They do not automatically verify every local template parameter,
 link topic, media license, source claim, grammar, or translation. Review gates are
 attestations, not machine evidence of linguistic correctness. Render changes can
 be benign (dynamic templates) but still require fresh preparation and review.

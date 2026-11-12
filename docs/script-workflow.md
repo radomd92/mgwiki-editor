@@ -139,8 +139,8 @@ plain-text relinking. Unmapped prose links → original displayed text + decisio
 Explicit source-map entries win over inferred already-local membership when names collide;
 do not reapply source mapping to an already-adapted candidate with ambiguous titles.
 Unverified cross-page anchors omitted when mapping; same-page/already-local anchors
-retained with review flags. Existing category links stay exact except leading-colon
-sandbox safety; no category targets invented.
+retained with review flags. Existing category links stay exact except inert-to-live
+conversion; foreign Category: links stay inert; no category targets invented.
 
 Templates, refs, original italic titles, quotations, code/math/nowiki, external URLs and
 external-link titles remain protected. Unknown containers unchanged, not blindly walked.

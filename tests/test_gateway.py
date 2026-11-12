@@ -660,7 +660,7 @@ def test_unverified_new_category_rejected_and_existing_category_preserved(rig):
                  evidence=["existing.wiki"])
     old = dispatch(rig, "artifact", name="draft.wiki")
     dispatch(rig, "submit", name="draft.wiki", expected_sha256=old["sha256"],
-             content=old["content"] + "\n[[:Sokajy:Rano|Sort key]]\n[[:Sokajy:Guessed]]\n")
+             content=old["content"] + "\n[[Sokajy:Rano|Sort key]]\n[[Sokajy:Guessed]]\n")
     with pytest.raises(StateError, match="categories"):
         dispatch(rig, "review", gates=dict.fromkeys(core.GATES, True), note="Unverified addition.",
                  evidence=["existing.wiki"])
@@ -675,7 +675,7 @@ def test_verified_category_allows_addition_and_preserves_existing(rig, monkeypat
     evidence = dispatch(rig, "category-info", titles=["Sokajy:Ranoka"])["evidence_file"]
     old = dispatch(rig, "artifact", name="draft.wiki")
     dispatch(rig, "submit", name="draft.wiki", expected_sha256=old["sha256"],
-             content=old["content"] + "\n[[:Sokajy:Rano|Sort key]]\n[[:Sokajy:Ranoka]]\n")
+             content=old["content"] + "\n[[Sokajy:Rano|Sort key]]\n[[Sokajy:Ranoka]]\n")
     dispatch(rig, "review", gates=dict.fromkeys(core.GATES, True), note="Categories checked.",
              evidence=["existing.wiki"], category_evidence=[evidence])
     assert evidence in dispatch(rig, "prepare")["artifacts"]

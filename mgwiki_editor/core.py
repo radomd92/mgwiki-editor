@@ -265,8 +265,10 @@ def lint_wikitext(text: str) -> list[str]:
             errors.append(label + ".")
     for link in code.filter_wikilinks():
         target = str(link.title).strip()
-        if re.match(r"(?i)^(?:category|sokajy)\s*:", target):
-            errors.append("Sandbox category must be inert (prefix link with :).")
+        if target.startswith(":") and target.lstrip(":").casefold().startswith("sokajy:"):
+            errors.append("Article category must be live [[Sokajy:...]]; remove the leading colon.")
+        if (target.casefold().startswith("category:") and not target.startswith(":")):
+            errors.append("Foreign source category must be removed or kept inert.")
         if re.match(r"^[a-z]{2,3}(?:-[a-z0-9]+)*:", target):
             errors.append("Live interwiki link is not permitted in the sandbox.")
     from .references import reference_inventory
@@ -469,8 +471,8 @@ class Wiki:
         html = data["text"]
         if isinstance(html, dict):
             html = html["*"]
-        if data.get("categories") or data.get("langlinks"):
-            raise GuardError("Rendered sandbox has category or language-link side effects.")
+        if data.get("langlinks"):
+            raise GuardError("Rendered sandbox has language-link side effects.")
         if not rendering_report(html)["valid"]:
             raise GuardError("MediaWiki preview contains a parser/citation error.")
         return html

@@ -47,6 +47,12 @@ from .recovery import Recovery
 from .wikitext import inventory, reference_inventory
 
 
+def _category_key(link: str) -> str:
+    """Compare category identity without the optional inert-link colon."""
+    inner = link[2:-2] if link.startswith("[[") and link.endswith("]]") else link
+    return inner.lstrip(":").strip()
+
+
 class PolicyBlocked(StateError):
     def __init__(self, decision) -> None:
         super().__init__("Policy denied/deferred operation; inspect structured decision.")
@@ -1037,6 +1043,7 @@ class Gateway:
                            for reason in reasons.values())):
                 raise StateError("Missing source images/citation URLs need justified omissions.")
         draft_categories = report["draft"]["categories"]
+        draft_keys = [_category_key(link) for link in draft_categories]
         preserved = set()
         existing_counts = Counter()
         for filename in ("existing.wiki", "sandbox.wiki"):
@@ -1048,16 +1055,16 @@ class Gateway:
                     or not local_urls <= omitted.get("urls", {}).keys()):
                 raise StateError("Preserve local images/citation URLs or give explicit reasons.")
             original = local["categories"]
-            expected = [link if link.startswith("[[:") else "[[:" + link[2:] for link in original]
-            cursor = iter(draft_categories)
+            expected = [_category_key(link) for link in original]
+            cursor = iter(draft_keys)
             if any(not any(candidate == link for candidate in cursor) for link in expected):
                 raise StateError("Preserve existing category targets, labels, sort keys and order.")
             preserved.update(expected)
             existing_counts |= Counter(expected)
-        if any(count > max(existing_counts[link], 1)
-               for link, count in Counter(draft_categories).items()):
+        if any(count > max(existing_counts[key], 1)
+               for key, count in Counter(draft_keys).items()):
             raise StateError("Do not duplicate existing or newly added category links.")
-        additions = set(draft_categories) - preserved
+        additions = set(draft_keys) - preserved
         verified = set()
         category_files = args.get("category_evidence", [])
         if not isinstance(category_files, list):
@@ -1076,7 +1083,7 @@ class Gateway:
                             in data["requested_to_canonical"].items()
                             if canonical in present)
         for link in additions:
-            target = link[2:-2].split("|", 1)[0].lstrip(":").strip()
+            target = link.split("|", 1)[0].strip()
             if core.title(target) not in verified:
                 raise StateError("New categories need verified Malagasy targets; never guess.")
         report.update(omissions=omitted, category_evidence=category_files)

@@ -163,10 +163,11 @@ raw nested refs, conflicting definitions rejected instead of silently ignored.
 Unknown arbitrary templates not expanded by offline parser.
 
 Wiki.render additionally checks HTML error classes, missing-template redlinks,
-dangling Cite anchors, duplicate Cite IDs and active script/iframe elements. Existing
-parser category/langlink rejection and live render digest guards unchanged. Render
-success proves structure only; whole-article translation, license, attribution,
-template semantics and raw/offline preview editorial review still mandatory.
+dangling Cite anchors, duplicate Cite IDs and active script/iframe elements. Live
+langlink rejection and render digest guards unchanged; live Sokajy membership is
+expected article output. Render success proves structure only; whole-article
+translation, license, attribution, template semantics and raw/offline preview
+editorial review still mandatory.
 
 ## Tests / authorization boundary
 

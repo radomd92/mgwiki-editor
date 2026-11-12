@@ -74,9 +74,15 @@ or bypassing the existing network, copyright, or sandbox guards.
 Categories: append relevant Malagasy Sokajy links at the end of the article.
 Preserve existing Malagasy article/sandbox category links without translating,
 renaming, removing, reordering, or duplicating them; keep targets, labels, and
-sort keys. Do not guess category targets. Sandbox links must remain inert:
-use `[[:Sokajy:Name]]` for additions; adding the leading colon to an existing
-live link is the only safety exception. Already-inert links stay unchanged.
+sort keys. Do not guess category targets. Use live article categories
+`[[Sokajy:Name]]` so the article joins the category instead of displaying a
+link; convert any inert `[[:Sokajy:Name]]` form to live when saving article
+output. Foreign `Category:` links stay inert or are removed.
+
+Section hatnotes: render source "main article" and "detailed article" headers
+(`Main`, `Main article`, `Further`, `Details`) at the start of a section with
+`{{lahatsoratra antsipirihany|Target}}`, one call per target, preserving order.
+Do not leave the English template or replace the hatnote with a bare link.
 
 Vocabulary: define unfamiliar terms in simple English, then translate the
 definition into Malagasy; keep English in parentheses when useful. Label manual

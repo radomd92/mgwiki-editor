@@ -13,7 +13,13 @@ from .artifacts import evidence_path, read_text, write_new
 from .core import GuardError, digest, json_bytes, read_json
 from .links import adapt_links, load_link_map
 from .memos import vocabulary_records
-from .wikitext import convert_citations, inventory, reference_inventory
+from .wikitext import (
+    convert_citations,
+    convert_related_hatnotes,
+    inventory,
+    promote_article_categories,
+    reference_inventory,
+)
 
 
 def _editable_job(job: Path) -> None:
@@ -193,7 +199,8 @@ def assemble_sections(
         raise GuardError("Assembly output must be a new directory inside the job.")
     _editable_job(job)
     plan = _load_plan(job)
-    pieces, notes, vocabulary, conversions = [], [], [], []
+    pieces, notes, vocabulary, conversions, hatnotes = [], [], [], [], []
+    category_conversions = []
     artifacts = {"section-plan.json": digest((job / "section-plan.json").read_bytes()),
                  "section-inputs.json": digest((job / "section-inputs.json").read_bytes())}
     mapping, link_decisions = None, []
@@ -213,6 +220,11 @@ def assemble_sections(
         if mapping is not None:
             fragment, decisions = adapt_links(fragment, mapping)
             link_decisions.extend({"section_id": row["id"], **item} for item in decisions)
+        fragment, converted_hatnotes = convert_related_hatnotes(fragment)
+        hatnotes.extend({"section_id": row["id"], **item} for item in converted_hatnotes)
+        fragment, converted_categories = promote_article_categories(fragment)
+        category_conversions.extend({"section_id": row["id"], **item}
+                                    for item in converted_categories)
         if native_citations:
             fragment, converted = convert_citations(fragment)
             conversions.extend({"section_id": row["id"], **item} for item in converted)
@@ -244,6 +256,8 @@ def assemble_sections(
         output / "worker-vocabulary.json": json_bytes(vocabulary),
         output / "integrated-section-plan.json": json_bytes(plan),
         output / "citation-conversions.json": json_bytes(conversions),
+        output / "related-hatnote-conversions.json": json_bytes(hatnotes),
+        output / "category-conversions.json": json_bytes(category_conversions),
         output / "link-decisions.json": json_bytes(link_decisions),
         output / "inventory.json": json_bytes(inventory(draft)),
         output / "assembly.json": json_bytes({

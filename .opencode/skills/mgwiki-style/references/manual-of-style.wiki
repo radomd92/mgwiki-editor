@@ -63,8 +63,11 @@ merely by reading this manual.
   Distinguish works by the subject from works used as references.
 * Only use locally verified templates/parameters. Do not copy English language-
   variety templates, short descriptions, maintenance banners, infoboxes, authority
-  control, or category-producing templates blindly. Sandbox categories stay
-  inert; no mainspace edits, redirect creation or Wikidata changes.
+  control, or category-producing templates blindly. Article categories use live
+  [[Sokajy:Name]] links; foreign Category: links stay inert. No mainspace edits,
+  redirect creation or Wikidata changes.
+* Render source main-article/detailed-article hatnotes with
+  {{lahatsoratra antsipirihany|Target}}, one call per target, preserving order.
 
 == Capitalization and typography ==
 * Prefer sentence case in headings and ordinary Malagasy prose. Capitalize

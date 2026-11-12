@@ -188,7 +188,7 @@ def test_dictionary_rejects_non_origin_base(base: str) -> None:
 @pytest.mark.parametrize("text", [
     "```wiki\nX\n```", "`X`", "**X**", "*italic*", "[X](https://example.org)",
     "![X](url)", "- [x] Done", "- Item", "1. Item", "---", "| --- | --- |",
-    "[[Sokajy:Rano]]", "[[Category:Water]]", "[[en:Water]]", "#REDIRECT [[X]]",
+    "[[:Sokajy:Rano]]", "[[Category:Water]]", "[[en:Water]]", "#REDIRECT [[X]]",
     "TODO translate", '<ref name="missing" /><references />', '<ref>Source</ref>',
 ])
 def test_lint_rejects_markdown_and_structural_problems(text: str) -> None:
@@ -204,7 +204,7 @@ def test_lint_accepts_mediawiki_lists_tables_and_references() -> None:
 ** Zana-tsinga
 # Voalohany
 ## Zana-tsinga
-[[:Sokajy:Rano]] [[Rano|rohy]] [https://example.org loharano]
+[[Sokajy:Rano]] [[:Category:Water]] [[Rano|rohy]] [https://example.org loharano]
 {| class="wikitable"
 |-
 ! Lohateny !! Lohateny
@@ -675,13 +675,12 @@ def test_pywikibot_rejects_legacy_resolved_owner(monkeypatch: pytest.MonkeyPatch
 
 @pytest.mark.parametrize("payload", [
     {"text": '<span class="error">bad</span>'},
-    {"text": "<p>Text</p>", "categories": [{"category": "Unexpected"}]},
     {"text": "<p>Text</p>", "langlinks": [{"lang": "en"}]},
 ])
 def test_render_rejects_parser_errors_and_side_effects(
     payload: dict, monkeypatch: pytest.MonkeyPatch,
 ) -> None:
-    """Transcluded templates must not categorize or language-link sandbox pages."""
+    """Reject parser errors and language-link side effects; categories are expected."""
     wiki = Wiki()
     site = SimpleNamespace(
         simple_request=lambda **kwargs: SimpleNamespace(submit=lambda: {"parse": payload}),
@@ -689,6 +688,19 @@ def test_render_rejects_parser_errors_and_side_effects(
     monkeypatch.setattr(wiki, "site", lambda language: site)
     with pytest.raises(GuardError):
         wiki.render("Mpikambana:Bot-Jagwar/Rano", ARTICLE)
+
+
+def test_render_allows_live_article_categories(monkeypatch: pytest.MonkeyPatch) -> None:
+    """Live Sokajy membership is intended article output, not a render side effect."""
+    wiki = Wiki()
+    site = SimpleNamespace(
+        simple_request=lambda **kwargs: SimpleNamespace(
+            submit=lambda: {"parse": {"text": "<p>Text</p>",
+                                      "categories": [{"category": "Fahasalamana"}]}},
+        ),
+    )
+    monkeypatch.setattr(wiki, "site", lambda language: site)
+    assert wiki.render("Mpikambana:Bot-Jagwar/Rano", ARTICLE) == "<p>Text</p>"
 
 
 @pytest.mark.parametrize("state", ["existing", "missing", "redirect", "namespace"])

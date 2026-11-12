@@ -6,7 +6,8 @@ import json
 
 import pytest
 
-from mgwiki_editor import cli
+from mgwiki_editor import batching, cli
+from mgwiki_editor.batching import evidence_pin, evidence_verify, lookup_batch, offline_audit
 from mgwiki_editor.core import GuardError, artifact_hashes, digest, json_bytes, write_json
 from mgwiki_editor.memos import pack_vocabulary, vocabulary_view
 from mgwiki_editor.usage import session_usage
@@ -207,6 +208,156 @@ def test_session_usage_never_bypasses_configured_broker(job, monkeypatch, capsys
     write_json(job / "usage.json", {"data": [usage_row()]})
     assert cli.main(["session-usage", "--input", str(job / "usage.json")]) == 1
     assert "no fallback" in capsys.readouterr().err
+
+
+def fake_lookup(status="found"):
+    def look(edition, word):
+        return {"edition": edition, "word": word, "status": status, "entries": [],
+                "retrieved_at": "2026-11-12T00:00:00+00:00",
+                "url": f"http://dictionary.invalid/wiktionary-pages/{edition}/{word}"}
+    return look
+
+
+def test_lookup_batch_writes_one_file_per_word_with_manifest(job, monkeypatch, capsys):
+    monkeypatch.setattr(cli, "Wiki", lambda: pytest.fail("No Wiki"))
+    monkeypatch.setattr(batching, "lookup", fake_lookup())
+    assert cli.main(["lookup-batch", "--edition", "en", "--word", "rano", "--word", "Volamena",
+                     "--job", str(job), "--output-dir", str(job / "evidence/lookups-b01"),
+                     "--output", str(job / "evidence/lookups-b01.json")]) == 0
+    manifest = json.loads(capsys.readouterr().out)
+    assert manifest["status"] == "evidence_only"
+    assert manifest["status_counts"] == {"found": 2}
+    for row in manifest["results"]:
+        path = job / row["file"]
+        assert path.is_file()
+        assert row["sha256"] == digest(path.read_bytes())
+        reply = json.loads(path.read_bytes())
+        assert reply["word"] == row["word"]
+    # Case/accents keep their exact identity: separate files, no merging.
+    assert manifest["results"][0]["word"] == "rano"
+    assert manifest["results"][1]["word"] == "Volamena"
+
+
+def test_lookup_batch_keeps_pending_evidence_and_continues(job, monkeypatch, capsys):
+    monkeypatch.setattr(cli, "Wiki", lambda: pytest.fail("No Wiki"))
+    replies = {"found": fake_lookup()("en", "good"), "failed": fake_lookup("failed")("en", "bad")}
+    def look(edition, word):
+        return replies["failed" if word == "bad" else "found"]
+    monkeypatch.setattr(batching, "lookup", look)
+    args = ["lookup-batch", "--edition", "en", "--word", "good", "--word", "bad",
+            "--job", str(job), "--output-dir", str(job / "evidence/lookups-b02")]
+    assert cli.main(args) == 0
+    manifest = json.loads(capsys.readouterr().out)
+    assert manifest["status_counts"] == {"found": 1, "failed": 1}
+    assert len(manifest["results"]) == 2
+
+
+@pytest.mark.parametrize("words,kwargs", [
+    (["same", "same"], {}), (["", "x"], {}), ([f"w{i}" for i in range(51)], {}),
+    (["x"], {"output_dir": "outside"}),
+])
+def test_lookup_batch_rejects_duplicates_oversize_and_escapes(job, words, kwargs):
+    output_dir = job.parent / "escape" if kwargs.get("output_dir") == "outside" \
+        else job / "evidence/lookups-b03"
+    with pytest.raises(GuardError):
+        lookup_batch("en", words, job, output_dir)
+    if output_dir == job / "evidence/lookups-b03":
+        assert not output_dir.exists()
+
+
+def test_lookup_batch_never_bypasses_configured_broker(job, monkeypatch, capsys):
+    monkeypatch.setenv("MGWIKI_BROKER_SOCKET", "/socket")
+    monkeypatch.setenv("MGWIKI_CAPABILITY_FILE", "/cap")
+    monkeypatch.setattr(cli, "lookup", lambda *a: pytest.fail("Bypass"))
+    assert cli.main(["lookup-batch", "--edition", "en", "--word", "x", "--job", str(job),
+                     "--output-dir", str(job / "evidence/lookups-b04")]) == 1
+    assert "no fallback" in capsys.readouterr().err
+
+
+def test_offline_audit_runs_all_checks_and_reports_errors(job, monkeypatch, capsys):
+    monkeypatch.setattr(cli, "Wiki", lambda: pytest.fail("No Wiki"))
+    (job / "source.wiki").write_bytes(b"Pinned source.")
+    (job / "draft.wiki").write_bytes(b"'''Rano''' dia ranoka.\n")
+    monkeypatch.setattr(batching, "coverage_report", lambda j, d: {"missing_files": {}})
+    monkeypatch.setattr(batching, "citation_audit", lambda j, d: {"short_candidates": []})
+    monkeypatch.setattr(batching, "metadata_audit", lambda j, e, d: {"gaps": []})
+    def failing(*a, **k):
+        raise GuardError("boom")
+    monkeypatch.setattr(batching, "audit_mathematical_terms", failing)
+    manifest_path = job / "evidence/audit-b01.json"
+    args = ["offline-audit", "--job", str(job), "--draft", "draft.wiki",
+            "--vocab-audit", "--output", str(manifest_path)]
+    assert cli.main(args) == 1  # one failing check must not hide the others
+    manifest = json.loads(capsys.readouterr().out)
+    assert manifest["status"] == "reports_only"
+    assert manifest["failed_checks"] == ["vocab-audit"]
+    by_name = {row["check"]: row for row in manifest["checks"]}
+    assert by_name["validate"]["status"] == "ok"
+    for name in ("coverage", "citation-audit", "metadata-audit"):
+        path = job / by_name[name]["output"]
+        assert path.is_file() and by_name[name]["sha256"] == digest(path.read_bytes())
+    error_row = by_name["vocab-audit"]
+    assert error_row["status"] == "error" and error_row["error"] == "GuardError"
+    assert not (job / "evidence/audit-b01-vocab-audit.json").exists()
+
+
+def test_offline_audit_refuses_existing_outputs(job):
+    (job / "draft.wiki").write_bytes(b"x")
+    manifest = job / "evidence/audit-b02.json"
+    manifest.parent.mkdir()
+    manifest.write_bytes(b"{}")
+    with pytest.raises(GuardError, match="preserve it"):
+        offline_audit(job, "draft.wiki", manifest)
+
+
+def test_evidence_pin_and_verify_roundtrip(job, monkeypatch, capsys):
+    monkeypatch.setattr(cli, "Wiki", lambda: pytest.fail("No Wiki"))
+    (job / "draft.wiki").write_bytes(b"before")
+    pin = job / "evidence/pin-b01.json"
+    assert cli.main(["evidence-pin", "--job", str(job), "--artifact", "draft.wiki",
+                     "--output", str(pin)]) == 0
+    result = json.loads(capsys.readouterr().out)
+    assert result["artifacts"]["draft.wiki"]["sha256"] == digest(b"before")
+    assert cli.main(["evidence-verify", "--job", str(job), "--pin", "evidence/pin-b01.json"]) == 0
+    verify = json.loads(capsys.readouterr().out)
+    assert verify["unchanged"] is True and not verify["mismatches"]
+    (job / "draft.wiki").write_bytes(b"after")
+    args = ["evidence-verify", "--job", str(job), "--pin", "evidence/pin-b01.json",
+            "--output", str(job / "evidence/verify-b01.json")]
+    assert cli.main(args) == 0
+    verify = json.loads(capsys.readouterr().out)
+    assert verify["unchanged"] is False
+    assert verify["mismatches"][0]["artifact"] == "draft.wiki"
+    assert verify["mismatches"][0]["expected"] == digest(b"before")
+    assert verify["mismatches"][0]["actual"] == digest(b"after")
+
+
+def test_evidence_pin_rejects_empty_missing_and_existing(job):
+    with pytest.raises(GuardError):
+        evidence_pin(job, [], job / "evidence/pin-b02.json")
+    with pytest.raises(GuardError, match="Missing or unsafe"):
+        evidence_pin(job, ["nope.wiki"], job / "evidence/pin-b02.json")
+    pin = job / "evidence/pin-b03.json"
+    pin.parent.mkdir(exist_ok=True)
+    pin.write_bytes(b"{}")
+    with pytest.raises(GuardError, match="preserve it"):
+        evidence_pin(job, ["source.wiki"], pin)
+
+
+def test_evidence_verify_rejects_bad_pin_and_missing_artifacts(job):
+    (job / "evidence").mkdir(exist_ok=True)
+    (job / "evidence/bad.json").write_bytes(b'{"schema": 1}')
+    with pytest.raises(GuardError, match="Invalid artifact pin"):
+        evidence_verify(job, "evidence/bad.json")
+    (job / "draft.wiki").write_bytes(b"x")
+    pin = job / "evidence/pin-b04.json"
+    write_json(pin, {"schema": 1, "kind": "artifact_pin",
+                     "artifacts": {"draft.wiki": {"sha256": "0" * 64, "bytes": 1},
+                                   "gone.wiki": {"sha256": "1" * 64, "bytes": 1}}})
+    result = evidence_verify(job, "evidence/pin-b04.json")
+    assert result["unchanged"] is False
+    assert result["missing"] == ["gone.wiki"]
+    assert result["mismatches"][0]["artifact"] == "draft.wiki"
 
 
 def usage_row(ident="parent", parent=None, **tokens):

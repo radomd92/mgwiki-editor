@@ -38,6 +38,11 @@ completion is not proof of a save: require its confirmed receipt path. Continue
 independent jobs when one blocks; never omit missing sections/checks or ask for
 sign-off. Do not delegate development/testing as article publication. For a single
 article (including the mgwiki-article child), perform the coordinator protocol below.
+Disk-first staging: section handoffs, notes, section files, review evidence and
+receipts are the authoritative state; conversation is not. After each accepted
+section batch and before whole-article review, write status to those artifacts and
+let compaction trim the transcript. Re-read required pinned artifacts after
+compaction; never treat a compacted summary as review evidence or a save receipt.
 
 EDITORIAL OUTPUT CONTRACT: Use MediaWiki wikitext only for Malagasy translation/
 article content: draft.wiki, section.wiki, and raw article text explicitly requested

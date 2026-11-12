@@ -10,6 +10,10 @@ or reasoning downgrade. Article prose never shortened for token targets.
 - Queue manifest: original article request/limits, job path, article session ID,
   status, blockers, confirmed receipt, source/deferred memory paths. No article
   bodies, complete reports or cross-article transcripts. No duplicate active owner.
+- Conversation is scratch state; artifacts are the record. Persist handoffs,
+  review evidence and blockers to disk as work proceeds, compact between stages,
+  and re-read required pinned artifacts after compaction. A compacted summary is
+  never review evidence or a save receipt.
 - Existing batch continuation: finish any active operation safely, persist exact
   state/uncertain-save limits, transfer ownership explicitly before fresh child.
   Do not fork an active or uncertain operation. Missing essential handoff → retain
@@ -21,6 +25,11 @@ or reasoning downgrade. Article prose never shortened for token targets.
   whole-article generation. Preserve planned lead/body/appendix/local coverage.
 - Targeted fix → same section worker/session, changed inputs plus affected context.
   Accepted unrelated sections retained. No new whole-article generation.
+- Turn-reducing commands: `lookup-batch` (per-word evidence files, one turn),
+  `offline-audit` (deterministic checks in one turn, separate reports), and
+  `evidence-pin`/`evidence-verify` (replace ad-hoc pin/verify scripts). Same
+  evidence, checks and guards; only the turn count drops. Batch ≤50 words;
+  pending 502 evidence retained, resumed later per policy, never polled.
 
 ## Reusable local commands
 
@@ -106,3 +115,27 @@ memo bytes, elapsed time, provider charges when available. Use representative
 ordinary/math/medical articles for later authorized trials; no wiki writes during
 harness development. Budget exhaustion → retained incomplete/deferred work, never
 skipped sections/review/save checks. No unmeasured savings claims.
+
+## Disk-first sessions and compaction
+
+Conversation is scratch state; artifacts are the record. Coordinators write
+handoffs, notes, review evidence, receipts and blockers to disk as they go, then
+let compaction trim the transcript between stages — after each accepted section
+batch and before whole-article review. After compaction, re-read the required
+pinned artifacts (snapshots, section files, handoffs, review evidence, final raw
+draft/preview) instead of trusting summarized conversation. A compacted summary is
+never review evidence, an editorial attestation or a save receipt. Do not compact
+across an uncertain save; reconcile the receipt first.
+
+## Model/reasoning pilot (opt-in, no default change)
+
+All roles currently run gpt-6.1-sol/high. Optional pilot: routine section drafting
+on a lower reasoning variant; high reasoning stays mandatory for coordinator review
+gates, medical/legal/living-person content, naming/identity decisions and final
+assembly. Run per session via the TUI/model selector or an explicit temporary
+config override; do not change project defaults or agent files for the pilot.
+Trial design: pick one ordinary + one math article already covered by the current
+workflow baseline; run session-usage before/after; compare draft SHA-level
+coverage, vocabulary statuses, citation/link inventories and review-gate outcomes.
+Accept only when the coordinator's full editorial review finds no new unresolved
+meaning, coverage loss or citation damage. Quality regressions end the pilot.

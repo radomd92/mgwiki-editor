@@ -152,6 +152,8 @@ Batch requests: primary acts as queue only, delegates one fresh `mgwiki-article`
 coordinator per article; each delegates `mgwiki-section` workers. No cross-article
 transcript replay, recursive article coordinators or duplicate active job owners.
 See `docs/token-efficient-workflow.md`; existing jobs never bulk-rewritten.
+Coordinators write state to disk and compact between stages; a compacted summary
+is never review evidence or a save receipt.
 Follow the edition protocol for new AND existing articles. Autonomous mode is
 default: no questions, tool/script approval prompts, or draft-signoff requests.
 A translation/edit request authorizes checked sandbox publication unless the

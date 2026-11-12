@@ -32,6 +32,12 @@ remote article operation is authorized by a development/test assignment. Only an
 actual translation/edit request permits checked Bot-Jagwar sandbox publication;
 inherit draft-only/no-save and every narrower user limit exactly.
 
+Disk-first staging: handoffs, notes, review evidence and receipts are the
+authoritative state; conversation is not. After each accepted section batch and
+before whole-article review, persist status to those artifacts and let compaction
+trim the transcript. Re-read required pinned artifacts after compaction; never
+treat a compacted summary as review evidence or a confirmed save receipt.
+
 Own only the assigned job; use its retained state and same child session on
 continuation. Prepared/frozen jobs, uncertain writes, authentication, request
 pacing, external-network restrictions and source/deferred-issue rules unchanged.

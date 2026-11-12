@@ -10,6 +10,7 @@ import time
 from pathlib import Path
 
 from .artifacts import write_new
+from .batching import evidence_pin, evidence_verify, lookup_batch, offline_audit
 from .citations import citation_audit
 from .core import (
     Wiki,
@@ -181,8 +182,38 @@ def parser() -> argparse.ArgumentParser:
     usage.add_argument("--session", action="append", default=[],
                        help="Exact ID; default roots only")
     usage.add_argument("--output", type=Path)
+    batch = commands.add_parser(
+        "lookup-batch", help="Serial per-word dictionary lookups in one turn",
+    )
+    batch.add_argument("--edition", choices=("en", "mg"), required=True)
+    batch.add_argument("--word", action="append", required=True)
+    batch.add_argument("--job", type=Path, required=True)
+    batch.add_argument("--output-dir", type=Path, required=True,
+                       help="New directory inside job; one evidence file per word")
+    batch.add_argument("--output", type=Path, help="Batch manifest")
+    audit_bundle = commands.add_parser(
+        "offline-audit", help="Deterministic local checks in one turn; separate reports",
+    )
+    audit_bundle.add_argument("--job", type=Path, required=True)
+    audit_bundle.add_argument("--draft", default="draft.wiki", help="Job-relative draft path")
+    audit_bundle.add_argument("--evidence", action="append", default=[])
+    audit_bundle.add_argument("--vocab-audit", action="store_true")
+    audit_bundle.add_argument("--output", type=Path, required=True, help="Audit manifest")
+    pin = commands.add_parser(
+        "evidence-pin", help="Pin exact artifact digests before targeted edits",
+    )
+    pin.add_argument("--job", type=Path, required=True)
+    pin.add_argument("--artifact", action="append", required=True, help="Job-relative path")
+    pin.add_argument("--output", type=Path, required=True, help="New pin file inside job")
+    verify = commands.add_parser(
+        "evidence-verify", help="Recheck a pin; never modify artifacts",
+    )
+    verify.add_argument("--job", type=Path, required=True)
+    verify.add_argument("--pin", required=True, help="Job-relative pin file")
+    verify.add_argument("--output", type=Path)
     for operation in (read, dictionary, vocab, audit, coverage, citations, metadata,
-                      license_check, license_capture, links, index, memo, view, usage):
+                      license_check, license_capture, links, index, memo, view, usage,
+                      batch, audit_bundle, pin):
         operation.add_argument(
             "--summary", action="store_true",
             help="Require --output; save complete JSON, print only hash/signals/counts",
@@ -225,7 +256,9 @@ def main(argv: list[str] | None = None) -> int:
         if broker_socket or capfile:
             if not broker_socket or not capfile:
                 raise ValueError("Both broker socket and capability file required; no fallback.")
-            if args.command in {"vocabulary-view", "vocabulary-pack", "session-usage"}:
+            if args.command in {"vocabulary-view", "vocabulary-pack", "session-usage",
+                                "lookup-batch", "offline-audit", "evidence-pin",
+                                "evidence-verify"}:
                 raise ValueError(f"{args.command} unsupported by configured broker; no fallback.")
             if args.command in {
                 "init", "read", "lookup", "countries", "prepare", "publish", "sections-plan",
@@ -287,6 +320,19 @@ def main(argv: list[str] | None = None) -> int:
             raw = args.input.read_bytes()
             result = session_usage(json.loads(raw), sessions=args.session)
             result["source"] = {"path": str(args.input), "sha256": digest(raw)}
+        elif args.command == "lookup-batch":
+            result = lookup_batch(args.edition, args.word, args.job, args.output_dir)
+        elif args.command == "offline-audit":
+            result = offline_audit(args.job, args.draft, args.output,
+                                   evidence=args.evidence, vocab_audit=args.vocab_audit)
+            if result["failed_checks"]:
+                # Reports are retained; a failed check must not read as success.
+                print(json.dumps(result, ensure_ascii=True, indent=2))
+                return 1
+        elif args.command == "evidence-pin":
+            result = evidence_pin(args.job, args.artifact, args.output)
+        elif args.command == "evidence-verify":
+            result = evidence_verify(args.job, args.pin)
         elif args.command == "read":
             result = wiki.snapshot(args.lang, args.title, sandbox=args.sandbox)
         elif args.command == "validate":
@@ -298,7 +344,7 @@ def main(argv: list[str] | None = None) -> int:
         else:
             result = publish(wiki, args.job, args.approve)
         if (getattr(args, "output", None)
-                and args.command not in {"sections-assemble", "vocabulary-pack"}):
+                and args.command not in {"sections-assemble", "vocabulary-pack", "evidence-pin"}):
             write_new({args.output: json_bytes(result)})
         if getattr(args, "summary", False):
             result = report_summary(args.command, result, args.output)

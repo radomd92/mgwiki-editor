@@ -12,15 +12,15 @@ ROOT = Path(__file__).resolve().parents[1]
 # The 2026-11-12 category/hatnote policy change added live Sokajy output and the
 # {{lahatsoratra antsipirihany}} section-hatnote rule.
 BUDGET = {
-    "AGENTS.md": 17_900,
-    ".opencode/skills/mgwiki-style/SKILL.md": 15_900,
-    ".opencode/skills/mgwiki-style/references/manual-of-style.wiki": 17_150,
+    "AGENTS.md": 17_950,
+    ".opencode/skills/mgwiki-style/SKILL.md": 15_950,
+    ".opencode/skills/mgwiki-style/references/manual-of-style.wiki": 17_000,
     ".opencode/skills/mgwiki-style/references/words-to-watch.wiki": 10_300,
     ".opencode/skills/mg-vocab/SKILL.md": 16_000,
     ".opencode/skills/mgwiki-edition/SKILL.md": 7_750,
     ".opencode/agents/mgwiki-editor.md": 18_800,
-    ".opencode/agents/mgwiki-article.md": 3_900,
-    ".opencode/agents/mgwiki-section.md": 8_100,
+    ".opencode/agents/mgwiki-article.md": 3_950,
+    ".opencode/agents/mgwiki-section.md": 8_000,
     ".opencode/commands/mgtranslate.md": 5_400,
 }
 

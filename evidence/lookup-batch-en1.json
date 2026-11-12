@@ -1,0 +1,76 @@
+{
+  "edition": "en",
+  "limits": "Pending/exhausted 502 replies are retained evidence, not missing words; resume due lookups later per policy, never in a sleep/poll loop. Statuses do not verify senses. One HTTP request per word through the shared gate.",
+  "output_dir": "evidence/lookup-en1",
+  "results": [
+    {
+      "file": "evidence/lookup-en1/000-en-e782df09e757c73d.json",
+      "retrieved_at": "2026-11-12T20:34:23.630218+00:00",
+      "sha256": "2d5229b960e59b27840a123003e4005a1dbc60b29615b4c4e7f0464623626d7f",
+      "status": "found",
+      "url": "http://192.168.1.155:8000/wiktionary-pages/en/craving",
+      "word": "craving"
+    },
+    {
+      "file": "evidence/lookup-en1/001-en-cb910c7af9781699.json",
+      "retrieved_at": "2026-11-12T20:36:23.671770+00:00",
+      "sha256": "393e6d2cf016baad8bacf2f58bde98fbb68aae97bed6d363817944413758650d",
+      "status": "found",
+      "url": "http://192.168.1.155:8000/wiktionary-pages/en/compulsion",
+      "word": "compulsion"
+    },
+    {
+      "file": "evidence/lookup-en1/002-en-b275c5c7ae678b3b.json",
+      "retrieved_at": "2026-11-12T20:37:24.026043+00:00",
+      "sha256": "22066de00cc127c4107941d964c7e1480e3844f2e0e5b48ce0d499914dd36ee8",
+      "status": "found",
+      "url": "http://192.168.1.155:8000/wiktionary-pages/en/remission",
+      "word": "remission"
+    },
+    {
+      "file": "evidence/lookup-en1/003-en-3630add1a3604e68.json",
+      "retrieved_at": "2026-11-12T20:40:43.892148+00:00",
+      "sha256": "cbbad150650ae710cd0060b72dd95be6b92a6941b43f486d7face185aacad11a",
+      "status": "found",
+      "url": "http://192.168.1.155:8000/wiktionary-pages/en/abstinence",
+      "word": "abstinence"
+    },
+    {
+      "file": "evidence/lookup-en1/004-en-1950dc7b28d250b7.json",
+      "retrieved_at": "2026-11-12T20:41:13.933895+00:00",
+      "sha256": "ede12d50081166db763b30ffa28629f4f53c68c0cbb13a28ab588aee0ae6542a",
+      "status": "found",
+      "url": "http://192.168.1.155:8000/wiktionary-pages/en/relapse",
+      "word": "relapse"
+    },
+    {
+      "file": "evidence/lookup-en1/005-en-d762cb0ceeb99c2e.json",
+      "retrieved_at": "2026-11-12T20:41:23.831428+00:00",
+      "sha256": "9c78d218d1bb526c15658a9b23590d1239d3e6cf8632ac064d60ac436da2660e",
+      "status": "found",
+      "url": "http://192.168.1.155:8000/wiktionary-pages/en/salience",
+      "word": "salience"
+    },
+    {
+      "file": "evidence/lookup-en1/006-en-b58b6f015d4e9951.json",
+      "retrieved_at": "2026-11-12T20:43:24.176700+00:00",
+      "sha256": "de408028ee0d13f247451ab1794599c17403d9fc45c366e59acf7402664c3aad",
+      "status": "found",
+      "url": "http://192.168.1.155:8000/wiktionary-pages/en/stigma",
+      "word": "stigma"
+    },
+    {
+      "file": "evidence/lookup-en1/007-en-8b80eee620bb80ee.json",
+      "retrieved_at": "2026-11-12T20:43:53.922096+00:00",
+      "sha256": "3056970d56987f59ba77df5d35ae15326f4395d32dd4de8dfb7e3fca46121d41",
+      "status": "found",
+      "url": "http://192.168.1.155:8000/wiktionary-pages/en/heritability",
+      "word": "heritability"
+    }
+  ],
+  "schema": 1,
+  "status": "evidence_only",
+  "status_counts": {
+    "found": 8
+  }
+}

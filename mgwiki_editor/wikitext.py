@@ -154,6 +154,9 @@ def convert_related_hatnotes(
             continue
         values = []
         for param in template.params:
+            name = str(param.name).strip()
+            if param.showkey and not name.isdigit():
+                continue
             value = str(param.value).strip()
             if not value:
                 continue

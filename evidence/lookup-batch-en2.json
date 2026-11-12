@@ -1,0 +1,44 @@
+{
+  "edition": "en",
+  "limits": "Pending/exhausted 502 replies are retained evidence, not missing words; resume due lookups later per policy, never in a sleep/poll loop. Statuses do not verify senses. One HTTP request per word through the shared gate.",
+  "output_dir": "evidence/lookup-en2",
+  "results": [
+    {
+      "file": "evidence/lookup-en2/000-en-cb910c7af9781699.json",
+      "retrieved_at": "2026-11-12T20:40:23.910807+00:00",
+      "sha256": "2edb3a34123d28b0471710287e40a7feec94338a95ab3bdda56e5de4d4c304fd",
+      "status": "found",
+      "url": "http://192.168.1.155:8000/wiktionary-pages/en/compulsion",
+      "word": "compulsion"
+    },
+    {
+      "file": "evidence/lookup-en2/001-en-b275c5c7ae678b3b.json",
+      "retrieved_at": "2026-11-12T20:41:34.016548+00:00",
+      "sha256": "da3972b6e350ce8acc4bf5f7c1af78fc62374e21793b1475ed17ac1d295187e8",
+      "status": "found",
+      "url": "http://192.168.1.155:8000/wiktionary-pages/en/remission",
+      "word": "remission"
+    },
+    {
+      "file": "evidence/lookup-en2/002-en-d762cb0ceeb99c2e.json",
+      "retrieved_at": "2026-11-12T20:41:43.853935+00:00",
+      "sha256": "30cd7a9e9e5191f2aa316008b19eec16823646ef459435eba8ad521bc8b13444",
+      "status": "found",
+      "url": "http://192.168.1.155:8000/wiktionary-pages/en/salience",
+      "word": "salience"
+    },
+    {
+      "file": "evidence/lookup-en2/003-en-b58b6f015d4e9951.json",
+      "retrieved_at": "2026-11-12T20:41:54.116184+00:00",
+      "sha256": "080704512e020aa15a3baa3c9874d09ad645de1aef716d231e95ac3ab7a5fb09",
+      "status": "found",
+      "url": "http://192.168.1.155:8000/wiktionary-pages/en/stigma",
+      "word": "stigma"
+    }
+  ],
+  "schema": 1,
+  "status": "evidence_only",
+  "status_counts": {
+    "found": 4
+  }
+}

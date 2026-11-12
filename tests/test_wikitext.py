@@ -142,6 +142,14 @@ def test_related_hatnote_target_already_local_is_not_remapped() -> None:
     assert text == "{{lahatsoratra antsipirihany|Fitsaboana nify}}"
 
 
+def test_related_hatnote_ignores_display_label_parameters() -> None:
+    text, _ = convert_related_hatnotes(
+        "{{Main|Dentistry|l1=the dental field}}\n{{Further|1=History of dentistry}}",
+    )
+    assert text == ("{{lahatsoratra antsipirihany|Dentistry}}\n"
+                    "{{lahatsoratra antsipirihany|History of dentistry}}")
+
+
 def test_unrelated_templates_are_not_rewritten() -> None:
     text = "{{Jereo koa|Topic}}{{Infobox|name=X}}"
     result, ledger = convert_related_hatnotes(text)

@@ -82,3 +82,45 @@ review. These are serialization-byte reductions, NOT measured token/billing or
 end-to-end savings. Relevant raw evidence still needs review. Live orchestration
 and ordinary/math/medical article quality trial remain unmeasured; harness work
 does not authorize publication. Usage snapshots permit later same-scope comparison.
+
+## Follow-up 2026-11-12 (same scope)
+
+Bounded evidence slices: new `mgwiki_editor json-slice` command pages one
+job-relative JSON array (exact `--key` path, `--offset/--limit` 1-100, repeated
+`--field` projection) and pins source path/SHA-256/bytes. Source file never
+modified; nothing inferred or approved; fails closed under a configured broker.
+Read-only check on `runs/netherlands-20261110/evidence/media-editorial-review-v01.json`
+(12,802,333 bytes, 90 items): one 3-item, 3-field slice printed 900 tokens
+instead of the whole file. No token/billing claim; byte/serialization comparison
+only.
+
+Token discipline rule added to `AGENTS.md` and the coordinator/article/section
+agent prompts: never pull a multi-megabyte artifact into model context; page job
+evidence with `vocabulary-view`, `vocabulary-report --summary`, `json-slice`,
+`coverage`, `citation-audit`, `metadata-audit`, `offline-audit`; read pinned
+source/existing/sandbox snapshots and the final raw draft in full.
+
+Global `~/.config/opencode/opencode.json` repaired: it was invalid JSON
+(unterminated `baseURL` string) and the server rejected the whole document
+("rejected malformed JSON or JSONC document"), so global instructions, skill
+permissions and provider settings never applied. Restored as valid JSON/JSONC;
+backup at `opencode.json.bak-20261112`. The local `home` provider keeps no
+default model because `192.168.1.155:8891/v1/models` returns HTTP 404, so
+`home/gemma-e4b` stays unverified; project roles keep their documented
+gpt-6.1-sol/high default. No agent settings, article artifacts, save guards or
+credentials changed; no wiki operation performed.
+
+Adjacent section grouping: new `sections-plan --group-max-bytes N` merges only
+adjacent short sections up to N source bytes (0 = current behaviour, max 50000).
+Every heading, byte and line range is retained; first ID names the group; the
+plan adds `source_sections`, `group_bytes`, `headings`, `merged_ids`; assembly and
+existing gates unchanged; configured-broker planning stays ungrouped. Read-only
+re-plan of `runs/netherlands-20261110/source.wiki` in `/tmp`: 12 headings → 9
+assignments at 4000 bytes. Byte/plan counts only, not measured token savings.
+
+Context budget guard: `tests/test_context_budget.py` caps each always-loaded rule
+file and the whole worker fixed context (85,000 bytes) so duplication cannot grow
+silently; it also asserts the policy names the bounded readers. Coordinator
+prompt now requires packing memos above roughly 2 MB before review. Full suite:
+1011 tests, ruff clean.
+

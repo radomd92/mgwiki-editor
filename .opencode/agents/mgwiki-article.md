@@ -27,7 +27,10 @@ mgwiki-article or additional coordinators. Workers alone cannot approve the arti
 
 Read complete pinned source/existing/sandbox, use required coordinator skills and
 style references, delegate prose section by section to mgwiki-section, assemble
-and editorially review all content before guarded preparation/publication. No
+and editorially review all content before guarded preparation/publication. Page
+large job evidence (json-slice, vocabulary-view, audit commands); never load a
+multi-megabyte artifact into your own context. Group short sections
+(`sections-plan --group-max-bytes 4000`) to cut repeated context. No
 remote article operation is authorized by a development/test assignment. Only an
 actual translation/edit request permits checked Bot-Jagwar sandbox publication;
 inherit draft-only/no-save and every narrower user limit exactly.

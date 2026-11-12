@@ -10,6 +10,7 @@ from mgwiki_editor import batching, cli
 from mgwiki_editor.batching import evidence_pin, evidence_verify, lookup_batch, offline_audit
 from mgwiki_editor.core import GuardError, artifact_hashes, digest, json_bytes, write_json
 from mgwiki_editor.memos import pack_vocabulary, vocabulary_view
+from mgwiki_editor.slicing import json_slice
 from mgwiki_editor.usage import session_usage
 
 
@@ -200,6 +201,73 @@ def test_view_cli_offline(job, monkeypatch, capsys):
     monkeypatch.setattr(cli, "Wiki", lambda: pytest.fail("No Wiki"))
     assert cli.main(["vocabulary-view", "--job", str(job), "--limit", "1"]) == 0
     assert len(json.loads(capsys.readouterr().out)["records"]) == 1
+
+
+def test_json_slice_pages_and_projects_large_evidence(job):
+    payload = {"status": "review", "files": [
+        {"filename": f"File {index}.jpg", "decision": "retain", "capsule": {"blob": "x" * 2000}}
+        for index in range(50)]}
+    write_json(job / "media.json", payload)
+    path = "media.json"
+    before = (job / path).read_bytes()
+    page = json_slice(job, path, key="files", limit=2, fields=["filename", "decision"])
+    assert page["total_items"] == 50
+    assert page["offset"] == 0
+    assert page["next_offset"] == 2
+    assert page["items"][0] == {"filename": "File 0.jpg", "decision": "retain"}
+    assert page["selected_fields"] == ["decision", "filename"]
+    assert page["omitted_fields"] == ["capsule"]
+    assert page["source"]["sha256"] == digest(before)
+    assert "x" * 100 not in json.dumps(page)
+    assert (job / path).read_bytes() == before
+    last = json_slice(job, path, key="files", offset=49, limit=2)
+    assert last["next_offset"] is None
+    assert len(last["items"]) == 1
+
+
+@pytest.mark.parametrize("kwargs", [
+    {"offset": -1}, {"limit": 0}, {"limit": 101}, {"offset": True}, {"limit": False},
+    {"key": "missing"}, {"key": "files.nope"},
+])
+def test_json_slice_rejects_bad_arguments(job, kwargs):
+    write_json(job / "media.json", {"files": [{"name": "a"}]})
+    with pytest.raises(GuardError):
+        json_slice(job, "media.json", **kwargs)
+
+
+def test_json_slice_refuses_root_without_key_and_unsafe_paths(job, tmp_path):
+    write_json(job / "media.json", {"files": [{"name": "a"}]})
+    with pytest.raises(GuardError, match="not an array"):
+        json_slice(job, "media.json")
+    with pytest.raises(GuardError, match="unsafe"):
+        json_slice(job, "../outside.json")
+
+
+def test_json_slice_cli_summary_keeps_full_output_and_source(job, monkeypatch, capsys):
+    monkeypatch.setattr(cli, "Wiki", lambda: pytest.fail("No Wiki"))
+    write_json(job / "media.json", {"files": [{"filename": "a.jpg", "blob": "x" * 5000},
+                                               {"filename": "b.jpg", "blob": "x" * 5000}]})
+    output = job / "slice.json"
+    args = ["json-slice", "--job", str(job), "--path", "media.json", "--key", "files",
+            "--limit", "1", "--field", "filename", "--output", str(output), "--summary"]
+    assert cli.main(args) == 0
+    summary = json.loads(capsys.readouterr().out)
+    full = json.loads(output.read_bytes())
+    assert summary["view"] == "summary_only"
+    assert summary["counts"]["items"] == 1
+    assert summary["artifact"]["sha256"] == digest(output.read_bytes())
+    assert full["items"] == [{"filename": "a.jpg"}]
+    assert "x" * 100 not in json.dumps(summary)
+    assert cli.main(args) == 1
+    assert "Output exists" in capsys.readouterr().err
+
+
+def test_json_slice_never_bypasses_configured_broker(job, monkeypatch, capsys):
+    monkeypatch.setenv("MGWIKI_BROKER_SOCKET", "/socket")
+    monkeypatch.setenv("MGWIKI_CAPABILITY_FILE", "/cap")
+    write_json(job / "media.json", {"files": []})
+    assert cli.main(["json-slice", "--job", str(job), "--path", "media.json"]) == 1
+    assert "no fallback" in capsys.readouterr().err
 
 
 def test_session_usage_never_bypasses_configured_broker(job, monkeypatch, capsys):

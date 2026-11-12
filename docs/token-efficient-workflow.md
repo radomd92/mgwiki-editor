@@ -23,6 +23,12 @@ or reasoning downgrade. Article prose never shortened for token targets.
   per section session; no coordinator-only edition/recovery/broker setup.
 - Group coherent short subsections/appendices where dependencies permit. Never
   whole-article generation. Preserve planned lead/body/appendix/local coverage.
+  `sections-plan --group-max-bytes 4000` merges only adjacent short sections up to
+  that many source bytes; every heading, byte and line range is retained, the first
+  ID names the group, and the plan records `source_sections`, `group_bytes`,
+  `headings` and `merged_ids`. Default 0 keeps one assignment per heading; grouped
+  plans assemble through the unchanged gates; configured broker planning stays
+  ungrouped.
 - Targeted fix → same section worker/session, changed inputs plus affected context.
   Accepted unrelated sections retained. No new whole-article generation.
 - Turn-reducing commands: `lookup-batch` (per-word evidence files, one turn),
@@ -53,6 +59,25 @@ to omit failures. Inspect relevant full report details before decisions. Preview
 source/local snapshots and final raw article still read completely. Reuse only
 actual hash-bound unchanged checks; changes invalidate affected evidence and
 require fresh preparation. Every live revision/account/save/readback guard stays.
+
+## Bounded evidence slices
+
+Large job evidence (media reviews, dictionary batches, vocabulary memos) must not
+enter model context whole. Page it:
+
+```bash
+python3 -m mgwiki_editor json-slice --job runs/JOB --path evidence/media-editorial-review-v01.json \
+  --key files --offset 0 --limit 20 --field filename --field decision --field reason
+```
+
+Job-relative JSON file only; `--key` addresses one exact array path (omit for a
+root array). `--offset/--limit` page it (limit 1-100); `--field` repeats to keep
+only named fields. Output pins the source path, SHA-256 and byte size, reports
+`total_items`/`next_offset` and the omitted field names. The source file is never
+modified, nothing is inferred, merged or completed, and the slice is not a review
+or approval. Under a configured broker the command fails closed; no direct-IO
+fallback. Use `vocabulary-view` for memo records and `vocabulary-pack` for a lean
+candidate plus lossless auxiliary archive.
 
 ## Current vocabulary vs history
 

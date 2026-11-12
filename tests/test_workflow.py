@@ -76,6 +76,71 @@ def test_heading_plan_preserves_all_bytes(job: Path, source: str) -> None:
                     for row in plan) == source.encode("utf-8")
 
 
+def test_grouping_merges_adjacent_short_sections_without_losing_bytes(job: Path) -> None:
+    before = (job / "source.wiki").read_bytes()
+    result = plan_sections(job, group_max_bytes=4000)
+    plan = read_json(job / "section-plan.json")
+    assert result["source_sections"] == 3
+    assert result["sections"] < result["source_sections"]
+    assert [r["id"] for r in plan] == ["00-lead"]
+    assert plan[0]["headings"] == ["lead", "Body", "References"]
+    assert plan[0]["merged_ids"] == ["00-lead", "01-body", "02-references"]
+    assert plan[0]["start"] == 1
+    assert b"".join((job / row["directory"] / "source.wiki").read_bytes()
+                    for row in plan) == before
+    assert b"== Body ==" in (job / plan[0]["directory"] / "source.wiki").read_bytes()
+
+
+def test_grouping_zero_keeps_one_assignment_per_heading(job: Path) -> None:
+    assert plan_sections(job, group_max_bytes=0)["sections"] == 3
+    assert [r["id"] for r in read_json(job / "section-plan.json")] == [
+        "00-lead", "01-body", "02-references"]
+    assert all("merged_ids" not in r for r in read_json(job / "section-plan.json"))
+
+
+def test_grouping_respects_size_limit_and_assembly(job: Path) -> None:
+    (job / "source.wiki").write_text(
+        "Lead.\n== A ==\n" + "a" * 3000 + "\n== B ==\n" + "b" * 3000 + "\n", encoding="utf-8")
+    result = plan_sections(job, group_max_bytes=3500)
+    plan = read_json(job / "section-plan.json")
+    assert result["sections"] == 2
+    assert [r["merged_ids"] for r in plan] == [["00-lead", "01-a"], ["02-b"]]
+    assert all(r["group_bytes"] <= 3500 for r in plan)
+    assert b"".join((job / r["directory"] / "source.wiki").read_bytes()
+                    for r in plan) == (job / "source.wiki").read_bytes()
+
+
+def test_grouped_plan_assembles_through_existing_gates(job: Path) -> None:
+    plan_sections(job, group_max_bytes=5000)
+    complete_workers(job)
+    result = assemble_sections(job)
+    assert result["status"] == "candidate_only"
+    assert result["sections"] == 1
+    integrated = read_json(job / "assembly/integrated-section-plan.json")
+    assert [row["id"] for row in integrated] == ["00-lead"]
+    assert (job / "assembly/draft.wiki").read_bytes() == (job / "source.wiki").read_bytes()
+
+
+@pytest.mark.parametrize("value", [-1, 50001])
+def test_grouping_rejects_out_of_range_limit(job: Path, value: int) -> None:
+    before = root_bytes(job)
+    with pytest.raises(GuardError):
+        plan_sections(job, group_max_bytes=value)
+    assert root_bytes(job) == before
+    assert not (job / "sections").exists()
+
+
+def test_broker_refuses_grouped_plan(job: Path, monkeypatch, capsys) -> None:
+    from mgwiki_editor import cli, control
+
+    monkeypatch.setenv("MGWIKI_BROKER_SOCKET", "/socket")
+    monkeypatch.setenv("MGWIKI_CAPABILITY_FILE", "/cap")
+    monkeypatch.setattr(control, "client",
+                        lambda *a: {"ok": True, "result": {"run": job.name, "intent": "translate"}})
+    assert cli.main(["sections-plan", "--job", str(job), "--group-max-bytes", "4000"]) == 1
+    assert "ungrouped" in capsys.readouterr().err
+
+
 def test_heading_level_and_nested_heading_detection() -> None:
     text = "Lead\n== Body ==\nText\n=== Detail ===\nMore\n"
     assert len(heading_ranges(text, 2)) == 2

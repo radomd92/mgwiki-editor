@@ -48,6 +48,33 @@ def heading_ranges(source: str, level: int = 2) -> list[dict[str, Any]]:
     return ranges
 
 
+def group_ranges(source: str, ranges: list[dict[str, Any]], max_bytes: int) -> list[dict[str, Any]]:
+    """Merge adjacent short sections into one worker assignment; keep every source byte.
+
+    Fewer, coherent assignments reduce repeated fixed policy context per article.
+    The first section's safe ID names the group; merged headings stay in the source
+    fragment, so no heading, byte, or line range is dropped or reordered.
+    """
+    if type(max_bytes) is not int or not 0 <= max_bytes <= 50_000:
+        raise GuardError("Group size must be an integer between 0 and 50000 bytes.")
+    if max_bytes == 0:
+        return ranges
+    lines = source.splitlines(keepends=True)
+    sizes = [len("".join(lines[row["start"] - 1:row["end"]]).encode("utf-8")) for row in ranges]
+    groups: list[dict[str, Any]] = []
+    for row, size in zip(ranges, sizes, strict=True):
+        previous = groups[-1] if groups else None
+        if previous is not None and previous["group_bytes"] + size <= max_bytes:
+            previous["end"] = row["end"]
+            previous["group_bytes"] += size
+            previous["headings"].append(row["heading"])
+            previous["merged_ids"].append(row["id"])
+            continue
+        groups.append({**row, "group_bytes": size,
+                       "headings": [row["heading"]], "merged_ids": [row["id"]]})
+    return groups
+
+
 def _ranges(source: str, ranges: Any) -> list[dict[str, Any]]:
     """Require ordered, complete, disjoint coverage; omissions need separate editorial work."""
     if not isinstance(ranges, list) or not ranges:
@@ -70,7 +97,10 @@ def _ranges(source: str, ranges: Any) -> list[dict[str, Any]]:
     return ranges
 
 
-def plan_sections(job: Path, *, ranges: Path | None = None, level: int = 2) -> dict[str, Any]:
+def plan_sections(
+    job: Path, *, ranges: Path | None = None, level: int = 2,
+    group_max_bytes: int = 0,
+) -> dict[str, Any]:
     """Create exclusive worker inputs and portable plan; leave all existing artifacts alone."""
     job = job.resolve()
     _editable_job(job)
@@ -80,6 +110,8 @@ def plan_sections(job: Path, *, ranges: Path | None = None, level: int = 2) -> d
     if (job / "sections").is_symlink():
         raise GuardError("Section parent must not be a symlink.")
     rows = _ranges(source, read_json(ranges) if ranges else heading_ranges(source, level))
+    headings = len(rows)
+    rows = group_ranges(source, rows, group_max_bytes)
     lines = source.splitlines(keepends=True)
     plan = []
     outputs = {}
@@ -99,7 +131,8 @@ def plan_sections(job: Path, *, ranges: Path | None = None, level: int = 2) -> d
     outputs[job / "section-inputs.json"] = json_bytes({"schema": 1, "artifacts": pinned})
     outputs[job / "source-inventory.json"] = json_bytes(inventory(source))
     write_new(outputs)
-    return {"job": str(job), "sections": len(plan), "status": "planned",
+    return {"job": str(job), "sections": len(plan), "source_sections": headings,
+            "group_max_bytes": group_max_bytes, "status": "planned",
             "editorial_review": "pending", "source_sha256": pinned["source.wiki"]}
 
 

@@ -28,6 +28,7 @@ from .links import build_link_map
 from .memos import dictionary_index, pack_vocabulary, vocabulary_report, vocabulary_view
 from .metadata import metadata_audit
 from .reporting import report_summary
+from .slicing import json_slice
 from .terminology import audit_mathematical_terms
 from .usage import session_usage
 from .vocabulary import vocabulary
@@ -88,6 +89,10 @@ def parser() -> argparse.ArgumentParser:
         "--ranges", type=Path, help="JSON inclusive line ranges; full coverage",
     )
     section_plan.add_argument("--level", type=int, choices=range(1, 7), default=2)
+    section_plan.add_argument(
+        "--group-max-bytes", type=int, default=0,
+        help="Merge adjacent short sections up to this many source bytes; 0 keeps one per heading",
+    )
     assemble = commands.add_parser(
         "sections-assemble", help="Offline candidate only; root draft and review gates unchanged",
     )
@@ -175,6 +180,18 @@ def parser() -> argparse.ArgumentParser:
     pack.add_argument("--job", type=Path, required=True)
     pack.add_argument("--vocabulary", required=True, help="Job-relative vocabulary list")
     pack.add_argument("--output", type=Path, required=True, help="New directory inside job")
+    slice_view = commands.add_parser(
+        "json-slice",
+        help="Bounded page of one job-relative JSON array; keeps large evidence out of context",
+    )
+    slice_view.add_argument("--job", type=Path, required=True)
+    slice_view.add_argument("--path", required=True, help="Job-relative JSON file")
+    slice_view.add_argument("--key", help="Exact key path to an array; default root array")
+    slice_view.add_argument("--offset", type=int, default=0)
+    slice_view.add_argument("--limit", type=int, default=20)
+    slice_view.add_argument("--field", action="append", default=[],
+                            help="Keep only this field per item; repeat for several")
+    slice_view.add_argument("--output", type=Path)
     usage = commands.add_parser(
         "session-usage", help="Offline OpenCode session-counter JSON; never queries live server",
     )
@@ -213,7 +230,7 @@ def parser() -> argparse.ArgumentParser:
     verify.add_argument("--output", type=Path)
     for operation in (read, dictionary, vocab, audit, coverage, citations, metadata,
                       license_check, license_capture, links, index, memo, view, usage,
-                      batch, audit_bundle, pin):
+                      batch, audit_bundle, pin, slice_view):
         operation.add_argument(
             "--summary", action="store_true",
             help="Require --output; save complete JSON, print only hash/signals/counts",
@@ -258,7 +275,7 @@ def main(argv: list[str] | None = None) -> int:
                 raise ValueError("Both broker socket and capability file required; no fallback.")
             if args.command in {"vocabulary-view", "vocabulary-pack", "session-usage",
                                 "lookup-batch", "offline-audit", "evidence-pin",
-                                "evidence-verify"}:
+                                "evidence-verify", "json-slice"}:
                 raise ValueError(f"{args.command} unsupported by configured broker; no fallback.")
             if args.command in {
                 "init", "read", "lookup", "countries", "prepare", "publish", "sections-plan",
@@ -283,7 +300,8 @@ def main(argv: list[str] | None = None) -> int:
         elif args.command == "vocab-audit":
             result = audit_mathematical_terms(args.draft)
         elif args.command == "sections-plan":
-            result = plan_sections(args.job, ranges=args.ranges, level=args.level)
+            result = plan_sections(args.job, ranges=args.ranges, level=args.level,
+                                   group_max_bytes=args.group_max_bytes)
         elif args.command == "sections-assemble":
             result = assemble_sections(
                 args.job, output=args.output, native_citations=args.native_citations,
@@ -316,6 +334,9 @@ def main(argv: list[str] | None = None) -> int:
                                      include_evidence=args.include_evidence)
         elif args.command == "vocabulary-pack":
             result = pack_vocabulary(args.job, args.vocabulary, args.output)
+        elif args.command == "json-slice":
+            result = json_slice(args.job, args.path, key=args.key, offset=args.offset,
+                                limit=args.limit, fields=args.field)
         elif args.command == "session-usage":
             raw = args.input.read_bytes()
             result = session_usage(json.loads(raw), sessions=args.session)
@@ -387,6 +408,8 @@ def _broker_dispatch(args, socket: Path, capfile: Path) -> int:
     elif args.command == "sections-plan":
         if args.ranges is not None:
             raise ValueError("Broker plans full pinned source; custom ranges unsupported.")
+        if args.group_max_bytes:
+            raise ValueError("Broker plans ungrouped sections; group in a local plan.")
         parameters = {"level": args.level}
     elif args.command == "sections-assemble":
         if args.native_citations or args.link_map or args.output:

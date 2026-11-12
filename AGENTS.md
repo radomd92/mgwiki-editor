@@ -193,6 +193,18 @@ per episode; success ends episode. See docs/issue-recovery.md for freshness,
 dictionary NoPage exception and safe offline continuation. No skipped review/save
 checks or missing sections may be represented as complete.
 
+Token discipline: never pull a multi-megabyte artifact into model context. Page job
+evidence with bounded commands: `vocabulary-view` (exact term/section filters),
+`vocabulary-report --summary`, `json-slice` (bounded page plus field projection
+for any job-relative JSON), `coverage`, `citation-audit`, `metadata-audit`,
+`offline-audit`. Open the raw file only for the decision at hand, never the whole
+file. Read pinned source, existing and sandbox snapshots and the final raw draft
+in full; those are the article, not evidence noise. Keep the queue and coordinators
+free of article bodies and group coherent short subsections
+(`sections-plan --group-max-bytes 4000`, adjacent short sections only), so fewer
+worker sessions repeat this policy context. Compact between stages, then re-read
+pinned artifacts; a compacted summary is never review evidence.
+
 Persistent tool memory: local Python scripts are available in this project.
 Default execution uses the existing guarded CLI or mgwiki_editor.core.Wiki with
 unchanged external Pywikibot authentication/credentials. Trusted broker deployment,

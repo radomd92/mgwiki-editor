@@ -79,6 +79,12 @@ coverage, dictionary-index and audit commands instead of per-job replacements.
 For supported commands prefer --output NEW_PATH --summary: retain full reports
 on disk, inspect relevant details, do not replay successful reports into context.
 Use vocabulary-view for current decisions; raw evidence still needs actual review.
+Never read a multi-megabyte JSON artifact whole: page it with json-slice (bounded
+offset/limit plus field projection), vocabulary-view, vocabulary-report --summary,
+coverage, citation-audit, metadata-audit or offline-audit, then open only the raw
+evidence the current decision needs. A memo above roughly 2 MB is packed first
+(vocabulary-pack candidate plus archive) before review; adopt only after reading
+the relevant archived values, and keep the archive.
 Group coherent short subsections; reuse the same section session for targeted
 corrections. Keep accepted text, exact hashes and history on disk. Read complete
 snapshots and final raw/preview output; compact views never replace required review.

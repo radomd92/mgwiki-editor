@@ -5,7 +5,7 @@ description: Mandatory new/existing Wikipedia article edition protocol, review g
 
 # Edition protocol
 
-Coordinator: read ../../../docs/edition-protocol.wiki in full. Follow its phases in order.
+Coordinator: read ../../../docs/edition-protocol.md in full. Follow its phases in order.
 Offline section workers do not load this coordinator skill; their own role prompt,
 mgwiki-style/mg-vocab and supplied assignment retain all editorial/offline limits.
 Do not skip existing-article/sandbox comparison even when asked to translate a
@@ -26,7 +26,7 @@ citation integrity, topic/merge identity, and technical/save guards still apply.
 Read ../../../docs/issue-recovery.md: potential blockers go separately in
 runs/<job>/deferred-issues.md, with stable IDs, evidence, dependencies and next
 action; preserve work, continue independent tasks. Later offline proposals:
-Mgwiki-editor-issues-solver → issue-resolutions/<issue-id>.md; coordinator alone
+mgwiki-issues-solver → issue-resolutions/<issue-id>.md; coordinator alone
 accepts changes. Genuine HTTP 500–599 uses >=15-second safe-read retry cooldown,
 longer shared/server guards win. Real authorized probe at/after 600 seconds must
 confirm continuing 5xx before declaring down/skipping dependent tasks. More than

@@ -29,9 +29,23 @@ def prose_parts(code: Wikicode, path: str = "body") -> Iterator[tuple[str, str]]
             yield from prose_parts(node.text, location + "/link-label")
         elif isinstance(node, ExternalLink) and node.title is not None:
             yield from prose_parts(node.title, location + "/link-label")
-        elif isinstance(node, Tag) and str(node.tag).casefold() in {
-            "b", "i", "strong", "em", "span", "div", "p", "small", "sub", "sup",
-        } and node.contents is not None:
+        elif (
+            isinstance(node, Tag)
+            and str(node.tag).casefold()
+            in {
+                "b",
+                "i",
+                "strong",
+                "em",
+                "span",
+                "div",
+                "p",
+                "small",
+                "sub",
+                "sup",
+            }
+            and node.contents is not None
+        ):
             yield from prose_parts(node.contents, location + "/text")
 
 
@@ -54,7 +68,9 @@ def folded_spans(text: str) -> tuple[str, list[int]]:
 
 
 def audit_mathematical_terms(
-    draft: Path, *, cache: Path = VOCABULARY_DATABASE,
+    draft: Path,
+    *,
+    cache: Path = VOCABULARY_DATABASE,
 ) -> dict[str, Any]:
     """Report possible untranslated French math terms with SQLite evidence; never edit a draft."""
     lookup = vocabulary(cache=cache)
@@ -77,15 +93,25 @@ def audit_mathematical_terms(
             start, end = offsets[match.start()], offsets[match.end() - 1] + 1
             while end < len(text) and unicodedata.combining(text[end]):
                 end += 1
-            matches.append({
-                "location": location, "term": text[start:end], "normalized_term": match[0],
-                "context": text[max(0, start - 60):end + 60],
-                "candidates": candidates[match[0]], "status": "requires_context_review",
-            })
+            matches.append(
+                {
+                    "location": location,
+                    "term": text[start:end],
+                    "normalized_term": match[0],
+                    "context": text[max(0, start - 60) : end + 60],
+                    "candidates": candidates[match[0]],
+                    "status": "requires_context_review",
+                }
+            )
     return {
-        "schema": 1, "draft_path": str(draft), "draft_sha256": digest(raw),
-        "database_path": lookup["database_path"], "database_sha256": lookup["database_sha256"],
-        "source": lookup["source"], "match_count": len(matches), "matches": matches,
+        "schema": 1,
+        "draft_path": str(draft),
+        "draft_sha256": digest(raw),
+        "database_path": lookup["database_path"],
+        "database_sha256": lookup["database_sha256"],
+        "source": lookup["source"],
+        "match_count": len(matches),
+        "matches": matches,
         "limits": (
             "Possible French matches only; not proof of untranslated text or full coverage. "
             "Review English/other terms, plurals, templates, tables, galleries, file captions, "

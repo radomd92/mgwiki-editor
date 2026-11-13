@@ -17,15 +17,19 @@ def test_cached_dictionary_502_and_exact_nopage_classification(tmp_path):
     seen = []
     retries = DictionaryRetries(tmp_path / "retry.json", clock=lambda: 1000)
     hooks = Hooks(lambda *a: None, seen.append, lambda: 1000, lambda: 1000, "boot")
+
     def failed(*args, **kwargs):
         raise HTTPError("http://dict", 502, "restart", {}, io.BytesIO(b"restart"))
+
     with transport_hooks(hooks):
         core.lookup("mg", "rano", opener=failed, retries=retries)
         core.lookup("mg", "rano", opener=failed, retries=retries)
     assert len(seen) == 1 and seen[0].status == 502 and not seen[0].missing
+
     def missing(*args, **kwargs):
         body = {"type": "error", "status": 502, "details": {"type": "NoPage"}}
         raise HTTPError("http://dict", 502, "bad status", {}, io.BytesIO(json.dumps(body).encode()))
+
     with transport_hooks(hooks):
         result = core.lookup("mg", "other", opener=missing, retries=retries)
     assert result["status"] == "missing"
@@ -36,8 +40,10 @@ def test_gate_refusal_is_not_observation_and_503_observed_before_wrapping(tmp_pa
     seen = []
     now = [1000.0]
     gate = RequestGate(tmp_path / "gate.json", clock=lambda: now[0], jitter=lambda *a: 0)
+
     def send(*args, **kwargs):
         return SimpleNamespace(status_code=503, headers={}, json=lambda: {})
+
     guarded = guarded_send(send, gate, report=lambda event: None)
     hooks = Hooks(lambda *a: None, seen.append, lambda: now[0], lambda: now[0], "boot")
     prepared = SimpleNamespace(url="https://mg.wikipedia.org/w/api.php", body="action=query")
@@ -50,15 +56,19 @@ def test_gate_refusal_is_not_observation_and_503_observed_before_wrapping(tmp_pa
     assert len(seen) == 1
 
 
-@pytest.mark.parametrize("body,url", [
-    ("action=delete", "https://mg.wikipedia.org/w/api.php"),
-    ("action=move", "https://mg.wikipedia.org/w/api.php"),
-    ("action=edit&action=query", "https://mg.wikipedia.org/w/api.php"),
-    ("action=edit", "https://mg.wikipedia.org/w/api.php?action=query"),
-])
+@pytest.mark.parametrize(
+    "body,url",
+    [
+        ("action=delete", "https://mg.wikipedia.org/w/api.php"),
+        ("action=move", "https://mg.wikipedia.org/w/api.php"),
+        ("action=edit&action=query", "https://mg.wikipedia.org/w/api.php"),
+        ("action=edit", "https://mg.wikipedia.org/w/api.php?action=query"),
+    ],
+)
 def test_forbidden_or_duplicate_action_never_sent(tmp_path, body, url):
     def send(*args, **kwargs):
         pytest.fail("Forbidden action reached HTTP adapter")
+
     guarded = guarded_send(send, RequestGate(tmp_path / "gate.json"), report=lambda event: None)
     with pytest.raises(NetworkPolicyError):
         guarded(SimpleNamespace(url=url, body=body))
@@ -74,23 +84,31 @@ def test_observation_failure_is_fatal_not_retryable(tmp_path, monkeypatch, failu
 
     calls = []
     response = SimpleNamespace(status_code=200, headers={}, json=lambda: {"query": {}})
-    monkeypatch.setattr(http, "session", SimpleNamespace(send=lambda *a, **k:
-                                                        (calls.append(1) or response)))
+    monkeypatch.setattr(
+        http, "session", SimpleNamespace(send=lambda *a, **k: calls.append(1) or response)
+    )
     gate = RequestGate(tmp_path / "gate.json")
     monkeypatch.setattr(network, "RequestGate", lambda: gate)
     network.install_wikimedia_transport()
+
     def broken(*args):
         raise StateError("fake journal unavailable")
-    hooks = Hooks(broken if failure == "before" else lambda *a: None,
-                  broken if failure == "after" else lambda *a: None)
+
+    hooks = Hooks(
+        broken if failure == "before" else lambda *a: None,
+        broken if failure == "after" else lambda *a: None,
+    )
     with transport_hooks(hooks), pytest.raises(FatalServerError, match="resubmission"):
-        http.session.send(SimpleNamespace(
-            url="https://mg.wikipedia.org/w/api.php", body="action=edit"))
+        http.session.send(
+            SimpleNamespace(url="https://mg.wikipedia.org/w/api.php", body="action=edit")
+        )
     assert len(calls) == (0 if failure == "before" else 1)
 
 
-@pytest.mark.parametrize("path,method", [("/jobs", "POST"), ("/translations", "GET"),
-                                        ("/wiktionary-pages/en/word", "POST")])
+@pytest.mark.parametrize(
+    "path,method",
+    [("/jobs", "POST"), ("/translations", "GET"), ("/wiktionary-pages/en/word", "POST")],
+)
 def test_dictionary_transport_never_exposes_wiktionary_write_endpoints(path, method):
     from urllib.request import Request
 

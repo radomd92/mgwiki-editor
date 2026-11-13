@@ -48,25 +48,55 @@ def good_facts(operation: Operation = Operation.PUBLISH) -> Facts:
         stage, receipt = Stage.SAVE_UNCONFIRMED, ReceiptState.UNCONFIRMED
     return Facts(
         network=NetworkFacts(endpoint_permitted=True, next_request_at=0),
-        target=TargetFacts(site="mg.wikipedia.org", title="Mpikambana:Bot-Jagwar/Rano",
-                           namespace=2, account="Bot-Jagwar"),
+        target=TargetFacts(
+            site="mg.wikipedia.org",
+            title="Mpikambana:Bot-Jagwar/Rano",
+            namespace=2,
+            account="Bot-Jagwar",
+        ),
         workflow=WorkflowFacts(
-            stage=stage, intent=RunIntent.SANDBOX_EDIT, receipt=receipt,
-            required_sections_complete=True, material_blockers=(), review_recorded=True,
-            review_inputs_match=True, proposal_matches=True, live_revisions_match=True,
+            stage=stage,
+            intent=RunIntent.SANDBOX_EDIT,
+            receipt=receipt,
+            required_sections_complete=True,
+            material_blockers=(),
+            review_recorded=True,
+            review_inputs_match=True,
+            proposal_matches=True,
+            live_revisions_match=True,
             live_render_matches=True,
         ),
-        assignment=AssignmentFacts(assigned_id="section-00", submitted_id="section-00",
-                                   output_scope_verified=True, evidence_checked=True),
-        retry=RetryFacts(operation=Operation.LOOKUP_DICTIONARY, failure_status=502,
-                         backend_missing_page=False, first_failure_at=1100, last_failure_at=1600,
-                         retry_after_at=1615, lookup_retries_used=0),
+        assignment=AssignmentFacts(
+            assigned_id="section-00",
+            submitted_id="section-00",
+            output_scope_verified=True,
+            evidence_checked=True,
+        ),
+        retry=RetryFacts(
+            operation=Operation.LOOKUP_DICTIONARY,
+            failure_status=502,
+            backend_missing_page=False,
+            first_failure_at=1100,
+            last_failure_at=1600,
+            retry_after_at=1615,
+            lookup_retries_used=0,
+        ),
         recovery=RecoveryFacts(
-            service_id="dictionary:configured", episode_id="episode-1", history_verified=True,
-            clock_verified=True, first_failure_at=1000, probe_id="probe-3", probe_at=1615,
-            probe_status=502, probe_is_real_read=True, probe_backend_missing_page=False,
-            dependent_task_ids=TASKS, skipped_task_ids=TASKS, threshold_reached_at=1600,
-            threshold_probe_id="probe-2", alert_emitted=False,
+            service_id="dictionary:configured",
+            episode_id="episode-1",
+            history_verified=True,
+            clock_verified=True,
+            first_failure_at=1000,
+            probe_id="probe-3",
+            probe_at=1615,
+            probe_status=502,
+            probe_is_real_read=True,
+            probe_backend_missing_page=False,
+            dependent_task_ids=TASKS,
+            skipped_task_ids=TASKS,
+            threshold_reached_at=1600,
+            threshold_probe_id="probe-2",
+            alert_emitted=False,
         ),
     )
 
@@ -90,51 +120,82 @@ def test_missing_facts_never_allow_operation(operation: Operation) -> None:
     assert result.required_evidence
 
 
-@pytest.mark.parametrize("operation,role", list(product(Operation, (
-    Role.SECTION_WORKER, Role.ISSUE_SOLVER,
-))))
+@pytest.mark.parametrize(
+    "operation,role",
+    list(
+        product(
+            Operation,
+            (
+                Role.SECTION_WORKER,
+                Role.ISSUE_SOLVER,
+            ),
+        )
+    ),
+)
 def test_workers_cannot_request_coordinator_operations(operation: Operation, role: Role) -> None:
     result = evaluate(Request(operation, role, task_ids=TASKS), good_facts(operation), NOW)
     assert result.outcome is Outcome.DENY
     assert Rule.COORDINATOR_ONLY.value in result.rule_ids
 
 
-@pytest.mark.parametrize("candidate", [
-    None, {}, "publish", Request("publish", Role.COORDINATOR),
-    Request(Operation.PUBLISH, "coordinator"), Request(Operation.PUBLISH, None),
-    Request(Operation.PUBLISH, Role.COORDINATOR, schema=2),
-    Request(Operation.PUBLISH, Role.COORDINATOR, schema=True),
-    Request(Operation.PUBLISH, Role.COORDINATOR, task_ids=["task"]),
-    Request(Operation.PUBLISH, Role.COORDINATOR, task_ids=("",)),
-])
+@pytest.mark.parametrize(
+    "candidate",
+    [
+        None,
+        {},
+        "publish",
+        Request("publish", Role.COORDINATOR),
+        Request(Operation.PUBLISH, "coordinator"),
+        Request(Operation.PUBLISH, None),
+        Request(Operation.PUBLISH, Role.COORDINATOR, schema=2),
+        Request(Operation.PUBLISH, Role.COORDINATOR, schema=True),
+        Request(Operation.PUBLISH, Role.COORDINATOR, task_ids=["task"]),
+        Request(Operation.PUBLISH, Role.COORDINATOR, task_ids=("",)),
+    ],
+)
 def test_unknown_or_untyped_requests_denied_without_coercion(candidate) -> None:
     result = evaluate(candidate, good_facts(), NOW)
     assert result.outcome is Outcome.DENY
     assert result.rule_ids == (Rule.INVALID_INPUT.value,)
 
 
-@pytest.mark.parametrize("now", [
-    None, True, -1, "1615", float("nan"), float("inf"), 10 ** 999, 1e308,
-    policy.MAX_TIMESTAMP + 1,
-])
+@pytest.mark.parametrize(
+    "now",
+    [
+        None,
+        True,
+        -1,
+        "1615",
+        float("nan"),
+        float("inf"),
+        10**999,
+        1e308,
+        policy.MAX_TIMESTAMP + 1,
+    ],
+)
 def test_invalid_clock_input_denied(now) -> None:
     result = decide(Operation.PUBLISH, good_facts(), now)
     assert result.outcome is Outcome.DENY
     assert result.rule_ids == (Rule.INVALID_INPUT.value,)
 
 
-@pytest.mark.parametrize("facts", [
-    None, {}, Facts(network={"endpoint_permitted": True}),
-    Facts(network=NetworkFacts(endpoint_permitted=1, next_request_at=0)),
-    Facts(network=NetworkFacts(endpoint_permitted=True, next_request_at=True)),
-    Facts(network=NetworkFacts(endpoint_permitted=True, next_request_at=float("nan"))),
-    Facts(target=TargetFacts(namespace=True)),
-    Facts(workflow=WorkflowFacts(stage="prepared")),
-    Facts(workflow=WorkflowFacts(material_blockers=[])),
-    Facts(workflow=WorkflowFacts(material_blockers=("",))),
-    Facts(retry=RetryFacts(lookup_retries_used=True)),
-    Facts(recovery=RecoveryFacts(probe_status="502")),
-])
+@pytest.mark.parametrize(
+    "facts",
+    [
+        None,
+        {},
+        Facts(network={"endpoint_permitted": True}),
+        Facts(network=NetworkFacts(endpoint_permitted=1, next_request_at=0)),
+        Facts(network=NetworkFacts(endpoint_permitted=True, next_request_at=True)),
+        Facts(network=NetworkFacts(endpoint_permitted=True, next_request_at=float("nan"))),
+        Facts(target=TargetFacts(namespace=True)),
+        Facts(workflow=WorkflowFacts(stage="prepared")),
+        Facts(workflow=WorkflowFacts(material_blockers=[])),
+        Facts(workflow=WorkflowFacts(material_blockers=("",))),
+        Facts(retry=RetryFacts(lookup_retries_used=True)),
+        Facts(recovery=RecoveryFacts(probe_status="502")),
+    ],
+)
 def test_malformed_facts_fail_closed(facts) -> None:
     result = decide(Operation.PUBLISH, facts)
     assert result.outcome is Outcome.DENY
@@ -158,24 +219,35 @@ def test_network_deadline_is_lower_bound_not_automatic_permission() -> None:
     assert decide(Operation.READ_SOURCE, facts, NOW + 90).outcome is Outcome.DEFER
 
 
-@pytest.mark.parametrize("offset,expected", [(-1, Outcome.ALLOW), (0, Outcome.ALLOW),
-                                              (1, Outcome.DEFER)])
+@pytest.mark.parametrize(
+    "offset,expected", [(-1, Outcome.ALLOW), (0, Outcome.ALLOW), (1, Outcome.DEFER)]
+)
 def test_network_deadline_boundary(offset: int, expected: Outcome) -> None:
     facts = replace(good_facts(), network=NetworkFacts(True, NOW + offset))
     assert decide(Operation.READ_SOURCE, facts).outcome is expected
 
 
-@pytest.mark.parametrize("field,value", [
-    ("site", "en.wikipedia.org"), ("site", "mg.wikipedia.org.example.org"),
-    ("namespace", 0), ("namespace", 3),
-    ("title", "Rano"), ("title", "Mpikambana:Other/Rano"),
-    ("title", "Mpikambana:Bot-Jagwar/"), ("title", "Mpikambana:Bot-Jagwar/Rano_madio"),
-    ("title", "Mpikambana:Bot-Jagwar/ Rano"), ("title", "Mpikambana:Bot-Jagwar/Rano#A"),
-    ("title", "Mpikambana:Bot-Jagwar/[[Rano]]"), ("title", "Mpikambana:Bot-Jagwar/:Rano"),
-    ("title", "Mpikambana:Bot-Jagwar/USER:Other/Rano"),
-    ("title", "Mpikambana:Bot-Jagwar/" + "x" * 221),
-    ("account", "Other"), ("account", "bot-jagwar"),
-])
+@pytest.mark.parametrize(
+    "field,value",
+    [
+        ("site", "en.wikipedia.org"),
+        ("site", "mg.wikipedia.org.example.org"),
+        ("namespace", 0),
+        ("namespace", 3),
+        ("title", "Rano"),
+        ("title", "Mpikambana:Other/Rano"),
+        ("title", "Mpikambana:Bot-Jagwar/"),
+        ("title", "Mpikambana:Bot-Jagwar/Rano_madio"),
+        ("title", "Mpikambana:Bot-Jagwar/ Rano"),
+        ("title", "Mpikambana:Bot-Jagwar/Rano#A"),
+        ("title", "Mpikambana:Bot-Jagwar/[[Rano]]"),
+        ("title", "Mpikambana:Bot-Jagwar/:Rano"),
+        ("title", "Mpikambana:Bot-Jagwar/USER:Other/Rano"),
+        ("title", "Mpikambana:Bot-Jagwar/" + "x" * 221),
+        ("account", "Other"),
+        ("account", "bot-jagwar"),
+    ],
+)
 def test_publish_requires_fixed_account_and_exact_canonical_sandbox(field, value) -> None:
     facts = good_facts()
     facts = replace(facts, target=replace(facts.target, **{field: value}))
@@ -184,10 +256,24 @@ def test_publish_requires_fixed_account_and_exact_canonical_sandbox(field, value
     assert (Rule.ACCOUNT if field == "account" else Rule.SANDBOX).value in result.rule_ids
 
 
-@pytest.mark.parametrize("article", [
-    "Rano", " Rano_madio ", "Star Trek: Voyager", "Équation", "A\u0301", "x" * 220,
-    "", "USER:Other/Rano", ":Rano", "Rano#A", "[[Rano]]", "Rano\nX", "x" * 221,
-])
+@pytest.mark.parametrize(
+    "article",
+    [
+        "Rano",
+        " Rano_madio ",
+        "Star Trek: Voyager",
+        "Équation",
+        "A\u0301",
+        "x" * 220,
+        "",
+        "USER:Other/Rano",
+        ":Rano",
+        "Rano#A",
+        "[[Rano]]",
+        "Rano\nX",
+        "x" * 221,
+    ],
+)
 def test_target_predicate_agrees_with_existing_title_constructor(article: str) -> None:
     facts = good_facts()
     try:
@@ -219,11 +305,17 @@ def test_nonpublishing_intent_allows_preparation_but_denies_publication(intent: 
     assert Rule.INTENT.value in result.rule_ids
 
 
-@pytest.mark.parametrize("field,rule", [
-    ("required_sections_complete", Rule.SECTIONS), ("review_recorded", Rule.REVIEW),
-    ("review_inputs_match", Rule.REVIEW_INPUTS), ("proposal_matches", Rule.PROPOSAL),
-    ("live_revisions_match", Rule.LIVE_REVISIONS), ("live_render_matches", Rule.LIVE_RENDER),
-])
+@pytest.mark.parametrize(
+    "field,rule",
+    [
+        ("required_sections_complete", Rule.SECTIONS),
+        ("review_recorded", Rule.REVIEW),
+        ("review_inputs_match", Rule.REVIEW_INPUTS),
+        ("proposal_matches", Rule.PROPOSAL),
+        ("live_revisions_match", Rule.LIVE_REVISIONS),
+        ("live_render_matches", Rule.LIVE_RENDER),
+    ],
+)
 @pytest.mark.parametrize("value,outcome", [(False, Outcome.DENY), (None, Outcome.DEFER)])
 def test_publish_requires_every_relevant_positive_check(field, rule, value, outcome) -> None:
     facts = good_facts()
@@ -255,10 +347,14 @@ def test_any_previous_save_attempt_prevents_reprepare_and_resubmit(operation, re
     assert Rule.NO_REPLAY.value in result.rule_ids
 
 
-@pytest.mark.parametrize("operation,expected", [
-    (Operation.PREPARE, Stage.REVIEWED), (Operation.PUBLISH, Stage.PREPARED),
-    (Operation.RECONCILE_SAVE, Stage.SAVE_UNCONFIRMED),
-])
+@pytest.mark.parametrize(
+    "operation,expected",
+    [
+        (Operation.PREPARE, Stage.REVIEWED),
+        (Operation.PUBLISH, Stage.PREPARED),
+        (Operation.RECONCILE_SAVE, Stage.SAVE_UNCONFIRMED),
+    ],
+)
 def test_operations_require_correct_stage(operation: Operation, expected: Stage) -> None:
     facts = good_facts(operation)
     for stage in Stage:
@@ -269,10 +365,16 @@ def test_operations_require_correct_stage(operation: Operation, expected: Stage)
 
 def test_read_only_reconciliation_does_not_require_clearing_editorial_blockers() -> None:
     facts = good_facts(Operation.RECONCILE_SAVE)
-    facts = replace(facts, target=replace(facts.target, account=None), workflow=WorkflowFacts(
-        stage=Stage.SAVE_UNCONFIRMED, receipt=ReceiptState.UNCONFIRMED,
-        material_blockers=("unknown meaning",), intent=RunIntent.DRAFT_ONLY,
-    ))
+    facts = replace(
+        facts,
+        target=replace(facts.target, account=None),
+        workflow=WorkflowFacts(
+            stage=Stage.SAVE_UNCONFIRMED,
+            receipt=ReceiptState.UNCONFIRMED,
+            material_blockers=("unknown meaning",),
+            intent=RunIntent.DRAFT_ONLY,
+        ),
+    )
     assert decide(Operation.RECONCILE_SAVE, facts).outcome is Outcome.ALLOW
     for receipt in (None, ReceiptState.ABSENT, ReceiptState.CONFIRMED):
         changed = replace(facts, workflow=replace(facts.workflow, receipt=receipt))
@@ -280,11 +382,14 @@ def test_read_only_reconciliation_does_not_require_clearing_editorial_blockers()
 
 
 @pytest.mark.parametrize("operation", [Operation.ACCEPT_SECTION, Operation.ACCEPT_ISSUE])
-@pytest.mark.parametrize("field,value,rule", [
-    ("submitted_id", "other-section", Rule.ASSIGNMENT),
-    ("output_scope_verified", False, Rule.ASSIGNMENT),
-    ("evidence_checked", False, Rule.ASSIGNMENT_EVIDENCE),
-])
+@pytest.mark.parametrize(
+    "field,value,rule",
+    [
+        ("submitted_id", "other-section", Rule.ASSIGNMENT),
+        ("output_scope_verified", False, Rule.ASSIGNMENT),
+        ("evidence_checked", False, Rule.ASSIGNMENT_EVIDENCE),
+    ],
+)
 def test_acceptance_requires_matching_assignment_scope_and_evidence(operation, field, value, rule):
     facts = good_facts()
     facts = replace(facts, assignment=replace(facts.assignment, **{field: value}))
@@ -299,8 +404,10 @@ def test_accepting_issue_proposal_does_not_grant_publication() -> None:
     assert decide(Operation.PUBLISH, facts).outcome is Outcome.DEFER
 
 
-@pytest.mark.parametrize("operation", [Operation.PUBLISH, Operation.PREPARE,
-                                        Operation.RECONCILE_SAVE, Operation.RETRY_READ])
+@pytest.mark.parametrize(
+    "operation",
+    [Operation.PUBLISH, Operation.PREPARE, Operation.RECONCILE_SAVE, Operation.RETRY_READ],
+)
 def test_retry_cannot_disguise_a_write_or_reconciliation_as_safe_read(operation: Operation) -> None:
     facts = good_facts()
     facts = replace(facts, retry=replace(facts.retry, operation=operation))
@@ -329,8 +436,11 @@ def test_non_5xx_not_classified_as_restart_retry(status: int) -> None:
 @pytest.mark.parametrize("status", [500, 502, 503, 599])
 def test_all_genuine_5xx_allow_due_safe_retry_without_shortening_shared_deadline(status: int):
     facts = good_facts()
-    facts = replace(facts, retry=replace(facts.retry, failure_status=status),
-                    network=replace(facts.network, next_request_at=2000))
+    facts = replace(
+        facts,
+        retry=replace(facts.retry, failure_status=status),
+        network=replace(facts.network, next_request_at=2000),
+    )
     result = decide(Operation.RETRY_READ, facts)
     assert result.outcome is Outcome.DEFER
     assert result.next_eligible_at == 2000
@@ -348,14 +458,25 @@ def test_retry_waits_15_seconds_from_failed_response_and_honors_later_deadlines(
     facts = good_facts()
     assert decide(Operation.RETRY_READ, facts, 1614).next_eligible_at == 1615
     assert decide(Operation.RETRY_READ, facts, 1615).outcome is Outcome.ALLOW
-    facts = replace(facts, retry=replace(facts.retry, retry_after_at=1800),
-                    network=replace(facts.network, next_request_at=1700))
+    facts = replace(
+        facts,
+        retry=replace(facts.retry, retry_after_at=1800),
+        network=replace(facts.network, next_request_at=1700),
+    )
     assert decide(Operation.RETRY_READ, facts).next_eligible_at == 1800
 
 
-@pytest.mark.parametrize("used,expected", [(-1, Outcome.DENY), (0, Outcome.ALLOW),
-                                            (9, Outcome.ALLOW), (10, Outcome.DENY),
-                                            (11, Outcome.DENY), (None, Outcome.DEFER)])
+@pytest.mark.parametrize(
+    "used,expected",
+    [
+        (-1, Outcome.DENY),
+        (0, Outcome.ALLOW),
+        (9, Outcome.ALLOW),
+        (10, Outcome.DENY),
+        (11, Outcome.DENY),
+        (None, Outcome.DEFER),
+    ],
+)
 def test_dictionary_budget_is_ten_retries_after_initial_attempt(used, expected) -> None:
     facts = good_facts()
     facts = replace(facts, retry=replace(facts.retry, lookup_retries_used=used))
@@ -389,21 +510,29 @@ def test_outage_requires_real_failed_probe_at_or_after_600_seconds(offset, expec
         assert result.next_eligible_at == 1600
 
 
-@pytest.mark.parametrize("field,value,rule", [
-    ("probe_is_real_read", False, Rule.OUTAGE_PROBE),
-    ("probe_backend_missing_page", True, Rule.OUTAGE_PROBE),
-    ("probe_status", 200, Rule.OUTAGE_PROBE), ("probe_status", 404, Rule.OUTAGE_PROBE),
-    ("probe_status", 429, Rule.OUTAGE_PROBE),
-    ("history_verified", False, Rule.OUTAGE_HISTORY),
-    ("clock_verified", False, Rule.OUTAGE_HISTORY),
-    ("last_success_at", 1200, Rule.OUTAGE_HISTORY),
-    ("probe_at", NOW + 1, Rule.INVALID_INPUT),
-    ("last_success_at", NOW + 1, Rule.INVALID_INPUT),
-])
-@pytest.mark.parametrize("operation", [Operation.CONFIRM_OUTAGE, Operation.SKIP_TASKS,
-                                        Operation.EMIT_OUTAGE_ALERT])
+@pytest.mark.parametrize(
+    "field,value,rule",
+    [
+        ("probe_is_real_read", False, Rule.OUTAGE_PROBE),
+        ("probe_backend_missing_page", True, Rule.OUTAGE_PROBE),
+        ("probe_status", 200, Rule.OUTAGE_PROBE),
+        ("probe_status", 404, Rule.OUTAGE_PROBE),
+        ("probe_status", 429, Rule.OUTAGE_PROBE),
+        ("history_verified", False, Rule.OUTAGE_HISTORY),
+        ("clock_verified", False, Rule.OUTAGE_HISTORY),
+        ("last_success_at", 1200, Rule.OUTAGE_HISTORY),
+        ("probe_at", NOW + 1, Rule.INVALID_INPUT),
+        ("last_success_at", NOW + 1, Rule.INVALID_INPUT),
+    ],
+)
+@pytest.mark.parametrize(
+    "operation", [Operation.CONFIRM_OUTAGE, Operation.SKIP_TASKS, Operation.EMIT_OUTAGE_ALERT]
+)
 def test_outage_skips_and_alert_never_accept_cached_unknown_recovered_or_future_probes(
-    field, value, rule, operation,
+    field,
+    value,
+    rule,
+    operation,
 ):
     facts = good_facts()
     facts = replace(facts, recovery=replace(facts.recovery, **{field: value}))
@@ -414,8 +543,12 @@ def test_outage_skips_and_alert_never_accept_cached_unknown_recovered_or_future_
 
 def test_outage_cannot_be_confirmed_using_only_elapsed_time() -> None:
     facts = good_facts()
-    facts = replace(facts, recovery=replace(facts.recovery, probe_at=None, probe_id=None,
-                                            probe_status=None, probe_is_real_read=None))
+    facts = replace(
+        facts,
+        recovery=replace(
+            facts.recovery, probe_at=None, probe_id=None, probe_status=None, probe_is_real_read=None
+        ),
+    )
     result = decide(Operation.CONFIRM_OUTAGE, facts, 9999)
     assert result.outcome is Outcome.DEFER
     assert "recovery.probe_at" in result.required_evidence
@@ -438,10 +571,15 @@ def test_only_tasks_dependent_on_same_service_may_be_skipped() -> None:
         assert Rule.DEPENDENCIES.value in result.rule_ids
 
 
-@pytest.mark.parametrize("tasks,expected", [
-    (TASKS[:25], Outcome.DENY), (TASKS, Outcome.ALLOW),
-    (TASKS[:25] + TASKS[:25], Outcome.DENY), (TASKS + TASKS, Outcome.ALLOW),
-])
+@pytest.mark.parametrize(
+    "tasks,expected",
+    [
+        (TASKS[:25], Outcome.DENY),
+        (TASKS, Outcome.ALLOW),
+        (TASKS[:25] + TASKS[:25], Outcome.DENY),
+        (TASKS + TASKS, Outcome.ALLOW),
+    ],
+)
 def test_severe_alert_counts_distinct_tasks_26_not_25(tasks, expected) -> None:
     facts = good_facts()
     facts = replace(facts, recovery=replace(facts.recovery, skipped_task_ids=tasks))
@@ -451,13 +589,16 @@ def test_severe_alert_counts_distinct_tasks_26_not_25(tasks, expected) -> None:
         assert Rule.ALERT_COUNT.value in result.rule_ids
 
 
-@pytest.mark.parametrize("field,value,rule", [
-    ("probe_id", "probe-2", Rule.ALERT_PROBE),
-    ("threshold_reached_at", NOW + 1, Rule.ALERT_PROBE),
-    ("threshold_reached_at", 1599, Rule.ALERT_PROBE),
-    ("alert_emitted", True, Rule.ALERT_ONCE),
-    ("dependent_task_ids", TASKS[:25], Rule.DEPENDENCIES),
-])
+@pytest.mark.parametrize(
+    "field,value,rule",
+    [
+        ("probe_id", "probe-2", Rule.ALERT_PROBE),
+        ("threshold_reached_at", NOW + 1, Rule.ALERT_PROBE),
+        ("threshold_reached_at", 1599, Rule.ALERT_PROBE),
+        ("alert_emitted", True, Rule.ALERT_ONCE),
+        ("dependent_task_ids", TASKS[:25], Rule.DEPENDENCIES),
+    ],
+)
 def test_severe_alert_needs_new_probe_after_threshold_and_not_already_emitted(field, value, rule):
     facts = good_facts()
     facts = replace(facts, recovery=replace(facts.recovery, **{field: value}))
@@ -466,12 +607,26 @@ def test_severe_alert_needs_new_probe_after_threshold_and_not_already_emitted(fi
     assert rule.value in result.rule_ids
 
 
-@pytest.mark.parametrize("field", [
-    "episode_id", "service_id", "probe_id", "probe_at", "history_verified", "clock_verified",
-    "probe_status", "probe_is_real_read", "probe_backend_missing_page", "first_failure_at",
-    "threshold_reached_at", "threshold_probe_id", "skipped_task_ids", "dependent_task_ids",
-    "alert_emitted",
-])
+@pytest.mark.parametrize(
+    "field",
+    [
+        "episode_id",
+        "service_id",
+        "probe_id",
+        "probe_at",
+        "history_verified",
+        "clock_verified",
+        "probe_status",
+        "probe_is_real_read",
+        "probe_backend_missing_page",
+        "first_failure_at",
+        "threshold_reached_at",
+        "threshold_probe_id",
+        "skipped_task_ids",
+        "dependent_task_ids",
+        "alert_emitted",
+    ],
+)
 def test_missing_service_episode_or_alert_evidence_never_allows_alert(field) -> None:
     facts = good_facts()
     facts = replace(facts, recovery=replace(facts.recovery, **{field: None}))
@@ -496,8 +651,13 @@ def test_decisions_are_immutable_deterministic_and_json_compatible() -> None:
     assert json.loads(json.dumps(encoded, allow_nan=False)) == encoded
     encoded["findings"][0]["reason"] = "changed"
     assert first.as_dict()["findings"][0]["reason"] != "changed"
-    for obj, field in ((request, "schema"), (facts, "network"), (facts.network, "next_request_at"),
-                       (first, "policy_version"), (first.findings[0], "reason")):
+    for obj, field in (
+        (request, "schema"),
+        (facts, "network"),
+        (facts.network, "next_request_at"),
+        (first, "policy_version"),
+        (first.findings[0], "reason"),
+    ):
         with pytest.raises(FrozenInstanceError):
             setattr(obj, field, "changed")
 
@@ -520,7 +680,8 @@ def test_import_and_evaluation_do_not_open_data_files_read_clocks_sleep_or_use_n
     spec.loader.exec_module(fresh)
     result = fresh.evaluate(
         fresh.Request(fresh.Operation.READ_SOURCE, fresh.Role.COORDINATOR),
-        fresh.Facts(network=fresh.NetworkFacts(True, 0)), NOW,
+        fresh.Facts(network=fresh.NetworkFacts(True, 0)),
+        NOW,
     )
     assert result.outcome is fresh.Outcome.ALLOW
 
@@ -528,9 +689,15 @@ def test_import_and_evaluation_do_not_open_data_files_read_clocks_sleep_or_use_n
 def test_workflow_topology_has_no_shortcuts_or_save_replay() -> None:
     forward = list(Stage)
     allowed = set(zip(forward[:-1], forward[1:], strict=True))
-    allowed |= {(stage, Stage.PINNED) for stage in (
-        Stage.PLANNED, Stage.ASSEMBLED, Stage.REVIEWED, Stage.PREPARED,
-    )}
+    allowed |= {
+        (stage, Stage.PINNED)
+        for stage in (
+            Stage.PLANNED,
+            Stage.ASSEMBLED,
+            Stage.REVIEWED,
+            Stage.PREPARED,
+        )
+    }
     for current, following in product(Stage, repeat=2):
         assert transition(current, following) is ((current, following) in allowed)
     assert transition("prepared", Stage.SAVE_UNCONFIRMED) is False
@@ -543,8 +710,12 @@ def test_rule_inventory_covers_all_predicate_ids_and_declares_runtime_limitation
     for rule in Rule:
         assert f"`{rule.value}`" in inventory
     for required in (
-        "Connected to scoped broker execution", "Types are not capabilities",
+        "Connected to scoped broker execution",
+        "Types are not capabilities",
         "predicate status does not imply mandatory runtime enforcement",
-        "review", "editorial", "RequestGate", "planned",
+        "review",
+        "editorial",
+        "RequestGate",
+        "planned",
     ):
         assert required in inventory

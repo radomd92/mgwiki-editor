@@ -32,8 +32,9 @@ def session_usage(data: Any, *, sessions: list[str] | None = None) -> dict[str, 
         if not isinstance(tokens, dict) or not isinstance(tokens.get("cache"), dict):
             raise GuardError("Usage snapshot lacks token/cache counters.")
         counters = {key: tokens.get(key) for key in ("input", "output", "reasoning")}
-        counters.update(cache_read=tokens["cache"].get("read"),
-                        cache_write=tokens["cache"].get("write"))
+        counters.update(
+            cache_read=tokens["cache"].get("read"), cache_write=tokens["cache"].get("write")
+        )
         if any(type(value) is not int or value < 0 for value in counters.values()):
             raise GuardError("Usage counters must be nonnegative integers.")
         rows.append({"id": ident, "parentID": row.get("parentID"), **counters})
@@ -54,10 +55,13 @@ def session_usage(data: Any, *, sessions: list[str] | None = None) -> dict[str, 
     totals = {key: sum(row[key] for row in rows) for key in keys}
     denominator = totals["input"] + totals["output"] + totals["cache_read"]
     return {
-        "schema": 1, "view": "session_counter_snapshot", "sessions": rows, "totals": totals,
+        "schema": 1,
+        "view": "session_counter_snapshot",
+        "sessions": rows,
+        "totals": totals,
         "cache_read_fraction": totals["cache_read"] / denominator if denominator else None,
         "limits": "Only supplied snapshots/selected sessions; not complete project usage or an "
-                  "invoice. Reasoning separate, not added to output. Parent/child aggregation "
-                  "semantics unverified. No provider cost inferred. Compare same scope/model "
-                  "before/after; never skip editorial/save guards to meet a token budget.",
+        "invoice. Reasoning separate, not added to output. Parent/child aggregation "
+        "semantics unverified. No provider cost inferred. Compare same scope/model "
+        "before/after; never skip editorial/save guards to meet a token budget.",
     }

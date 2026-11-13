@@ -17,16 +17,29 @@ from mgwiki_editor.usage import session_usage
 @pytest.fixture
 def job(tmp_path):
     (tmp_path / "source.wiki").write_text("Pinned evidence.", encoding="utf-8")
-    rows = [{"source_term": "term", "source_language": "en", "source_sense": sense,
-             "domain": "domain", "section_id": section, "status": status,
-             "chosen_expression": "Safidy", "english_definition": "Definition.",
-             "malagasy_definition": "Fanazavana.", "definition_origin": "editorial_simple_english",
-             "reason": "Context.", "evidence_files": ["source.wiki"],
-             "dictionary_checks": [{"status": "missing", "raw": "x" * 4000}],
-             "old_review": {"status": "unresolved"}}
-            for sense, section, status in [("first", "00", "descriptive"),
-                                           ("second", "01", "unresolved"),
-                                           ("third", "01", "verified")]]
+    rows = [
+        {
+            "source_term": "term",
+            "source_language": "en",
+            "source_sense": sense,
+            "domain": "domain",
+            "section_id": section,
+            "status": status,
+            "chosen_expression": "Safidy",
+            "english_definition": "Definition.",
+            "malagasy_definition": "Fanazavana.",
+            "definition_origin": "editorial_simple_english",
+            "reason": "Context.",
+            "evidence_files": ["source.wiki"],
+            "dictionary_checks": [{"status": "missing", "raw": "x" * 4000}],
+            "old_review": {"status": "unresolved"},
+        }
+        for sense, section, status in [
+            ("first", "00", "descriptive"),
+            ("second", "01", "unresolved"),
+            ("third", "01", "verified"),
+        ]
+    ]
     write_json(tmp_path / "vocabulary.json", rows)
     return tmp_path
 
@@ -54,8 +67,9 @@ def test_view_pages_exact_senses_and_preserves_source(job):
     assert (job / "vocabulary.json").read_bytes() == before
 
 
-@pytest.mark.parametrize("kwargs", [{"offset": -1}, {"limit": 0}, {"limit": 101},
-                                    {"offset": True}, {"limit": False}])
+@pytest.mark.parametrize(
+    "kwargs", [{"offset": -1}, {"limit": 0}, {"limit": 101}, {"offset": True}, {"limit": False}]
+)
 def test_view_rejects_bad_page(job, kwargs):
     with pytest.raises(GuardError):
         vocabulary_view(job, "vocabulary.json", **kwargs)
@@ -63,8 +77,16 @@ def test_view_rejects_bad_page(job, kwargs):
 
 def test_summary_saves_complete_report_without_replaying_it(job, capsys):
     output = job / "report.json"
-    args = ["vocabulary-report", "--job", str(job), "--vocabulary", "vocabulary.json",
-            "--output", str(output), "--summary"]
+    args = [
+        "vocabulary-report",
+        "--job",
+        str(job),
+        "--vocabulary",
+        "vocabulary.json",
+        "--output",
+        str(output),
+        "--summary",
+    ]
     assert cli.main(args) == 0
     summary = json.loads(capsys.readouterr().out)
     full = json.loads(output.read_bytes())
@@ -95,8 +117,16 @@ def test_summary_broker_preserves_full_result_and_denial(job, monkeypatch, capsy
     monkeypatch.setenv("MGWIKI_CAPABILITY_FILE", "/cap")
     full = {"status": "failed", "entries": [], "error_body": "raw failure"}
     monkeypatch.setattr(control, "client", lambda *a: {"ok": True, "result": full})
-    args = ["lookup", "--edition", "en", "--word", "term", "--summary",
-            "--output", str(job / "reply.json")]
+    args = [
+        "lookup",
+        "--edition",
+        "en",
+        "--word",
+        "term",
+        "--summary",
+        "--output",
+        str(job / "reply.json"),
+    ]
     assert cli.main(args) == 0
     assert json.loads(capsys.readouterr().out)["result"]["signals"]["status"] == "failed"
     assert json.loads((job / "reply.json").read_bytes()) == full
@@ -175,8 +205,20 @@ def test_pack_rejects_overwrite_unsafe_evidence_and_escaped_output(job, tmp_path
 
 def test_pack_cli_is_offline_candidate_only(job, monkeypatch, capsys):
     monkeypatch.setattr(cli, "Wiki", lambda: pytest.fail("No Wiki"))
-    assert cli.main(["vocabulary-pack", "--job", str(job), "--vocabulary", "vocabulary.json",
-                     "--output", str(job / "candidate")]) == 0
+    assert (
+        cli.main(
+            [
+                "vocabulary-pack",
+                "--job",
+                str(job),
+                "--vocabulary",
+                "vocabulary.json",
+                "--output",
+                str(job / "candidate"),
+            ]
+        )
+        == 0
+    )
     assert json.loads(capsys.readouterr().out)["status"] == "candidate_only"
     assert not (job / "review.json").exists()
 
@@ -204,9 +246,13 @@ def test_view_cli_offline(job, monkeypatch, capsys):
 
 
 def test_json_slice_pages_and_projects_large_evidence(job):
-    payload = {"status": "review", "files": [
-        {"filename": f"File {index}.jpg", "decision": "retain", "capsule": {"blob": "x" * 2000}}
-        for index in range(50)]}
+    payload = {
+        "status": "review",
+        "files": [
+            {"filename": f"File {index}.jpg", "decision": "retain", "capsule": {"blob": "x" * 2000}}
+            for index in range(50)
+        ],
+    }
     write_json(job / "media.json", payload)
     path = "media.json"
     before = (job / path).read_bytes()
@@ -225,10 +271,18 @@ def test_json_slice_pages_and_projects_large_evidence(job):
     assert len(last["items"]) == 1
 
 
-@pytest.mark.parametrize("kwargs", [
-    {"offset": -1}, {"limit": 0}, {"limit": 101}, {"offset": True}, {"limit": False},
-    {"key": "missing"}, {"key": "files.nope"},
-])
+@pytest.mark.parametrize(
+    "kwargs",
+    [
+        {"offset": -1},
+        {"limit": 0},
+        {"limit": 101},
+        {"offset": True},
+        {"limit": False},
+        {"key": "missing"},
+        {"key": "files.nope"},
+    ],
+)
 def test_json_slice_rejects_bad_arguments(job, kwargs):
     write_json(job / "media.json", {"files": [{"name": "a"}]})
     with pytest.raises(GuardError):
@@ -245,11 +299,32 @@ def test_json_slice_refuses_root_without_key_and_unsafe_paths(job, tmp_path):
 
 def test_json_slice_cli_summary_keeps_full_output_and_source(job, monkeypatch, capsys):
     monkeypatch.setattr(cli, "Wiki", lambda: pytest.fail("No Wiki"))
-    write_json(job / "media.json", {"files": [{"filename": "a.jpg", "blob": "x" * 5000},
-                                               {"filename": "b.jpg", "blob": "x" * 5000}]})
+    write_json(
+        job / "media.json",
+        {
+            "files": [
+                {"filename": "a.jpg", "blob": "x" * 5000},
+                {"filename": "b.jpg", "blob": "x" * 5000},
+            ]
+        },
+    )
     output = job / "slice.json"
-    args = ["json-slice", "--job", str(job), "--path", "media.json", "--key", "files",
-            "--limit", "1", "--field", "filename", "--output", str(output), "--summary"]
+    args = [
+        "json-slice",
+        "--job",
+        str(job),
+        "--path",
+        "media.json",
+        "--key",
+        "files",
+        "--limit",
+        "1",
+        "--field",
+        "filename",
+        "--output",
+        str(output),
+        "--summary",
+    ]
     assert cli.main(args) == 0
     summary = json.loads(capsys.readouterr().out)
     full = json.loads(output.read_bytes())
@@ -280,18 +355,41 @@ def test_session_usage_never_bypasses_configured_broker(job, monkeypatch, capsys
 
 def fake_lookup(status="found"):
     def look(edition, word):
-        return {"edition": edition, "word": word, "status": status, "entries": [],
-                "retrieved_at": "2026-11-12T00:00:00+00:00",
-                "url": f"http://dictionary.invalid/wiktionary-pages/{edition}/{word}"}
+        return {
+            "edition": edition,
+            "word": word,
+            "status": status,
+            "entries": [],
+            "retrieved_at": "2026-11-12T00:00:00+00:00",
+            "url": f"http://dictionary.invalid/wiktionary-pages/{edition}/{word}",
+        }
+
     return look
 
 
 def test_lookup_batch_writes_one_file_per_word_with_manifest(job, monkeypatch, capsys):
     monkeypatch.setattr(cli, "Wiki", lambda: pytest.fail("No Wiki"))
     monkeypatch.setattr(batching, "lookup", fake_lookup())
-    assert cli.main(["lookup-batch", "--edition", "en", "--word", "rano", "--word", "Volamena",
-                     "--job", str(job), "--output-dir", str(job / "evidence/lookups-b01"),
-                     "--output", str(job / "evidence/lookups-b01.json")]) == 0
+    assert (
+        cli.main(
+            [
+                "lookup-batch",
+                "--edition",
+                "en",
+                "--word",
+                "rano",
+                "--word",
+                "Volamena",
+                "--job",
+                str(job),
+                "--output-dir",
+                str(job / "evidence/lookups-b01"),
+                "--output",
+                str(job / "evidence/lookups-b01.json"),
+            ]
+        )
+        == 0
+    )
     manifest = json.loads(capsys.readouterr().out)
     assert manifest["status"] == "evidence_only"
     assert manifest["status_counts"] == {"found": 2}
@@ -309,24 +407,45 @@ def test_lookup_batch_writes_one_file_per_word_with_manifest(job, monkeypatch, c
 def test_lookup_batch_keeps_pending_evidence_and_continues(job, monkeypatch, capsys):
     monkeypatch.setattr(cli, "Wiki", lambda: pytest.fail("No Wiki"))
     replies = {"found": fake_lookup()("en", "good"), "failed": fake_lookup("failed")("en", "bad")}
+
     def look(edition, word):
         return replies["failed" if word == "bad" else "found"]
+
     monkeypatch.setattr(batching, "lookup", look)
-    args = ["lookup-batch", "--edition", "en", "--word", "good", "--word", "bad",
-            "--job", str(job), "--output-dir", str(job / "evidence/lookups-b02")]
+    args = [
+        "lookup-batch",
+        "--edition",
+        "en",
+        "--word",
+        "good",
+        "--word",
+        "bad",
+        "--job",
+        str(job),
+        "--output-dir",
+        str(job / "evidence/lookups-b02"),
+    ]
     assert cli.main(args) == 0
     manifest = json.loads(capsys.readouterr().out)
     assert manifest["status_counts"] == {"found": 1, "failed": 1}
     assert len(manifest["results"]) == 2
 
 
-@pytest.mark.parametrize("words,kwargs", [
-    (["same", "same"], {}), (["", "x"], {}), ([f"w{i}" for i in range(51)], {}),
-    (["x"], {"output_dir": "outside"}),
-])
+@pytest.mark.parametrize(
+    "words,kwargs",
+    [
+        (["same", "same"], {}),
+        (["", "x"], {}),
+        ([f"w{i}" for i in range(51)], {}),
+        (["x"], {"output_dir": "outside"}),
+    ],
+)
 def test_lookup_batch_rejects_duplicates_oversize_and_escapes(job, words, kwargs):
-    output_dir = job.parent / "escape" if kwargs.get("output_dir") == "outside" \
+    output_dir = (
+        job.parent / "escape"
+        if kwargs.get("output_dir") == "outside"
         else job / "evidence/lookups-b03"
+    )
     with pytest.raises(GuardError):
         lookup_batch("en", words, job, output_dir)
     if output_dir == job / "evidence/lookups-b03":
@@ -337,8 +456,22 @@ def test_lookup_batch_never_bypasses_configured_broker(job, monkeypatch, capsys)
     monkeypatch.setenv("MGWIKI_BROKER_SOCKET", "/socket")
     monkeypatch.setenv("MGWIKI_CAPABILITY_FILE", "/cap")
     monkeypatch.setattr(cli, "lookup", lambda *a: pytest.fail("Bypass"))
-    assert cli.main(["lookup-batch", "--edition", "en", "--word", "x", "--job", str(job),
-                     "--output-dir", str(job / "evidence/lookups-b04")]) == 1
+    assert (
+        cli.main(
+            [
+                "lookup-batch",
+                "--edition",
+                "en",
+                "--word",
+                "x",
+                "--job",
+                str(job),
+                "--output-dir",
+                str(job / "evidence/lookups-b04"),
+            ]
+        )
+        == 1
+    )
     assert "no fallback" in capsys.readouterr().err
 
 
@@ -349,12 +482,22 @@ def test_offline_audit_runs_all_checks_and_reports_errors(job, monkeypatch, caps
     monkeypatch.setattr(batching, "coverage_report", lambda j, d: {"missing_files": {}})
     monkeypatch.setattr(batching, "citation_audit", lambda j, d: {"short_candidates": []})
     monkeypatch.setattr(batching, "metadata_audit", lambda j, e, d: {"gaps": []})
+
     def failing(*a, **k):
         raise GuardError("boom")
+
     monkeypatch.setattr(batching, "audit_mathematical_terms", failing)
     manifest_path = job / "evidence/audit-b01.json"
-    args = ["offline-audit", "--job", str(job), "--draft", "draft.wiki",
-            "--vocab-audit", "--output", str(manifest_path)]
+    args = [
+        "offline-audit",
+        "--job",
+        str(job),
+        "--draft",
+        "draft.wiki",
+        "--vocab-audit",
+        "--output",
+        str(manifest_path),
+    ]
     assert cli.main(args) == 1  # one failing check must not hide the others
     manifest = json.loads(capsys.readouterr().out)
     assert manifest["status"] == "reports_only"
@@ -382,16 +525,27 @@ def test_evidence_pin_and_verify_roundtrip(job, monkeypatch, capsys):
     monkeypatch.setattr(cli, "Wiki", lambda: pytest.fail("No Wiki"))
     (job / "draft.wiki").write_bytes(b"before")
     pin = job / "evidence/pin-b01.json"
-    assert cli.main(["evidence-pin", "--job", str(job), "--artifact", "draft.wiki",
-                     "--output", str(pin)]) == 0
+    assert (
+        cli.main(
+            ["evidence-pin", "--job", str(job), "--artifact", "draft.wiki", "--output", str(pin)]
+        )
+        == 0
+    )
     result = json.loads(capsys.readouterr().out)
     assert result["artifacts"]["draft.wiki"]["sha256"] == digest(b"before")
     assert cli.main(["evidence-verify", "--job", str(job), "--pin", "evidence/pin-b01.json"]) == 0
     verify = json.loads(capsys.readouterr().out)
     assert verify["unchanged"] is True and not verify["mismatches"]
     (job / "draft.wiki").write_bytes(b"after")
-    args = ["evidence-verify", "--job", str(job), "--pin", "evidence/pin-b01.json",
-            "--output", str(job / "evidence/verify-b01.json")]
+    args = [
+        "evidence-verify",
+        "--job",
+        str(job),
+        "--pin",
+        "evidence/pin-b01.json",
+        "--output",
+        str(job / "evidence/verify-b01.json"),
+    ]
     assert cli.main(args) == 0
     verify = json.loads(capsys.readouterr().out)
     assert verify["unchanged"] is False
@@ -419,9 +573,17 @@ def test_evidence_verify_rejects_bad_pin_and_missing_artifacts(job):
         evidence_verify(job, "evidence/bad.json")
     (job / "draft.wiki").write_bytes(b"x")
     pin = job / "evidence/pin-b04.json"
-    write_json(pin, {"schema": 1, "kind": "artifact_pin",
-                     "artifacts": {"draft.wiki": {"sha256": "0" * 64, "bytes": 1},
-                                   "gone.wiki": {"sha256": "1" * 64, "bytes": 1}}})
+    write_json(
+        pin,
+        {
+            "schema": 1,
+            "kind": "artifact_pin",
+            "artifacts": {
+                "draft.wiki": {"sha256": "0" * 64, "bytes": 1},
+                "gone.wiki": {"sha256": "1" * 64, "bytes": 1},
+            },
+        },
+    )
     result = evidence_verify(job, "evidence/pin-b04.json")
     assert result["unchanged"] is False
     assert result["missing"] == ["gone.wiki"]
@@ -429,9 +591,17 @@ def test_evidence_verify_rejects_bad_pin_and_missing_artifacts(job):
 
 
 def usage_row(ident="parent", parent=None, **tokens):
-    return {"id": ident, "parentID": parent,
-            "tokens": {"input": 10, "output": 3, "reasoning": 2,
-                       "cache": {"read": 100, "write": 0}, **tokens}}
+    return {
+        "id": ident,
+        "parentID": parent,
+        "tokens": {
+            "input": 10,
+            "output": 3,
+            "reasoning": 2,
+            "cache": {"read": 100, "write": 0},
+            **tokens,
+        },
+    }
 
 
 def test_usage_roots_only_duplicate_dedup_and_reasoning_not_added():
@@ -439,23 +609,34 @@ def test_usage_roots_only_duplicate_dedup_and_reasoning_not_added():
     child = usage_row("child", "parent")
     result = session_usage({"data": [parent, child, parent]})
     assert len(result["sessions"]) == 1
-    assert result["totals"] == {"input": 10, "output": 3, "reasoning": 2,
-                                "cache_read": 100, "cache_write": 0}
+    assert result["totals"] == {
+        "input": 10,
+        "output": 3,
+        "reasoning": 2,
+        "cache_read": 100,
+        "cache_write": 0,
+    }
     assert result["cache_read_fraction"] == 100 / 113
     assert session_usage([parent, child], sessions=["child"])["sessions"][0]["id"] == "child"
     assert session_usage([])["cache_read_fraction"] is None
 
 
-@pytest.mark.parametrize("rows,selection", [
-    ([usage_row(), usage_row("child", "parent")], ["parent", "child"]),
-    ([usage_row(), usage_row("child", "parent"), usage_row("worker", "child")],
-     ["parent", "worker"]),
-    ([usage_row("loop", "loop")], ["loop"]),
-    ([usage_row()], ["missing"]),
-    ([usage_row(), usage_row(input=20)], None),
-    ([usage_row(input=-1)], None), ([usage_row(output=True)], None),
-    ([{"id": "bad"}], None),
-])
+@pytest.mark.parametrize(
+    "rows,selection",
+    [
+        ([usage_row(), usage_row("child", "parent")], ["parent", "child"]),
+        (
+            [usage_row(), usage_row("child", "parent"), usage_row("worker", "child")],
+            ["parent", "worker"],
+        ),
+        ([usage_row("loop", "loop")], ["loop"]),
+        ([usage_row()], ["missing"]),
+        ([usage_row(), usage_row(input=20)], None),
+        ([usage_row(input=-1)], None),
+        ([usage_row(output=True)], None),
+        ([{"id": "bad"}], None),
+    ],
+)
 def test_usage_refuses_ambiguous_or_invalid_counters(rows, selection):
     with pytest.raises(GuardError):
         session_usage(rows, sessions=selection)

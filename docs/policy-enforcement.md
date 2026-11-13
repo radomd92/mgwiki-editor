@@ -57,7 +57,7 @@ editable Python can bypass library checks; isolation remains required.
 ## Rule inventory
 
 Authority: `AGENTS.md`, `.opencode/agents/*.md`, `.opencode/commands/mgtranslate.md`,
-edition/style/vocabulary skills, `docs/edition-protocol.wiki`,
+edition/style/vocabulary skills, `docs/edition-protocol.md`,
 `docs/issue-recovery.md`, pinned local style-reference guidance. Table groups
 related prose clauses; exact policy stays authoritative, not a generated blacklist.
 

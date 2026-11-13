@@ -27,7 +27,7 @@ waives gates. Source disagreements stay nonblocking in `source-issues.md`; link
 their IDs rather than relabeling them as blockers. Markdown/plain text, caveman
 ultra commentary; machine data and verbatim evidence exact. No secrets in memos.
 
-Later resolution: delegate explicit issue IDs to `Mgwiki-editor-issues-solver`,
+Later resolution: delegate explicit issue IDs to `mgwiki-issues-solver`,
 with memo, pinned local evidence, and exclusive
 `runs/<job>/issue-resolutions/<issue-id>.md` output. Solver proposes evidence-backed
 fixes or records missing evidence, never invents a resolution. No need to invoke

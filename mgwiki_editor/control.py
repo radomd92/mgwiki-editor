@@ -31,22 +31,31 @@ def doctor(socket: Path | None, capfile: Path | None) -> dict:
                     status = "unsafe_symlink"
                 else:
                     info = path.lstat()
-                    status = ("wrong_file_type" if not predicate(info.st_mode) else
-                              "unsafe_permissions" if info.st_mode & 0o077 else
-                              "wrong_owner" if info.st_uid != os.getuid() else "present")
+                    status = (
+                        "wrong_file_type"
+                        if not predicate(info.st_mode)
+                        else "unsafe_permissions"
+                        if info.st_mode & 0o077
+                        else "wrong_owner"
+                        if info.st_uid != os.getuid()
+                        else "present"
+                    )
             except FileNotFoundError:
                 status = "missing_path"
             except OSError:
                 status = "inaccessible"
         checks.append({"check": name, "status": status})
-    return {"schema": 1, "checks": checks,
-            "local_prerequisites_present": all(row["status"] == "present" for row in checks),
-            "deployment_verified": False,
-            "limits": "Local descriptors only; no token contents, socket connection, capability "
-                      "authorization, whole-tool isolation, credentials or account verified. "
-                      "Never starts services, provisions capabilities or changes access rights.",
-            "next_action": "Trusted launcher supplies paired scoped configuration and isolated "
-                           "tool process; use authenticated status afterward. No legacy fallback."}
+    return {
+        "schema": 1,
+        "checks": checks,
+        "local_prerequisites_present": all(row["status"] == "present" for row in checks),
+        "deployment_verified": False,
+        "limits": "Local descriptors only; no token contents, socket connection, capability "
+        "authorization, whole-tool isolation, credentials or account verified. "
+        "Never starts services, provisions capabilities or changes access rights.",
+        "next_action": "Trusted launcher supplies paired scoped configuration and isolated "
+        "tool process; use authenticated status afterward. No legacy fallback.",
+    }
 
 
 def client(socket: Path, capfile: Path, action: str, arguments: dict) -> dict:
@@ -62,7 +71,8 @@ def client(socket: Path, capfile: Path, action: str, arguments: dict) -> dict:
         except (OSError, UnicodeError, StateError):
             # Never hide a confirmed publish/result because unrelated alert delivery failed.
             response.setdefault("delivery_warnings", []).append(
-                {"episode": alert["episode"], "status": "pending_replay"})
+                {"episode": alert["episode"], "status": "pending_replay"}
+            )
     return response
 
 
@@ -75,14 +85,30 @@ def mcp(socket: Path, capfile: Path, *, input_stream=None, output_stream=None) -
         try:
             request = loads(raw)
         except (ValueError, StateError):
-            print(json.dumps({"jsonrpc": "2.0", "id": None,
-                              "error": {"code": -32700, "message": "Invalid JSON data."}}),
-                  file=output_stream, flush=True)
+            print(
+                json.dumps(
+                    {
+                        "jsonrpc": "2.0",
+                        "id": None,
+                        "error": {"code": -32700, "message": "Invalid JSON data."},
+                    }
+                ),
+                file=output_stream,
+                flush=True,
+            )
             continue
         if not isinstance(request, dict) or request.get("jsonrpc") != "2.0":
-            print(json.dumps({"jsonrpc": "2.0", "id": None,
-                              "error": {"code": -32600, "message": "Invalid request."}}),
-                  file=output_stream, flush=True)
+            print(
+                json.dumps(
+                    {
+                        "jsonrpc": "2.0",
+                        "id": None,
+                        "error": {"code": -32600, "message": "Invalid request."},
+                    }
+                ),
+                file=output_stream,
+                flush=True,
+            )
             continue
         if "id" not in request:
             continue
@@ -93,17 +119,32 @@ def mcp(socket: Path, capfile: Path, *, input_stream=None, output_stream=None) -
                 version = params.get("protocolVersion", "2024-11-05")
                 if version not in {"2024-11-05", "2025-03-26", "2025-06-18"}:
                     version = "2024-11-05"
-                result = {"protocolVersion": version, "capabilities": {"tools": {}},
-                          "serverInfo": {"name": "mgwiki-policy-broker", "version": "1"}}
+                result = {
+                    "protocolVersion": version,
+                    "capabilities": {"tools": {}},
+                    "serverInfo": {"name": "mgwiki-policy-broker", "version": "1"},
+                }
             elif method == "ping":
                 result = {}
             elif method == "tools/list":
-                schema = {"type": "object", "required": ["action", "arguments"],
-                          "additionalProperties": False,
-                          "properties": {"action": {"type": "string", "enum": list(COMMANDS)},
-                                         "arguments": {"type": "object"}}}
-                result = {"tools": [{"name": "mgwiki", "inputSchema": schema,
-                                     "description": "Scoped mgwiki; no shell/raw HTTP/admin API."}]}
+                schema = {
+                    "type": "object",
+                    "required": ["action", "arguments"],
+                    "additionalProperties": False,
+                    "properties": {
+                        "action": {"type": "string", "enum": list(COMMANDS)},
+                        "arguments": {"type": "object"},
+                    },
+                }
+                result = {
+                    "tools": [
+                        {
+                            "name": "mgwiki",
+                            "inputSchema": schema,
+                            "description": "Scoped mgwiki; no shell/raw HTTP/admin API.",
+                        }
+                    ]
+                }
             elif method == "tools/call":
                 _shape(params, {"name", "arguments"})
                 if params["name"] != "mgwiki":
@@ -111,9 +152,10 @@ def mcp(socket: Path, capfile: Path, *, input_stream=None, output_stream=None) -
                 arguments = params["arguments"]
                 _shape(arguments, {"action", "arguments"})
                 response = client(socket, capfile, arguments["action"], arguments["arguments"])
-                result = {"content": [{"type": "text",
-                                       "text": json.dumps(response, ensure_ascii=True)}],
-                          "isError": not response.get("ok", False)}
+                result = {
+                    "content": [{"type": "text", "text": json.dumps(response, ensure_ascii=True)}],
+                    "isError": not response.get("ok", False),
+                }
             else:
                 raise StateError("Unknown MCP method.")
             reply["result"] = result
@@ -129,7 +171,8 @@ def main(argv: list[str] | None = None) -> int:
     diagnose.add_argument("--socket", type=Path)
     diagnose.add_argument("--capability-file", type=Path)
     activation = commands.add_parser(
-        "activate", help="Trusted host: authenticate EXISTING grant and launch isolated tools",
+        "activate",
+        help="Trusted host: authenticate EXISTING grant and launch isolated tools",
     )
     activation.add_argument("--config", type=Path, required=True)
     activation.add_argument("--check-only", action="store_true", help="Authenticate; do not launch")
@@ -200,60 +243,88 @@ def main(argv: list[str] | None = None) -> int:
             gateway = Gateway(args.workspace, PolicyStore(args.state))
             token = gateway.provision(args.run, manifest, expires_at=time.time() + args.expires_in)
             # New protected file only. Token never printed, logged, or copied into project.
-            secure_files.write(args.capability_output.parent, args.capability_output.name,
-                               (token + "\n").encode())
+            secure_files.write(
+                args.capability_output.parent, args.capability_output.name, (token + "\n").encode()
+            )
             result = {"status": "provisioned", "run": args.run}
         elif args.command == "renew":
             from .gateway import Gateway
 
             token = Gateway(args.workspace, PolicyStore(args.state)).renew(
-                args.run, expires_at=time.time() + args.expires_in)
-            secure_files.write(args.capability_output.parent, args.capability_output.name,
-                               (token + "\n").encode())
+                args.run, expires_at=time.time() + args.expires_in
+            )
+            secure_files.write(
+                args.capability_output.parent, args.capability_output.name, (token + "\n").encode()
+            )
             result = {"status": "renewed_same_scope", "run": args.run}
         elif args.command == "serve":
             from .gateway import Gateway
 
             config = loads(args.config.read_bytes())
-            _shape(config, {"workspace", "state", "socket", "allowed_uid"},
-                   {"dictionary_url", "vocabulary_database"})
+            _shape(
+                config,
+                {"workspace", "state", "socket", "allowed_uid"},
+                {"dictionary_url", "vocabulary_database"},
+            )
             os.chdir(config["workspace"])
-            gateway = Gateway(Path.cwd(), PolicyStore(Path(config["state"])),
-                              vocabulary_database=Path(config["vocabulary_database"])
-                              if "vocabulary_database" in config else None,
-                              **({"dictionary_url": config["dictionary_url"]}
-                                 if "dictionary_url" in config else {}))
+            gateway = Gateway(
+                Path.cwd(),
+                PolicyStore(Path(config["state"])),
+                vocabulary_database=Path(config["vocabulary_database"])
+                if "vocabulary_database" in config
+                else None,
+                **(
+                    {"dictionary_url": config["dictionary_url"]}
+                    if "dictionary_url" in config
+                    else {}
+                ),
+            )
             gateway.store.verify()
-            with Broker(Path(config["socket"]), gateway,
-                        allowed_uid=config["allowed_uid"]) as server:
+            with Broker(
+                Path(config["socket"]), gateway, allowed_uid=config["allowed_uid"]
+            ) as server:
                 server.serve_forever()
             return 0
         elif args.command == "mcp":
             mcp(args.socket, args.capability_file)
             return 0
         elif args.command == "request":
-            result = client(args.socket, args.capability_file, args.action,
-                            loads(args.arguments.read_bytes()))
+            result = client(
+                args.socket, args.capability_file, args.action, loads(args.arguments.read_bytes())
+            )
             print(json.dumps(result, ensure_ascii=True, indent=2))
             return 0 if result.get("ok") else 1
         elif args.command == "sandbox-check":
             result = isolation.check(args.work, args.code)
         elif args.command == "sandbox-run":
             executable = args.executable[1:] if args.executable[:1] == ["--"] else args.executable
-            return isolation.run(executable, work=args.work, readonly_code=args.code,
-                                 broker_socket=args.socket, capability=args.capability_file,
-                                 private_roots=tuple(args.private_root))
+            return isolation.run(
+                executable,
+                work=args.work,
+                readonly_code=args.code,
+                broker_socket=args.socket,
+                capability=args.capability_file,
+                private_roots=tuple(args.private_root),
+            )
         else:
             names = ("job.json", "proposal.json", "receipt.json", "review.json")
-            result = {"mode": "read_only_legacy_inspection", "adopted": False,
-                      "artifacts": {name: secure_files.read(args.job, name).decode("utf-8")
-                                    for name in names if (args.job / name).exists()},
-                      "next_action": "fresh trusted run; never manufacture historical review"}
+            result = {
+                "mode": "read_only_legacy_inspection",
+                "adopted": False,
+                "artifacts": {
+                    name: secure_files.read(args.job, name).decode("utf-8")
+                    for name in names
+                    if (args.job / name).exists()
+                },
+                "next_action": "fresh trusted run; never manufacture historical review",
+            }
         print(json.dumps(result, ensure_ascii=True, indent=2))
         return 0
     except Exception as exc:
-        print(json.dumps({"error": type(exc).__name__, "message": str(exc)}, ensure_ascii=True),
-              file=sys.stderr)
+        print(
+            json.dumps({"error": type(exc).__name__, "message": str(exc)}, ensure_ascii=True),
+            file=sys.stderr,
+        )
         return 1
 
 

@@ -38,7 +38,8 @@ def test_refresh_then_reuse_offline(tmp_path: Path, monkeypatch: pytest.MonkeyPa
 
 
 def test_missing_cache_requires_explicit_refresh(
-    tmp_path: Path, monkeypatch: pytest.MonkeyPatch,
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
 ) -> None:
     """A normal command must not silently start a remote category fetch."""
     monkeypatch.chdir(tmp_path)
@@ -49,7 +50,9 @@ def test_missing_cache_requires_explicit_refresh(
 
 @pytest.mark.parametrize("failure", ["network", "empty", "namespace", "markup"])
 def test_failed_refresh_preserves_previous_cache(
-    failure: str, tmp_path: Path, monkeypatch: pytest.MonkeyPatch,
+    failure: str,
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
 ) -> None:
     """An outage or invalid response cannot replace usable spellings."""
     monkeypatch.chdir(tmp_path)
@@ -59,23 +62,32 @@ def test_failed_refresh_preserves_previous_cache(
     def fetch():
         if failure == "network":
             raise OSError("offline")
-        return {"empty": [], "namespace": ["Sokajy:Firenena"], "markup": ["[[Etazonia]]"]}[
-            failure
-        ]
+        return {"empty": [], "namespace": ["Sokajy:Firenena"], "markup": ["[[Etazonia]]"]}[failure]
 
     with pytest.raises((GuardError, OSError)):
         country_names(SimpleNamespace(country_titles=fetch), refresh=True)
     assert COUNTRY_CACHE.read_bytes() == before
 
 
-@pytest.mark.parametrize("field,value", [
-    ("language", "en"), ("category", "Sokajy:Hafa"), ("scope", "recursive"),
-    ("titles", []), ("titles", [None]), ("titles", ["User:Other"]),
-    ("titles", ["Etazonia", "Etazonia"]), ("titles", ["Frantsa", "Etazonia"]),
-    ("retrieved_at", None),
-])
+@pytest.mark.parametrize(
+    "field,value",
+    [
+        ("language", "en"),
+        ("category", "Sokajy:Hafa"),
+        ("scope", "recursive"),
+        ("titles", []),
+        ("titles", [None]),
+        ("titles", ["User:Other"]),
+        ("titles", ["Etazonia", "Etazonia"]),
+        ("titles", ["Frantsa", "Etazonia"]),
+        ("retrieved_at", None),
+    ],
+)
 def test_rejects_invalid_cached_data(
-    field: str, value: object, tmp_path: Path, monkeypatch: pytest.MonkeyPatch,
+    field: str,
+    value: object,
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
 ) -> None:
     """Do not use altered identity, invalid titles or an empty cached list."""
     monkeypatch.chdir(tmp_path)

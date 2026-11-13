@@ -8,8 +8,10 @@ import pytest
 
 from mgwiki_editor.core import GuardError
 
-SCRIPT = (Path(__file__).resolve().parents[1]
-          / "runs/biology-health-20261110/small-intestine/continue_research.py")
+SCRIPT = (
+    Path(__file__).resolve().parents[1]
+    / "runs/biology-health-20261110/small-intestine/continue_research.py"
+)
 
 
 @pytest.fixture
@@ -21,19 +23,26 @@ def helper():
 
 
 def fixture_manifest(root, helper):
-    old = {"edition": "mg", "word": "test",
-           "url": "http://localhost/wiktionary-pages/mg/test",
-           "status": "failed"}
+    old = {
+        "edition": "mg",
+        "word": "test",
+        "url": "http://localhost/wiktionary-pages/mg/test",
+        "status": "failed",
+    }
     new = {**old, "status": "missing"}
     for name, value in [("old.json", old), ("new.json", new)]:
         (root / name).write_text(json.dumps(value))
-    row = {"edition": "mg", "word": "test", "url": old["url"],
-           "original_file": "old.json", "accepted_file": "new.json",
-           "original_sha256": helper.sha((root / "old.json").read_bytes()),
-           "accepted_sha256": helper.sha((root / "new.json").read_bytes()),
-           "status": "missing"}
-    manifest = {"plan_sha256": "plan", "source_sha256": "source",
-                "accepted_replies": [row]}
+    row = {
+        "edition": "mg",
+        "word": "test",
+        "url": old["url"],
+        "original_file": "old.json",
+        "accepted_file": "new.json",
+        "original_sha256": helper.sha((root / "old.json").read_bytes()),
+        "accepted_sha256": helper.sha((root / "new.json").read_bytes()),
+        "status": "missing",
+    }
+    manifest = {"plan_sha256": "plan", "source_sha256": "source", "accepted_replies": [row]}
     (root / "selected.json").write_text(json.dumps(manifest))
     return manifest
 
@@ -42,7 +51,8 @@ def test_explicit_manifest_and_original_retained(tmp_path, helper):
     fixture_manifest(tmp_path, helper)
     old = (tmp_path / "old.json").read_bytes()
     assert helper.accepted_recoveries(tmp_path, "plan", "source", "selected.json") == {
-        ("mg", "test"): "new.json"}
+        ("mg", "test"): "new.json"
+    }
     assert (tmp_path / "old.json").read_bytes() == old
 
 
@@ -54,7 +64,7 @@ def test_manifest_fail_closed(tmp_path, helper, defect):
     elif defect == "identity":
         manifest["accepted_replies"][0]["word"] = "other"
     elif defect == "hash":
-        (tmp_path / "new.json").write_text('{}')
+        (tmp_path / "new.json").write_text("{}")
     else:
         manifest["accepted_replies"] *= 2
     (tmp_path / "selected.json").write_text(json.dumps(manifest))

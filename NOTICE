@@ -1,0 +1,26 @@
+mgwiki-editor
+Copyright 2026 mgwiki-editor contributors
+
+This product includes adapted documentation derived from English Wikipedia:
+
+- `.opencode/skills/mgwiki-style/references/manual-of-style.wiki` and
+  `.opencode/skills/mgwiki-style/references/words-to-watch.wiki` adapt
+  "Wikipedia:Manual of Style" (revision 1381654087) and
+  "Wikipedia:Manual of Style/Words to watch" (revision 1382059772),
+  consulted 3 November 2026. The source and these adaptations are shared
+  under the Creative Commons Attribution-ShareAlike 4.0 license. Each file
+  records its own source revision attribution.
+
+The French–Malagasy mathematics glossary in `data/vocabulary/` preserves
+source spellings and provenance from the Kajy blog post
+"ireo voambolana matematika malagasy" (2011-04-19). It is stored as
+translation evidence with attribution and is not dictionary verification.
+
+Runtime dependencies retain their own licenses:
+
+- Pywikibot — MIT License
+- mwparserfromhell — MIT License
+
+The Apache License 2.0 in `LICENSE` covers the software in this repository.
+It does not replace the attribution and share-alike terms that apply to the
+adapted style references described above.

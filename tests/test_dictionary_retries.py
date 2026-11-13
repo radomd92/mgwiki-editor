@@ -19,8 +19,9 @@ def http_error(body: bytes, *, headers: dict | None = None) -> HTTPError:
 
 
 def test_explicit_backend_nopage_is_missing_not_an_outage(tmp_path: Path) -> None:
-    body = json.dumps({"type": "error", "status": 502,
-                       "details": {"type": "NoPage", "error": "Page not found"}}).encode()
+    body = json.dumps(
+        {"type": "error", "status": 502, "details": {"type": "NoPage", "error": "Page not found"}}
+    ).encode()
     policy = DictionaryRetries(tmp_path / "retry.json")
 
     def opener(*args, **kwargs):
@@ -34,18 +35,27 @@ def test_explicit_backend_nopage_is_missing_not_an_outage(tmp_path: Path) -> Non
     assert not policy.gate.path.exists()
 
 
-@pytest.mark.parametrize("body", [
-    b"Bad Gateway", b"not found", b'{"type":"NoPage"}',
-    b'{"type":"error","status":502,"details":{"type":"Timeout"}}',
-    b'{"type":"error","status":500,"details":{"type":"NoPage"}}',
-    b'{"type":"error","status":502,"details":"NoPage"}',
-])
+@pytest.mark.parametrize(
+    "body",
+    [
+        b"Bad Gateway",
+        b"not found",
+        b'{"type":"NoPage"}',
+        b'{"type":"error","status":502,"details":{"type":"Timeout"}}',
+        b'{"type":"error","status":500,"details":{"type":"NoPage"}}',
+        b'{"type":"error","status":502,"details":"NoPage"}',
+    ],
+)
 def test_other_502s_remain_failed_not_missing(tmp_path: Path, body: bytes) -> None:
     def opener(*args, **kwargs):
         raise http_error(body)
 
-    result = lookup("mg", "term", opener=opener,
-                    retries=DictionaryRetries(tmp_path / "retry.json", clock=lambda: 100))
+    result = lookup(
+        "mg",
+        "term",
+        opener=opener,
+        retries=DictionaryRetries(tmp_path / "retry.json", clock=lambda: 100),
+    )
     assert result["status"] == "failed"
     assert result["entries"] == []
     assert result["retry"]["status"] == "pending"
@@ -63,8 +73,9 @@ def test_retries_persist_and_stop_after_ten_without_sleep(tmp_path: Path) -> Non
 
     def perform():
         # New process-equivalent policy instance, same persisted budget.
-        return lookup("en", "term", opener=opener,
-                      retries=DictionaryRetries(path, clock=lambda: clock[0]))
+        return lookup(
+            "en", "term", opener=opener, retries=DictionaryRetries(path, clock=lambda: clock[0])
+        )
 
     first = perform()
     assert first["retry"]["retries_used"] == 0
@@ -131,8 +142,7 @@ def test_error_body_is_bounded_and_truncated_nopage_not_classified(tmp_path: Pat
     def opener(*args, **kwargs):
         raise http_error(body)
 
-    result = lookup("en", "term", opener=opener,
-                    retries=DictionaryRetries(tmp_path / "retry.json"))
+    result = lookup("en", "term", opener=opener, retries=DictionaryRetries(tmp_path / "retry.json"))
     assert result["status"] == "failed"
     assert result["error_body_truncated"] is True
     assert len(result["error_body"].encode()) <= 65536

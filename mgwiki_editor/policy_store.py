@@ -27,14 +27,18 @@ def identifier(value: str) -> str:
 
 
 def shape(value: dict, required: set[str], optional: set[str] = frozenset()) -> None:
-    if (not isinstance(value, dict) or not required <= value.keys()
-            or value.keys() - required - optional):
+    if (
+        not isinstance(value, dict)
+        or not required <= value.keys()
+        or value.keys() - required - optional
+    ):
         raise StateError("Unknown/missing operation fields.")
 
 
 def encode(value: Any) -> str:
-    return json.dumps(value, ensure_ascii=True, sort_keys=True,
-                      separators=(",", ":"), allow_nan=False)
+    return json.dumps(
+        value, ensure_ascii=True, sort_keys=True, separators=(",", ":"), allow_nan=False
+    )
 
 
 def fingerprint(value: Any) -> str:
@@ -47,7 +51,8 @@ class Transaction:
 
     def get(self, kind: str, key: str) -> dict | None:
         row = self.connection.execute(
-            "SELECT payload FROM records WHERE kind=? AND key=?", (kind, key),
+            "SELECT payload FROM records WHERE kind=? AND key=?",
+            (kind, key),
         ).fetchone()
         if row is None:
             return None
@@ -60,7 +65,8 @@ class Transaction:
         payload = encode(value)
         if new:
             self.connection.execute(
-                "INSERT INTO records(kind,key,payload) VALUES(?,?,?)", (kind, key, payload),
+                "INSERT INTO records(kind,key,payload) VALUES(?,?,?)",
+                (kind, key, payload),
             )
         else:
             self.connection.execute(
@@ -70,9 +76,13 @@ class Transaction:
             )
 
     def rows(self, kind: str) -> list[tuple[str, dict]]:
-        return [(row[0], json.loads(row[1])) for row in self.connection.execute(
-            "SELECT key,payload FROM records WHERE kind=? ORDER BY key", (kind,),
-        )]
+        return [
+            (row[0], json.loads(row[1]))
+            for row in self.connection.execute(
+                "SELECT key,payload FROM records WHERE kind=? ORDER BY key",
+                (kind,),
+            )
+        ]
 
     def event(self, at: float, kind: str, scope: str, payload: dict) -> int:
         if type(at) not in {int, float} or not math.isfinite(at) or at < 0:
@@ -154,10 +164,19 @@ class PolicyStore:
             if scope is not None:
                 query += " WHERE scope=?"
                 args = (scope,)
-            return [{"seq": row[0], "at": row[1], "kind": row[2], "scope": row[3],
-                     "payload": json.loads(row[4])} for row in tx.connection.execute(
-                         query + " ORDER BY seq", args,
-                     )]
+            return [
+                {
+                    "seq": row[0],
+                    "at": row[1],
+                    "kind": row[2],
+                    "scope": row[3],
+                    "payload": json.loads(row[4]),
+                }
+                for row in tx.connection.execute(
+                    query + " ORDER BY seq",
+                    args,
+                )
+            ]
 
     def verify(self) -> None:
         with self.transaction() as tx:

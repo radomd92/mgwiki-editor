@@ -31,9 +31,13 @@ class MemoryWiki:
 
     def put(self, language, title, text, revision):
         self.pages[language, title] = {
-            "language": language, "title": title, "requested_title": title,
-            "revision_id": revision, "timestamp": "2026-11-03T10:00:00Z" if revision else None,
-            "text": text, "sha256": core.digest(text.encode()),
+            "language": language,
+            "title": title,
+            "requested_title": title,
+            "revision_id": revision,
+            "timestamp": "2026-11-03T10:00:00Z" if revision else None,
+            "text": text,
+            "sha256": core.digest(text.encode()),
             "url": f"https://{language}.wikipedia.org/w/index.php?oldid={revision}",
         }
 
@@ -67,14 +71,32 @@ def rig(tmp_path, monkeypatch):
     store.create()
     now = [1000.0]
     wiki = MemoryWiki()
+
     def advance(seconds):
         now[0] += seconds
-    gate = RequestGate(tmp_path / "gate.json", clock=lambda: now[0], sleep=advance,
-                       monotonic=lambda: now[0], jitter=lambda *a: 0)
-    gateway = Gateway(tmp_path, store, wiki=wiki, clock=lambda: now[0], monotonic=lambda: now[0],
-                      boot="test-boot", gate=gate)
-    manifest = {"intent": "sandbox_edit", "source_language": "en",
-                "source_title": "Water", "article_title": "Rano"}
+
+    gate = RequestGate(
+        tmp_path / "gate.json",
+        clock=lambda: now[0],
+        sleep=advance,
+        monotonic=lambda: now[0],
+        jitter=lambda *a: 0,
+    )
+    gateway = Gateway(
+        tmp_path,
+        store,
+        wiki=wiki,
+        clock=lambda: now[0],
+        monotonic=lambda: now[0],
+        boot="test-boot",
+        gate=gate,
+    )
+    manifest = {
+        "intent": "sandbox_edit",
+        "source_language": "en",
+        "source_title": "Water",
+        "article_title": "Rano",
+    }
     token = gateway.provision("water", manifest, expires_at=5000)
     return gateway, store, wiki, token, now
 
@@ -90,14 +112,22 @@ def assembled(rig):
     dispatch(rig, "plan")
     sections = dispatch(rig, "status")["sections"]
     for section in sections:
-        child = dispatch(rig, "assign", role=Role.SECTION_WORKER.value,
-                         id=section["id"])["capability"]
-        fragment = ("'''Rano''' dia ranoka.\n" if section["id"].startswith("00-") else
-                    "== Tantara ==\nMisy tantara izy io.\n")
-        for name, content in (("section.wiki", fragment), ("notes.wiki", "Coverage checked.\n"),
-                              ("vocabulary.json", "[]")):
-            gateway.dispatch(child, "submit", {"name": f"sections/{section['id']}/{name}",
-                                                "content": content})
+        child = dispatch(rig, "assign", role=Role.SECTION_WORKER.value, id=section["id"])[
+            "capability"
+        ]
+        fragment = (
+            "'''Rano''' dia ranoka.\n"
+            if section["id"].startswith("00-")
+            else "== Tantara ==\nMisy tantara izy io.\n"
+        )
+        for name, content in (
+            ("section.wiki", fragment),
+            ("notes.wiki", "Coverage checked.\n"),
+            ("vocabulary.json", "[]"),
+        ):
+            gateway.dispatch(
+                child, "submit", {"name": f"sections/{section['id']}/{name}", "content": content}
+            )
         dispatch(rig, "accept-section", id=section["id"], note="Compared section evidence.")
     dispatch(rig, "assemble")
     return sections
@@ -105,16 +135,24 @@ def assembled(rig):
 
 def reviewed(rig):
     assembled(rig)
-    dispatch(rig, "review", gates=dict.fromkeys(core.GATES, True),
-             note="Actual autonomous checks in this fake fixture, not semantic proof.",
-             evidence=["source.wiki", "existing.wiki", "sandbox.wiki", "draft.wiki", "notes.wiki"])
+    dispatch(
+        rig,
+        "review",
+        gates=dict.fromkeys(core.GATES, True),
+        note="Actual autonomous checks in this fake fixture, not semantic proof.",
+        evidence=["source.wiki", "existing.wiki", "sandbox.wiki", "draft.wiki", "notes.wiki"],
+    )
 
 
 def prepared(rig):
     reviewed(rig)
     proposal = dispatch(rig, "prepare")
-    dispatch(rig, "attest-proposal", digest=proposal["digest"],
-             note="Inspected fake raw wikitext, preview, diff and references.")
+    dispatch(
+        rig,
+        "attest-proposal",
+        digest=proposal["digest"],
+        note="Inspected fake raw wikitext, preview, diff and references.",
+    )
     return proposal
 
 
@@ -123,9 +161,11 @@ def test_template_info_and_pinned_source_expansion_have_broker_provenance(rig):
     wiki.put("en", "Water", "{{flag|Example}}\n", 11)
     wiki.template_metadata = lambda titles: {"language": "mg", "titles": titles}
     calls = []
+
     def expand(language, title, text):
         calls.append((language, title, text))
         return {"expandtemplates": {"wikitext": "[[File:Exact.svg]]"}}
+
     wiki.expand_template = expand
     dispatch(rig, "init")
     metadata = dispatch(rig, "template-info", titles=["Template:Flag"])
@@ -168,11 +208,17 @@ def test_new_checks_reject_workers_and_render_rejects_incomplete_scope(rig):
         dispatch(rig, "render-check")
     dispatch(rig, "plan")
     section = dispatch(rig, "status")["sections"][0]
-    child = dispatch(rig, "assign", role=Role.SECTION_WORKER.value,
-                     id=section["id"])["capability"]
+    child = dispatch(rig, "assign", role=Role.SECTION_WORKER.value, id=section["id"])["capability"]
     count = len(wiki.calls)
-    for command in ("render-check", "template-info", "source-expand", "citation-audit",
-                    "metadata-audit", "license-evidence", "license-report"):
+    for command in (
+        "render-check",
+        "template-info",
+        "source-expand",
+        "citation-audit",
+        "metadata-audit",
+        "license-evidence",
+        "license-report",
+    ):
         with pytest.raises(StateError, match="Coordinator"):
             gateway.dispatch(child, command, {})
     assert len(wiki.calls) == count
@@ -187,14 +233,35 @@ def test_frozen_metadata_check_is_denied_before_request(rig):
 
 def test_live_license_capsule_has_journal_provenance_not_automatic_rights_approval(rig):
     gateway, store, wiki, _, _ = rig
-    data = {"query": {"pages": [{"ns": 6, "title": "File:Exact.svg", "imagerepository": "shared",
-        "imageinfo": [{"timestamp": "2026-11-10T00:00:00Z", "sha1": "a" * 40,
-            "extmetadata": {"LicenseUrl": {"value": "https://creativecommons.org/licenses/by/4.0/"},
-                            "Artist": {"value": "Author"}}}]}]}}
+    data = {
+        "query": {
+            "pages": [
+                {
+                    "ns": 6,
+                    "title": "File:Exact.svg",
+                    "imagerepository": "shared",
+                    "imageinfo": [
+                        {
+                            "timestamp": "2026-11-10T00:00:00Z",
+                            "sha1": "a" * 40,
+                            "extmetadata": {
+                                "LicenseUrl": {
+                                    "value": "https://creativecommons.org/licenses/by/4.0/"
+                                },
+                                "Artist": {"value": "Author"},
+                            },
+                        }
+                    ],
+                }
+            ]
+        }
+    }
     calls = []
+
     def file_metadata(filename):
         calls.append(filename)
         return copy.deepcopy(data)
+
     wiki.file_metadata = file_metadata
     dispatch(rig, "init")
     captured = dispatch(rig, "license-evidence", filename="Exact.svg")
@@ -202,22 +269,25 @@ def test_live_license_capsule_has_journal_provenance_not_automatic_rights_approv
     assert captured["result"]["origin"] == "broker_image_info_read"
     assert not captured["result"]["license_approved"]
     assert store.get("evidence", "water/" + captured["evidence_file"])["kind"] == "license-evidence"
-    cached = dispatch(rig, "license-report", evidence=captured["evidence_file"],
-                      filename="Exact.svg")
+    cached = dispatch(
+        rig, "license-report", evidence=captured["evidence_file"], filename="Exact.svg"
+    )
     assert cached["result"]["origin"] == "broker_pinned_file_metadata"
     assert calls == ["Exact.svg"] and not wiki.saves
     path = Path("runs/water") / captured["evidence_file"]
     changed = json.loads(path.read_bytes())
     changed["unreviewed_change"] = True
     path.write_bytes(core.json_bytes(changed))
-    cached = dispatch(rig, "license-report", evidence=captured["evidence_file"],
-                      filename="Exact.svg")
+    cached = dispatch(
+        rig, "license-report", evidence=captured["evidence_file"], filename="Exact.svg"
+    )
     assert cached["result"]["origin"] == "unverified_cached_input"
     assert not cached["result"]["license_approved"]
 
 
 def test_activation_authenticates_existing_local_broker_scope_without_any_wiki_call(
-    tmp_path, monkeypatch,
+    tmp_path,
+    monkeypatch,
 ):
     from mgwiki_editor.activation import activate
 
@@ -231,15 +301,26 @@ def test_activation_authenticates_existing_local_broker_scope_without_any_wiki_c
     store.create()
     wiki = MemoryWiki()
     gateway = Gateway(workspace, store, wiki=wiki, clock=lambda: 1000, boot="fake-boot")
-    manifest = {"intent": "development", "source_language": "en", "source_title": "Water",
-                "article_title": "Rano"}
+    manifest = {
+        "intent": "development",
+        "source_language": "en",
+        "source_title": "Water",
+        "article_title": "Rano",
+    }
     token = gateway.provision("fixture", manifest, expires_at=5000)
     secure_files.write(private, "fixture.cap", token.encode())
     socket_path = private / "socket"
-    spec = {"work": str(work), "code": str(runtime), "socket": str(socket_path),
-            "capability_file": str(private / "fixture.cap"), "private_roots": [str(private)],
-            "executable": ["/usr/bin/true"], "run": "fixture", "manifest": manifest,
-            "tool_scope": "whole_tool_process"}
+    spec = {
+        "work": str(work),
+        "code": str(runtime),
+        "socket": str(socket_path),
+        "capability_file": str(private / "fixture.cap"),
+        "private_roots": [str(private)],
+        "executable": ["/usr/bin/true"],
+        "run": "fixture",
+        "manifest": manifest,
+        "tool_scope": "whole_tool_process",
+    }
     secure_files.write(private, "activation.json", core.json_bytes(spec))
     with Broker(socket_path, gateway) as server:
         worker = threading.Thread(target=server.handle_request)
@@ -273,19 +354,40 @@ def test_complete_manifest_sections_review_proposal_save_and_readback(rig):
 
 def test_source_issues_remain_nonblocking_but_unknown_meaning_blocks(rig):
     assembled(rig)
-    dispatch(rig, "record-issue", id="SRC-1", kind="source", blocking=False,
-             details="Pinned source claims conflict: first claim [ref1], second claim [ref2].",
-             claims=[{"claim": "first claim", "citation": "ref1"},
-                     {"claim": "second claim", "citation": "ref2"}],
-             handling="Retain both accounts with attribution/uncertainty.",
-             next_action="Later review; retain attribution/uncertainty.", evidence=["source.wiki"])
-    dispatch(rig, "review", gates=dict.fromkeys(core.GATES, True), note="Accounts faithful.",
-             evidence=["source.wiki", "source-issues.md", "draft.wiki"])
+    dispatch(
+        rig,
+        "record-issue",
+        id="SRC-1",
+        kind="source",
+        blocking=False,
+        details="Pinned source claims conflict: first claim [ref1], second claim [ref2].",
+        claims=[
+            {"claim": "first claim", "citation": "ref1"},
+            {"claim": "second claim", "citation": "ref2"},
+        ],
+        handling="Retain both accounts with attribution/uncertainty.",
+        next_action="Later review; retain attribution/uncertainty.",
+        evidence=["source.wiki"],
+    )
+    dispatch(
+        rig,
+        "review",
+        gates=dict.fromkeys(core.GATES, True),
+        note="Accounts faithful.",
+        evidence=["source.wiki", "source-issues.md", "draft.wiki"],
+    )
     assert dispatch(rig, "prepare")["digest"]
     # New material issue after preparation cannot be hidden in immutable proposal snapshot.
-    dispatch(rig, "record-issue", id="MEANING-1", kind="meaning", blocking=True,
-             details="Material meaning unknown.", next_action="Resolve from pinned evidence.",
-             evidence=["source.wiki"])
+    dispatch(
+        rig,
+        "record-issue",
+        id="MEANING-1",
+        kind="meaning",
+        blocking=True,
+        details="Material meaning unknown.",
+        next_action="Resolve from pinned evidence.",
+        evidence=["source.wiki"],
+    )
     with pytest.raises(PolicyBlocked):
         dispatch(rig, "publish")
     assert not rig[2].saves
@@ -299,8 +401,15 @@ def test_trusted_nonpublishing_intent_cannot_be_promoted_by_editable_inputs(rig,
         state["intent"] = intent
         tx.put("runs", "water", state)
     prepared(rig)
-    response = handle(gateway, {"schema": 1, "capability": rig[3], "command": "publish",
-                                "arguments": {"intent": "sandbox_edit"}})
+    response = handle(
+        gateway,
+        {
+            "schema": 1,
+            "capability": rig[3],
+            "command": "publish",
+            "arguments": {"intent": "sandbox_edit"},
+        },
+    )
     assert response["ok"] is False
     with pytest.raises(PolicyBlocked):
         dispatch(rig, "publish")
@@ -328,8 +437,13 @@ def test_changed_input_invalidates_review_and_never_sets_gate_automatically(rig)
     reviewed(rig)
     path = Path("runs/water/draft.wiki")
     old = core.digest(path.read_bytes())
-    dispatch(rig, "submit", name="draft.wiki", content="'''Rano''' dia ranoka hafa.\n",
-             expected_sha256=old)
+    dispatch(
+        rig,
+        "submit",
+        name="draft.wiki",
+        content="'''Rano''' dia ranoka hafa.\n",
+        expected_sha256=old,
+    )
     assert dispatch(rig, "status")["stage"] == "assembled"
     with pytest.raises(PolicyBlocked):
         dispatch(rig, "prepare")
@@ -343,8 +457,15 @@ def test_uncertain_save_cannot_replay_even_after_receipt_deleted_but_can_reconci
     with pytest.raises(OSError):
         dispatch(rig, "publish")
     Path("runs/water/receipt.json").unlink()  # Simulated attack outside isolated deployment.
-    restarted = Gateway(gateway.workspace, store, wiki=wiki, clock=lambda: now[0],
-                        monotonic=lambda: now[0], boot="test-boot", gate=gateway.gate)
+    restarted = Gateway(
+        gateway.workspace,
+        store,
+        wiki=wiki,
+        clock=lambda: now[0],
+        monotonic=lambda: now[0],
+        boot="test-boot",
+        gate=gateway.gate,
+    )
     with pytest.raises(PolicyBlocked):
         restarted.dispatch(token, "publish", {})
     assert len(wiki.saves) == 1
@@ -383,13 +504,25 @@ def test_worker_capability_bound_to_exact_assignment_no_shared_writes_or_remote_
     sections = dispatch(rig, "status")["sections"]
     assigned = sections[0]["id"]
     child = dispatch(rig, "assign", role="section_worker", id=assigned)["capability"]
-    forbidden = ["draft.wiki", "review.json", "job.json", "../outside",
-                 f"sections/{sections[1]['id']}/section.wiki", f"sections/{assigned}/source.wiki"]
+    forbidden = [
+        "draft.wiki",
+        "review.json",
+        "job.json",
+        "../outside",
+        f"sections/{sections[1]['id']}/section.wiki",
+        f"sections/{assigned}/source.wiki",
+    ]
     for name in forbidden:
         with pytest.raises(StateError):
             gateway.dispatch(child, "submit", {"name": name, "content": "changed"})
     for action in (
-        "read", "lookup", "accept-section", "assign", "publish", "review", "record-issue",
+        "read",
+        "lookup",
+        "accept-section",
+        "assign",
+        "publish",
+        "review",
+        "record-issue",
     ):
         with pytest.raises(StateError, match="Coordinator"):
             gateway.dispatch(child, action, {})
@@ -401,17 +534,35 @@ def test_worker_capability_bound_to_exact_assignment_no_shared_writes_or_remote_
 def test_issue_solver_proposal_requires_coordinator_acceptance_and_local_evidence(rig):
     gateway = rig[0]
     dispatch(rig, "init")
-    dispatch(rig, "record-issue", id="ISSUE-1", kind="meaning", blocking=True,
-             details="Sense unresolved.", next_action="Review local source context.",
-             evidence=["source.wiki"])
+    dispatch(
+        rig,
+        "record-issue",
+        id="ISSUE-1",
+        kind="meaning",
+        blocking=True,
+        details="Sense unresolved.",
+        next_action="Review local source context.",
+        evidence=["source.wiki"],
+    )
     child = dispatch(rig, "assign", role="issue_solver", id="ISSUE-1")["capability"]
-    gateway.dispatch(child, "submit", {"name": "issue-resolutions/ISSUE-1.md",
-                                       "content": "Pinned context supports descriptive wording.\n"})
+    gateway.dispatch(
+        child,
+        "submit",
+        {
+            "name": "issue-resolutions/ISSUE-1.md",
+            "content": "Pinned context supports descriptive wording.\n",
+        },
+    )
     assert gateway.issues.blockers("water") == ("ISSUE-1",)
     with pytest.raises(StateError, match="Coordinator"):
         gateway.dispatch(child, "accept-issue", {})
-    dispatch(rig, "accept-issue", id="ISSUE-1", note="Context/evidence reviewed; wording resolved.",
-             evidence=["source.wiki"])
+    dispatch(
+        rig,
+        "accept-issue",
+        id="ISSUE-1",
+        note="Context/evidence reviewed; wording resolved.",
+        evidence=["source.wiki"],
+    )
     assert gateway.issues.blockers("water") == ()
     assert dispatch(rig, "status")["stage"] != "reviewed"
     memo = Path("runs/water/deferred-issues.md").read_text()
@@ -421,8 +572,9 @@ def test_issue_solver_proposal_requires_coordinator_acceptance_and_local_evidenc
 def test_no_admin_raw_http_shell_or_cross_run_surface_and_expiry(rig):
     gateway, _, wiki, token, now = rig
     for action in ("provision", "create", "execute", "eval", "http", "delete", "move"):
-        response = handle(gateway, {"schema": 1, "capability": token, "command": action,
-                                    "arguments": {}})
+        response = handle(
+            gateway, {"schema": 1, "capability": token, "command": action, "arguments": {}}
+        )
         assert response["ok"] is False
     assert not wiki.calls
     with pytest.raises(StateError):
@@ -434,8 +586,10 @@ def test_no_admin_raw_http_shell_or_cross_run_surface_and_expiry(rig):
 
 def test_existing_jobs_never_adopted_and_failed_init_keeps_separate_memo(rig, monkeypatch):
     gateway, _, wiki, _, _ = rig
+
     def failed(*args, **kwargs):
         raise OSError("fake source outage")
+
     monkeypatch.setattr(wiki, "snapshot", failed)
     with pytest.raises(OSError):
         dispatch(rig, "init")
@@ -463,10 +617,12 @@ def test_real_fake_transport_probes_skip_26_and_alert_without_counting_probes(ri
     gateway, store, _, _, now = rig
     dispatch(rig, "init")
     calls = []
+
     class Restarting:
         def open(self, request, timeout):
             calls.append(request.full_url)
             raise HTTPError(request.full_url, 502, "restart", {}, io.BytesIO(b"service restarting"))
+
     monkeypatch.setattr(network, "build_opener", lambda *a: Restarting())
     # Uses real guarded dictionary adapter with fake urllib; no sockets/external services.
     first = dispatch(rig, "lookup", edition="en", word="term-0")
@@ -475,8 +631,11 @@ def test_real_fake_transport_probes_skip_26_and_alert_without_counting_probes(ri
         with pytest.raises(PolicyBlocked):
             dispatch(rig, "lookup", edition="en", word=f"term-{number}")
     with store.transaction() as tx:
-        tasks = [value["id"] for _, value in tx.rows("tasks")
-                 if value["service"].startswith("dictionary:")]
+        tasks = [
+            value["id"]
+            for _, value in tx.rows("tasks")
+            if value["service"].startswith("dictionary:")
+        ]
     assert len(tasks) == 26 and len(calls) == 1
     now[0] = 1600
     probe = dispatch(rig, "service-probe", service="dictionary")
@@ -492,8 +651,16 @@ def test_real_fake_transport_probes_skip_26_and_alert_without_counting_probes(ri
     memo = Path("runs/water/deferred-issues.md").read_text()
     assert "http_observation" in memo and "tasks_skipped" in memo
     with store.transaction() as tx:
-        assert len([value for _, value in tx.rows("tasks")
-                    if value["service"].startswith("dictionary:")]) == 26
+        assert (
+            len(
+                [
+                    value
+                    for _, value in tx.rows("tasks")
+                    if value["service"].startswith("dictionary:")
+                ]
+            )
+            == 26
+        )
 
 
 def test_offline_worker_proxy_import_enforces_child_scope(rig):
@@ -501,13 +668,19 @@ def test_offline_worker_proxy_import_enforces_child_scope(rig):
     dispatch(rig, "plan")
     ident = dispatch(rig, "status")["sections"][0]["id"]
     child = dispatch(rig, "assign", role="section_worker", id=ident)["capability"]
-    dispatch(rig, "submit-assigned", worker_capability=child,
-             name=f"sections/{ident}/section.wiki", content="'''Rano''' dia ranoka.\n")
+    dispatch(
+        rig,
+        "submit-assigned",
+        worker_capability=child,
+        name=f"sections/{ident}/section.wiki",
+        content="'''Rano''' dia ranoka.\n",
+    )
     with pytest.raises(StateError):
-        dispatch(rig, "submit-assigned", worker_capability=child,
-                 name="review.json", content="{}")
-    assert any(event["kind"] == "worker_artifact_imported_by_coordinator"
-               for event in rig[1].events("water"))
+        dispatch(rig, "submit-assigned", worker_capability=child, name="review.json", content="{}")
+    assert any(
+        event["kind"] == "worker_artifact_imported_by_coordinator"
+        for event in rig[1].events("water")
+    )
 
 
 def test_artifact_chunks_preserve_exact_bytes_and_report_coverage(rig):
@@ -535,7 +708,8 @@ def test_resume_cannot_replay_writes_or_invent_tasks(rig):
 
 def test_lookup_intake_evidence_is_pinned_without_fabricating_job_then_inherited(rig):
     rig[0].dictionary_opener = lambda *a, **k: io.BytesIO(
-        b'[{"language":"en","definitions":["sense"]}]')
+        b'[{"language":"en","definitions":["sense"]}]'
+    )
     result = dispatch(rig, "lookup", edition="en", word="water")
     path = Path(result["evidence_base"]) / result["evidence_file"]
     before = path.read_bytes()
@@ -547,46 +721,78 @@ def test_lookup_intake_evidence_is_pinned_without_fabricating_job_then_inherited
 
 
 def term_record(**updates):
-    record = {"source_term": "technical concept", "source_language": "en", "domain": "physics",
-              "source_sense": "Source-specific sense.", "english_definition": "A clear concept.",
-              "definition_origin": "editorial_simple_english",
-              "malagasy_definition": "Hevitra mazava.",
-              "chosen_expression": "hevitra", "reason": "Context reviewed; accurate description.",
-              "status": "descriptive", "evidence_files": ["source.wiki"]}
+    record = {
+        "source_term": "technical concept",
+        "source_language": "en",
+        "domain": "physics",
+        "source_sense": "Source-specific sense.",
+        "english_definition": "A clear concept.",
+        "definition_origin": "editorial_simple_english",
+        "malagasy_definition": "Hevitra mazava.",
+        "chosen_expression": "hevitra",
+        "reason": "Context reviewed; accurate description.",
+        "status": "descriptive",
+        "evidence_files": ["source.wiki"],
+    }
     return {**record, **updates}
 
 
 def set_vocabulary(rig, records):
     path = Path("runs/water/vocabulary.json")
-    dispatch(rig, "submit", name="vocabulary.json", content=json.dumps(records),
-             expected_sha256=core.digest(path.read_bytes()))
+    dispatch(
+        rig,
+        "submit",
+        name="vocabulary.json",
+        content=json.dumps(records),
+        expected_sha256=core.digest(path.read_bytes()),
+    )
 
 
 def test_failed_dictionary_never_blocks_accurate_reviewed_descriptive_vocabulary(rig):
     assembled(rig)
     set_vocabulary(rig, [term_record()])
-    dispatch(rig, "review", gates=dict.fromkeys(core.GATES, True), note="Definition checked.",
-             evidence=["source.wiki", "draft.wiki", "vocabulary.json"])
+    dispatch(
+        rig,
+        "review",
+        gates=dict.fromkeys(core.GATES, True),
+        note="Definition checked.",
+        evidence=["source.wiki", "draft.wiki", "vocabulary.json"],
+    )
     assert dispatch(rig, "prepare")["digest"]
 
 
-@pytest.mark.parametrize("record", [term_record(status="verified"),
-                                    term_record(definition_origin="dictionary"),
-                                    term_record(domain="mathematics")])
+@pytest.mark.parametrize(
+    "record",
+    [
+        term_record(status="verified"),
+        term_record(definition_origin="dictionary"),
+        term_record(domain="mathematics"),
+    ],
+)
 def test_no_fabricated_dictionary_verification_or_unsupported_math_lookup(rig, record):
     assembled(rig)
     set_vocabulary(rig, [record])
     with pytest.raises(StateError):
-        dispatch(rig, "review", gates=dict.fromkeys(core.GATES, True), note="Provenance missing.",
-                 evidence=["source.wiki"])
+        dispatch(
+            rig,
+            "review",
+            gates=dict.fromkeys(core.GATES, True),
+            note="Provenance missing.",
+            evidence=["source.wiki"],
+        )
 
 
 def test_101_uncertain_terms_generate_linked_memory_without_losing_definitions(rig):
     assembled(rig)
     records = [term_record(source_term=f"concept {index}") for index in range(101)]
     set_vocabulary(rig, records)
-    dispatch(rig, "review", gates=dict.fromkeys(core.GATES, True), note="All descriptions checked.",
-             evidence=["source.wiki", "vocabulary.json"])
+    dispatch(
+        rig,
+        "review",
+        gates=dict.fromkeys(core.GATES, True),
+        note="All descriptions checked.",
+        evidence=["source.wiki", "vocabulary.json"],
+    )
     memo = Path("runs/water/unknown-vocabulary.wiki").read_text()
     assert "concept 100" in memo and "Hevitra mazava." in memo
     updated = core.read_json(Path("runs/water/vocabulary.json"))
@@ -598,8 +804,13 @@ def test_101_uncertain_terms_generate_linked_memory_without_losing_definitions(r
 def test_changed_referenced_review_evidence_is_not_hidden_behind_snapshot_hash(rig):
     assembled(rig)
     dispatch(rig, "submit", name="evidence/review.txt", content="Original exact review evidence.")
-    dispatch(rig, "review", gates=dict.fromkeys(core.GATES, True), note="Evidence inspected.",
-             evidence=["source.wiki", "evidence/review.txt"])
+    dispatch(
+        rig,
+        "review",
+        gates=dict.fromkeys(core.GATES, True),
+        note="Evidence inspected.",
+        evidence=["source.wiki", "evidence/review.txt"],
+    )
     path = Path("runs/water/evidence/review.txt")
     path.write_text("Simulated tampering outside broker isolation.")
     with pytest.raises(PolicyBlocked):
@@ -610,14 +821,27 @@ def test_changed_referenced_review_evidence_is_not_hidden_behind_snapshot_hash(r
 def test_after_publication_issue_solver_can_work_later_without_reopening_save(rig):
     prepared(rig)
     dispatch(rig, "publish")
-    dispatch(rig, "record-issue", id="LATER-1", kind="vocabulary_preference", blocking=False,
-             details="Later terminology review.", next_action="Compare pinned context.",
-             evidence=["source.wiki"])
+    dispatch(
+        rig,
+        "record-issue",
+        id="LATER-1",
+        kind="vocabulary_preference",
+        blocking=False,
+        details="Later terminology review.",
+        next_action="Compare pinned context.",
+        evidence=["source.wiki"],
+    )
     child = dispatch(rig, "assign", role="issue_solver", id="LATER-1")["capability"]
-    rig[0].dispatch(child, "submit", {"name": "issue-resolutions/LATER-1.md",
-                                      "content": "Proposal only.\n"})
-    dispatch(rig, "accept-issue", id="LATER-1", note="Context confirmed; no automatic edit.",
-             evidence=["source.wiki"])
+    rig[0].dispatch(
+        child, "submit", {"name": "issue-resolutions/LATER-1.md", "content": "Proposal only.\n"}
+    )
+    dispatch(
+        rig,
+        "accept-issue",
+        id="LATER-1",
+        note="Context confirmed; no automatic edit.",
+        evidence=["source.wiki"],
+    )
     assert dispatch(rig, "status")["stage"] == "confirmed"
     assert len(rig[2].saves) == 1
     with pytest.raises(PolicyBlocked):
@@ -627,8 +851,13 @@ def test_after_publication_issue_solver_can_work_later_without_reopening_save(ri
 def test_artifact_versions_retained_and_scoped_and_renewal_never_changes_intent(rig):
     dispatch(rig, "init")
     old = dispatch(rig, "artifact", name="notes.wiki")
-    dispatch(rig, "submit", name="notes.wiki", content="Updated notes.\nSecond line.\n",
-             expected_sha256=old["sha256"])
+    dispatch(
+        rig,
+        "submit",
+        name="notes.wiki",
+        content="Updated notes.\nSecond line.\n",
+        expected_sha256=old["sha256"],
+    )
     archived = dispatch(rig, "artifact-history", name="notes.wiki", sha256=old["sha256"])
     assert archived["content"] == old["content"]
     with pytest.raises(StateError):
@@ -644,11 +873,21 @@ def test_source_image_omission_cannot_be_hidden_by_true_review_booleans(rig):
     rig[2].put("en", "Water", "Source.\n[[File:Example.jpg|Original caption.]]\n", 11)
     assembled(rig)
     with pytest.raises(StateError, match="omissions"):
-        dispatch(rig, "review", gates=dict.fromkeys(core.GATES, True), note="Image omitted.",
-                 evidence=["source.wiki"])
-    dispatch(rig, "review", gates=dict.fromkeys(core.GATES, True), note="Scope/license checked.",
-             evidence=["source.wiki"],
-             omissions={"images": {"Example.jpg": "Fake unavailable-file evidence."}})
+        dispatch(
+            rig,
+            "review",
+            gates=dict.fromkeys(core.GATES, True),
+            note="Image omitted.",
+            evidence=["source.wiki"],
+        )
+    dispatch(
+        rig,
+        "review",
+        gates=dict.fromkeys(core.GATES, True),
+        note="Scope/license checked.",
+        evidence=["source.wiki"],
+        omissions={"images": {"Example.jpg": "Fake unavailable-file evidence."}},
+    )
     assert dispatch(rig, "prepare")["digest"]
 
 
@@ -656,90 +895,171 @@ def test_unverified_new_category_rejected_and_existing_category_preserved(rig):
     rig[2].put("mg", "Rano", "Existing.\n[[Sokajy:Rano|Sort key]]\n", 7)
     assembled(rig)
     with pytest.raises(StateError, match="category"):
-        dispatch(rig, "review", gates=dict.fromkeys(core.GATES, True), note="Category dropped.",
-                 evidence=["existing.wiki"])
+        dispatch(
+            rig,
+            "review",
+            gates=dict.fromkeys(core.GATES, True),
+            note="Category dropped.",
+            evidence=["existing.wiki"],
+        )
     old = dispatch(rig, "artifact", name="draft.wiki")
-    dispatch(rig, "submit", name="draft.wiki", expected_sha256=old["sha256"],
-             content=old["content"] + "\n[[Sokajy:Rano|Sort key]]\n[[Sokajy:Guessed]]\n")
+    dispatch(
+        rig,
+        "submit",
+        name="draft.wiki",
+        expected_sha256=old["sha256"],
+        content=old["content"] + "\n[[Sokajy:Rano|Sort key]]\n[[Sokajy:Guessed]]\n",
+    )
     with pytest.raises(StateError, match="categories"):
-        dispatch(rig, "review", gates=dict.fromkeys(core.GATES, True), note="Unverified addition.",
-                 evidence=["existing.wiki"])
+        dispatch(
+            rig,
+            "review",
+            gates=dict.fromkeys(core.GATES, True),
+            note="Unverified addition.",
+            evidence=["existing.wiki"],
+        )
 
 
 def test_verified_category_allows_addition_and_preserves_existing(rig, monkeypatch):
     rig[2].put("mg", "Rano", "Existing.\n[[Sokajy:Rano|Sort key]]\n", 7)
     assembled(rig)
-    metadata = {"language": "mg", "requested_to_canonical": {"Sokajy:Ranoka": "Sokajy:Ranoka"},
-                "response": {"query": {"pages": [{"ns": 14, "title": "Sokajy:Ranoka"}]}}}
+    metadata = {
+        "language": "mg",
+        "requested_to_canonical": {"Sokajy:Ranoka": "Sokajy:Ranoka"},
+        "response": {"query": {"pages": [{"ns": 14, "title": "Sokajy:Ranoka"}]}},
+    }
     monkeypatch.setattr(rig[2], "category_metadata", lambda titles: metadata, raising=False)
     evidence = dispatch(rig, "category-info", titles=["Sokajy:Ranoka"])["evidence_file"]
     old = dispatch(rig, "artifact", name="draft.wiki")
-    dispatch(rig, "submit", name="draft.wiki", expected_sha256=old["sha256"],
-             content=old["content"] + "\n[[Sokajy:Rano|Sort key]]\n[[Sokajy:Ranoka]]\n")
-    dispatch(rig, "review", gates=dict.fromkeys(core.GATES, True), note="Categories checked.",
-             evidence=["existing.wiki"], category_evidence=[evidence])
+    dispatch(
+        rig,
+        "submit",
+        name="draft.wiki",
+        expected_sha256=old["sha256"],
+        content=old["content"] + "\n[[Sokajy:Rano|Sort key]]\n[[Sokajy:Ranoka]]\n",
+    )
+    dispatch(
+        rig,
+        "review",
+        gates=dict.fromkeys(core.GATES, True),
+        note="Categories checked.",
+        evidence=["existing.wiki"],
+        category_evidence=[evidence],
+    )
     assert evidence in dispatch(rig, "prepare")["artifacts"]
 
 
 def test_uploaded_metadata_cannot_forge_category_provenance(rig):
     assembled(rig)
-    metadata = {"language": "mg", "requested_to_canonical": {"Sokajy:Guessed": "Sokajy:Guessed"},
-                "response": {"query": {"pages": [{"ns": 14, "title": "Sokajy:Guessed"}]}}}
+    metadata = {
+        "language": "mg",
+        "requested_to_canonical": {"Sokajy:Guessed": "Sokajy:Guessed"},
+        "response": {"query": {"pages": [{"ns": 14, "title": "Sokajy:Guessed"}]}},
+    }
     dispatch(rig, "submit", name="evidence/fake-category.json", content=json.dumps(metadata))
     old = dispatch(rig, "artifact", name="draft.wiki")
-    dispatch(rig, "submit", name="draft.wiki", expected_sha256=old["sha256"],
-             content=old["content"] + "\n[[:Sokajy:Guessed]]\n")
+    dispatch(
+        rig,
+        "submit",
+        name="draft.wiki",
+        expected_sha256=old["sha256"],
+        content=old["content"] + "\n[[:Sokajy:Guessed]]\n",
+    )
     with pytest.raises(StateError, match="genuine"):
-        dispatch(rig, "review", gates=dict.fromkeys(core.GATES, True), note="Forged metadata.",
-                 evidence=["source.wiki"], category_evidence=["evidence/fake-category.json"])
+        dispatch(
+            rig,
+            "review",
+            gates=dict.fromkeys(core.GATES, True),
+            note="Forged metadata.",
+            evidence=["source.wiki"],
+            category_evidence=["evidence/fake-category.json"],
+        )
 
 
 def test_genuine_dictionary_evidence_supports_verified_candidate_and_detects_tampering(rig):
     assembled(rig)
-    rig[0].dictionary_opener = lambda *a, **k: io.BytesIO(json.dumps([
-        {"language": "en", "definitions": ["A clear concept."]},
-        {"language": "mg", "definitions": ["Hevitra mazava."]},
-    ]).encode())
+    rig[0].dictionary_opener = lambda *a, **k: io.BytesIO(
+        json.dumps(
+            [
+                {"language": "en", "definitions": ["A clear concept."]},
+                {"language": "mg", "definitions": ["Hevitra mazava."]},
+            ]
+        ).encode()
+    )
     english = dispatch(rig, "lookup", edition="en", word="concept")["evidence_file"]
     malagasy = dispatch(rig, "lookup", edition="mg", word="hevitra")["evidence_file"]
-    record = term_record(source_term="concept", status="verified", definition_origin="dictionary",
-                         evidence_files=[english, malagasy])
+    record = term_record(
+        source_term="concept",
+        status="verified",
+        definition_origin="dictionary",
+        evidence_files=[english, malagasy],
+    )
     set_vocabulary(rig, [record])
-    dispatch(rig, "review", gates=dict.fromkeys(core.GATES, True), note="Both senses checked.",
-             evidence=["vocabulary.json"])
+    dispatch(
+        rig,
+        "review",
+        gates=dict.fromkeys(core.GATES, True),
+        note="Both senses checked.",
+        evidence=["vocabulary.json"],
+    )
     raw = dispatch(rig, "artifact", name=malagasy)
     dispatch(rig, "submit", name=malagasy, expected_sha256=raw["sha256"], content="{}")
     with pytest.raises(StateError, match="genuine"):
-        dispatch(rig, "review", gates=dict.fromkeys(core.GATES, True), note="Changed evidence.",
-                 evidence=["vocabulary.json"])
+        dispatch(
+            rig,
+            "review",
+            gates=dict.fromkeys(core.GATES, True),
+            note="Changed evidence.",
+            evidence=["vocabulary.json"],
+        )
 
 
 def test_uploaded_dictionary_reply_cannot_forge_verification(rig):
     assembled(rig)
-    dispatch(rig, "submit", name="evidence/fake-lookup.json",
-             content=json.dumps({"status": "found", "edition": "mg", "word": "hevitra"}))
-    set_vocabulary(rig, [term_record(status="verified",
-                                     evidence_files=["evidence/fake-lookup.json"])])
+    dispatch(
+        rig,
+        "submit",
+        name="evidence/fake-lookup.json",
+        content=json.dumps({"status": "found", "edition": "mg", "word": "hevitra"}),
+    )
+    set_vocabulary(
+        rig, [term_record(status="verified", evidence_files=["evidence/fake-lookup.json"])]
+    )
     with pytest.raises(StateError, match="genuine"):
-        dispatch(rig, "review", gates=dict.fromkeys(core.GATES, True), note="Forged lookup.",
-                 evidence=["vocabulary.json"])
+        dispatch(
+            rig,
+            "review",
+            gates=dict.fromkeys(core.GATES, True),
+            note="Forged lookup.",
+            evidence=["vocabulary.json"],
+        )
 
 
 def test_math_query_evidence_pins_database_hash_and_survives_reassembly(rig):
     rig[0].vocabulary_database = (
-        Path(__file__).resolve().parents[1] / "data/vocabulary/kajy-mathematics.sqlite")
+        Path(__file__).resolve().parents[1] / "data/vocabulary/kajy-mathematics.sqlite"
+    )
     assembled(rig)
     query = dispatch(rig, "vocab", word="équation", language="fr", exact=True)
     assert query["result"]["database_sha256"]
     assert query["result"]["entries"][0]["source_number"] == 102
-    record = term_record(source_term="equation", domain="mathematics",
-                         chosen_expression="fampimirana", evidence_files=[query["evidence_file"]])
+    record = term_record(
+        source_term="equation",
+        domain="mathematics",
+        chosen_expression="fampimirana",
+        evidence_files=[query["evidence_file"]],
+    )
     set_vocabulary(rig, [record])
     dispatch(rig, "assemble")
     saved = core.read_json(Path("runs/water/vocabulary.json"))
     assert saved[0]["chosen_expression"] == "fampimirana"
-    dispatch(rig, "review", gates=dict.fromkeys(core.GATES, True), note="Sense bridge checked.",
-             evidence=["vocabulary.json"])
+    dispatch(
+        rig,
+        "review",
+        gates=dict.fromkeys(core.GATES, True),
+        note="Sense bridge checked.",
+        evidence=["vocabulary.json"],
+    )
     assert query["evidence_file"] in dispatch(rig, "prepare")["artifacts"]
 
 
@@ -748,25 +1068,41 @@ def test_unicode_source_section_ids_and_explicit_local_only_section_workers(rig)
     rig[2].put("mg", "Rano", "== Fanampiny ==\nHevitra voatahiry.\n", 7)
     source_sections = assembled(rig)
     assert any("équation" in section["id"] for section in source_sections)
-    dispatch(rig, "plan-local", id="local-fanampiny", source="existing", start=1, end=2,
-             after=source_sections[0]["id"])
+    dispatch(
+        rig,
+        "plan-local",
+        id="local-fanampiny",
+        source="existing",
+        start=1,
+        end=2,
+        after=source_sections[0]["id"],
+    )
     child = dispatch(rig, "assign", role="section_worker", id="local-fanampiny")["capability"]
-    for filename, content in (("section.wiki", "== Fanampiny ==\nHevitra voatahiry.\n"),
-                              ("notes.wiki", "Sourced local contribution retained.\n"),
-                              ("vocabulary.json", "[]")):
-        rig[0].dispatch(child, "submit", {"name": "sections/local-fanampiny/" + filename,
-                                         "content": content})
+    for filename, content in (
+        ("section.wiki", "== Fanampiny ==\nHevitra voatahiry.\n"),
+        ("notes.wiki", "Sourced local contribution retained.\n"),
+        ("vocabulary.json", "[]"),
+    ):
+        rig[0].dispatch(
+            child, "submit", {"name": "sections/local-fanampiny/" + filename, "content": content}
+        )
     dispatch(rig, "accept-section", id="local-fanampiny", note="Local evidence reviewed.")
     dispatch(rig, "assemble")
     text = Path("runs/water/draft.wiki").read_text()
     assert text.index("Fanampiny") < text.index("Tantara")
-    dispatch(rig, "review", gates=dict.fromkeys(core.GATES, True), note="Source/local checked.",
-             evidence=["existing.wiki"])
+    dispatch(
+        rig,
+        "review",
+        gates=dict.fromkeys(core.GATES, True),
+        note="Source/local checked.",
+        evidence=["existing.wiki"],
+    )
     assert dispatch(rig, "prepare")["digest"]
 
 
 def test_isolated_worker_cannot_read_secrets_mutate_code_fetch_or_escape_assignment(
-    rig, tmp_path_factory,
+    rig,
+    tmp_path_factory,
 ):
     if shutil.which("bwrap") is None:
         pytest.skip("bubblewrap unavailable; hard-isolation guarantee not verified")
@@ -785,14 +1121,26 @@ def test_isolated_worker_cannot_read_secrets_mutate_code_fetch_or_escape_assignm
     package.mkdir(parents=True)
     work.mkdir()
     root = Path(__file__).resolve().parents[1]
-    for filename in ("__init__.py", "broker.py", "policy_store.py", "secure_files.py",
-                     "control.py", "isolation.py"):
+    for filename in (
+        "__init__.py",
+        "broker.py",
+        "policy_store.py",
+        "secure_files.py",
+        "control.py",
+        "isolation.py",
+    ):
         (package / filename).write_bytes((root / "mgwiki_editor" / filename).read_bytes())
-    entry = ("import sys,runpy;sys.path.insert(0," + repr(str(root)) + ");"
-             "runpy.run_module('mgwiki_editor.control',run_name='__main__')")
+    entry = (
+        "import sys,runpy;sys.path.insert(0," + repr(str(root)) + ");"
+        "runpy.run_module('mgwiki_editor.control',run_name='__main__')"
+    )
     launcher = [sys.executable, "-I", "-c", entry]
-    probe = subprocess.run(launcher + ["sandbox-check", "--work", str(work), "--code", str(code)],
-                           capture_output=True, timeout=15, check=False)
+    probe = subprocess.run(
+        launcher + ["sandbox-check", "--work", str(work), "--code", str(code)],
+        capture_output=True,
+        timeout=15,
+        check=False,
+    )
     assert probe.returncode == 0, probe.stderr.decode()
     result = json.loads(probe.stdout)
     if not result["available"]:
@@ -823,7 +1171,7 @@ assert not request('submit', {{'name':'sections/other/section.wiki','content':'e
 assert not request('lookup', {{'edition':'en','word':'secret'}})['ok']
 assert not request('publish', {{}})['ok']
 assert not request('provision', {{}})['ok']
-submitted = request('submit', {{'name':{f'sections/{ident}/section.wiki'!r},'content':'fixture'}})
+submitted = request('submit', {{'name':{f"sections/{ident}/section.wiki"!r},'content':'fixture'}})
 assert submitted['ok']
 print('isolated-gateway-adversarial-ok')
 """
@@ -831,12 +1179,30 @@ print('isolated-gateway-adversarial-ok')
         worker = threading.Thread(target=server.serve_forever)
         worker.start()
         try:
-            result = subprocess.run(launcher + [
-                "sandbox-run", "--work", str(work), "--code", str(code),
-                "--socket", str(socket_path), "--capability-file", str(capfile),
-                "--private-root", str(gateway.workspace), "--",
-                "/usr/bin/python3", "-I", "-c", script,
-            ], capture_output=True, timeout=30, check=False)
+            result = subprocess.run(
+                launcher
+                + [
+                    "sandbox-run",
+                    "--work",
+                    str(work),
+                    "--code",
+                    str(code),
+                    "--socket",
+                    str(socket_path),
+                    "--capability-file",
+                    str(capfile),
+                    "--private-root",
+                    str(gateway.workspace),
+                    "--",
+                    "/usr/bin/python3",
+                    "-I",
+                    "-c",
+                    script,
+                ],
+                capture_output=True,
+                timeout=30,
+                check=False,
+            )
         finally:
             server.shutdown()
             worker.join(timeout=2)

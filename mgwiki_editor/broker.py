@@ -19,19 +19,49 @@ if TYPE_CHECKING:
 
 MAX_MESSAGE = 6_000_000
 COMMANDS = (
-    "status", "init", "artifact", "submit", "read", "lookup", "countries", "service-probe",
-    "plan", "assign",
-    "revoke-assignment", "accept-section", "assemble", "record-issue", "accept-issue", "review",
-    "prepare", "attest-proposal", "publish", "reconcile", "task-depend", "skip", "ack-alert",
-    "vocab", "vocab-audit", "coverage", "links-build", "dictionary-index", "vocabulary-report",
-    "links-query", "image-info",
+    "status",
+    "init",
+    "artifact",
+    "submit",
+    "read",
+    "lookup",
+    "countries",
+    "service-probe",
+    "plan",
+    "assign",
+    "revoke-assignment",
+    "accept-section",
+    "assemble",
+    "record-issue",
+    "accept-issue",
+    "review",
+    "prepare",
+    "attest-proposal",
+    "publish",
+    "reconcile",
+    "task-depend",
+    "skip",
+    "ack-alert",
+    "vocab",
+    "vocab-audit",
+    "coverage",
+    "links-build",
+    "dictionary-index",
+    "vocabulary-report",
+    "links-query",
+    "image-info",
     "submit-assigned",
     "resume",
     "artifact-history",
     "category-info",
     "plan-local",
-    "template-info", "source-expand", "render-check", "citation-audit", "metadata-audit",
-    "license-evidence", "license-report",
+    "template-info",
+    "source-expand",
+    "render-check",
+    "citation-audit",
+    "metadata-audit",
+    "license-evidence",
+    "license-report",
 )
 
 
@@ -51,8 +81,10 @@ def loads(raw: str | bytes):
 
 
 def message(value: dict) -> bytes:
-    raw = json.dumps(value, ensure_ascii=True, allow_nan=False,
-                     separators=(",", ":")).encode() + b"\n"
+    raw = (
+        json.dumps(value, ensure_ascii=True, allow_nan=False, separators=(",", ":")).encode()
+        + b"\n"
+    )
     if len(raw) > MAX_MESSAGE:
         raise StateError("Protocol message too large; split artifact/evidence work.")
     return raw
@@ -66,14 +98,20 @@ def handle(gateway: Gateway, envelope: dict) -> dict:
             raise StateError("Unsupported broker protocol schema.")
         if envelope["command"] not in COMMANDS:
             raise StateError("Unknown broker command.")
-        return {"ok": True, **gateway.dispatch(envelope["capability"], envelope["command"],
-                                              envelope["arguments"])}
+        return {
+            "ok": True,
+            **gateway.dispatch(envelope["capability"], envelope["command"], envelope["arguments"]),
+        }
     except Exception as exc:
         # Never return arbitrary backend exceptions, tracebacks, request bodies, or tokens.
-        result = {"ok": False, "error": type(exc).__name__,
-                  "message": str(exc) if isinstance(exc, StateError) else
-                  "Operation failed; work/receipt retained. Inspect status, never replay saves.",
-                  "next_eligible_at": getattr(exc, "next_eligible_at", None)}
+        result = {
+            "ok": False,
+            "error": type(exc).__name__,
+            "message": str(exc)
+            if isinstance(exc, StateError)
+            else "Operation failed; work/receipt retained. Inspect status, never replay saves.",
+            "next_eligible_at": getattr(exc, "next_eligible_at", None),
+        }
         if isinstance(exc, StateError) and hasattr(exc, "decision"):
             result["decision"] = exc.decision
         try:
@@ -87,9 +125,14 @@ def handle(gateway: Gateway, envelope: dict) -> dict:
 class _Handler(socketserver.StreamRequestHandler):
     def handle(self) -> None:
         self.request.settimeout(20)
-        _, uid, _ = struct.unpack("3i", self.request.getsockopt(
-            socket.SOL_SOCKET, socket.SO_PEERCRED, struct.calcsize("3i"),
-        ))
+        _, uid, _ = struct.unpack(
+            "3i",
+            self.request.getsockopt(
+                socket.SOL_SOCKET,
+                socket.SO_PEERCRED,
+                struct.calcsize("3i"),
+            ),
+        )
         if uid != self.server.allowed_uid:
             self.wfile.write(message({"ok": False, "error": "PeerDenied"}))
             return

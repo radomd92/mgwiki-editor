@@ -48,9 +48,14 @@ def heading_ranges(source: str, level: int = 2) -> list[dict[str, Any]]:
         end = boundaries[index + 1][0] if index + 1 < len(boundaries) else len(source)
         # Heading boundaries occur at line starts; an empty source is rejected by caller.
         slug = re.sub(r"[^\w-]+", "-", heading.casefold()).strip("-")[:60] or "section"
-        ranges.append({"id": f"{index:02d}-{slug}", "heading": heading,
-                       "start": source[:start].count("\n") + 1,
-                       "end": source[:end].count("\n") + int(end > 0 and source[end-1] != "\n")})
+        ranges.append(
+            {
+                "id": f"{index:02d}-{slug}",
+                "heading": heading,
+                "start": source[:start].count("\n") + 1,
+                "end": source[:end].count("\n") + int(end > 0 and source[end - 1] != "\n"),
+            }
+        )
     return ranges
 
 
@@ -66,7 +71,7 @@ def group_ranges(source: str, ranges: list[dict[str, Any]], max_bytes: int) -> l
     if max_bytes == 0:
         return ranges
     lines = source.splitlines(keepends=True)
-    sizes = [len("".join(lines[row["start"] - 1:row["end"]]).encode("utf-8")) for row in ranges]
+    sizes = [len("".join(lines[row["start"] - 1 : row["end"]]).encode("utf-8")) for row in ranges]
     groups: list[dict[str, Any]] = []
     for row, size in zip(ranges, sizes, strict=True):
         previous = groups[-1] if groups else None
@@ -76,8 +81,9 @@ def group_ranges(source: str, ranges: list[dict[str, Any]], max_bytes: int) -> l
             previous["headings"].append(row["heading"])
             previous["merged_ids"].append(row["id"])
             continue
-        groups.append({**row, "group_bytes": size,
-                       "headings": [row["heading"]], "merged_ids": [row["id"]]})
+        groups.append(
+            {**row, "group_bytes": size, "headings": [row["heading"]], "merged_ids": [row["id"]]}
+        )
     return groups
 
 
@@ -92,9 +98,15 @@ def _ranges(source: str, ranges: Any) -> list[dict[str, Any]]:
         if not isinstance(row, dict):
             raise GuardError("Invalid section range.")
         ident, start, end = (row.get(key) for key in ("id", "start", "end"))
-        if (not isinstance(ident, str) or not re.fullmatch(r"[\w-]+", ident)
-                or ident in seen or type(start) is not int or type(end) is not int
-                or start != cursor or not start <= end <= count):
+        if (
+            not isinstance(ident, str)
+            or not re.fullmatch(r"[\w-]+", ident)
+            or ident in seen
+            or type(start) is not int
+            or type(end) is not int
+            or start != cursor
+            or not start <= end <= count
+        ):
             raise GuardError("Sections need unique safe IDs and contiguous inclusive line ranges.")
         seen.add(ident)
         cursor = end + 1
@@ -104,7 +116,10 @@ def _ranges(source: str, ranges: Any) -> list[dict[str, Any]]:
 
 
 def plan_sections(
-    job: Path, *, ranges: Path | None = None, level: int = 2,
+    job: Path,
+    *,
+    ranges: Path | None = None,
+    level: int = 2,
     group_max_bytes: int = 0,
 ) -> dict[str, Any]:
     """Create exclusive worker inputs and portable plan; leave all existing artifacts alone."""
@@ -125,10 +140,11 @@ def plan_sections(
         directory = f"sections/{row['id']}"
         if (job / directory).exists() or (job / directory).is_symlink():
             raise GuardError(f"Section directory exists; preserve it: {directory}")
-        fragment = "".join(lines[row["start"] - 1:row["end"]]).encode("utf-8")
+        fragment = "".join(lines[row["start"] - 1 : row["end"]]).encode("utf-8")
         outputs[job / directory / "source.wiki"] = fragment
-        plan.append({**row, "directory": directory, "source_sha256": digest(fragment),
-                     "status": "pending"})
+        plan.append(
+            {**row, "directory": directory, "source_sha256": digest(fragment), "status": "pending"}
+        )
     pinned = {"source.wiki": digest(source.encode("utf-8"))}
     for name in ("job.json", "existing.wiki", "sandbox.wiki"):
         if (job / name).is_file():
@@ -137,16 +153,25 @@ def plan_sections(
     outputs[job / "section-inputs.json"] = json_bytes({"schema": 1, "artifacts": pinned})
     outputs[job / "source-inventory.json"] = json_bytes(inventory(source))
     write_new(outputs)
-    return {"job": str(job), "sections": len(plan), "source_sections": headings,
-            "group_max_bytes": group_max_bytes, "status": "planned",
-            "editorial_review": "pending", "source_sha256": pinned["source.wiki"]}
+    return {
+        "job": str(job),
+        "sections": len(plan),
+        "source_sections": headings,
+        "group_max_bytes": group_max_bytes,
+        "status": "planned",
+        "editorial_review": "pending",
+        "source_sha256": pinned["source.wiki"],
+    }
 
 
 def _load_plan(job: Path) -> list[dict[str, Any]]:
     inputs = read_json(job / "section-inputs.json")
-    if (not isinstance(inputs, dict) or inputs.get("schema") != 1
-            or not isinstance(inputs.get("artifacts"), dict)
-            or "source.wiki" not in inputs["artifacts"]):
+    if (
+        not isinstance(inputs, dict)
+        or inputs.get("schema") != 1
+        or not isinstance(inputs.get("artifacts"), dict)
+        or "source.wiki" not in inputs["artifacts"]
+    ):
         raise GuardError("Invalid section input manifest; create a fresh plan.")
     for name, expected in inputs["artifacts"].items():
         if digest(evidence_path(job, name).read_bytes()) != expected:
@@ -157,7 +182,7 @@ def _load_plan(job: Path) -> list[dict[str, Any]]:
         if row.get("directory") != f"sections/{row['id']}":
             raise GuardError("Section directory must match its job-relative ID.")
         raw = evidence_path(job, row["directory"] + "/source.wiki").read_bytes()
-        expected = "".join(lines[row["start"] - 1:row["end"]]).encode("utf-8")
+        expected = "".join(lines[row["start"] - 1 : row["end"]]).encode("utf-8")
         if raw != expected or digest(raw) != row.get("source_sha256"):
             raise GuardError(f"Section source changed: {row['id']}")
         if row.get("status") in {"blocked", "failed"}:
@@ -178,15 +203,20 @@ def _worker_vocabulary(job: Path, directory: Path, ident: str) -> list[dict[str,
             if Path(name).is_absolute() or not path.is_relative_to(job) or not path.is_file():
                 raise GuardError(f"Missing or unsafe worker evidence: {ident}: {name}")
             evidence.add(path.relative_to(job).as_posix())
-        evidence.update((directory / name).relative_to(job).as_posix()
-                        for name in ("source.wiki", "section.wiki", "notes.wiki"))
+        evidence.update(
+            (directory / name).relative_to(job).as_posix()
+            for name in ("source.wiki", "section.wiki", "notes.wiki")
+        )
         record["evidence_files"] = sorted(evidence)
         record["section_id"] = ident
     return records
 
 
 def assemble_sections(
-    job: Path, *, output: Path | None = None, native_citations: bool = False,
+    job: Path,
+    *,
+    output: Path | None = None,
+    native_citations: bool = False,
     link_map: str | None = None,
 ) -> dict[str, Any]:
     """Assemble a NEW candidate directory, never replace draft/vocabulary/review/proposal."""
@@ -201,8 +231,10 @@ def assemble_sections(
     plan = _load_plan(job)
     pieces, notes, vocabulary, conversions, hatnotes = [], [], [], [], []
     category_conversions = []
-    artifacts = {"section-plan.json": digest((job / "section-plan.json").read_bytes()),
-                 "section-inputs.json": digest((job / "section-inputs.json").read_bytes())}
+    artifacts = {
+        "section-plan.json": digest((job / "section-plan.json").read_bytes()),
+        "section-inputs.json": digest((job / "section-inputs.json").read_bytes()),
+    }
     mapping, link_decisions = None, []
     if link_map is not None:
         mapping, link_artifacts = load_link_map(job, link_map)
@@ -223,8 +255,9 @@ def assemble_sections(
         fragment, converted_hatnotes = convert_related_hatnotes(fragment, mapping)
         hatnotes.extend({"section_id": row["id"], **item} for item in converted_hatnotes)
         fragment, converted_categories = promote_article_categories(fragment)
-        category_conversions.extend({"section_id": row["id"], **item}
-                                    for item in converted_categories)
+        category_conversions.extend(
+            {"section_id": row["id"], **item} for item in converted_categories
+        )
         if native_citations:
             fragment, converted = convert_citations(fragment)
             conversions.extend({"section_id": row["id"], **item} for item in converted)
@@ -260,16 +293,27 @@ def assemble_sections(
         output / "category-conversions.json": json_bytes(category_conversions),
         output / "link-decisions.json": json_bytes(link_decisions),
         output / "inventory.json": json_bytes(inventory(draft)),
-        output / "assembly.json": json_bytes({
-            "schema": 1, "status": "candidate_only", "editorial_review": "pending",
-            "draft_sha256": digest(draft.encode("utf-8")), "inputs": artifacts,
-            "evidence_path_base": "job", "native_citations": native_citations,
-            "link_map": link_map,
-        }),
+        output / "assembly.json": json_bytes(
+            {
+                "schema": 1,
+                "status": "candidate_only",
+                "editorial_review": "pending",
+                "draft_sha256": digest(draft.encode("utf-8")),
+                "inputs": artifacts,
+                "evidence_path_base": "job",
+                "native_citations": native_citations,
+                "link_map": link_map,
+            }
+        ),
     }
     write_new(outputs)
-    return {"output": str(output), "sections": len(plan), "vocabulary_entries": len(vocabulary),
-            "status": "candidate_only", "editorial_review": "pending"}
+    return {
+        "output": str(output),
+        "sections": len(plan),
+        "vocabulary_entries": len(vocabulary),
+        "status": "candidate_only",
+        "editorial_review": "pending",
+    }
 
 
 def coverage_report(job: Path, draft: Path) -> dict[str, Any]:
@@ -280,12 +324,16 @@ def coverage_report(job: Path, draft: Path) -> dict[str, Any]:
     candidate = inventory(draft_bytes.decode("utf-8"))
     expected, actual = Counter(source["files"]), Counter(candidate["files"])
     return {
-        "schema": 1, "status": "review_required", "source_sha256": digest(source_bytes),
+        "schema": 1,
+        "status": "review_required",
+        "source_sha256": digest(source_bytes),
         "draft_sha256": digest(draft_bytes),
-        "missing_files": dict(expected - actual), "extra_files": dict(actual - expected),
+        "missing_files": dict(expected - actual),
+        "extra_files": dict(actual - expected),
         "missing_source_urls": sorted(set(source["urls"]) - set(candidate["urls"])),
-        "source": source, "draft": candidate,
+        "source": source,
+        "draft": candidate,
         "limits": "Raw-markup comparison only. Template filenames are candidates; transclusions "
-                  "not expanded. No Commons/license verification, semantic link matching, "
-                  "translation review, omission authorization, or publication approval.",
+        "not expanded. No Commons/license verification, semantic link matching, "
+        "translation review, omission authorization, or publication approval.",
     }

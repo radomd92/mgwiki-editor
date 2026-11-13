@@ -177,7 +177,7 @@ Potential blockers → runs/<job>/deferred-issues.md (runs/<run-id>/ before init
 stable IDs, evidence/errors, affected tasks/dependencies, retained work, next
 action, resolution history. Continue independent tasks; blocked dependencies
 remain blocked. Link memo in notes.wiki/final handoff; retain after rebase/save.
-Later assign explicit issue IDs/local evidence to Mgwiki-editor-issues-solver;
+Later assign explicit issue IDs/local evidence to mgwiki-issues-solver;
 it writes only assigned runs/<job>/issue-resolutions/<issue-id>.md proposals.
 Coordinator alone accepts fixes, updates shared evidence, delegates article
 corrections to mgwiki-section, rechecks gates and prepares changed proposals.

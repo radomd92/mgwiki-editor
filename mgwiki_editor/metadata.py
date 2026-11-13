@@ -44,10 +44,15 @@ def metadata_audit(job: Path, files: list[str], draft: str = "draft.wiki") -> di
             matched = envelope.get("template") in markup["templates"]
             if matched:
                 required.update(_key(filename) for filename in found)
-            expansions.append({"evidence_file": pinned.name, "files": found,
-                               "exact_call_in_draft": matched,
-                               "language": envelope.get("language"),
-                               "source_sha256": envelope.get("source_sha256")})
+            expansions.append(
+                {
+                    "evidence_file": pinned.name,
+                    "files": found,
+                    "exact_call_in_draft": matched,
+                    "language": envelope.get("language"),
+                    "source_sha256": envelope.get("source_sha256"),
+                }
+            )
             continue
         query = response.get("query")
         if not isinstance(query, dict) or not isinstance(query.get("pages"), list):
@@ -60,18 +65,25 @@ def metadata_audit(job: Path, files: list[str], draft: str = "draft.wiki") -> di
                 info = page.get("imageinfo", [])
                 if not isinstance(info, list) or any(not isinstance(row, dict) for row in info):
                     raise GuardError("Malformed imageinfo metadata.")
-                images.setdefault(key, []).append({
-                    "evidence_file": pinned.name, "reported_title": page["title"],
-                    "language": envelope.get("language"),
-                    "repository": page.get("imagerepository"), "imageinfo": info,
-                    # Commons files may have missing=true for the local description page.
-                    "availability_reported": bool(info),
-                    "rights_fields_present": any(
-                        isinstance(row.get("extmetadata"), dict) and any(
-                            field in row["extmetadata"]
-                            for field in ("LicenseShortName", "UsageTerms")
-                        ) for row in info),
-                })
+                images.setdefault(key, []).append(
+                    {
+                        "evidence_file": pinned.name,
+                        "reported_title": page["title"],
+                        "language": envelope.get("language"),
+                        "repository": page.get("imagerepository"),
+                        "imageinfo": info,
+                        # Commons files may have missing=true for the local description page.
+                        "availability_reported": bool(info),
+                        "rights_fields_present": any(
+                            isinstance(row.get("extmetadata"), dict)
+                            and any(
+                                field in row["extmetadata"]
+                                for field in ("LicenseShortName", "UsageTerms")
+                            )
+                            for row in info
+                        ),
+                    }
+                )
             elif page.get("ns") == 10:
                 key = _key(page["title"].split(":", 1)[-1])
                 revisions = page.get("revisions", [])
@@ -79,32 +91,56 @@ def metadata_audit(job: Path, files: list[str], draft: str = "draft.wiki") -> di
                     not isinstance(row, dict) for row in revisions
                 ):
                     raise GuardError("Malformed template revisions.")
-                templates.setdefault(key, []).append({
-                    "evidence_file": pinned.name, "reported_title": page["title"],
-                    "missing_reported": bool(page.get("missing")),
-                    "revision_content_present": any(isinstance(
-                        row.get("slots", {}).get("main", {}).get("content"), str,
-                    ) for row in revisions),
-                    "revisions": revisions,
-                })
+                templates.setdefault(key, []).append(
+                    {
+                        "evidence_file": pinned.name,
+                        "reported_title": page["title"],
+                        "missing_reported": bool(page.get("missing")),
+                        "revision_content_present": any(
+                            isinstance(
+                                row.get("slots", {}).get("main", {}).get("content"),
+                                str,
+                            )
+                            for row in revisions
+                        ),
+                        "revisions": revisions,
+                    }
+                )
     template_rows = []
     for call in markup["templates"]:
         template = mw.parse(call).filter_templates()[0]
         name = str(template.name).strip()
         core = name.startswith("#")
-        bare = name.split(":", 1)[-1] if name.casefold().startswith(
-            ("template:", "endrika:"),
-        ) else name
-        template_rows.append({"call": call, "core_parser_function": core,
-                              "metadata": [] if core else templates.get(_key(bare), []),
-                              "parameter_contract_approved": False})
-    return {"schema": 1, "status": "review_required", "draft": draft,
-            "draft_sha256": digest(raw), "artifacts": artifacts,
-            "files": [{"filename": name, "metadata": images.get(name, []),
-                       "license_approved": False} for name in sorted(required)],
-            "templates": template_rows, "expansions": expansions,
-            "limits": "Caller-supplied pinned evidence, not fresh availability or authenticated "
-                      "origin by itself. Conflicting versions retained, never silently selected. "
-                      "Missing local description pages do not disprove shared-file availability. "
-                      "Review license restrictions, exact call/file mapping, template contracts "
-                      "and final guarded render separately. No resource fetch or gate clearance."}
+        bare = (
+            name.split(":", 1)[-1]
+            if name.casefold().startswith(
+                ("template:", "endrika:"),
+            )
+            else name
+        )
+        template_rows.append(
+            {
+                "call": call,
+                "core_parser_function": core,
+                "metadata": [] if core else templates.get(_key(bare), []),
+                "parameter_contract_approved": False,
+            }
+        )
+    return {
+        "schema": 1,
+        "status": "review_required",
+        "draft": draft,
+        "draft_sha256": digest(raw),
+        "artifacts": artifacts,
+        "files": [
+            {"filename": name, "metadata": images.get(name, []), "license_approved": False}
+            for name in sorted(required)
+        ],
+        "templates": template_rows,
+        "expansions": expansions,
+        "limits": "Caller-supplied pinned evidence, not fresh availability or authenticated "
+        "origin by itself. Conflicting versions retained, never silently selected. "
+        "Missing local description pages do not disprove shared-file availability. "
+        "Review license restrictions, exact call/file mapping, template contracts "
+        "and final guarded render separately. No resource fetch or gate clearance.",
+    }

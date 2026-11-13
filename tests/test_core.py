@@ -49,9 +49,13 @@ class FakeWiki:
     def put(self, language: str, title: str, text: str, revision: int | None) -> None:
         """Set one fake snapshot."""
         self.pages[language, title] = {
-            "language": language, "title": title, "requested_title": title,
-            "revision_id": revision, "timestamp": "2026-11-03T10:00:00Z" if revision else None,
-            "text": text, "sha256": digest(text.encode()),
+            "language": language,
+            "title": title,
+            "requested_title": title,
+            "revision_id": revision,
+            "timestamp": "2026-11-03T10:00:00Z" if revision else None,
+            "text": text,
+            "sha256": digest(text.encode()),
             "url": f"https://{language}.wikipedia.org/w/index.php?oldid={revision}",
         }
 
@@ -86,15 +90,24 @@ def job(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> tuple[FakeWiki, Path
     initialize(wiki, path, "en", "Water", "Rano")
     (path / "draft.wiki").write_text(ARTICLE, encoding="utf-8")
     (path / "notes.wiki").write_text(
-        "# Review\nAll intended sections compared.\n", encoding="utf-8",
+        "# Review\nAll intended sections compared.\n",
+        encoding="utf-8",
     )
     write_json(path / "review.json", dict.fromkeys(GATES, True))
     return wiki, path
 
 
-@pytest.mark.parametrize("value", [
-    "", "X#fragment", "X\nY", "[X]", "User:Other/X", "Mpikambana:Other/X",
-])
+@pytest.mark.parametrize(
+    "value",
+    [
+        "",
+        "X#fragment",
+        "X\nY",
+        "[X]",
+        "User:Other/X",
+        "Mpikambana:Other/X",
+    ],
+)
 def test_invalid_sandbox_titles(value: str) -> None:
     """Never accept a caller-selected user namespace or fragment."""
     with pytest.raises(GuardError):
@@ -140,8 +153,10 @@ def test_dictionary_filters_language_and_keeps_evidence() -> None:
 @pytest.mark.parametrize("edition", ["en", "mg"])
 def test_dictionary_edition_filter(edition: str) -> None:
     """Filter the entry language for either edition."""
-    raw = [{"language": edition, "definitions": ["sense"]},
-           {"language": "fr", "definitions": ["other"]}]
+    raw = [
+        {"language": edition, "definitions": ["sense"]},
+        {"language": "fr", "definitions": ["other"]},
+    ]
     result = lookup(edition, "term", opener=lambda *a, **k: io.BytesIO(json.dumps(raw).encode()))
     assert len(result["entries"]) == 1
     assert result["entries"][0]["language"] == edition
@@ -150,6 +165,7 @@ def test_dictionary_edition_filter(edition: str) -> None:
 @pytest.mark.parametrize("status", [404, 500])
 def test_dictionary_http_errors_distinguish_misses(status: int) -> None:
     """An outage must not be interpreted as a missing word."""
+
     def opener(*args, **kwargs):
         raise HTTPError("http://example.org", status, "error", {}, None)
 
@@ -160,9 +176,15 @@ def test_dictionary_http_errors_distinguish_misses(status: int) -> None:
             lookup("mg", "x", opener=opener)
 
 
-@pytest.mark.parametrize("data", [
-    b"not JSON", b"{}", b'[{}]', b'[{"language":"mg","definitions":1}]',
-])
+@pytest.mark.parametrize(
+    "data",
+    [
+        b"not JSON",
+        b"{}",
+        b"[{}]",
+        b'[{"language":"mg","definitions":1}]',
+    ],
+)
 def test_dictionary_rejects_bad_schema(data: bytes) -> None:
     """Do not convert malformed definitions into translation evidence."""
     with pytest.raises(GuardError):
@@ -171,6 +193,7 @@ def test_dictionary_rejects_bad_schema(data: bytes) -> None:
 
 def test_dictionary_network_failure() -> None:
     """Fail closed on an unreachable service."""
+
     def opener(*args, **kwargs):
         raise URLError("offline")
 
@@ -178,19 +201,38 @@ def test_dictionary_network_failure() -> None:
         lookup("en", "x", opener=opener)
 
 
-@pytest.mark.parametrize("base", ["file:///etc", "http://user:pass@host", "http://host/translations"])
+@pytest.mark.parametrize(
+    "base", ["file:///etc", "http://user:pass@host", "http://host/translations"]
+)
 def test_dictionary_rejects_non_origin_base(base: str) -> None:
     """Do not route dictionary requests through arbitrary endpoint paths."""
     with pytest.raises(GuardError):
         lookup("mg", "x", base_url=base)
 
 
-@pytest.mark.parametrize("text", [
-    "```wiki\nX\n```", "`X`", "**X**", "*italic*", "[X](https://example.org)",
-    "![X](url)", "- [x] Done", "- Item", "1. Item", "---", "| --- | --- |",
-    "[[:Sokajy:Rano]]", "[[Category:Water]]", "[[en:Water]]", "#REDIRECT [[X]]",
-    "TODO translate", '<ref name="missing" /><references />', '<ref>Source</ref>',
-])
+@pytest.mark.parametrize(
+    "text",
+    [
+        "```wiki\nX\n```",
+        "`X`",
+        "**X**",
+        "*italic*",
+        "[X](https://example.org)",
+        "![X](url)",
+        "- [x] Done",
+        "- Item",
+        "1. Item",
+        "---",
+        "| --- | --- |",
+        "[[:Sokajy:Rano]]",
+        "[[Category:Water]]",
+        "[[en:Water]]",
+        "#REDIRECT [[X]]",
+        "TODO translate",
+        '<ref name="missing" /><references />',
+        "<ref>Source</ref>",
+    ],
+)
 def test_lint_rejects_markdown_and_structural_problems(text: str) -> None:
     """Catch common Markdown and unsafe sandbox/citation output."""
     assert lint_wikitext(text)
@@ -224,12 +266,20 @@ def test_math_operators_are_not_markdown() -> None:
 
 
 @pytest.mark.parametrize("tag", ["code", "pre", "nowiki", "syntaxhighlight", "source"])
-@pytest.mark.parametrize("literal", [
-    "const s = `template string`;", "x = a*b*c", "**literal asterisks**",
-    "- [x] literal checklist", "1. literal numbered text", "| --- | --- |",
-])
+@pytest.mark.parametrize(
+    "literal",
+    [
+        "const s = `template string`;",
+        "x = a*b*c",
+        "**literal asterisks**",
+        "- [x] literal checklist",
+        "1. literal numbered text",
+        "| --- | --- |",
+    ],
+)
 def test_markdown_characters_inside_literal_code_are_not_article_markdown(
-    tag: str, literal: str,
+    tag: str,
+    literal: str,
 ) -> None:
     assert lint_wikitext(f"<{tag}>{literal}</{tag}>") == []
 
@@ -242,7 +292,8 @@ def test_protected_code_does_not_exempt_surrounding_markdown_or_other_guards(tag
 
 
 def test_init_preserves_existing_and_sandbox(
-    tmp_path: Path, monkeypatch: pytest.MonkeyPatch,
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
 ) -> None:
     """Existing sandbox is the initial draft, not disposable workspace."""
     monkeypatch.chdir(tmp_path)
@@ -308,11 +359,21 @@ def test_autonomous_publish_rejects_changed_draft(job: tuple[FakeWiki, Path]) ->
 
 
 @pytest.mark.parametrize("phase", ["prepare", "publish"])
-@pytest.mark.parametrize("filename", [
-    "draft.wiki", "job.json", "review.json", "vocabulary.json", "notes.wiki",
-])
+@pytest.mark.parametrize(
+    "filename",
+    [
+        "draft.wiki",
+        "job.json",
+        "review.json",
+        "vocabulary.json",
+        "notes.wiki",
+    ],
+)
 def test_consumed_artifacts_are_bound_even_when_a_concurrent_edit_is_reverted(
-    job: tuple[FakeWiki, Path], monkeypatch: pytest.MonkeyPatch, phase: str, filename: str,
+    job: tuple[FakeWiki, Path],
+    monkeypatch: pytest.MonkeyPatch,
+    phase: str,
+    filename: str,
 ) -> None:
     """A→B→A on disk cannot approve/render/save the transient B captured in memory."""
     wiki, path = job
@@ -349,10 +410,18 @@ def test_consumed_artifacts_are_bound_even_when_a_concurrent_edit_is_reverted(
     assert not (path / "receipt.json").exists()
 
 
-@pytest.mark.parametrize("filename", [
-    "draft.wiki", "notes.wiki", "source-issues.md", "review.json", "vocabulary.json",
-    "preview.html", "changes.diff",
-])
+@pytest.mark.parametrize(
+    "filename",
+    [
+        "draft.wiki",
+        "notes.wiki",
+        "source-issues.md",
+        "review.json",
+        "vocabulary.json",
+        "preview.html",
+        "changes.diff",
+    ],
+)
 def test_changed_artifact_invalidates_approval(job: tuple[FakeWiki, Path], filename: str) -> None:
     """Any post-proposal draft, evidence, or preview mutation invalidates approval."""
     wiki, path = job
@@ -399,7 +468,8 @@ def test_open_source_issues_do_not_block_publication(job: tuple[FakeWiki, Path])
 
 @pytest.mark.parametrize("present_before", [False, True])
 def test_source_issue_memory_addition_or_removal_requires_prepare(
-    job: tuple[FakeWiki, Path], present_before: bool,
+    job: tuple[FakeWiki, Path],
+    present_before: bool,
 ) -> None:
     """Optional-memory set changes still invalidate the exact prepared proposal."""
     wiki, path = job
@@ -479,7 +549,8 @@ def test_changed_rendering_blocks_publish(job: tuple[FakeWiki, Path]) -> None:
 
 @pytest.mark.parametrize("failure", ["fail_save", "mismatch_readback"])
 def test_uncertain_save_has_receipt_and_cannot_retry(
-    job: tuple[FakeWiki, Path], failure: str,
+    job: tuple[FakeWiki, Path],
+    failure: str,
 ) -> None:
     """Timeouts and read-back mismatches never become false success or blind retries."""
     wiki, path = job
@@ -499,31 +570,52 @@ def test_vocabulary_evidence_is_bound(job: tuple[FakeWiki, Path]) -> None:
     """Sense evidence is part of the exact proposal, not just the memo text."""
     wiki, path = job
     write_json(path / "lookup-en.json", {"entries": ["definition"]})
-    write_json(path / "vocabulary.json", [{
-        "status": "descriptive", "source_sense": "domain sense",
-        "chosen_expression": "phrase", "malagasy_definition": "explanation",
-        "evidence_files": ["lookup-en.json"],
-    }])
+    write_json(
+        path / "vocabulary.json",
+        [
+            {
+                "status": "descriptive",
+                "source_sense": "domain sense",
+                "chosen_expression": "phrase",
+                "malagasy_definition": "explanation",
+                "evidence_files": ["lookup-en.json"],
+            }
+        ],
+    )
     proposal = prepare(wiki, path)
     write_json(path / "lookup-en.json", {"entries": ["changed definition"]})
     with pytest.raises(GuardError, match="changed"):
         publish(wiki, path, proposal["digest"])
 
 
-@pytest.mark.parametrize("filename", [
-    "unknown-vocabulary.wiki", "user-vocabulary.wiki", "country-names.json", "kajy-equation.json",
-])
+@pytest.mark.parametrize(
+    "filename",
+    [
+        "unknown-vocabulary.wiki",
+        "user-vocabulary.wiki",
+        "country-names.json",
+        "kajy-equation.json",
+    ],
+)
 def test_supplemental_terminology_evidence_is_bound(
-    job: tuple[FakeWiki, Path], filename: str,
+    job: tuple[FakeWiki, Path],
+    filename: str,
 ) -> None:
     """Deferred terms, user corrections and pinned country spellings bind approval."""
     wiki, path = job
     (path / filename).write_text("{}\n" if filename.endswith(".json") else "= Evidence =\n")
-    write_json(path / "vocabulary.json", [{
-        "status": "descriptive", "source_sense": "unambiguous source sense",
-        "chosen_expression": "clear descriptive wording", "malagasy_definition": "fanazavana",
-        "evidence_files": [filename],
-    }])
+    write_json(
+        path / "vocabulary.json",
+        [
+            {
+                "status": "descriptive",
+                "source_sense": "unambiguous source sense",
+                "chosen_expression": "clear descriptive wording",
+                "malagasy_definition": "fanazavana",
+                "evidence_files": [filename],
+            }
+        ],
+    )
     proposal = prepare(wiki, path)
     assert filename in proposal["artifacts"]
     with (path / filename).open("a") as stream:
@@ -552,15 +644,23 @@ def test_dictionary_502_alone_does_not_block_reviewed_descriptive_publication(
     def opener(*args, **kwargs):
         raise HTTPError("http://dictionary", 502, "Bad Gateway", {}, io.BytesIO(b"timeout"))
 
-    evidence = lookup("en", "term", opener=opener,
-                      retries=DictionaryRetries(path / "retry-state.json"))
+    evidence = lookup(
+        "en", "term", opener=opener, retries=DictionaryRetries(path / "retry-state.json")
+    )
     assert evidence["status"] == "failed"
     write_json(path / "dictionary-failure.json", evidence)
-    write_json(path / "vocabulary.json", [{
-        "status": "descriptive", "source_sense": "clear source-context meaning",
-        "chosen_expression": "fanazavana", "malagasy_definition": "fanazavana mazava",
-        "evidence_files": ["dictionary-failure.json"],
-    }])
+    write_json(
+        path / "vocabulary.json",
+        [
+            {
+                "status": "descriptive",
+                "source_sense": "clear source-context meaning",
+                "chosen_expression": "fanazavana",
+                "malagasy_definition": "fanazavana mazava",
+                "evidence_files": ["dictionary-failure.json"],
+            }
+        ],
+    )
     prepare(wiki, path)
     assert publish(wiki, path)["status"] == "confirmed"
     assert len(wiki.saves) == 1
@@ -575,11 +675,19 @@ def test_pinned_sqlite_lookup_survives_shared_database_change(job: tuple[FakeWik
     evidence = vocabulary("equation", exact=True, cache=temporary_db)
     assert evidence["entries"][0]["source_number"] == 102
     write_json(path / "kajy-equation.json", evidence)
-    write_json(path / "vocabulary.json", [{
-        "status": "descriptive", "source_sense": "mathematical equation",
-        "chosen_expression": "fampimirana", "malagasy_definition": "fanazavana",
-        "evidence_files": ["kajy-equation.json"], "source_numbers": [102],
-    }])
+    write_json(
+        path / "vocabulary.json",
+        [
+            {
+                "status": "descriptive",
+                "source_sense": "mathematical equation",
+                "chosen_expression": "fampimirana",
+                "malagasy_definition": "fanazavana",
+                "evidence_files": ["kajy-equation.json"],
+                "source_numbers": [102],
+            }
+        ],
+    )
     proposal = prepare(wiki, path)
     assert proposal["artifacts"]["kajy-equation.json"] == digest(
         (path / "kajy-equation.json").read_bytes(),
@@ -614,9 +722,13 @@ def test_pywikibot_write_guards(revision: int | None, monkeypatch: pytest.Monkey
     """Exercise real gateway logic with fake Pywikibot account/page boundaries."""
     wiki = Wiki()
     page = FakePage()
-    site = SimpleNamespace(code="mg", family=SimpleNamespace(name="wikipedia"),
-                           hostname=lambda: "mg.wikipedia.org", login=lambda: None,
-                           user=lambda: "Bot-Jagwar")
+    site = SimpleNamespace(
+        code="mg",
+        family=SimpleNamespace(name="wikipedia"),
+        hostname=lambda: "mg.wikipedia.org",
+        login=lambda: None,
+        user=lambda: "Bot-Jagwar",
+    )
     base = FakeWiki().snapshot("mg", "Mpikambana:Bot-Jagwar/Rano", sandbox=True)
     base["revision_id"] = revision
     base["timestamp"] = "2026-11-03T10:00:00Z" if revision else None
@@ -637,21 +749,31 @@ def test_pywikibot_write_guards(revision: int | None, monkeypatch: pytest.Monkey
         assert flags["createonly"] is True
 
 
-@pytest.mark.parametrize("problem", [
-    "account", "legacy_account", "host", "target", "legacy_target",
-])
+@pytest.mark.parametrize(
+    "problem",
+    [
+        "account",
+        "legacy_account",
+        "host",
+        "target",
+        "legacy_target",
+    ],
+)
 def test_pywikibot_rejects_wrong_identity(problem: str, monkeypatch: pytest.MonkeyPatch) -> None:
     """Do not trust configuration to enforce account/site/destination constraints."""
     wiki = Wiki()
     account = {"account": "Other", "legacy_account": "Jagwar"}.get(problem, "Bot-Jagwar")
     site = SimpleNamespace(
-        code="mg", family=SimpleNamespace(name="wikipedia"),
+        code="mg",
+        family=SimpleNamespace(name="wikipedia"),
         hostname=lambda: "other.example" if problem == "host" else "mg.wikipedia.org",
-        login=lambda: None, user=lambda: account,
+        login=lambda: None,
+        user=lambda: account,
     )
     monkeypatch.setattr(wiki, "site", lambda language: site)
     destination = {
-        "target": "Rano", "legacy_target": "Mpikambana:Jagwar/Rano",
+        "target": "Rano",
+        "legacy_target": "Mpikambana:Jagwar/Rano",
     }.get(problem, "Mpikambana:Bot-Jagwar/Rano")
     with pytest.raises(GuardError):
         wiki.save(destination, ARTICLE, {}, "Summary")
@@ -663,8 +785,11 @@ def test_pywikibot_rejects_legacy_resolved_owner(monkeypatch: pytest.MonkeyPatch
     page = FakePage()
     monkeypatch.setattr(page, "title", lambda **kwargs: "Jagwar/Rano")
     site = SimpleNamespace(
-        code="mg", family=SimpleNamespace(name="wikipedia"),
-        hostname=lambda: "mg.wikipedia.org", login=lambda: None, user=lambda: "Bot-Jagwar",
+        code="mg",
+        family=SimpleNamespace(name="wikipedia"),
+        hostname=lambda: "mg.wikipedia.org",
+        login=lambda: None,
+        user=lambda: "Bot-Jagwar",
     )
     monkeypatch.setattr(wiki, "site", lambda language: site)
     monkeypatch.setattr(wiki, "page", lambda *args: page)
@@ -673,12 +798,16 @@ def test_pywikibot_rejects_legacy_resolved_owner(monkeypatch: pytest.MonkeyPatch
     assert not page.calls
 
 
-@pytest.mark.parametrize("payload", [
-    {"text": '<span class="error">bad</span>'},
-    {"text": "<p>Text</p>", "langlinks": [{"lang": "en"}]},
-])
+@pytest.mark.parametrize(
+    "payload",
+    [
+        {"text": '<span class="error">bad</span>'},
+        {"text": "<p>Text</p>", "langlinks": [{"lang": "en"}]},
+    ],
+)
 def test_render_rejects_parser_errors_and_side_effects(
-    payload: dict, monkeypatch: pytest.MonkeyPatch,
+    payload: dict,
+    monkeypatch: pytest.MonkeyPatch,
 ) -> None:
     """Reject parser errors and language-link side effects; categories are expected."""
     wiki = Wiki()
@@ -695,8 +824,9 @@ def test_render_allows_live_article_categories(monkeypatch: pytest.MonkeyPatch) 
     wiki = Wiki()
     site = SimpleNamespace(
         simple_request=lambda **kwargs: SimpleNamespace(
-            submit=lambda: {"parse": {"text": "<p>Text</p>",
-                                      "categories": [{"category": "Fahasalamana"}]}},
+            submit=lambda: {
+                "parse": {"text": "<p>Text</p>", "categories": [{"category": "Fahasalamana"}]}
+            },
         ),
     )
     monkeypatch.setattr(wiki, "site", lambda language: site)
@@ -748,9 +878,14 @@ def test_gateway_snapshot_contract(state: str, monkeypatch: pytest.MonkeyPatch) 
 def test_gateway_sandbox_read_identity(monkeypatch: pytest.MonkeyPatch) -> None:
     """Even reads labeled as sandbox must resolve to the expected owner/namespace."""
     wiki = Wiki()
-    monkeypatch.setattr(wiki, "page", lambda *args: SimpleNamespace(
-        namespace=lambda: 2, title=lambda **kwargs: "Other/Rano",
-    ))
+    monkeypatch.setattr(
+        wiki,
+        "page",
+        lambda *args: SimpleNamespace(
+            namespace=lambda: 2,
+            title=lambda **kwargs: "Other/Rano",
+        ),
+    )
     with pytest.raises(GuardError, match="owner"):
         wiki.snapshot("mg", "Mpikambana:Bot-Jagwar/Rano", sandbox=True)
     with pytest.raises(GuardError, match="prefix"):
@@ -762,9 +897,13 @@ def test_gateway_sandbox_read_identity(monkeypatch: pytest.MonkeyPatch) -> None:
 def test_gateway_prefers_malagasy_interlanguage_link(monkeypatch: pytest.MonkeyPatch) -> None:
     """Do not assume that the source title is the existing Malagasy title."""
     wiki = Wiki()
-    link = SimpleNamespace(title="Rano madio", site=SimpleNamespace(
-        code="mg", family=SimpleNamespace(name="wikipedia"),
-    ))
+    link = SimpleNamespace(
+        title="Rano madio",
+        site=SimpleNamespace(
+            code="mg",
+            family=SimpleNamespace(name="wikipedia"),
+        ),
+    )
     monkeypatch.setattr(wiki, "page", lambda *args: SimpleNamespace(langlinks=lambda: [link]))
     assert wiki.existing_title("en", "Water", "Rano") == "Rano madio"
 
@@ -799,7 +938,8 @@ def test_gateway_defaults_to_external_credentials(monkeypatch: pytest.MonkeyPatc
 
 
 def test_gateway_preserves_credentials_override(
-    tmp_path: Path, monkeypatch: pytest.MonkeyPatch,
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
 ) -> None:
     """Respect an operator's explicit configuration instead of replacing it."""
     monkeypatch.setenv("PYWIKIBOT_DIR", str(tmp_path))

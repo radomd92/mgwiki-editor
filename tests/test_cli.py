@@ -24,7 +24,9 @@ def test_cli_validate(tmp_path: Path, capsys: pytest.CaptureFixture) -> None:
 
 
 def test_cli_read_and_output(
-    tmp_path: Path, monkeypatch: pytest.MonkeyPatch, capsys: pytest.CaptureFixture,
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+    capsys: pytest.CaptureFixture,
 ) -> None:
     """Persist JSON evidence without overwriting existing evidence."""
     calls = []
@@ -38,8 +40,16 @@ def test_cli_read_and_output(
 
     monkeypatch.setattr(cli, "Wiki", Stub)
     output = tmp_path / "read.json"
-    arguments = ["read", "--lang", "mg", "--title", "Mpikambana:Bot-Jagwar/Rano",
-                 "--sandbox", "--output", str(output)]
+    arguments = [
+        "read",
+        "--lang",
+        "mg",
+        "--title",
+        "Mpikambana:Bot-Jagwar/Rano",
+        "--sandbox",
+        "--output",
+        str(output),
+    ]
     assert cli.main(arguments) == 0
     assert calls == [(("mg", "Mpikambana:Bot-Jagwar/Rano"), {"sandbox": True})]
     assert json.loads(output.read_text())["revision_id"] == 1
@@ -56,7 +66,9 @@ def test_cli_lookup(monkeypatch: pytest.MonkeyPatch, capsys: pytest.CaptureFixtu
 
 @pytest.mark.parametrize("refresh", [False, True])
 def test_cli_country_cache(
-    refresh: bool, monkeypatch: pytest.MonkeyPatch, capsys: pytest.CaptureFixture,
+    refresh: bool,
+    monkeypatch: pytest.MonkeyPatch,
+    capsys: pytest.CaptureFixture,
 ) -> None:
     """Refresh is explicit, while ordinary reads request only local cached data."""
     calls = []
@@ -74,17 +86,38 @@ def test_cli_country_cache(
 
 def test_cli_init(monkeypatch: pytest.MonkeyPatch, capsys: pytest.CaptureFixture) -> None:
     """Return a compact draft-only initialization result, not an apparent save."""
-    monkeypatch.setattr(cli, "initialize", lambda *args: {
-        "destination": "Mpikambana:Bot-Jagwar/Rano", "source": {"url": "permanent-source"},
-    })
-    assert cli.main(["init", "--source-lang", "en", "--source-title", "Water",
-                     "--article-title", "Rano", "--job", "runs/test"]) == 0
+    monkeypatch.setattr(
+        cli,
+        "initialize",
+        lambda *args: {
+            "destination": "Mpikambana:Bot-Jagwar/Rano",
+            "source": {"url": "permanent-source"},
+        },
+    )
+    assert (
+        cli.main(
+            [
+                "init",
+                "--source-lang",
+                "en",
+                "--source-title",
+                "Water",
+                "--article-title",
+                "Rano",
+                "--job",
+                "runs/test",
+            ]
+        )
+        == 0
+    )
     assert json.loads(capsys.readouterr().out)["status"] == "draft_only"
 
 
 @pytest.mark.parametrize("command", ["prepare", "publish"])
 def test_cli_proposal_dispatch(
-    command: str, monkeypatch: pytest.MonkeyPatch, capsys: pytest.CaptureFixture,
+    command: str,
+    monkeypatch: pytest.MonkeyPatch,
+    capsys: pytest.CaptureFixture,
 ) -> None:
     """Publish forwards the full approval argument rather than guessing approval."""
     monkeypatch.setattr(cli, "prepare", lambda *args: {"digest": "abc"})
@@ -97,9 +130,11 @@ def test_cli_proposal_dispatch(
 
 
 def test_cli_reports_remote_failures(
-    monkeypatch: pytest.MonkeyPatch, capsys: pytest.CaptureFixture,
+    monkeypatch: pytest.MonkeyPatch,
+    capsys: pytest.CaptureFixture,
 ) -> None:
     """Do not report success after failed guards or uncertain live operations."""
+
     def fail(*args):
         raise GuardError("No approval")
 
@@ -109,7 +144,8 @@ def test_cli_reports_remote_failures(
 
 
 def test_cli_defaults_to_autonomous_publish(
-    monkeypatch: pytest.MonkeyPatch, capsys: pytest.CaptureFixture,
+    monkeypatch: pytest.MonkeyPatch,
+    capsys: pytest.CaptureFixture,
 ) -> None:
     """Autonomous publication requires no user approval argument or prompt."""
     calls = []
@@ -140,6 +176,7 @@ def test_cli_unicode_output_on_latin1_terminal(monkeypatch: pytest.MonkeyPatch) 
 
 def test_cli_unicode_errors_on_latin1_terminal(monkeypatch: pytest.MonkeyPatch) -> None:
     """Error reporting must also preserve non-Latin-1 characters without raising."""
+
     def fail(*args, **kwargs):
         raise GuardError("Jibotỳ — unavailable")
 
@@ -161,10 +198,15 @@ def test_configured_broker_routes_publish_without_direct_wiki_or_fallback(monkey
     monkeypatch.setenv("MGWIKI_CAPABILITY_FILE", "/broker/cap")
     monkeypatch.setattr(cli, "Wiki", lambda: pytest.fail("Broker profile bypassed"))
     calls = []
+
     def client(socket, capfile, command, args):
         calls.append((command, args))
-        return ({"ok": True, "result": {"run": "water"}} if command == "status" else
-                {"ok": False, "decision": {"outcome": "DENY"}})
+        return (
+            {"ok": True, "result": {"run": "water"}}
+            if command == "status"
+            else {"ok": False, "decision": {"outcome": "DENY"}}
+        )
+
     monkeypatch.setattr(control, "client", client)
     assert cli.main(["publish", "--job", "runs/water"]) == 1
     assert [command for command, _ in calls] == ["status", "publish"]
@@ -197,9 +239,11 @@ def test_new_offline_checks_route_through_configured_broker(monkeypatch, capsys,
     monkeypatch.setenv("MGWIKI_CAPABILITY_FILE", "/broker/cap")
     monkeypatch.setattr(cli, "Wiki", lambda: pytest.fail("Configured broker bypassed"))
     calls = []
+
     def client(socket, capfile, action, arguments):
         calls.append((action, arguments))
         return {"ok": True, "result": {"run": "water"}}
+
     monkeypatch.setattr(control, "client", client)
     assert cli.main([command, "--job", "runs/water"]) == 0
     assert calls[0] == ("status", {})
@@ -213,14 +257,30 @@ def test_license_report_routes_through_configured_broker_without_direct_read(mon
     monkeypatch.setenv("MGWIKI_CAPABILITY_FILE", "/broker/cap")
     monkeypatch.setattr(cli, "license_report", lambda *a: pytest.fail("Broker bypassed"))
     calls = []
+
     def client(socket, capfile, action, arguments):
         calls.append((action, arguments))
         return {"ok": True, "result": {"run": "water"}}
+
     monkeypatch.setattr(control, "client", client)
-    assert cli.main(["license-report", "--job", "runs/water", "--evidence", "evidence/file.json",
-                     "--filename", "Exact.svg"]) == 0
-    assert calls[-1] == ("license-report", {"evidence": "evidence/file.json",
-                                           "filename": "Exact.svg"})
+    assert (
+        cli.main(
+            [
+                "license-report",
+                "--job",
+                "runs/water",
+                "--evidence",
+                "evidence/file.json",
+                "--filename",
+                "Exact.svg",
+            ]
+        )
+        == 0
+    )
+    assert calls[-1] == (
+        "license-report",
+        {"evidence": "evidence/file.json", "filename": "Exact.svg"},
+    )
 
 
 def test_license_capture_respects_explicit_broker_without_direct_fallback(monkeypatch, capsys):
@@ -230,6 +290,7 @@ def test_license_capture_respects_explicit_broker_without_direct_fallback(monkey
     monkeypatch.setenv("MGWIKI_CAPABILITY_FILE", "/broker/cap")
     monkeypatch.setattr(cli, "Wiki", lambda: pytest.fail("Configured broker bypassed"))
     calls = []
+
     def client(socket, capfile, action, arguments):
         calls.append((action, arguments))
         return {"ok": False, "decision": {"outcome": "DENY"}}

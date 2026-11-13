@@ -18,9 +18,7 @@ from .core import GuardError, digest
 
 VOCABULARY_CACHE = Path("data/vocabulary/kajy-mathematics.json")
 VOCABULARY_DATABASE = Path("data/vocabulary/kajy-mathematics.sqlite")
-KAJY_URL = (
-    "https://kajy.blogspot.com/2011/04/ireo-voambolana-matematika-malagasy.html?m=1"
-)
+KAJY_URL = "https://kajy.blogspot.com/2011/04/ireo-voambolana-matematika-malagasy.html?m=1"
 KAJY_FEED_URL = "https://kajy.blogspot.com/feeds/posts/default/2307042205075419731?alt=json"
 KAJY_ID = "tag:blogger.com,1999:blog-7429401142448269532.post-2307042205075419731"
 
@@ -79,14 +77,17 @@ def import_kajy_feed(payload: bytes, *, retrieved_at: str) -> dict[str, Any]:
         if not matches or not french:
             raise GuardError(f"Unrecognized glossary row {table_row}.")
         number = matches[-1]
-        malagasy = left[number.end():].strip()
+        malagasy = left[number.end() :].strip()
         if not malagasy:
             raise GuardError(f"Missing Malagasy term at table row {table_row}.")
         for placeholder in matches[:-1]:
-            placeholders.append({
-                "source_number": int(placeholder[1]), "table_row": table_row,
-                "reason": "Numbered section heading; no bilingual term. Not invented.",
-            })
+            placeholders.append(
+                {
+                    "source_number": int(placeholder[1]),
+                    "table_row": table_row,
+                    "reason": "Numbered section heading; no bilingual term. Not invented.",
+                }
+            )
         flags = []
         if len(matches) > 1:
             flags.append("numbered_heading_prefix")
@@ -94,11 +95,17 @@ def import_kajy_feed(payload: bytes, *, retrieved_at: str) -> dict[str, Any]:
             flags.append("unbalanced_parentheses")
         if int(number[1]) in {80, 81}:
             flags.append("split_entry_across_rows_80_81")
-        entries.append({
-            "source_number": int(number[1]), "table_row": table_row,
-            "malagasy": malagasy, "french": french, "source_cells": cells,
-            "status": "candidate", "review_flags": flags,
-        })
+        entries.append(
+            {
+                "source_number": int(number[1]),
+                "table_row": table_row,
+                "malagasy": malagasy,
+                "french": french,
+                "source_cells": cells,
+                "status": "candidate",
+                "review_flags": flags,
+            }
+        )
     numbers = [entry["source_number"] for entry in entries]
     if not entries or numbers != sorted(set(numbers)):
         raise GuardError("Empty, duplicate, or unordered Kajy source numbers.")
@@ -109,12 +116,19 @@ def import_kajy_feed(payload: bytes, *, retrieved_at: str) -> dict[str, Any]:
         if len(senses[entry["malagasy"].casefold()]) > 1:
             entry["review_flags"].append("multiple_french_senses")
     return {
-        "schema": 1, "domain": "mathematics", "languages": ["mg", "fr"],
+        "schema": 1,
+        "domain": "mathematics",
+        "languages": ["mg", "fr"],
         "source": {
-            "url": KAJY_URL, "retrieval_url": KAJY_FEED_URL, "post_id": KAJY_ID,
-            "title": post["title"]["$t"], "author": post["author"][0]["name"]["$t"],
-            "published_at": post["published"]["$t"], "updated_at": post["updated"]["$t"],
-            "retrieved_at": retrieved_at, "feed_sha256": digest(payload),
+            "url": KAJY_URL,
+            "retrieval_url": KAJY_FEED_URL,
+            "post_id": KAJY_ID,
+            "title": post["title"]["$t"],
+            "author": post["author"][0]["name"]["$t"],
+            "published_at": post["published"]["$t"],
+            "updated_at": post["updated"]["$t"],
+            "retrieved_at": retrieved_at,
+            "feed_sha256": digest(payload),
             "content_sha256": digest(html.encode("utf-8")),
             "authority": (
                 "User-requested blog glossary; candidates, not verified dictionary entries."
@@ -126,8 +140,10 @@ def import_kajy_feed(payload: bytes, *, retrieved_at: str) -> dict[str, Any]:
             "Number/heading prefixes removed only from malagasy, retained in source_cells. "
             "No English equivalents, definitions, typo corrections, or row merges invented."
         ),
-        "source_row_count": len(parser.rows), "entry_count": len(entries),
-        "numbered_placeholders": placeholders, "entries": entries,
+        "source_row_count": len(parser.rows),
+        "entry_count": len(entries),
+        "numbered_placeholders": placeholders,
+        "entries": entries,
     }
 
 
@@ -140,20 +156,27 @@ def search_key(text: str) -> str:
 def validate_glossary(result: Any, *, allow_empty: bool = False) -> None:
     """Validate the JSON import format and decoded SQLite query rows."""
     if (
-        not isinstance(result, dict) or result.get("schema") != 1
-        or result.get("domain") != "mathematics" or result.get("languages") != ["mg", "fr"]
-        or not isinstance(result.get("source"), dict) or result["source"].get("post_id") != KAJY_ID
+        not isinstance(result, dict)
+        or result.get("schema") != 1
+        or result.get("domain") != "mathematics"
+        or result.get("languages") != ["mg", "fr"]
+        or not isinstance(result.get("source"), dict)
+        or result["source"].get("post_id") != KAJY_ID
         or not isinstance(result.get("entries"), list)
         or (not result["entries"] and not allow_empty)
         or result.get("entry_count") != len(result["entries"])
         or any(
-            not isinstance(entry, dict) or entry.get("status") != "candidate"
+            not isinstance(entry, dict)
+            or entry.get("status") != "candidate"
             or not isinstance(entry.get("source_number"), int)
             or not isinstance(entry.get("review_flags"), list)
-            or not isinstance(entry.get("source_cells"), list) or len(entry["source_cells"]) != 2
+            or not isinstance(entry.get("source_cells"), list)
+            or len(entry["source_cells"]) != 2
             or any(not isinstance(flag, str) for flag in entry["review_flags"])
-            or any(not isinstance(entry.get(key), str) or not entry[key]
-                   for key in ("malagasy", "french"))
+            or any(
+                not isinstance(entry.get(key), str) or not entry[key]
+                for key in ("malagasy", "french")
+            )
             for entry in result["entries"]
         )
     ):
@@ -168,7 +191,8 @@ def load_vocabulary_cache(cache: Path = VOCABULARY_CACHE) -> dict[str, Any]:
 
 
 def build_vocabulary_database(
-    source: Path = VOCABULARY_CACHE, output: Path = VOCABULARY_DATABASE,
+    source: Path = VOCABULARY_CACHE,
+    output: Path = VOCABULARY_DATABASE,
 ) -> dict[str, Any]:
     """Build a standalone indexed SQLite snapshot offline; never overwrite any file."""
     if output.exists():
@@ -178,7 +202,9 @@ def build_vocabulary_database(
     validate_glossary(glossary)
     output.parent.mkdir(parents=True, exist_ok=True)
     fd, temporary_name = tempfile.mkstemp(
-        prefix=".vocabulary-", suffix=".sqlite", dir=output.parent,
+        prefix=".vocabulary-",
+        suffix=".sqlite",
+        dir=output.parent,
     )
     os.close(fd)
     temporary = Path(temporary_name)
@@ -210,12 +236,20 @@ def build_vocabulary_database(
             )
             database.executemany(
                 "INSERT INTO entries VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)",
-                [(
-                    entry["source_number"], entry["table_row"], entry["malagasy"], entry["french"],
-                    search_key(entry["malagasy"]), search_key(entry["french"]), entry["status"],
-                    json.dumps(entry["source_cells"], ensure_ascii=False),
-                    json.dumps(entry["review_flags"], ensure_ascii=False),
-                ) for entry in glossary["entries"]],
+                [
+                    (
+                        entry["source_number"],
+                        entry["table_row"],
+                        entry["malagasy"],
+                        entry["french"],
+                        search_key(entry["malagasy"]),
+                        search_key(entry["french"]),
+                        entry["status"],
+                        json.dumps(entry["source_cells"], ensure_ascii=False),
+                        json.dumps(entry["review_flags"], ensure_ascii=False),
+                    )
+                    for entry in glossary["entries"]
+                ],
             )
             database.commit()
             if database.execute("PRAGMA integrity_check").fetchone() != ("ok",):
@@ -224,12 +258,19 @@ def build_vocabulary_database(
         os.link(temporary, output)
     finally:
         temporary.unlink()
-    return {"database": str(output), "entry_count": glossary["entry_count"],
-            "database_sha256": digest(output.read_bytes()), "source_cache_sha256": digest(payload)}
+    return {
+        "database": str(output),
+        "entry_count": glossary["entry_count"],
+        "database_sha256": digest(output.read_bytes()),
+        "source_cache_sha256": digest(payload),
+    }
 
 
 def vocabulary(
-    word: str | None = None, *, language: str = "fr", cache: Path = VOCABULARY_DATABASE,
+    word: str | None = None,
+    *,
+    language: str = "fr",
+    cache: Path = VOCABULARY_DATABASE,
     exact: bool = False,
 ) -> dict[str, Any]:
     """Query SQLite in read-only mode with bound parameters; no network or substitutions."""
@@ -257,21 +298,29 @@ def vocabulary(
                 raise GuardError("Vocabulary database must be a standalone, non-WAL snapshot.")
             database.row_factory = sqlite3.Row
             database.execute("BEGIN")
-            result = {row["key"]: json.loads(row["value_json"])
-                      for row in database.execute("SELECT key, value_json FROM metadata")}
+            result = {
+                row["key"]: json.loads(row["value_json"])
+                for row in database.execute("SELECT key, value_json FROM metadata")
+            }
             count = database.execute("SELECT count(*) FROM entries").fetchone()[0]
             if not count or result.get("entry_count") != count:
                 raise GuardError("Vocabulary database entry count mismatch.")
             entries = []
             for row in database.execute(sql, parameters):
-                entries.append({
-                    "source_number": row["source_number"], "table_row": row["table_row"],
-                    "malagasy": row["malagasy"], "french": row["french"], "status": row["status"],
-                    "source_cells": json.loads(row["source_cells_json"]),
-                    "review_flags": json.loads(row["review_flags_json"]),
-                })
-            validate_glossary({**result, "entries": entries, "entry_count": len(entries)},
-                              allow_empty=True)
+                entries.append(
+                    {
+                        "source_number": row["source_number"],
+                        "table_row": row["table_row"],
+                        "malagasy": row["malagasy"],
+                        "french": row["french"],
+                        "status": row["status"],
+                        "source_cells": json.loads(row["source_cells_json"]),
+                        "review_flags": json.loads(row["review_flags_json"]),
+                    }
+                )
+            validate_glossary(
+                {**result, "entries": entries, "entry_count": len(entries)}, allow_empty=True
+            )
     except (sqlite3.DatabaseError, ValueError, TypeError) as exc:
         raise GuardError("Invalid local vocabulary database.") from exc
     if digest(cache.read_bytes()) != before:
@@ -279,8 +328,14 @@ def vocabulary(
             "Vocabulary database changed during lookup; retain evidence and retry locally.",
         )
     return {
-        **result, "database_path": str(cache), "database_sha256": before,
-        "cache_path": str(cache), "cache_sha256": before,
-        "query": word, "query_language": language, "match_count": len(entries), "entries": entries,
+        **result,
+        "database_path": str(cache),
+        "database_sha256": before,
+        "cache_path": str(cache),
+        "cache_sha256": before,
+        "query": word,
+        "query_language": language,
+        "match_count": len(entries),
+        "entries": entries,
         "match_mode": "exact" if exact else "substring",
     }

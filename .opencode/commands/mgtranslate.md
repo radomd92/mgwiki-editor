@@ -18,7 +18,7 @@ ask questions or request tool/script/draft approval. Infer unambiguous missing
 titles from context; otherwise retain work and report a blocker without asking.
 Follow docs/issue-recovery.md: record potential blockers separately in
 runs/<job>/deferred-issues.md; continue independent tasks. Later local proposals
-come from Mgwiki-editor-issues-solver in issue-resolutions/<issue-id>.md, not
+come from mgwiki-issues-solver in issue-resolutions/<issue-id>.md, not
 invented fixes. Genuine HTTP 5xx:
 >=15-second safe-read retry cooldown, longer transport/server guards win;
 after 600 seconds confirm down via real permitted service test, skip dependent

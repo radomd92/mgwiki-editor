@@ -1,6 +1,7 @@
-= Protocole d'édition de mgwiki-editor =
+# mgwiki-editor edition protocol
 
-== 1. Scope and intake ==
+## 1. Scope and intake
+
 Determine source Wikipedia language/title (or parse a supplied Wikipedia URL),
 Malagasy article title, desired full/partial scope, and translation versus
 revision intent from the request and unambiguous local evidence. Autonomous mode
@@ -18,7 +19,7 @@ runs/<job>/deferred-issues.md: stable IDs, evidence/errors, dependencies, retain
 work, next action/history. Before init use runs/<run-id>/ without fake snapshots.
 Continue independent tasks; stop only blocked dependencies, never ask or guess.
 Link memo in notes.wiki/final handoff; preserve after save/rebase. Later delegate
-local issue proposals to Mgwiki-editor-issues-solver in exclusive
+local issue proposals to mgwiki-issues-solver in exclusive
 runs/<job>/issue-resolutions/<issue-id>.md. Coordinator alone accepts proposals,
 updates shared evidence and delegates article fixes to mgwiki-section; recheck
 gates and freshly prepare changed proposals. Solver has no remote/save authority.
@@ -57,7 +58,8 @@ full. They adapt the requested English Wikipedia guides and explicitly identify
 the user's Malagasy overrides. Reuse these references offline, not per-article
 web requests. Source-guide links are provenance, not new browsing permission.
 
-=== Persistent local-script memory ===
+### Persistent local-script memory
+
 Local python3 scripts are available in the project folder. Inspect, run or create
 task-relevant helpers without asking, using python3 ./name.py or
 python3 scripts/name.py. Discover built-in commands with
@@ -69,7 +71,8 @@ mgwiki_editor.core.Wiki, or call install_wikimedia_transport() from
 mgwiki_editor.network before constructing Pywikibot sites. The gateway installs
 that transport automatically. Do not use an unguarded standalone Pywikibot bot.
 
-=== Wikimedia request budget ===
+### Wikimedia request budget
+
 * Independent article translation tasks may run concurrently. Each coordinator
   keeps its Wikipedia operations serial; no parallel prefetch pools or background bots.
   All jobs use the same shared transport gate, never process-local pacing.
@@ -107,7 +110,8 @@ that transport automatically. Do not use an unguarded standalone Pywikibot bot.
 * These are conservative budgets, not a promise that Wikimedia never returns
   429. Server cooldowns and operator policies take precedence over throughput.
 
-=== External-network boundary ===
+### External-network boundary
+
 Never access external links unless explicitly requested by the user. This applies
 to all tools and scripts: no browsing, web search, HEAD/existence checks, DOI
 resolvers, reference fetches, curl/wget, requests/urllib detours, redirects,
@@ -119,7 +123,8 @@ rendered output offline; do not open preview.html in a browser that downloads it
 linked images, scripts, CSS or other resources. If external research is explicitly
 requested later, limit it to the requested scope and retain Wikimedia budgets.
 
-== 2. Snapshot and classify ==
+## 2. Snapshot and classify
+
 Run init with --source-lang, --source-title, --article-title, and a new --job
 directory under runs/. An optional --existing-title selects a known Malagasy
 article. Otherwise an mg interlanguage link is preferred, then article-title.
@@ -141,13 +146,15 @@ Classify in local editorial notes:
 Keep pinned source URL/revision, existing revision, and sandbox revision.
 Do not refresh snapshots under an already prepared proposal.
 
-== 3. Edition plan ==
+## 3. Edition plan
+
 Create notes.wiki with section-by-section coverage, citations, images, tables,
 templates, category links, and link targets. For an existing article record what will be kept,
 translated, merged, corrected, or excluded and why. Compare three texts when a
 sandbox exists. Preserve well-sourced local additions absent from the source.
 
-=== Nonblocking source-issue memory ===
+### Nonblocking source-issue memory
+
 Source inconsistencies and article contradictions are nonblocking review issues,
 not publication blockers. Keep runs/<job>/source-issues.md as durable Markdown/
 plain-text memory, with caveman ultra commentary and exact source evidence.
@@ -184,7 +191,8 @@ Record copyright/translation provenance. Keep source permanent links for edit
 summary attribution. Review source-history/license concerns and do not import
 non-free text or images merely because they appear on another Wikipedia.
 
-=== Section subagent assignments ===
+### Section subagent assignments
+
 The primary mgwiki-editor is the coordinator; delegate prose translation/revision
 to mgwiki-section subagents section by section, not as one whole-article prompt.
 After reading all three snapshots, record an ordered section plan in notes.wiki:
@@ -212,7 +220,8 @@ shell/helper-script detours, recursive delegation, preparation, or publication.
 Keep shared evidence immutable while workers read it; distribute reconciled
 terminology changes through targeted follow-up assignments, not concurrent writes.
 
-== 4. Terminology research ==
+## 4. Terminology research
+
 Read country-name spellings from data/country-names.json using
 python3 -m mgwiki_editor countries. This cached copy of direct mainspace page
 titles from mgwiki's Sokajy:Firenena avoids a category fetch for each article.
@@ -278,7 +287,8 @@ citations without claiming to have read them. Only an explicit user request
 authorizes that external research. Required Pywikibot CLI operations and
 read-only dictionary lookups remain part of this workflow.
 
-== 5. Translation and integration ==
+## 5. Translation and integration
+
 Workers generate/edit assigned section.wiki fragments, never a full article.
 The coordinator checks each handoff against the section plan and pinned source/
 existing/sandbox text, merges section-local notes and vocabulary evidence into
@@ -328,7 +338,8 @@ coordinator review. Do not leave the English template or replace the hatnote
 with a bare link.
 No unresolved translator comments, TODOs, or research notes in article text.
 
-== 6. Editorial quality gate ==
+## 6. Editorial quality gate
+
 Compare against complete pinned source and both existing texts. Evidence goes in
 notes.wiki; set each review.json gate true only when actually checked:
 * meaning: same claims, negations, qualifications, names, numbers, and dates.
@@ -373,7 +384,8 @@ Run validate --draft …/draft.wiki. It is a conservative structural lint, not a
 grammar/translation verifier or complete MediaWiki parser. Overlapping wiki/MD
 list syntax is legal; do not reject ordinary MediaWiki lists.
 
-== 7. Preview and proposal ==
+## 7. Preview and proposal
+
 Run prepare --job …. This verifies gates, checks all pinned live revisions,
 renders through mgwiki Pywikibot action=parse, rejects visible parser errors and
 interwiki side effects (live Sokajy membership is expected), and writes
@@ -390,7 +402,8 @@ they are not evidence that a human inspected the article. /mgtranslate and user
 translation/edit requests authorize this checked sandbox save, but explicit
 draft-only/no-save instructions and harness-development tasks do not.
 
-== 8. Guarded sandbox save ==
+## 8. Guarded sandbox save
+
 After successful autonomous review run publish --job …. No approval argument or
 user prompt is required. An optional --approve DIGEST remains available for a
 caller who wants to pin a particular digest, not as a mandatory human gate.
@@ -407,7 +420,8 @@ checks, or change the destination to bypass a failure. Rebase autonomously only
 when unambiguous, at most once per task; repeated conflicts or material ambiguity
 mean preserve work and stop without asking or refetching in a loop.
 
-== 9. Verify and hand off ==
+## 9. Verify and hand off
+
 After saving, reread via Pywikibot and compare exact text hash. Store receipt.json
 with target URL, revision, source attribution, digest, and confirmed status.
 Report success only for confirmed read-back. A save may have reached the server

@@ -15,7 +15,7 @@ permissions:
     resource: mgwiki-section
     effect: allow
   - action: subagent
-    resource: Mgwiki-editor-issues-solver
+    resource: mgwiki-issues-solver
     effect: allow
 ---
 

@@ -21,11 +21,13 @@ def job(tmp_path: Path) -> Path:
     (directory / "source.wiki").write_text(
         "Lead.<ref name=shared>Original metadata</ref>\n"
         "== Body ==\nText.<ref name=shared />\n"
-        "=== Detail ===\nMore.\n== References ==\n<references />\n", encoding="utf-8",
+        "=== Detail ===\nMore.\n== References ==\n<references />\n",
+        encoding="utf-8",
     )
     for name, text in {
         "existing.wiki": "Local facts. [[Sokajy:Keep|Sort]]",
-        "sandbox.wiki": "Prior sandbox.", "draft.wiki": "Do not overwrite draft.",
+        "sandbox.wiki": "Prior sandbox.",
+        "draft.wiki": "Do not overwrite draft.",
         "notes.wiki": "# Existing notes\nHistory retained.",
         "source-issues.md": "# ISS-001\nOpen source disagreement; nonblocking.\n",
     }.items():
@@ -54,26 +56,34 @@ def test_plan_heading_coverage_and_no_shared_mutation(job: Path) -> None:
     assert result["sections"] == 3
     plan = read_json(job / "section-plan.json")
     assert [r["id"] for r in plan] == ["00-lead", "01-body", "02-references"]
-    assert b"".join((job / row["directory"] / "source.wiki").read_bytes()
-                    for row in plan) == before["source.wiki"]
+    assert (
+        b"".join((job / row["directory"] / "source.wiki").read_bytes() for row in plan)
+        == before["source.wiki"]
+    )
     assert all((job / name).read_bytes() == data for name, data in before.items())
     assert read_json(job / "section-inputs.json")["artifacts"]["source.wiki"] == digest(
         before["source.wiki"],
     )
 
 
-@pytest.mark.parametrize("source", [
-    "Only lead; no headings.", "== First ==\nBody.\n",
-    "Lead.\r\n== One ==\r\nBody.\r\n", "Lead.\n== One ==\nNo trailing newline",
-    "<nowiki>\n== Not a heading ==\n</nowiki>\n== Real ==\nBody\n",
-    "{{Box|\n== Nested ==\n}}\n== Real ==\nBody\n",
-])
+@pytest.mark.parametrize(
+    "source",
+    [
+        "Only lead; no headings.",
+        "== First ==\nBody.\n",
+        "Lead.\r\n== One ==\r\nBody.\r\n",
+        "Lead.\n== One ==\nNo trailing newline",
+        "<nowiki>\n== Not a heading ==\n</nowiki>\n== Real ==\nBody\n",
+        "{{Box|\n== Nested ==\n}}\n== Real ==\nBody\n",
+    ],
+)
 def test_heading_plan_preserves_all_bytes(job: Path, source: str) -> None:
     (job / "source.wiki").write_bytes(source.encode("utf-8"))
     plan_sections(job)
     plan = read_json(job / "section-plan.json")
-    assert b"".join((job / row["directory"] / "source.wiki").read_bytes()
-                    for row in plan) == source.encode("utf-8")
+    assert b"".join(
+        (job / row["directory"] / "source.wiki").read_bytes() for row in plan
+    ) == source.encode("utf-8")
 
 
 def test_grouping_merges_adjacent_short_sections_without_losing_bytes(job: Path) -> None:
@@ -86,28 +96,33 @@ def test_grouping_merges_adjacent_short_sections_without_losing_bytes(job: Path)
     assert plan[0]["headings"] == ["lead", "Body", "References"]
     assert plan[0]["merged_ids"] == ["00-lead", "01-body", "02-references"]
     assert plan[0]["start"] == 1
-    assert b"".join((job / row["directory"] / "source.wiki").read_bytes()
-                    for row in plan) == before
+    assert b"".join((job / row["directory"] / "source.wiki").read_bytes() for row in plan) == before
     assert b"== Body ==" in (job / plan[0]["directory"] / "source.wiki").read_bytes()
 
 
 def test_grouping_zero_keeps_one_assignment_per_heading(job: Path) -> None:
     assert plan_sections(job, group_max_bytes=0)["sections"] == 3
     assert [r["id"] for r in read_json(job / "section-plan.json")] == [
-        "00-lead", "01-body", "02-references"]
+        "00-lead",
+        "01-body",
+        "02-references",
+    ]
     assert all("merged_ids" not in r for r in read_json(job / "section-plan.json"))
 
 
 def test_grouping_respects_size_limit_and_assembly(job: Path) -> None:
     (job / "source.wiki").write_text(
-        "Lead.\n== A ==\n" + "a" * 3000 + "\n== B ==\n" + "b" * 3000 + "\n", encoding="utf-8")
+        "Lead.\n== A ==\n" + "a" * 3000 + "\n== B ==\n" + "b" * 3000 + "\n", encoding="utf-8"
+    )
     result = plan_sections(job, group_max_bytes=3500)
     plan = read_json(job / "section-plan.json")
     assert result["sections"] == 2
     assert [r["merged_ids"] for r in plan] == [["00-lead", "01-a"], ["02-b"]]
     assert all(r["group_bytes"] <= 3500 for r in plan)
-    assert b"".join((job / r["directory"] / "source.wiki").read_bytes()
-                    for r in plan) == (job / "source.wiki").read_bytes()
+    assert (
+        b"".join((job / r["directory"] / "source.wiki").read_bytes() for r in plan)
+        == (job / "source.wiki").read_bytes()
+    )
 
 
 def test_grouped_plan_assembles_through_existing_gates(job: Path) -> None:
@@ -135,8 +150,11 @@ def test_broker_refuses_grouped_plan(job: Path, monkeypatch, capsys) -> None:
 
     monkeypatch.setenv("MGWIKI_BROKER_SOCKET", "/socket")
     monkeypatch.setenv("MGWIKI_CAPABILITY_FILE", "/cap")
-    monkeypatch.setattr(control, "client",
-                        lambda *a: {"ok": True, "result": {"run": job.name, "intent": "translate"}})
+    monkeypatch.setattr(
+        control,
+        "client",
+        lambda *a: {"ok": True, "result": {"run": job.name, "intent": "translate"}},
+    )
     assert cli.main(["sections-plan", "--job", str(job), "--group-max-bytes", "4000"]) == 1
     assert "ungrouped" in capsys.readouterr().err
 
@@ -149,15 +167,20 @@ def test_heading_level_and_nested_heading_detection() -> None:
         heading_ranges(text, 0)
 
 
-@pytest.mark.parametrize("ranges", [
-    [], {}, [{"id": "../escape", "start": 1, "end": 7}],
-    [{"id": "one", "start": 2, "end": 7}],
-    [{"id": "one", "start": 1, "end": 6}],
-    [{"id": "one", "start": 1, "end": 8}],
-    [{"id": "one", "start": True, "end": 7}],
-    [{"id": "one", "start": 1, "end": 2}, {"id": "one", "start": 3, "end": 7}],
-    [{"id": "one", "start": 1, "end": 3}, {"id": "two", "start": 3, "end": 7}],
-])
+@pytest.mark.parametrize(
+    "ranges",
+    [
+        [],
+        {},
+        [{"id": "../escape", "start": 1, "end": 7}],
+        [{"id": "one", "start": 2, "end": 7}],
+        [{"id": "one", "start": 1, "end": 6}],
+        [{"id": "one", "start": 1, "end": 8}],
+        [{"id": "one", "start": True, "end": 7}],
+        [{"id": "one", "start": 1, "end": 2}, {"id": "one", "start": 3, "end": 7}],
+        [{"id": "one", "start": 1, "end": 3}, {"id": "two", "start": 3, "end": 7}],
+    ],
+)
 def test_invalid_custom_ranges_write_nothing(job: Path, tmp_path: Path, ranges) -> None:
     path = tmp_path / "ranges.json"
     write_json(path, ranges)
@@ -175,9 +198,15 @@ def test_custom_ranges(job: Path, tmp_path: Path) -> None:
     assert (job / "sections/all/source.wiki").read_bytes() == (job / "source.wiki").read_bytes()
 
 
-@pytest.mark.parametrize("collision", [
-    "section-plan.json", "section-inputs.json", "source-inventory.json", "sections/00-lead",
-])
+@pytest.mark.parametrize(
+    "collision",
+    [
+        "section-plan.json",
+        "section-inputs.json",
+        "source-inventory.json",
+        "sections/00-lead",
+    ],
+)
 def test_plan_collisions_preflight_all_outputs(job: Path, collision: str) -> None:
     path = job / collision
     path.parent.mkdir(parents=True, exist_ok=True)
@@ -211,10 +240,15 @@ def test_assemble_new_candidate_leaves_root_artifacts_unchanged(job: Path) -> No
         assemble_sections(job)
 
 
-@pytest.mark.parametrize("fragment", [
-    " preformatted line\n", "\n  preformatted line\n\n", "line with trailing spaces  \n",
-    "<pre>  exact indentation  </pre>\r\n",
-])
+@pytest.mark.parametrize(
+    "fragment",
+    [
+        " preformatted line\n",
+        "\n  preformatted line\n\n",
+        "line with trailing spaces  \n",
+        "<pre>  exact indentation  </pre>\r\n",
+    ],
+)
 def test_single_section_assembly_keeps_significant_whitespace(job: Path, fragment: str) -> None:
     (job / "source.wiki").write_bytes(fragment.encode("utf-8"))
     plan_sections(job)
@@ -356,25 +390,37 @@ def test_worker_vocabulary_evidence_rebased_without_status_promotion(job: Path) 
     evidence = job / "evidence"
     evidence.mkdir()
     write_json(evidence / "lookup.json", {"status": "not_found"})
-    record = {"source_term": "unknown", "source_sense": "specific sense", "status": "unresolved",
-              "evidence_files": ["../../evidence/lookup.json", "source.wiki"]}
+    record = {
+        "source_term": "unknown",
+        "source_sense": "specific sense",
+        "status": "unresolved",
+        "evidence_files": ["../../evidence/lookup.json", "source.wiki"],
+    }
     write_json(job / "sections/00-lead/vocabulary.json", {"terms": [record]})
     assemble_sections(job)
     result = read_json(job / "assembly/worker-vocabulary.json")[0]
     assert result["status"] == "unresolved"
     assert result["source_sense"] == "specific sense"
     assert result["evidence_files"] == [
-        "evidence/lookup.json", "sections/00-lead/notes.wiki",
-        "sections/00-lead/section.wiki", "sections/00-lead/source.wiki",
+        "evidence/lookup.json",
+        "sections/00-lead/notes.wiki",
+        "sections/00-lead/section.wiki",
+        "sections/00-lead/source.wiki",
     ]
     assert "evidence/lookup.json" in read_json(job / "assembly/assembly.json")["inputs"]
 
 
-@pytest.mark.parametrize("records", [
-    {"unexpected": []}, ["not a record"], [{"evidence_files": "source.wiki"}],
-    [{"evidence_files": ["missing.json"]}], [{"evidence_files": ["/etc/hosts"]}],
-    [{"evidence_files": ["../../../outside.json"]}],
-])
+@pytest.mark.parametrize(
+    "records",
+    [
+        {"unexpected": []},
+        ["not a record"],
+        [{"evidence_files": "source.wiki"}],
+        [{"evidence_files": ["missing.json"]}],
+        [{"evidence_files": ["/etc/hosts"]}],
+        [{"evidence_files": ["../../../outside.json"]}],
+    ],
+)
 def test_worker_bad_vocabulary_fails_before_any_output(job: Path, records) -> None:
     plan_sections(job)
     complete_workers(job)
@@ -384,10 +430,13 @@ def test_worker_bad_vocabulary_fails_before_any_output(job: Path, records) -> No
     assert not (job / "assembly").exists()
 
 
-@pytest.mark.parametrize("text", [
-    "Text <ref name=undefined />",
-    "<ref name=duplicate>One</ref><ref name=duplicate>Two</ref>",
-])
+@pytest.mark.parametrize(
+    "text",
+    [
+        "Text <ref name=undefined />",
+        "<ref name=duplicate>One</ref><ref name=duplicate>Two</ref>",
+    ],
+)
 def test_assembly_rejects_broken_references(job: Path, text: str) -> None:
     plan_sections(job)
     complete_workers(job)
@@ -414,7 +463,8 @@ def test_coverage_reports_differences_not_approval(job: Path) -> None:
     (job / "source.wiki").write_text(
         "[[File:One.jpg|caption]][[File:One.jpg|again]]\n"
         "<gallery>\nFile:Two.svg|caption\n</gallery>\n"
-        "{{Box|image=Three.png}} https://example.invalid/reference", encoding="utf-8",
+        "{{Box|image=Three.png}} https://example.invalid/reference",
+        encoding="utf-8",
     )
     draft = job / "draft.wiki"
     draft.write_text("[[File:One.jpg|caption]][[File:Extra.jpg]]", encoding="utf-8")
@@ -437,7 +487,19 @@ def test_offline_cli_never_constructs_wiki(job: Path, monkeypatch, capsys) -> No
     output = job / "candidate"
     assert cli.main(["sections-assemble", "--job", str(job), "--output", str(output)]) == 0
     assert json.loads(capsys.readouterr().out)["status"] == "candidate_only"
-    assert cli.main(["coverage", "--job", str(job), "--draft", str(output / "draft.wiki"),
-                     "--output", str(job / "coverage.json")]) == 0
+    assert (
+        cli.main(
+            [
+                "coverage",
+                "--job",
+                str(job),
+                "--draft",
+                str(output / "draft.wiki"),
+                "--output",
+                str(job / "coverage.json"),
+            ]
+        )
+        == 0
+    )
     assert json.loads(capsys.readouterr().out)["status"] == "review_required"
     assert (job / "coverage.json").is_file()

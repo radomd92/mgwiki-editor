@@ -27,7 +27,7 @@ Tiny tool steps repeatedly carry ~350k cached context. 10,000 such calls would a
 ## Local overhead
 
 - `AGENTS.md`, section-agent prompt, mandatory skills, full style references, edition/recovery docs: ~121 KB combined before source/evidence. Runtime inclusion/deduplication varies; byte count is not token count.
-- `.opencode/agents/mgwiki-section.md:36` and `docs/edition-protocol.wiki:192-194`: each section worker loads three skills plus style references. Fresh workers repeat setup, including tiny appendix assignments.
+- `.opencode/agents/mgwiki-section.md:36` and `docs/edition-protocol.md` ("Section subagent assignments"): each section worker loads the style and vocabulary skills plus style references. Fresh workers repeat setup, including tiny appendix assignments.
 - `runs/math-function-20261110/draft.wiki`: 101,898 bytes. Root vocabulary: 12,717,669 bytes / 635 records; 2,630 JSON files under job. Memo field values: dictionary_checks ~7.27 MB; historical dictionary_checks_before_current112 ~647 KB; evidence_files ~1.06 MB. Repeated serialization/readback can dwarf article text; file size alone does not prove every byte reached model.
 - `runs/netherlands-20261110`: draft262021bytes; vocabulary6378478bytes / 620 records. 48,605 evidence-file references, 1,486 distinct paths; up to99 references/record. Repeated coordinator batch-review fields add substantial bulk.
 - `runs/currency-20261110`: 197 vocabulary records / 8,326 evidence-path mentions; up to190 references/record.

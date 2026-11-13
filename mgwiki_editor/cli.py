@@ -40,7 +40,8 @@ def parser() -> argparse.ArgumentParser:
     root = argparse.ArgumentParser(description="Malagasy Wikipedia sandbox translation tools")
     commands = root.add_subparsers(dest="command", required=True)
     init = commands.add_parser(
-        "init", help="Pin source, existing article, and sandbox; no live writes",
+        "init",
+        help="Pin source, existing article, and sandbox; no live writes",
     )
     init.add_argument("--source-lang", required=True)
     init.add_argument("--source-title", required=True)
@@ -57,113 +58,151 @@ def parser() -> argparse.ArgumentParser:
     dictionary.add_argument("--word", required=True)
     dictionary.add_argument("--output", type=Path)
     countries = commands.add_parser(
-        "countries", help="Read cached Malagasy country names from Sokajy:Firenena",
+        "countries",
+        help="Read cached Malagasy country names from Sokajy:Firenena",
     )
     countries.add_argument(
-        "--refresh", action="store_true",
+        "--refresh",
+        action="store_true",
         help="Explicitly refresh data/country-names.json through read-only Pywikibot",
     )
     vocab = commands.add_parser(
-        "vocab", help="Query the math SQLite database read-only; not dictionary verification",
+        "vocab",
+        help="Query the math SQLite database read-only; not dictionary verification",
     )
     vocab.add_argument("--word", help="Case/accent-insensitive substring; omit to list all entries")
     vocab.add_argument("--language", choices=("fr", "mg"), default="fr")
     vocab.add_argument(
-        "--exact", action="store_true", help="Match the complete normalized source label",
+        "--exact",
+        action="store_true",
+        help="Match the complete normalized source label",
     )
     vocab.add_argument("--output", type=Path)
     audit = commands.add_parser(
-        "vocab-audit", help="Find possible untranslated French math terms; report only, no editing",
+        "vocab-audit",
+        help="Find possible untranslated French math terms; report only, no editing",
     )
     audit.add_argument("--draft", type=Path, required=True)
     audit.add_argument("--output", type=Path)
     validate = commands.add_parser(
-        "validate", help="Offline structural lint; not translation review",
+        "validate",
+        help="Offline structural lint; not translation review",
     )
     validate.add_argument("--draft", type=Path, required=True)
     section_plan = commands.add_parser(
-        "sections-plan", help="Offline, non-overwriting section inputs from any pinned source",
+        "sections-plan",
+        help="Offline, non-overwriting section inputs from any pinned source",
     )
     section_plan.add_argument("--job", type=Path, required=True)
     section_plan.add_argument(
-        "--ranges", type=Path, help="JSON inclusive line ranges; full coverage",
+        "--ranges",
+        type=Path,
+        help="JSON inclusive line ranges; full coverage",
     )
     section_plan.add_argument("--level", type=int, choices=range(1, 7), default=2)
     section_plan.add_argument(
-        "--group-max-bytes", type=int, default=0,
+        "--group-max-bytes",
+        type=int,
+        default=0,
         help="Merge adjacent short sections up to this many source bytes; 0 keeps one per heading",
     )
     assemble = commands.add_parser(
-        "sections-assemble", help="Offline candidate only; root draft and review gates unchanged",
+        "sections-assemble",
+        help="Offline candidate only; root draft and review gates unchanged",
     )
     assemble.add_argument("--job", type=Path, required=True)
     assemble.add_argument(
-        "--output", type=Path, help="New directory inside job; default: job/assembly",
+        "--output",
+        type=Path,
+        help="New directory inside job; default: job/assembly",
     )
-    assemble.add_argument("--native-citations", action="store_true",
-                          help="Literal citation fields; preserve every populated metadata field")
     assemble.add_argument(
-        "--link-map", help="Job-relative map from links-build; opt-in prose mapping",
+        "--native-citations",
+        action="store_true",
+        help="Literal citation fields; preserve every populated metadata field",
+    )
+    assemble.add_argument(
+        "--link-map",
+        help="Job-relative map from links-build; opt-in prose mapping",
     )
     coverage = commands.add_parser(
-        "coverage", help="Offline raw-markup inventory/differences; not editorial approval",
+        "coverage",
+        help="Offline raw-markup inventory/differences; not editorial approval",
     )
     coverage.add_argument("--job", type=Path, required=True)
     coverage.add_argument("--draft", type=Path, required=True)
     coverage.add_argument("--output", type=Path)
     citations = commands.add_parser(
-        "citation-audit", help="Offline short-citation/antecedent candidates; never repairs",
+        "citation-audit",
+        help="Offline short-citation/antecedent candidates; never repairs",
     )
     citations.add_argument("--job", type=Path, required=True)
     citations.add_argument("--draft", default="draft.wiki", help="Job-relative draft path")
     citations.add_argument("--output", type=Path)
     metadata = commands.add_parser(
-        "metadata-audit", help="Offline file/template evidence gaps; no license approval",
+        "metadata-audit",
+        help="Offline file/template evidence gaps; no license approval",
     )
     metadata.add_argument("--job", type=Path, required=True)
     metadata.add_argument("--draft", default="draft.wiki", help="Job-relative draft path")
     metadata.add_argument("--evidence", action="append", default=[])
     metadata.add_argument("--output", type=Path)
     license_check = commands.add_parser(
-        "license-report", help="Pinned image rights/attribution/version evidence; never approves",
+        "license-report",
+        help="Pinned image rights/attribution/version evidence; never approves",
     )
     license_check.add_argument("--job", type=Path, required=True)
     license_check.add_argument("--evidence", required=True, help="Job-relative API metadata JSON")
     license_check.add_argument("--filename", required=True, help="Exact bare filename")
     license_check.add_argument("--output", type=Path)
     license_capture = commands.add_parser(
-        "license-evidence", help="Read image rights metadata using existing Wikipedia credentials",
+        "license-evidence",
+        help="Read image rights metadata using existing Wikipedia credentials",
     )
     license_capture.add_argument("--filename", required=True, help="Exact bare filename")
     license_capture.add_argument("--output", type=Path)
     links = commands.add_parser(
-        "links-build", help="Offline interlanguage map from explicit cached Wikipedia batches",
+        "links-build",
+        help="Offline interlanguage map from explicit cached Wikipedia batches",
     )
     links.add_argument("--job", type=Path, required=True)
     links.add_argument("--source-lang", required=True)
-    links.add_argument("--evidence", action="append", required=True,
-                       help="Job-relative cached langlink response; repeat for batches")
     links.add_argument(
-        "--local-evidence", action="append", default=[],
+        "--evidence",
+        action="append",
+        required=True,
+        help="Job-relative cached langlink response; repeat for batches",
+    )
+    links.add_argument(
+        "--local-evidence",
+        action="append",
+        default=[],
         help="Job-relative cached Malagasy query.pages; required for colon-target namespace proof",
     )
     links.add_argument("--output", type=Path)
     index = commands.add_parser(
-        "dictionary-index", help="Offline exact-word index; retains missing/failed lookup statuses",
+        "dictionary-index",
+        help="Offline exact-word index; retains missing/failed lookup statuses",
     )
     index.add_argument("--job", type=Path, required=True)
-    index.add_argument("--lookup", action="append", required=True,
-                       help="Job-relative lookup JSON; repeat for multiple replies")
+    index.add_argument(
+        "--lookup",
+        action="append",
+        required=True,
+        help="Job-relative lookup JSON; repeat for multiple replies",
+    )
     index.add_argument("--output", type=Path)
     memo = commands.add_parser(
-        "vocabulary-report", help="Offline sense groups/conflicts; statuses and memos unchanged",
+        "vocabulary-report",
+        help="Offline sense groups/conflicts; statuses and memos unchanged",
     )
     memo.add_argument("--job", type=Path, required=True)
     memo.add_argument("--vocabulary", required=True, help="Job-relative vocabulary JSON")
     memo.add_argument("--lookup", action="append", default=[], help="Job-relative lookup JSON")
     memo.add_argument("--output", type=Path)
     view = commands.add_parser(
-        "vocabulary-view", help="Offline paginated current decisions; not evidence validation",
+        "vocabulary-view",
+        help="Offline paginated current decisions; not evidence validation",
     )
     view.add_argument("--job", type=Path, required=True)
     view.add_argument("--vocabulary", default="vocabulary.json", help="Job-relative memo path")
@@ -171,11 +210,15 @@ def parser() -> argparse.ArgumentParser:
     view.add_argument("--limit", type=int, default=20)
     view.add_argument("--section", help="Exact section_id filter")
     view.add_argument("--term", help="Exact source_term filter; never merges senses")
-    view.add_argument("--include-evidence", action="store_true",
-                      help="Include direct evidence paths/archive pointers for selected records")
+    view.add_argument(
+        "--include-evidence",
+        action="store_true",
+        help="Include direct evidence paths/archive pointers for selected records",
+    )
     view.add_argument("--output", type=Path)
     pack = commands.add_parser(
-        "vocabulary-pack", help="New lean candidate + lossless auxiliary archive; no adoption",
+        "vocabulary-pack",
+        help="New lean candidate + lossless auxiliary archive; no adoption",
     )
     pack.add_argument("--job", type=Path, required=True)
     pack.add_argument("--vocabulary", required=True, help="Job-relative vocabulary list")
@@ -189,27 +232,39 @@ def parser() -> argparse.ArgumentParser:
     slice_view.add_argument("--key", help="Exact key path to an array; default root array")
     slice_view.add_argument("--offset", type=int, default=0)
     slice_view.add_argument("--limit", type=int, default=20)
-    slice_view.add_argument("--field", action="append", default=[],
-                            help="Keep only this field per item; repeat for several")
+    slice_view.add_argument(
+        "--field",
+        action="append",
+        default=[],
+        help="Keep only this field per item; repeat for several",
+    )
     slice_view.add_argument("--output", type=Path)
     usage = commands.add_parser(
-        "session-usage", help="Offline OpenCode session-counter JSON; never queries live server",
+        "session-usage",
+        help="Offline OpenCode session-counter JSON; never queries live server",
     )
     usage.add_argument("--input", type=Path, required=True, help="Session list/API data response")
-    usage.add_argument("--session", action="append", default=[],
-                       help="Exact ID; default roots only")
+    usage.add_argument(
+        "--session", action="append", default=[], help="Exact ID; default roots only"
+    )
     usage.add_argument("--output", type=Path)
     batch = commands.add_parser(
-        "lookup-batch", help="Serial per-word dictionary lookups in one turn",
+        "lookup-batch",
+        help="Serial per-word dictionary lookups in one turn",
     )
     batch.add_argument("--edition", choices=("en", "mg"), required=True)
     batch.add_argument("--word", action="append", required=True)
     batch.add_argument("--job", type=Path, required=True)
-    batch.add_argument("--output-dir", type=Path, required=True,
-                       help="New directory inside job; one evidence file per word")
+    batch.add_argument(
+        "--output-dir",
+        type=Path,
+        required=True,
+        help="New directory inside job; one evidence file per word",
+    )
     batch.add_argument("--output", type=Path, help="Batch manifest")
     audit_bundle = commands.add_parser(
-        "offline-audit", help="Deterministic local checks in one turn; separate reports",
+        "offline-audit",
+        help="Deterministic local checks in one turn; separate reports",
     )
     audit_bundle.add_argument("--job", type=Path, required=True)
     audit_bundle.add_argument("--draft", default="draft.wiki", help="Job-relative draft path")
@@ -217,22 +272,42 @@ def parser() -> argparse.ArgumentParser:
     audit_bundle.add_argument("--vocab-audit", action="store_true")
     audit_bundle.add_argument("--output", type=Path, required=True, help="Audit manifest")
     pin = commands.add_parser(
-        "evidence-pin", help="Pin exact artifact digests before targeted edits",
+        "evidence-pin",
+        help="Pin exact artifact digests before targeted edits",
     )
     pin.add_argument("--job", type=Path, required=True)
     pin.add_argument("--artifact", action="append", required=True, help="Job-relative path")
     pin.add_argument("--output", type=Path, required=True, help="New pin file inside job")
     verify = commands.add_parser(
-        "evidence-verify", help="Recheck a pin; never modify artifacts",
+        "evidence-verify",
+        help="Recheck a pin; never modify artifacts",
     )
     verify.add_argument("--job", type=Path, required=True)
     verify.add_argument("--pin", required=True, help="Job-relative pin file")
     verify.add_argument("--output", type=Path)
-    for operation in (read, dictionary, vocab, audit, coverage, citations, metadata,
-                      license_check, license_capture, links, index, memo, view, usage,
-                      batch, audit_bundle, pin, slice_view):
+    for operation in (
+        read,
+        dictionary,
+        vocab,
+        audit,
+        coverage,
+        citations,
+        metadata,
+        license_check,
+        license_capture,
+        links,
+        index,
+        memo,
+        view,
+        usage,
+        batch,
+        audit_bundle,
+        pin,
+        slice_view,
+    ):
         operation.add_argument(
-            "--summary", action="store_true",
+            "--summary",
+            action="store_true",
             help="Require --output; save complete JSON, print only hash/signals/counts",
         )
     broker = commands.add_parser("broker", help="Scoped broker operation; no raw HTTP/shell")
@@ -241,12 +316,17 @@ def parser() -> argparse.ArgumentParser:
     broker.add_argument("--action", required=True)
     broker.add_argument("--arguments", type=Path, required=True)
     for command in ("prepare", "publish"):
-        operation = commands.add_parser(command, help="Render proposal" if command == "prepare" else
-                                        "Autonomously save an exact prepared proposal to sandbox")
+        operation = commands.add_parser(
+            command,
+            help="Render proposal"
+            if command == "prepare"
+            else "Autonomously save an exact prepared proposal to sandbox",
+        )
         operation.add_argument("--job", type=Path, required=True)
         if command == "publish":
             operation.add_argument(
-                "--approve", help="Optional proposal SHA-256; autonomous mode does not require it",
+                "--approve",
+                help="Optional proposal SHA-256; autonomous mode does not require it",
             )
     return root
 
@@ -266,31 +346,63 @@ def main(argv: list[str] | None = None) -> int:
             from .broker import loads
             from .control import client
 
-            result = client(args.socket, args.capability_file, args.action,
-                            loads(args.arguments.read_bytes()))
+            result = client(
+                args.socket, args.capability_file, args.action, loads(args.arguments.read_bytes())
+            )
             print(json.dumps(result, ensure_ascii=True, indent=2))
             return 0 if result.get("ok") else 1
         if broker_socket or capfile:
             if not broker_socket or not capfile:
                 raise ValueError("Both broker socket and capability file required; no fallback.")
-            if args.command in {"vocabulary-view", "vocabulary-pack", "session-usage",
-                                "lookup-batch", "offline-audit", "evidence-pin",
-                                "evidence-verify", "json-slice"}:
+            if args.command in {
+                "vocabulary-view",
+                "vocabulary-pack",
+                "session-usage",
+                "lookup-batch",
+                "offline-audit",
+                "evidence-pin",
+                "evidence-verify",
+                "json-slice",
+            }:
                 raise ValueError(f"{args.command} unsupported by configured broker; no fallback.")
             if args.command in {
-                "init", "read", "lookup", "countries", "prepare", "publish", "sections-plan",
-                "sections-assemble", "vocab", "vocab-audit", "coverage", "links-build",
-                "dictionary-index", "vocabulary-report", "citation-audit", "metadata-audit",
-                "license-report", "license-evidence",
+                "init",
+                "read",
+                "lookup",
+                "countries",
+                "prepare",
+                "publish",
+                "sections-plan",
+                "sections-assemble",
+                "vocab",
+                "vocab-audit",
+                "coverage",
+                "links-build",
+                "dictionary-index",
+                "vocabulary-report",
+                "citation-audit",
+                "metadata-audit",
+                "license-report",
+                "license-evidence",
             }:
                 return _broker_dispatch(args, Path(broker_socket), Path(capfile))
         remote_commands = {"init", "read", "countries", "prepare", "publish", "license-evidence"}
         wiki = Wiki() if args.command in remote_commands else None
         if args.command == "init":
-            result = initialize(wiki, args.job, args.source_lang, args.source_title,
-                                args.article_title, args.existing_title)
-            result = {"job": str(args.job), "destination": result["destination"],
-                      "status": "draft_only", "source_url": result["source"]["url"]}
+            result = initialize(
+                wiki,
+                args.job,
+                args.source_lang,
+                args.source_title,
+                args.article_title,
+                args.existing_title,
+            )
+            result = {
+                "job": str(args.job),
+                "destination": result["destination"],
+                "status": "draft_only",
+                "source_url": result["source"]["url"],
+            }
         elif args.command == "lookup":
             result = lookup(args.edition, args.word)
         elif args.command == "countries":
@@ -300,11 +412,14 @@ def main(argv: list[str] | None = None) -> int:
         elif args.command == "vocab-audit":
             result = audit_mathematical_terms(args.draft)
         elif args.command == "sections-plan":
-            result = plan_sections(args.job, ranges=args.ranges, level=args.level,
-                                   group_max_bytes=args.group_max_bytes)
+            result = plan_sections(
+                args.job, ranges=args.ranges, level=args.level, group_max_bytes=args.group_max_bytes
+            )
         elif args.command == "sections-assemble":
             result = assemble_sections(
-                args.job, output=args.output, native_citations=args.native_citations,
+                args.job,
+                output=args.output,
+                native_citations=args.native_citations,
                 link_map=args.link_map,
             )
         elif args.command == "coverage":
@@ -318,25 +433,43 @@ def main(argv: list[str] | None = None) -> int:
         elif args.command == "license-evidence":
             filename = file_name(args.filename)
             result = license_evidence(filename, wiki.file_metadata(filename))
-            result.update(origin="wiki_image_info_read",
-                          source_api="https://mg.wikipedia.org/w/api.php", captured_at=time.time())
+            result.update(
+                origin="wiki_image_info_read",
+                source_api="https://mg.wikipedia.org/w/api.php",
+                captured_at=time.time(),
+            )
         elif args.command == "links-build":
             result = build_link_map(
-                args.job, args.evidence, args.source_lang, local_files=args.local_evidence,
+                args.job,
+                args.evidence,
+                args.source_lang,
+                local_files=args.local_evidence,
             )
         elif args.command == "dictionary-index":
             result = dictionary_index(args.job, args.lookup)
         elif args.command == "vocabulary-report":
             result = vocabulary_report(args.job, args.vocabulary, args.lookup)
         elif args.command == "vocabulary-view":
-            result = vocabulary_view(args.job, args.vocabulary, offset=args.offset,
-                                     limit=args.limit, section=args.section, term=args.term,
-                                     include_evidence=args.include_evidence)
+            result = vocabulary_view(
+                args.job,
+                args.vocabulary,
+                offset=args.offset,
+                limit=args.limit,
+                section=args.section,
+                term=args.term,
+                include_evidence=args.include_evidence,
+            )
         elif args.command == "vocabulary-pack":
             result = pack_vocabulary(args.job, args.vocabulary, args.output)
         elif args.command == "json-slice":
-            result = json_slice(args.job, args.path, key=args.key, offset=args.offset,
-                                limit=args.limit, fields=args.field)
+            result = json_slice(
+                args.job,
+                args.path,
+                key=args.key,
+                offset=args.offset,
+                limit=args.limit,
+                fields=args.field,
+            )
         elif args.command == "session-usage":
             raw = args.input.read_bytes()
             result = session_usage(json.loads(raw), sessions=args.session)
@@ -344,8 +477,13 @@ def main(argv: list[str] | None = None) -> int:
         elif args.command == "lookup-batch":
             result = lookup_batch(args.edition, args.word, args.job, args.output_dir)
         elif args.command == "offline-audit":
-            result = offline_audit(args.job, args.draft, args.output,
-                                   evidence=args.evidence, vocab_audit=args.vocab_audit)
+            result = offline_audit(
+                args.job,
+                args.draft,
+                args.output,
+                evidence=args.evidence,
+                vocab_audit=args.vocab_audit,
+            )
             if result["failed_checks"]:
                 # Reports are retained; a failed check must not read as success.
                 print(json.dumps(result, ensure_ascii=True, indent=2))
@@ -364,8 +502,11 @@ def main(argv: list[str] | None = None) -> int:
             result = prepare(wiki, args.job)
         else:
             result = publish(wiki, args.job, args.approve)
-        if (getattr(args, "output", None)
-                and args.command not in {"sections-assemble", "vocabulary-pack", "evidence-pin"}):
+        if getattr(args, "output", None) and args.command not in {
+            "sections-assemble",
+            "vocabulary-pack",
+            "evidence-pin",
+        }:
             write_new({args.output: json_bytes(result)})
         if getattr(args, "summary", False):
             result = report_summary(args.command, result, args.output)
@@ -376,8 +517,10 @@ def main(argv: list[str] | None = None) -> int:
         return 0
     except Exception as exc:
         # A failed save may already have reached Wikimedia: retain the unconfirmed receipt.
-        print(json.dumps({"error": type(exc).__name__, "message": str(exc)}, ensure_ascii=True),
-              file=sys.stderr)
+        print(
+            json.dumps({"error": type(exc).__name__, "message": str(exc)}, ensure_ascii=True),
+            file=sys.stderr,
+        )
         return 1
 
 
@@ -394,8 +537,12 @@ def _broker_dispatch(args, socket: Path, capfile: Path) -> int:
             raise ValueError("CLI job does not match broker capability run.")
     parameters = {}
     if args.command == "init":
-        manifest = {"intent": status["result"]["intent"], "source_language": args.source_lang,
-                    "source_title": args.source_title, "article_title": args.article_title}
+        manifest = {
+            "intent": status["result"]["intent"],
+            "source_language": args.source_lang,
+            "source_title": args.source_title,
+            "article_title": args.article_title,
+        }
         if args.existing_title is not None:
             manifest["existing_title"] = args.existing_title
         parameters = {"expected_manifest": manifest}
@@ -422,8 +569,11 @@ def _broker_dispatch(args, socket: Path, capfile: Path) -> int:
         if args.draft.is_absolute() or ".." in args.draft.parts:
             raise ValueError("Broker audit draft must be job-relative.")
     elif args.command == "links-build":
-        parameters = {"source_language": args.source_lang, "evidence": args.evidence,
-                       "local_evidence": args.local_evidence}
+        parameters = {
+            "source_language": args.source_lang,
+            "evidence": args.evidence,
+            "local_evidence": args.local_evidence,
+        }
     elif args.command == "citation-audit":
         parameters = {"draft": args.draft}
     elif args.command == "metadata-audit":
@@ -442,8 +592,10 @@ def _broker_dispatch(args, socket: Path, capfile: Path) -> int:
     if args.command == "publish" and args.approve is not None:
         # Optional digest pin remains useful; broker still independently verifies exact proposal.
         proposal = client(socket, capfile, "artifact", {"name": "proposal.json"})
-        if (not proposal.get("ok")
-                or json.loads(proposal["result"]["content"])["digest"] != args.approve):
+        if (
+            not proposal.get("ok")
+            or json.loads(proposal["result"]["content"])["digest"] != args.approve
+        ):
             raise ValueError("Approval/digest does not match broker proposal.")
     aliases = {"sections-plan": "plan", "sections-assemble": "assemble"}
     action = aliases.get(args.command, args.command)
@@ -451,8 +603,13 @@ def _broker_dispatch(args, socket: Path, capfile: Path) -> int:
     if response.get("ok") and getattr(args, "output", None):
         write_new({args.output: json_bytes(response["result"])})
         if getattr(args, "summary", False):
-            response = {**response, "result": report_summary(
-                args.command, response["result"], args.output,
-            )}
+            response = {
+                **response,
+                "result": report_summary(
+                    args.command,
+                    response["result"],
+                    args.output,
+                ),
+            }
     print(json.dumps(response, ensure_ascii=True, indent=2))
     return 0 if response.get("ok") else 1

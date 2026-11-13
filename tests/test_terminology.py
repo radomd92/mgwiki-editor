@@ -29,12 +29,12 @@ def test_audit_uses_database_and_preserves_draft(tmp_path: Path) -> None:
 def test_audit_skips_protected_metadata_targets_and_comments(tmp_path: Path) -> None:
     draft = tmp_path / "section.wiki"
     draft.write_text(
-        '<ref>Equation, Logarithme, https://example.org/equation</ref>\n'
-        '<nowiki>Equation</nowiki><math>Equation</math><!-- Equation -->\n'
-        '{{Cite|title=Equation|url=https://example.org/logarithme}}\n'
-        '[[Equation|Sary]] [https://example.org/equation Sary]\n'
-        '[[Untranslated target]] <gallery>File:Equation.jpg|Logarithme</gallery>\n'
-        '[[Topic|équation]] [https://example.org Label: logarithme]\n',
+        "<ref>Equation, Logarithme, https://example.org/equation</ref>\n"
+        "<nowiki>Equation</nowiki><math>Equation</math><!-- Equation -->\n"
+        "{{Cite|title=Equation|url=https://example.org/logarithme}}\n"
+        "[[Equation|Sary]] [https://example.org/equation Sary]\n"
+        "[[Untranslated target]] <gallery>File:Equation.jpg|Logarithme</gallery>\n"
+        "[[Topic|équation]] [https://example.org Label: logarithme]\n",
         encoding="utf-8",
     )
     result = audit_mathematical_terms(draft)
@@ -59,7 +59,8 @@ def test_audit_preserves_decomposed_accents_in_report(tmp_path: Path) -> None:
 
 
 def test_cli_audit_reports_without_mutating_draft(
-    tmp_path: Path, capsys: pytest.CaptureFixture,
+    tmp_path: Path,
+    capsys: pytest.CaptureFixture,
 ) -> None:
     draft = tmp_path / "draft.wiki"
     draft.write_text("Equation", encoding="utf-8")

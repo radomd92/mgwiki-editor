@@ -10,9 +10,19 @@ from .artifacts import read_evidence
 from .core import GuardError, digest, json_bytes, title
 
 RIGHTS_FIELDS = (
-    "LicenseShortName", "LicenseUrl", "UsageTerms", "Copyrighted", "NonFree",
-    "AttributionRequired", "Artist", "Credit", "Attribution", "Restrictions",
-    "Permission", "CopyrightNotice", "License",
+    "LicenseShortName",
+    "LicenseUrl",
+    "UsageTerms",
+    "Copyrighted",
+    "NonFree",
+    "AttributionRequired",
+    "Artist",
+    "Credit",
+    "Attribution",
+    "Restrictions",
+    "Permission",
+    "CopyrightNotice",
+    "License",
 )
 
 
@@ -43,24 +53,32 @@ def _license(url) -> tuple[str, list[str]]:
         return "unrecognized", []
     try:
         parsed = urlsplit(url.strip())
-        if (parsed.scheme not in {"http", "https"} or parsed.username or parsed.password
-                or parsed.hostname not in {"creativecommons.org", "www.creativecommons.org"}
-                or parsed.port is not None or parsed.query or parsed.fragment):
+        if (
+            parsed.scheme not in {"http", "https"}
+            or parsed.username
+            or parsed.password
+            or parsed.hostname not in {"creativecommons.org", "www.creativecommons.org"}
+            or parsed.port is not None
+            or parsed.query
+            or parsed.fragment
+        ):
             return "unrecognized", []
     except ValueError:
         return "unrecognized", []
     path = parsed.path.rstrip("/")
     match = re.fullmatch(
         r"/licenses/(by|by-sa|by-nc|by-nd|by-nc-sa|by-nc-nd)/"
-        r"(1\.0|2\.0|2\.5|3\.0|4\.0)(?:/deed(?:\.[a-z-]+)?)?", path,
+        r"(1\.0|2\.0|2\.5|3\.0|4\.0)(?:/deed(?:\.[a-z-]+)?)?",
+        path,
     )
     if match:
         kind = match[1]
         if kind not in {"by", "by-sa"}:
             return "nonfree_cc_terms", []
         return "cc_" + kind.replace("-", "_") + "_" + match[2], [
-            "attribution", "license_notice", *(["share_alike_for_adaptations"] if kind == "by-sa"
-                                               else []),
+            "attribution",
+            "license_notice",
+            *(["share_alike_for_adaptations"] if kind == "by-sa" else []),
         ]
     if re.fullmatch(r"/publicdomain/zero/1\.0(?:/deed(?:\.[a-z-]+)?)?", path):
         return "cc0_1.0", []
@@ -76,9 +94,9 @@ def license_evidence(filename: str, response: dict) -> dict:
     claim, not an editorial determination of copyright, authorship or all rights.
     """
     filename = file_name(filename)
-    if (not isinstance(response, dict) or any(
+    if not isinstance(response, dict) or any(
         key in response for key in ("continue", "error", "errors", "warnings")
-    )):
+    ):
         raise GuardError("Failed/incomplete file response cannot establish license evidence.")
     query = response.get("query")
     pages = query.get("pages") if isinstance(query, dict) else None
@@ -121,33 +139,51 @@ def license_evidence(filename: str, response: dict) -> dict:
             assessment = "public_domain_claim_needs_review"
         else:
             assessment = "insufficient_rights_evidence"
-        versions.append({
-            "timestamp": row.get("timestamp"), "sha1": row.get("sha1"),
-            "version_fields_present": bool(isinstance(row.get("timestamp"), str)
-                                           and row["timestamp"] and isinstance(row.get("sha1"), str)
-                                           and row["sha1"]),
-            "url": row.get("url"), "descriptionurl": row.get("descriptionurl"),
-            "rights_fields": {field: metadata[field] for field in RIGHTS_FIELDS
-                              if field in metadata},
-            "license_identity": kind, "metadata_assessment": assessment,
-            "reported_obligations": obligations,
-            "restriction_review_required": bool(_value(metadata, "Restrictions")),
-            "attribution_text_present": any(_value(metadata, field)
-                                            for field in ("Artist", "Credit", "Attribution")),
-            "license_approved": False,
-        })
-    return {"schema": 1, "kind": "license_evidence", "filename": filename,
-            "reported_title": page["title"], "repository": page.get("imagerepository"),
-            "local_description_missing": bool(page.get("missing")),
-            "availability_reported": bool(info), "versions": versions,
-            "origin": "unverified_cached_input", "response_sha256": digest(json_bytes(response)),
-            "response": response, "license_approved": False,
-            "limits": "Raw metadata claims, not a legal clearance or current availability proof. "
-                      "Recognized URI does not establish authorship, exact source-call mapping, "
-                      "jurisdiction, personality/trademark rights or absence of restrictions. "
-                      "Review attribution, license terms, version and final use separately. "
-                      "No URLs/images fetched; missing local description can coexist "
-                      "with shared file."}
+        versions.append(
+            {
+                "timestamp": row.get("timestamp"),
+                "sha1": row.get("sha1"),
+                "version_fields_present": bool(
+                    isinstance(row.get("timestamp"), str)
+                    and row["timestamp"]
+                    and isinstance(row.get("sha1"), str)
+                    and row["sha1"]
+                ),
+                "url": row.get("url"),
+                "descriptionurl": row.get("descriptionurl"),
+                "rights_fields": {
+                    field: metadata[field] for field in RIGHTS_FIELDS if field in metadata
+                },
+                "license_identity": kind,
+                "metadata_assessment": assessment,
+                "reported_obligations": obligations,
+                "restriction_review_required": bool(_value(metadata, "Restrictions")),
+                "attribution_text_present": any(
+                    _value(metadata, field) for field in ("Artist", "Credit", "Attribution")
+                ),
+                "license_approved": False,
+            }
+        )
+    return {
+        "schema": 1,
+        "kind": "license_evidence",
+        "filename": filename,
+        "reported_title": page["title"],
+        "repository": page.get("imagerepository"),
+        "local_description_missing": bool(page.get("missing")),
+        "availability_reported": bool(info),
+        "versions": versions,
+        "origin": "unverified_cached_input",
+        "response_sha256": digest(json_bytes(response)),
+        "response": response,
+        "license_approved": False,
+        "limits": "Raw metadata claims, not a legal clearance or current availability proof. "
+        "Recognized URI does not establish authorship, exact source-call mapping, "
+        "jurisdiction, personality/trademark rights or absence of restrictions. "
+        "Review attribution, license terms, version and final use separately. "
+        "No URLs/images fetched; missing local description can coexist "
+        "with shared file.",
+    }
 
 
 def license_report(job: Path, evidence: str, filename: str) -> dict:

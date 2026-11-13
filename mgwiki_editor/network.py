@@ -56,7 +56,10 @@ class RequestGate:
     """Share read/write pacing and cooldowns between CLI processes using a locked state file."""
 
     def __init__(
-        self, path: Path | None = None, *, clock: Callable[[], float] = time.time,
+        self,
+        path: Path | None = None,
+        *,
+        clock: Callable[[], float] = time.time,
         sleep: Callable[[float], None] = time.sleep,
         monotonic: Callable[[], float] = time.monotonic,
         jitter: Callable[[float, float], float] = random.uniform,
@@ -86,7 +89,8 @@ class RequestGate:
                     ) from exc
                 if not isinstance(state, dict) or any(
                     not isinstance(state.get(key, 0), (int, float))
-                    or not math.isfinite(state.get(key, 0)) or state.get(key, 0) < 0
+                    or not math.isfinite(state.get(key, 0))
+                    or state.get(key, 0) < 0
                     for key in ("next_request", "next_write", "failures", "cooldown_until")
                 ):
                     raise NetworkPolicyError("Invalid request pacing state; no request sent.")
@@ -107,11 +111,13 @@ class RequestGate:
             with self.state() as state:
                 now = self.clock()
                 ready = max(
-                    state.get("next_request", 0), state.get("next_write", 0) if write else 0,
+                    state.get("next_request", 0),
+                    state.get("next_write", 0) if write else 0,
                 )
                 delay = max(0, ready - now)
                 reason = (
-                    "server_cooldown" if state.get("cooldown_until", 0) > now
+                    "server_cooldown"
+                    if state.get("cooldown_until", 0) > now
                     else "shared_request_spacing"
                 )
                 budget = MAX_COOLDOWN_WAIT if reason == "server_cooldown" else MAX_GATE_WAIT
@@ -122,19 +128,28 @@ class RequestGate:
                         state["next_write"] = now + EDIT_INTERVAL
                     return
             if delay > budget - elapsed:
-                self.report({
-                    "event": "network_deferred", "reason": reason,
-                    "retry_in_seconds": round(delay, 1),
-                    "waited_seconds": round(elapsed, 1), "budget_seconds": budget,
-                })
+                self.report(
+                    {
+                        "event": "network_deferred",
+                        "reason": reason,
+                        "retry_in_seconds": round(delay, 1),
+                        "waited_seconds": round(elapsed, 1),
+                        "budget_seconds": budget,
+                    }
+                )
                 raise NetworkPolicyError(
                     f"Network wait {delay:.1f}s exceeds the {budget}-second gate budget "
                     f"({reason}); task deferred, cooldown preserved. Do not poll or retry now.",
                 )
-            self.report({
-                "event": "network_wait", "reason": reason, "seconds": round(delay, 1),
-                "waited_seconds": round(elapsed, 1), "budget_seconds": budget,
-            })
+            self.report(
+                {
+                    "event": "network_wait",
+                    "reason": reason,
+                    "seconds": round(delay, 1),
+                    "waited_seconds": round(elapsed, 1),
+                    "budget_seconds": budget,
+                }
+            )
             self.sleep(delay)
             waited += delay
 
@@ -143,8 +158,9 @@ class RequestGate:
         with self.state() as state:
             now = self.clock()
             failures = min(int(state.get("failures", 0)) + 1, 8)
-            delay = max(30 * 2 ** (failures - 1) + self.jitter(0, 5),
-                        retry_after_seconds(retry_after, now))
+            delay = max(
+                30 * 2 ** (failures - 1) + self.jitter(0, 5), retry_after_seconds(retry_after, now)
+            )
             if failures >= 3:
                 delay = max(delay, 900)
             deadline = max(state.get("next_request", 0), now + delay)
@@ -174,17 +190,24 @@ def api_url_allowed(url: str) -> bool:
     except ValueError:
         return False
     return (
-        parsed.scheme == "https" and not parsed.username and not parsed.password
-        and not parsed.fragment and port in {None, 443} and parsed.path == "/w/api.php"
+        parsed.scheme == "https"
+        and not parsed.username
+        and not parsed.password
+        and not parsed.fragment
+        and port in {None, 443}
+        and parsed.path == "/w/api.php"
         and (host.endswith(".wikipedia.org") or host == "login.wikimedia.org")
     )
 
 
 def guarded_send(
-    send: Callable[..., Any], gate: RequestGate, *,
+    send: Callable[..., Any],
+    gate: RequestGate,
+    *,
     report: Callable[[dict[str, Any]], None] = report_progress,
 ) -> Callable[..., Any]:
     """Guard actual HTTP attempts, including Pywikibot's own retries, not just CLI calls."""
+
     def request(prepared: Any, **kwargs: Any) -> Any:
         active_gate = observations.request_gate() or gate
         if not api_url_allowed(prepared.url):
@@ -201,21 +224,45 @@ def guarded_send(
                 raise NetworkPolicyError("Duplicate API action refused.")
             parameters.update(body_parameters)
         actions = parameters.get("action", [])
-        allowed = {"query", "parse", "edit", "login", "clientlogin", "paraminfo", "help",
-                   "expandtemplates", "compare"}
+        allowed = {
+            "query",
+            "parse",
+            "edit",
+            "login",
+            "clientlogin",
+            "paraminfo",
+            "help",
+            "expandtemplates",
+            "compare",
+        }
         if actions and (len(actions) != 1 or actions[0] not in allowed):
             raise NetworkPolicyError("Forbidden/ambiguous API action.")
         write = parameters.get("action") == ["edit"]
-        safe_read = bool(actions and actions[0] in {
-            "query", "parse", "paraminfo", "help", "expandtemplates", "compare",
-        })
+        safe_read = bool(
+            actions
+            and actions[0]
+            in {
+                "query",
+                "parse",
+                "paraminfo",
+                "help",
+                "expandtemplates",
+                "compare",
+            }
+        )
         observations.before(prepared.url, safe_read=safe_read)
         active_gate.wait(write=write)
         # Never print titles, request bodies, arbitrary action values, or tokens.
         action = parameters.get("action", [""])[0]
         action = action if action in {"query", "parse", "edit", "login", "clientlogin"} else "api"
-        report({"event": "wikimedia_request", "phase": "start",
-                "host": urlsplit(prepared.url).hostname, "action": action})
+        report(
+            {
+                "event": "wikimedia_request",
+                "phase": "start",
+                "host": urlsplit(prepared.url).hostname,
+                "action": action,
+            }
+        )
         # Never follow a response redirect, even to a URL named in wiki content.
         kwargs["allow_redirects"] = False
         try:
@@ -228,8 +275,14 @@ def guarded_send(
                     "Edit transport failed; save is unconfirmed. No automatic resubmission.",
                 ) from exc
             raise
-        report({"event": "wikimedia_request", "phase": "response",
-                "action": action, "status": response.status_code})
+        report(
+            {
+                "event": "wikimedia_request",
+                "phase": "response",
+                "action": action,
+                "status": response.status_code,
+            }
+        )
         if 300 <= response.status_code < 400:
             observations.observe(prepared.url, response.status_code, safe_read=safe_read)
             raise NetworkPolicyError("API redirect not followed; no external link was opened.")
@@ -249,9 +302,13 @@ def guarded_send(
                     raise NetworkPolicyError(
                         "Edit response is not JSON; save unconfirmed. No automatic resubmission.",
                     ) from exc
-        observations.observe(prepared.url, response.status_code, safe_read=safe_read,
-                             valid_success=response.status_code == 200 and not error,
-                             retry_after=response.headers.get("Retry-After", ""))
+        observations.observe(
+            prepared.url,
+            response.status_code,
+            safe_read=safe_read,
+            valid_success=response.status_code == 200 and not error,
+            retry_after=response.headers.get("Retry-After", ""),
+        )
         if response.status_code in {429, 503} or error in {"maxlag", "ratelimited"}:
             delay = active_gate.backoff(response.headers.get("Retry-After", ""))
             raise NetworkPolicyError(
@@ -260,9 +317,13 @@ def guarded_send(
             )
         if 500 <= response.status_code <= 599:
             now = active_gate.clock()
-            active_gate.defer_until(now + max(
-                15, retry_after_seconds(response.headers.get("Retry-After", ""), now),
-            ))
+            active_gate.defer_until(
+                now
+                + max(
+                    15,
+                    retry_after_seconds(response.headers.get("Retry-After", ""), now),
+                )
+            )
             raise NetworkPolicyError(
                 f"Wikimedia HTTP {response.status_code}; cooldown retained. "
                 "No automatic resubmission.",
@@ -313,8 +374,11 @@ def install_wikimedia_transport() -> None:
             except Exception as exc:
                 # Pywikibot retries arbitrary Exception instances, but not this
                 # documented fatal transport exception. Never replay an edit.
-                reason = (str(exc) if isinstance(exc, NetworkPolicyError) else
-                          "Transport/policy observation failed. No automatic resubmission.")
+                reason = (
+                    str(exc)
+                    if isinstance(exc, NetworkPolicyError)
+                    else "Transport/policy observation failed. No automatic resubmission."
+                )
                 raise FatalServerError(reason) from exc
 
         http.session.send = send_without_replay
@@ -339,8 +403,12 @@ class NoRedirect(HTTPRedirectHandler):
 
 def dictionary_word(value: str) -> str:
     """Validate lookup identity; reject path-routing tricks, never call another endpoint."""
-    if (not isinstance(value, str) or not value.strip() or len(value) > 250
-            or any(ord(c) < 32 for c in value)):
+    if (
+        not isinstance(value, str)
+        or not value.strip()
+        or len(value) > 250
+        or any(ord(c) < 32 for c in value)
+    ):
         raise NetworkPolicyError("Invalid dictionary word.")
     decoded = value.strip()
     for _ in range(20):
@@ -356,9 +424,16 @@ def dictionary_word(value: str) -> str:
 def dictionary_open(request: Request, *, timeout: int) -> Any:
     """Pace real dictionary calls too; they can trigger upstream Wikimedia reads."""
     parsed = urlsplit(request.full_url)
-    if (request.get_method() != "GET" or request.data is not None or parsed.query or parsed.fragment
-            or parsed.username or parsed.password or parsed.scheme not in {"http", "https"}
-            or not re.fullmatch(r"/wiktionary-pages/(?:en|mg)/[^/]+", parsed.path)):
+    if (
+        request.get_method() != "GET"
+        or request.data is not None
+        or parsed.query
+        or parsed.fragment
+        or parsed.username
+        or parsed.password
+        or parsed.scheme not in {"http", "https"}
+        or not re.fullmatch(r"/wiktionary-pages/(?:en|mg)/[^/]+", parsed.path)
+    ):
         raise NetworkPolicyError("Only credential-free read-only dictionary GET lookup allowed.")
     dictionary_word(unquote(parsed.path.rsplit("/", 1)[1]))
     gate = observations.request_gate() or RequestGate()
@@ -369,8 +444,12 @@ def dictionary_open(request: Request, *, timeout: int) -> Any:
         response = build_opener(ProxyHandler({}), NoRedirect()).open(request, timeout=timeout)
     except HTTPError as exc:
         if exc.code not in {404, 502}:
-            observations.observe(request.full_url, exc.code, dictionary=True,
-                                 retry_after=exc.headers.get("Retry-After", ""))
+            observations.observe(
+                request.full_url,
+                exc.code,
+                dictionary=True,
+                retry_after=exc.headers.get("Retry-After", ""),
+            )
         if 500 <= exc.code <= 599 and exc.code not in {502, 503}:
             now = gate.clock()
             delay = max(15, retry_after_seconds(exc.headers.get("Retry-After", ""), now))

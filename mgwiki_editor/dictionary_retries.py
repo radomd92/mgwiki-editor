@@ -19,7 +19,10 @@ class DictionaryRetries:
     """One serial coordinator resumes due lookups; no hidden HTTP or sleep loop."""
 
     def __init__(
-        self, path: Path | None = None, *, clock: Callable[[], float] = time.time,
+        self,
+        path: Path | None = None,
+        *,
+        clock: Callable[[], float] = time.time,
     ) -> None:
         path = path or RequestGate().path.with_name("dictionary-retries.json")
         self.gate = RequestGate(path=path)
@@ -35,11 +38,15 @@ class DictionaryRetries:
         if not isinstance(records, dict):
             raise NetworkPolicyError("Invalid dictionary retry state; no request sent.")
         for row in records.values():
-            if (not isinstance(row, dict) or type(row.get("failures")) is not int
-                    or not 1 <= row["failures"] <= MAX_RETRIES + 1
-                    or not isinstance(row.get("next_attempt"), (int, float))
-                    or not math.isfinite(row["next_attempt"]) or row["next_attempt"] < 0
-                    or not isinstance(row.get("result"), dict)):
+            if (
+                not isinstance(row, dict)
+                or type(row.get("failures")) is not int
+                or not 1 <= row["failures"] <= MAX_RETRIES + 1
+                or not isinstance(row.get("next_attempt"), (int, float))
+                or not math.isfinite(row["next_attempt"])
+                or row["next_attempt"] < 0
+                or not isinstance(row.get("result"), dict)
+            ):
                 raise NetworkPolicyError("Invalid dictionary retry record; no request sent.")
         return records
 
@@ -52,8 +59,11 @@ class DictionaryRetries:
             "retries_used": row["failures"] - 1,
             "interval_seconds": RETRY_INTERVAL,
             "next_attempt_unix": None if exhausted else row["next_attempt"],
-            "retry_in_seconds": None if exhausted else max(
-                0, math.ceil(row["next_attempt"] - self.clock()),
+            "retry_in_seconds": None
+            if exhausted
+            else max(
+                0,
+                math.ceil(row["next_attempt"] - self.clock()),
             ),
         }
         return result
@@ -64,8 +74,7 @@ class DictionaryRetries:
             return None
         with self.gate.state() as state:
             row = self._records(state).get(self._key(url))
-            if row and (row["failures"] >= MAX_RETRIES + 1
-                        or row["next_attempt"] > self.clock()):
+            if row and (row["failures"] >= MAX_RETRIES + 1 or row["next_attempt"] > self.clock()):
                 return self._result(row)
         return None
 

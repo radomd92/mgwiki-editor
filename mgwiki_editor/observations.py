@@ -64,15 +64,31 @@ def before(url: str, *, safe_read: bool, dictionary: bool = False) -> None:
 
 
 def observe(
-    url: str, status: int | None, *, safe_read: bool = True, dictionary: bool = False,
-    missing: bool = False, valid_success: bool = False, retry_after: str = "",
+    url: str,
+    status: int | None,
+    *,
+    safe_read: bool = True,
+    dictionary: bool = False,
+    missing: bool = False,
+    valid_success: bool = False,
+    retry_after: str = "",
 ) -> None:
     hooks = _hooks.get()
     if hooks is not None:
-        hooks.observe(Observation(
-            service_id(url, dictionary=dictionary), uuid.uuid4().hex, hooks.clock(),
-            hooks.monotonic(), hooks.boot, status, safe_read, missing, valid_success, retry_after,
-        ))
+        hooks.observe(
+            Observation(
+                service_id(url, dictionary=dictionary),
+                uuid.uuid4().hex,
+                hooks.clock(),
+                hooks.monotonic(),
+                hooks.boot,
+                status,
+                safe_read,
+                missing,
+                valid_success,
+                retry_after,
+            )
+        )
 
 
 @contextmanager

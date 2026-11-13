@@ -31,6 +31,7 @@ def _markup_parts(text: str) -> Iterator[Any]:
 
 def reference_key(tag: Any) -> tuple[str, str]:
     """Reference names are scoped by group, not globally unique."""
+
     def value(key: str) -> str:
         return html.unescape(str(tag.get(key).value)).strip() if tag.has(key) else ""
 
@@ -68,12 +69,20 @@ def inventory(text: str) -> dict[str, Any]:
         for param in template.params:
             value = str(param.value).strip()
             if re.fullmatch(r"[^\[\]{}\n]+\.(?:jpe?g|png|svg|gif|webp|tiff?)", value, re.I):
-                candidates.append({"template": str(template.name).strip(),
-                                   "parameter": str(param.name).strip(), "value": value})
+                candidates.append(
+                    {
+                        "template": str(template.name).strip(),
+                        "parameter": str(param.name).strip(),
+                        "value": value,
+                    }
+                )
     return {
-        "links": links, "files": dict(sorted(files.items())),
-        "template_file_candidates": candidates, "categories": categories,
-        "templates": templates, "references": reference_inventory(text),
+        "links": links,
+        "files": dict(sorted(files.items())),
+        "template_file_candidates": candidates,
+        "categories": categories,
+        "templates": templates,
+        "references": reference_inventory(text),
         "urls": sorted(set(re.findall(r"https?://[^\s<>\]|}]+", text))),
     }
 
@@ -135,7 +144,8 @@ def promote_article_categories(text: str) -> tuple[str, list[dict[str, str]]]:
 
 
 def convert_related_hatnotes(
-    text: str, mapping: dict[str, Any] | None = None,
+    text: str,
+    mapping: dict[str, Any] | None = None,
 ) -> tuple[str, list[dict[str, str]]]:
     """Render source main/further/details hatnotes with the verified Malagasy template.
 
@@ -170,9 +180,7 @@ def convert_related_hatnotes(
         if not values:
             continue
         original = str(template)
-        replacement = "\n".join(
-            "{{" + RELATED_HATNOTE + "|" + value + "}}" for value in values
-        )
+        replacement = "\n".join("{{" + RELATED_HATNOTE + "|" + value + "}}" for value in values)
         code.replace(template, replacement)
         conversions.append({"source": original, "replacement": replacement})
     return str(code), conversions

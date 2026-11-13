@@ -23,8 +23,12 @@ def _slug(word: str) -> str:
 
 
 def lookup_batch(
-    edition: str, words: list[str], job: Path, output_dir: Path,
-    *, lookup_fn=None,
+    edition: str,
+    words: list[str],
+    job: Path,
+    output_dir: Path,
+    *,
+    lookup_fn=None,
 ) -> dict[str, Any]:
     """Serial per-word lookups, one tool turn; pending 502 evidence retained."""
     lookup_fn = lookup_fn or lookup
@@ -50,26 +54,39 @@ def lookup_batch(
         reply = lookup_fn(batch_edition, word)
         raw = json_bytes(reply)
         files[path] = raw
-        results.append({"word": word, "file": path.relative_to(job).as_posix(),
-                        "sha256": digest(raw), "status": reply.get("status"),
-                        "retrieved_at": reply.get("retrieved_at"), "url": reply.get("url")})
+        results.append(
+            {
+                "word": word,
+                "file": path.relative_to(job).as_posix(),
+                "sha256": digest(raw),
+                "status": reply.get("status"),
+                "retrieved_at": reply.get("retrieved_at"),
+                "url": reply.get("url"),
+            }
+        )
     write_new(files)
     statuses: dict[str, int] = {}
     for result in results:
-        statuses[result["status"] or "unknown"] = statuses.get(
-            result["status"] or "unknown", 0) + 1
+        statuses[result["status"] or "unknown"] = statuses.get(result["status"] or "unknown", 0) + 1
     return {
-        "schema": 1, "status": "evidence_only", "edition": edition,
+        "schema": 1,
+        "status": "evidence_only",
+        "edition": edition,
         "output_dir": output_dir.relative_to(job).as_posix(),
-        "results": results, "status_counts": statuses,
+        "results": results,
+        "status_counts": statuses,
         "limits": "Pending/exhausted 502 replies are retained evidence, not missing words; "
-                  "resume due lookups later per policy, never in a sleep/poll loop. Statuses "
-                  "do not verify senses. One HTTP request per word through the shared gate.",
+        "resume due lookups later per policy, never in a sleep/poll loop. Statuses "
+        "do not verify senses. One HTTP request per word through the shared gate.",
     }
 
 
 def offline_audit(
-    job: Path, draft: str, output: Path, *, evidence: list[str] | None = None,
+    job: Path,
+    draft: str,
+    output: Path,
+    *,
+    evidence: list[str] | None = None,
     vocab_audit: bool = False,
 ) -> dict[str, Any]:
     """Run deterministic local checks in one turn; each full report written separately."""
@@ -98,19 +115,30 @@ def offline_audit(
             result = run()
             raw = json_bytes(result)
             outputs[path] = raw
-            checks.append({"check": name, "output": path.relative_to(job).as_posix(),
-                           "sha256": digest(raw), "bytes": len(raw), "status": "ok"})
+            checks.append(
+                {
+                    "check": name,
+                    "output": path.relative_to(job).as_posix(),
+                    "sha256": digest(raw),
+                    "bytes": len(raw),
+                    "status": "ok",
+                }
+            )
         except Exception as exc:  # noqa: BLE001 - one failed check must not hide the others
-            checks.append({"check": name, "status": "error",
-                           "error": type(exc).__name__, "message": str(exc)})
+            checks.append(
+                {"check": name, "status": "error", "error": type(exc).__name__, "message": str(exc)}
+            )
     if outputs:
         write_new(outputs)
     failed = [row["check"] for row in checks if row["status"] == "error"]
     return {
-        "schema": 1, "status": "reports_only", "draft": draft,
-        "checks": checks, "failed_checks": failed,
+        "schema": 1,
+        "status": "reports_only",
+        "draft": draft,
+        "checks": checks,
+        "failed_checks": failed,
         "limits": "Deterministic local reports only; not editorial review or approval. Read "
-                  "each report before decisions. Errors are retained, never suppressed.",
+        "each report before decisions. Errors are retained, never suppressed.",
     }
 
 
@@ -139,10 +167,14 @@ def evidence_pin(job: Path, artifacts: list[str], output: Path) -> dict[str, Any
         pinned[name] = {"sha256": digest(raw), "bytes": len(raw)}
     payload = {"schema": 1, "kind": "artifact_pin", "artifacts": pinned}
     write_new({output: json_bytes(payload)})
-    return {"schema": 1, "status": "pinned", "pin": output.relative_to(job).as_posix(),
-            "artifacts": pinned,
-            "limits": "Exact-byte pin only; not editorial review. Verify before adopting "
-                      "changes; a changed artifact invalidates dependent checks."}
+    return {
+        "schema": 1,
+        "status": "pinned",
+        "pin": output.relative_to(job).as_posix(),
+        "artifacts": pinned,
+        "limits": "Exact-byte pin only; not editorial review. Verify before adopting "
+        "changes; a changed artifact invalidates dependent checks.",
+    }
 
 
 def evidence_verify(job: Path, pin: str) -> dict[str, Any]:
@@ -155,7 +187,7 @@ def evidence_verify(job: Path, pin: str) -> dict[str, Any]:
         raise GuardError("Invalid artifact pin.")
     mismatches, missing = [], []
     for name, expected in artifacts.items():
-        if (not isinstance(expected, dict) or not isinstance(expected.get("sha256"), str)):
+        if not isinstance(expected, dict) or not isinstance(expected.get("sha256"), str):
             raise GuardError("Invalid pin entry.")
         try:
             actual = digest(evidence_path(job, name).read_bytes())
@@ -163,12 +195,14 @@ def evidence_verify(job: Path, pin: str) -> dict[str, Any]:
             missing.append(name)
             continue
         if actual != expected["sha256"]:
-            mismatches.append({"artifact": name, "expected": expected["sha256"],
-                               "actual": actual})
+            mismatches.append({"artifact": name, "expected": expected["sha256"], "actual": actual})
     unchanged = not mismatches and not missing
     return {
-        "schema": 1, "pin": path.relative_to(job).as_posix(), "unchanged": unchanged,
-        "mismatches": mismatches, "missing": missing,
+        "schema": 1,
+        "pin": path.relative_to(job).as_posix(),
+        "unchanged": unchanged,
+        "mismatches": mismatches,
+        "missing": missing,
         "limits": "Verification only; changed artifacts require fresh review/preparation, "
-                  "never silent acceptance or pin regeneration.",
+        "never silent acceptance or pin regeneration.",
     }

@@ -12,16 +12,26 @@ ROLE_FILES = [
     ".opencode/agents/mgwiki-editor.md",
     ".opencode/agents/mgwiki-article.md",
     ".opencode/agents/mgwiki-section.md",
-    ".opencode/agents/Mgwiki-editor-issues-solver.md",
+    ".opencode/agents/mgwiki-issues-solver.md",
     ".opencode/commands/mgtranslate.md",
     ".opencode/skills/mgwiki-style/SKILL.md",
     ".opencode/skills/mgwiki-edition/SKILL.md",
-    "docs/edition-protocol.wiki",
+    "docs/edition-protocol.md",
 ]
 
 REQUIRED_FIELDS = (
-    "paths", "commands", "identifiers", "hashes", "revisions", "URLs", "errors",
-    "decisions", "blockers", "pending actions", "authorization limits", "safety guards",
+    "paths",
+    "commands",
+    "identifiers",
+    "hashes",
+    "revisions",
+    "URLs",
+    "errors",
+    "decisions",
+    "blockers",
+    "pending actions",
+    "authorization limits",
+    "safety guards",
 )
 
 
@@ -46,16 +56,19 @@ def test_compaction_field_list_is_identical_in_every_role_file() -> None:
     """Parity guard: no role may keep a shortened list of protected identifiers."""
     for path in ROLE_FILES:
         text = " ".join((ROOT / path).read_text(encoding="utf-8").split())
-        block = text[text.index("compaction summaries"):]
-        block = block[:block.index("clarity wins")]
+        block = text[text.index("compaction summaries") :]
+        block = block[: block.index("clarity wins")]
         missing = [detail for detail in REQUIRED_FIELDS if detail not in block]
         assert not missing, f"{path} compaction block lost: {missing}"
 
 
-@pytest.mark.parametrize("path", [
-    ".opencode/agents/mgwiki-section.md",
-    "docs/token-efficient-workflow.md",
-])
+@pytest.mark.parametrize(
+    "path",
+    [
+        ".opencode/agents/mgwiki-section.md",
+        "docs/token-efficient-workflow.md",
+    ],
+)
 def test_worker_recovery_after_compaction_is_explicit(path: str) -> None:
     """A compacted worker must re-read its assignment instead of trusting a summary."""
     text = " ".join((ROOT / path).read_text(encoding="utf-8").split())
@@ -63,11 +76,14 @@ def test_worker_recovery_after_compaction_is_explicit(path: str) -> None:
     assert "never continue from a summary alone" in text or "never continue\nfrom" in text
 
 
-@pytest.mark.parametrize("path", [
-    ".opencode/agents/mgwiki-editor.md",
-    ".opencode/agents/mgwiki-article.md",
-    "docs/token-efficient-workflow.md",
-])
+@pytest.mark.parametrize(
+    "path",
+    [
+        ".opencode/agents/mgwiki-editor.md",
+        ".opencode/agents/mgwiki-article.md",
+        "docs/token-efficient-workflow.md",
+    ],
+)
 def test_unconfirmed_receipt_survives_compaction(path: str) -> None:
     """Compaction is harness-driven, so an uncertain save needs an explicit recovery rule."""
     text = " ".join((ROOT / path).read_text(encoding="utf-8").split())

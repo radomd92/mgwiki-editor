@@ -81,8 +81,9 @@ def test_600_seconds_timer_alone_does_not_skip_then_real_probe_confirms(rig):
     assert recovery.alerts("run") == []
 
 
-@pytest.mark.parametrize("status,missing,success", [(200, False, True), (404, True, False),
-                                                    (502, True, False)])
+@pytest.mark.parametrize(
+    "status,missing,success", [(200, False, True), (404, True, False), (502, True, False)]
+)
 def test_success_or_exact_missing_ends_episode_and_preserves_history(rig, status, missing, success):
     recovery, store, _, now = rig
     recovery.observe(response(now))
@@ -158,5 +159,6 @@ def test_multiple_explicit_service_dependencies_preserve_identity(rig):
     recovery.register_task("run", "section", "dictionary:configured")
     recovery.register_task("run", "section", "wiki:mg.wikipedia.org")
     assert store.get("tasks", "run/section")["services"] == [
-        "dictionary:configured", "wiki:mg.wikipedia.org",
+        "dictionary:configured",
+        "wiki:mg.wikipedia.org",
     ]

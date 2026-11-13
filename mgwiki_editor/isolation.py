@@ -14,8 +14,12 @@ from .policy_store import StateError
 
 
 def command(
-    executable: list[str], *, work: Path, readonly_code: Path,
-    broker_socket: Path | None = None, capability: Path | None = None,
+    executable: list[str],
+    *,
+    work: Path,
+    readonly_code: Path,
+    broker_socket: Path | None = None,
+    capability: Path | None = None,
     private_roots: tuple[Path, ...] = (),
 ) -> list[str]:
     tool = shutil.which("bwrap")
@@ -40,11 +44,27 @@ def command(
             raise StateError("Symlink sandbox mount refused.")
     if (broker_socket is None) != (capability is None):
         raise StateError("Broker socket/capability mounts must be supplied together.")
-    result = [tool, "--die-with-parent", "--new-session", "--unshare-all", "--unshare-user",
-              "--cap-drop", "ALL",
-              "--disable-userns", "--assert-userns-disabled",
-              "--clearenv", "--setenv", "PATH", "/usr/bin:/bin", "--setenv", "HOME", "/home/agent",
-              "--setenv", "PYTHONUTF8", "1"]
+    result = [
+        tool,
+        "--die-with-parent",
+        "--new-session",
+        "--unshare-all",
+        "--unshare-user",
+        "--cap-drop",
+        "ALL",
+        "--disable-userns",
+        "--assert-userns-disabled",
+        "--clearenv",
+        "--setenv",
+        "PATH",
+        "/usr/bin:/bin",
+        "--setenv",
+        "HOME",
+        "/home/agent",
+        "--setenv",
+        "PYTHONUTF8",
+        "1",
+    ]
     # No host root/home/proc/sys/run/credentials/state mount. Runtime binaries/libs only.
     for directory in ("/usr", "/lib", "/lib64", "/bin", "/sbin"):
         if Path(directory).exists():
@@ -53,14 +73,41 @@ def command(
                 result += ["--symlink", str(target), directory]
             else:
                 result += ["--ro-bind", directory, directory]
-    result += ["--proc", "/proc", "--dev", "/dev", "--tmpfs", "/tmp", "--dir", "/home/agent",
-               "--dir", "/run/mgwiki", "--ro-bind", str(readonly_code), "/app",
-               "--bind", str(work), "/work", "--chdir", "/work"]
+    result += [
+        "--proc",
+        "/proc",
+        "--dev",
+        "/dev",
+        "--tmpfs",
+        "/tmp",
+        "--dir",
+        "/home/agent",
+        "--dir",
+        "/run/mgwiki",
+        "--ro-bind",
+        str(readonly_code),
+        "/app",
+        "--bind",
+        str(work),
+        "/work",
+        "--chdir",
+        "/work",
+    ]
     if broker_socket is not None:
-        result += ["--ro-bind", str(broker_socket), "/run/mgwiki/broker.sock",
-                   "--ro-bind", str(capability), "/run/mgwiki/capability",
-                   "--setenv", "MGWIKI_BROKER_SOCKET", "/run/mgwiki/broker.sock",
-                   "--setenv", "MGWIKI_CAPABILITY_FILE", "/run/mgwiki/capability"]
+        result += [
+            "--ro-bind",
+            str(broker_socket),
+            "/run/mgwiki/broker.sock",
+            "--ro-bind",
+            str(capability),
+            "/run/mgwiki/capability",
+            "--setenv",
+            "MGWIKI_BROKER_SOCKET",
+            "/run/mgwiki/broker.sock",
+            "--setenv",
+            "MGWIKI_CAPABILITY_FILE",
+            "/run/mgwiki/capability",
+        ]
     return result + ["--", *executable]
 
 
@@ -84,22 +131,36 @@ else:
     raise AssertionError('trusted code unexpectedly writable')
 print('isolated-local-probe-ok')
 """
-    result = subprocess.run(command(["/usr/bin/python3", "-I", "-c", script], work=work,
-                                    readonly_code=code), capture_output=True, timeout=10,
-                            check=False, close_fds=True, env={"PATH": "/usr/bin:/bin"},
-                            preexec_fn=_restrict_child)
-    return {"available": result.returncode == 0, "returncode": result.returncode,
-            "details": result.stderr.decode("utf-8", errors="replace")[:2000],
-            "verified": ["private_mount_pid_network_namespaces", "host_home_hidden"]
-            if result.returncode == 0 else [],
-            "limits": "Probe only. Whole OpenCode tool server and provider/control-plane "
-                      "must also be isolated; deployment not performed."}
+    result = subprocess.run(
+        command(["/usr/bin/python3", "-I", "-c", script], work=work, readonly_code=code),
+        capture_output=True,
+        timeout=10,
+        check=False,
+        close_fds=True,
+        env={"PATH": "/usr/bin:/bin"},
+        preexec_fn=_restrict_child,
+    )
+    return {
+        "available": result.returncode == 0,
+        "returncode": result.returncode,
+        "details": result.stderr.decode("utf-8", errors="replace")[:2000],
+        "verified": ["private_mount_pid_network_namespaces", "host_home_hidden"]
+        if result.returncode == 0
+        else [],
+        "limits": "Probe only. Whole OpenCode tool server and provider/control-plane "
+        "must also be isolated; deployment not performed.",
+    }
 
 
 def run(executable: list[str], **configuration) -> int:
     """Explicit host-side launch, never invoked by broker RPC or automatically by tests."""
-    return subprocess.run(command(executable, **configuration), check=False, close_fds=True,
-                          env={"PATH": "/usr/bin:/bin"}, preexec_fn=_restrict_child).returncode
+    return subprocess.run(
+        command(executable, **configuration),
+        check=False,
+        close_fds=True,
+        env={"PATH": "/usr/bin:/bin"},
+        preexec_fn=_restrict_child,
+    ).returncode
 
 
 def _restrict_child() -> None:

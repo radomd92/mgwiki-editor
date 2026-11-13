@@ -35,13 +35,18 @@ def rendering_report(document: str) -> dict:
     parser.feed(document)
     parser.close()
     dangling = sorted(targets - ids.keys())
-    duplicates = sorted(key for key, count in ids.items()
-                        if count > 1 and key.startswith(("cite_note", "cite_ref")))
+    duplicates = sorted(
+        key for key, count in ids.items() if count > 1 and key.startswith(("cite_note", "cite_ref"))
+    )
     if dangling:
         errors.add("Rendered citation anchor has no destination.")
     if duplicates:
         errors.add("Duplicate rendered citation identifier.")
-    return {"valid": not errors, "errors": sorted(errors), "dangling_citations": dangling,
-            "duplicate_citation_ids": duplicates,
-            "limits": "Offline HTML structure only; no resource access, licensing, semantic "
-                      "citation provenance, translation review or publication approval."}
+    return {
+        "valid": not errors,
+        "errors": sorted(errors),
+        "dangling_citations": dangling,
+        "duplicate_citation_ids": duplicates,
+        "limits": "Offline HTML structure only; no resource access, licensing, semantic "
+        "citation provenance, translation review or publication approval.",
+    }

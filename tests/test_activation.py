@@ -21,23 +21,43 @@ def setup(tmp_path, monkeypatch):
     server = socket.socket(socket.AF_UNIX)
     server.bind(str(sockpath))
     sockpath.chmod(0o600)
-    manifest = {"intent": "development", "source_language": "en", "source_title": "Water",
-                "article_title": "Rano"}
-    spec = {"work": str(work), "code": str(code), "private_roots": [str(private)],
-            "socket": str(sockpath), "capability_file": str(capfile), "run": "water",
-            "manifest": manifest, "executable": ["/app/bin/approved-tools"],
-            "tool_scope": "whole_tool_process"}
+    manifest = {
+        "intent": "development",
+        "source_language": "en",
+        "source_title": "Water",
+        "article_title": "Rano",
+    }
+    spec = {
+        "work": str(work),
+        "code": str(code),
+        "private_roots": [str(private)],
+        "socket": str(sockpath),
+        "capability_file": str(capfile),
+        "run": "water",
+        "manifest": manifest,
+        "executable": ["/app/bin/approved-tools"],
+        "tool_scope": "whole_tool_process",
+    }
     config.write_text(json.dumps(spec))
     config.chmod(0o600)
     monkeypatch.setattr(isolation.shutil, "which", lambda name: "/usr/bin/bwrap")
     calls, launches = [], []
+
     def request(path, token, action, args, *, timeout):
         calls.append((path, token, action, args, timeout))
-        return {"ok": True, "result": {"run": "water", "intent": "development",
-                                       "manifest": copy.deepcopy(manifest)}}
+        return {
+            "ok": True,
+            "result": {
+                "run": "water",
+                "intent": "development",
+                "manifest": copy.deepcopy(manifest),
+            },
+        }
+
     monkeypatch.setattr(activation, "call", request)
-    monkeypatch.setattr(isolation, "run", lambda executable, **kw: launches.append(
-        (executable, kw)) or 0)
+    monkeypatch.setattr(
+        isolation, "run", lambda executable, **kw: launches.append((executable, kw)) or 0
+    )
     yield config, spec, capfile, calls, launches
     server.close()
 
@@ -65,11 +85,17 @@ def test_activation_launches_only_isolated_declared_process_with_existing_grant(
     assert not result["capabilities_provisioned"]
 
 
-@pytest.mark.parametrize("change", [
-    {"run": "different"}, {"tool_scope": "only_a_helper"}, {"executable": "shell text"},
-    {"private_roots": []}, {"capability_file": "relative.cap"},
-    {"extra": "never printed secret"},
-])
+@pytest.mark.parametrize(
+    "change",
+    [
+        {"run": "different"},
+        {"tool_scope": "only_a_helper"},
+        {"executable": "shell text"},
+        {"private_roots": []},
+        {"capability_file": "relative.cap"},
+        {"extra": "never printed secret"},
+    ],
+)
 def test_invalid_or_mismatched_host_config_never_launches(setup, change):
     config, spec, _, _, launches = setup
     spec.update(change)
@@ -108,10 +134,12 @@ def test_denied_expired_capability_never_launches(setup, monkeypatch):
 def test_grant_replaced_during_authentication_refused(setup, monkeypatch):
     config, _, capfile, _, launches = setup
     original = activation.call
+
     def replaced(*args, **kwargs):
         response = original(*args, **kwargs)
         capfile.write_text("y" * 43)
         return response
+
     monkeypatch.setattr(activation, "call", replaced)
     with pytest.raises(StateError, match="changed"):
         activation.activate(config)
@@ -122,7 +150,10 @@ def test_activation_not_exposed_to_mcp_and_cli_preserves_child_failure(monkeypat
     from mgwiki_editor.broker import COMMANDS
 
     assert "activate" not in COMMANDS
-    monkeypatch.setattr(activation, "activate", lambda *a, **kw: {
-        "returncode": 7, "status": "isolated_process_exited"})
+    monkeypatch.setattr(
+        activation,
+        "activate",
+        lambda *a, **kw: {"returncode": 7, "status": "isolated_process_exited"},
+    )
     assert control.main(["activate", "--config", "fake-private-config"]) == 1
     assert json.loads(capsys.readouterr().out)["returncode"] == 7

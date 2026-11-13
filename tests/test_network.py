@@ -45,14 +45,20 @@ class Clock:
 def gate(tmp_path: Path) -> tuple[RequestGate, Clock]:
     """Use a private shared-state file and deterministic zero jitter."""
     clock = Clock()
-    return RequestGate(tmp_path / "requests.json", clock=clock.time,
-                       sleep=clock.sleep, monotonic=clock.time, jitter=lambda *args: 0), clock
+    return RequestGate(
+        tmp_path / "requests.json",
+        clock=clock.time,
+        sleep=clock.sleep,
+        monotonic=clock.time,
+        jitter=lambda *args: 0,
+    ), clock
 
 
 def response(status: int = 200, *, error: str = "", retry_after: str = "") -> SimpleNamespace:
     """Construct an offline requests-like response."""
     return SimpleNamespace(
-        status_code=status, headers={"Retry-After": retry_after},
+        status_code=status,
+        headers={"Retry-After": retry_after},
         json=lambda: {"error": {"code": error}} if error else {"query": {}},
     )
 
@@ -60,8 +66,13 @@ def response(status: int = 200, *, error: str = "", retry_after: str = "") -> Si
 def test_state_shared_between_gate_instances(gate: tuple[RequestGate, Clock]) -> None:
     """Separate CLI processes coordinate through the same file, not per-site memory."""
     first, clock = gate
-    second = RequestGate(first.path, clock=clock.time, sleep=clock.sleep,
-                         monotonic=clock.time, jitter=lambda *args: 0)
+    second = RequestGate(
+        first.path,
+        clock=clock.time,
+        sleep=clock.sleep,
+        monotonic=clock.time,
+        jitter=lambda *args: 0,
+    )
     first.wait()
     second.wait()
     assert clock.sleeps == [10]
@@ -84,17 +95,30 @@ def test_edits_remain_ten_seconds_apart_with_reads_between(
 def test_ten_second_spacing_reserves_jitter_for_backoff(tmp_path: Path) -> None:
     """Ordinary request gaps are 10 seconds; overload backoff still includes jitter."""
     clock = Clock()
-    limiter = RequestGate(tmp_path / "requests.json", clock=clock.time,
-                          sleep=clock.sleep, monotonic=clock.time, jitter=lambda *args: 0.5)
+    limiter = RequestGate(
+        tmp_path / "requests.json",
+        clock=clock.time,
+        sleep=clock.sleep,
+        monotonic=clock.time,
+        jitter=lambda *args: 0.5,
+    )
     limiter.wait()
     limiter.wait()
     assert clock.sleeps == [10]
     assert limiter.backoff() == 30.5
 
 
-@pytest.mark.parametrize("value, expected", [
-    ("120", 120), ("2.5", 2.5), ("-1", 0), ("nonsense", 0), ("inf", 0), ("nan", 0),
-])
+@pytest.mark.parametrize(
+    "value, expected",
+    [
+        ("120", 120),
+        ("2.5", 2.5),
+        ("-1", 0),
+        ("nonsense", 0),
+        ("inf", 0),
+        ("nan", 0),
+    ],
+)
 def test_retry_after_seconds(value: str, expected: float) -> None:
     """Handle malformed headers conservatively without defeating base backoff."""
     assert retry_after_seconds(value, 1_000_000) == expected
@@ -138,10 +162,12 @@ def test_success_does_not_clear_another_process_cooldown(gate: tuple[RequestGate
     assert json.loads(limiter.path.read_text())["cooldown_until"] == clock.now + 120
 
 
-@pytest.mark.parametrize("state", ["not json", "[]", '{"next_request": -1}',
-                                   '{"next_request": "tomorrow"}'])
+@pytest.mark.parametrize(
+    "state", ["not json", "[]", '{"next_request": -1}', '{"next_request": "tomorrow"}']
+)
 def test_corrupt_pacing_state_fails_closed(
-    gate: tuple[RequestGate, Clock], state: str,
+    gate: tuple[RequestGate, Clock],
+    state: str,
 ) -> None:
     """A broken shared file must not silently reset request budgets."""
     limiter, clock = gate
@@ -151,22 +177,33 @@ def test_corrupt_pacing_state_fails_closed(
     assert not clock.sleeps
 
 
-@pytest.mark.parametrize("url", [
-    "https://mg.wikipedia.org/w/api.php", "https://en.wikipedia.org/w/api.php?action=query",
-    "https://login.wikimedia.org/w/api.php",
-])
+@pytest.mark.parametrize(
+    "url",
+    [
+        "https://mg.wikipedia.org/w/api.php",
+        "https://en.wikipedia.org/w/api.php?action=query",
+        "https://login.wikimedia.org/w/api.php",
+    ],
+)
 def test_required_api_origins_allowed(url: str) -> None:
     """Only required APIs are transport exceptions to the external-link boundary."""
     assert api_url_allowed(url)
 
 
-@pytest.mark.parametrize("url", [
-    "https://example.org/w/api.php", "https://mg.wikipedia.org/wiki/Water",
-    "https://mg.wikipedia.org.evil.example/w/api.php", "http://mg.wikipedia.org/w/api.php",
-    "https://user:pass@mg.wikipedia.org/w/api.php", "https://mg.wikipedia.org:8443/w/api.php",
-    "https://upload.wikimedia.org/image.png",
-    "https://mg.wikipedia.org:notaport/w/api.php", "https://mg.wikipedia.org/w/api.php#external",
-])
+@pytest.mark.parametrize(
+    "url",
+    [
+        "https://example.org/w/api.php",
+        "https://mg.wikipedia.org/wiki/Water",
+        "https://mg.wikipedia.org.evil.example/w/api.php",
+        "http://mg.wikipedia.org/w/api.php",
+        "https://user:pass@mg.wikipedia.org/w/api.php",
+        "https://mg.wikipedia.org:8443/w/api.php",
+        "https://upload.wikimedia.org/image.png",
+        "https://mg.wikipedia.org:notaport/w/api.php",
+        "https://mg.wikipedia.org/w/api.php#external",
+    ],
+)
 def test_external_urls_blocked_without_request(url: str, gate: tuple[RequestGate, Clock]) -> None:
     """Do not fetch references, images or lookalike hosts through a helper."""
     limiter, clock = gate
@@ -178,11 +215,19 @@ def test_external_urls_blocked_without_request(url: str, gate: tuple[RequestGate
     assert not limiter.path.exists()
 
 
-@pytest.mark.parametrize("status,error", [
-    (429, ""), (503, ""), (200, "maxlag"), (200, "ratelimited"),
-])
+@pytest.mark.parametrize(
+    "status,error",
+    [
+        (429, ""),
+        (503, ""),
+        (200, "maxlag"),
+        (200, "ratelimited"),
+    ],
+)
 def test_overload_stops_without_resubmission(
-    status: int, error: str, gate: tuple[RequestGate, Clock],
+    status: int,
+    error: str,
+    gate: tuple[RequestGate, Clock],
 ) -> None:
     """No write or read is automatically replayed after an overload response."""
     limiter, clock = gate
@@ -212,7 +257,8 @@ def test_actual_edit_parameters_apply_write_budget(gate: tuple[RequestGate, Cloc
     limiter, clock = gate
     guarded = guarded_send(lambda *args, **kwargs: response(), limiter)
     prepared = SimpleNamespace(
-        url="https://mg.wikipedia.org/w/api.php", body=b"action=edit&text=Rano",
+        url="https://mg.wikipedia.org/w/api.php",
+        body=b"action=edit&text=Rano",
     )
     guarded(prepared)
     guarded(prepared)
@@ -226,7 +272,8 @@ def test_dictionary_redirect_rejected() -> None:
 
 
 def test_dictionary_uses_shared_gate_and_no_redirects(
-    gate: tuple[RequestGate, Clock], monkeypatch: pytest.MonkeyPatch,
+    gate: tuple[RequestGate, Clock],
+    monkeypatch: pytest.MonkeyPatch,
 ) -> None:
     """Dictionary calls do not bypass pacing or follow reference URLs."""
     limiter, clock = gate
@@ -245,7 +292,8 @@ def test_dictionary_uses_shared_gate_and_no_redirects(
 
 
 def test_dictionary_overload_cools_shared_gate(
-    gate: tuple[RequestGate, Clock], monkeypatch: pytest.MonkeyPatch,
+    gate: tuple[RequestGate, Clock],
+    monkeypatch: pytest.MonkeyPatch,
 ) -> None:
     """Repeated dictionary overload must not cause upstream polling storms."""
     limiter, clock = gate
@@ -262,7 +310,9 @@ def test_dictionary_overload_cools_shared_gate(
 
 @pytest.mark.parametrize("missing", [False, True])
 def test_successful_dictionary_result_resets_overload_streak_without_erasing_cooldown(
-    gate: tuple[RequestGate, Clock], monkeypatch: pytest.MonkeyPatch, missing: bool,
+    gate: tuple[RequestGate, Clock],
+    monkeypatch: pytest.MonkeyPatch,
+    missing: bool,
 ) -> None:
     limiter, clock = gate
     limiter.backoff("120")
@@ -282,13 +332,13 @@ def test_successful_dictionary_result_resets_overload_streak_without_erasing_coo
     if missing:
         with pytest.raises(HTTPError) as error:
             network.dictionary_open(
-                Request("http://dictionary/wiktionary-pages/mg/rano"), timeout=20)
+                Request("http://dictionary/wiktionary-pages/mg/rano"), timeout=20
+            )
         assert error.value.code == 404
     else:
         assert network.dictionary_open(
-            Request("http://dictionary/wiktionary-pages/mg/rano"), timeout=20) == (
-            "dictionary-response"
-        )
+            Request("http://dictionary/wiktionary-pages/mg/rano"), timeout=20
+        ) == ("dictionary-response")
     state = json.loads(limiter.path.read_text())
     assert state["failures"] == 0
     assert state["next_request"] == state["cooldown_until"] == deadline
@@ -304,7 +354,8 @@ def test_no_password_or_captcha_prompt() -> None:
 
 @pytest.mark.parametrize("failure", ["timeout", "http504", "api_error", "invalid_json"])
 def test_uncertain_edits_never_replay(
-    failure: str, gate: tuple[RequestGate, Clock],
+    failure: str,
+    gate: tuple[RequestGate, Clock],
 ) -> None:
     """Prevent Pywikibot from retrying failed/uncertain edit requests."""
     limiter, clock = gate
@@ -331,7 +382,8 @@ def test_uncertain_edits_never_replay(
 
 
 def test_installed_transport_uses_fatal_error_not_retryable_generic_exception(
-    gate: tuple[RequestGate, Clock], monkeypatch: pytest.MonkeyPatch,
+    gate: tuple[RequestGate, Clock],
+    monkeypatch: pytest.MonkeyPatch,
 ) -> None:
     """Exercise the installed Pywikibot boundary, not only the isolated wrapper."""
     import pywikibot
@@ -364,7 +416,8 @@ def test_installed_transport_uses_fatal_error_not_retryable_generic_exception(
 
 
 def test_native_process_multiplicity_cannot_add_minutes_of_sleep(
-    gate: tuple[RequestGate, Clock], monkeypatch: pytest.MonkeyPatch,
+    gate: tuple[RequestGate, Clock],
+    monkeypatch: pytest.MonkeyPatch,
 ) -> None:
     """Only the shared limiter, not native process-scaled throttle, owns normal delays."""
     from pywikibot.comms import http
@@ -389,8 +442,13 @@ def test_competing_worker_cannot_extend_wait_past_ten_minutes(
     """A moving shared deadline gets one cumulative budget, never a renewed timeout."""
     clock = Clock()
     events = []
-    limiter = RequestGate(tmp_path / "requests.json", clock=clock.time,
-                          sleep=clock.sleep, monotonic=clock.time, report=events.append)
+    limiter = RequestGate(
+        tmp_path / "requests.json",
+        clock=clock.time,
+        sleep=clock.sleep,
+        monotonic=clock.time,
+        report=events.append,
+    )
     limiter.wait()
 
     def competing_sleep(seconds):
@@ -411,8 +469,13 @@ def test_competing_worker_cannot_extend_wait_past_ten_minutes(
 def test_competing_workers_can_finish_after_several_spacing_waits(tmp_path: Path) -> None:
     """Transient contention between independent jobs is pacing, not a failed request."""
     clock = Clock()
-    limiter = RequestGate(tmp_path / "requests.json", clock=clock.time,
-                          sleep=clock.sleep, monotonic=clock.time, report=lambda event: None)
+    limiter = RequestGate(
+        tmp_path / "requests.json",
+        clock=clock.time,
+        sleep=clock.sleep,
+        monotonic=clock.time,
+        report=lambda event: None,
+    )
     limiter.wait()
 
     def competing_sleep(seconds):
@@ -449,9 +512,14 @@ def test_new_server_cooldown_interrupts_contention_wait(tmp_path: Path) -> None:
     """The longer contention budget cannot turn server backoff into an automatic retry."""
     clock = Clock()
     events = []
-    limiter = RequestGate(tmp_path / "requests.json", clock=clock.time,
-                          sleep=clock.sleep, monotonic=clock.time,
-                          jitter=lambda *args: 0, report=events.append)
+    limiter = RequestGate(
+        tmp_path / "requests.json",
+        clock=clock.time,
+        sleep=clock.sleep,
+        monotonic=clock.time,
+        jitter=lambda *args: 0,
+        report=events.append,
+    )
     limiter.wait()
 
     def overload_during_wait(seconds):
@@ -469,8 +537,13 @@ def test_new_server_cooldown_interrupts_contention_wait(tmp_path: Path) -> None:
 def test_oversleep_cannot_reserve_slot_after_budget(tmp_path: Path) -> None:
     """Account for actual monotonic elapsed time, not only requested sleep durations."""
     clock = Clock()
-    limiter = RequestGate(tmp_path / "requests.json", clock=clock.time,
-                          sleep=clock.sleep, monotonic=clock.time, report=lambda event: None)
+    limiter = RequestGate(
+        tmp_path / "requests.json",
+        clock=clock.time,
+        sleep=clock.sleep,
+        monotonic=clock.time,
+        report=lambda event: None,
+    )
     limiter.wait()
     deadline = json.loads(limiter.path.read_text())["next_request"]
     limiter.sleep = lambda seconds: clock.sleep(601)
@@ -483,8 +556,12 @@ def test_wall_clock_rollback_cannot_restart_contention_budget(tmp_path: Path) ->
     """A wall-clock correction does not grant another ten minutes of queue waiting."""
     clock = Clock()
     wall = [clock.now]
-    limiter = RequestGate(tmp_path / "requests.json", clock=lambda: wall[0],
-                          monotonic=clock.time, report=lambda event: None)
+    limiter = RequestGate(
+        tmp_path / "requests.json",
+        clock=lambda: wall[0],
+        monotonic=clock.time,
+        report=lambda event: None,
+    )
     limiter.wait()
 
     def rollback(seconds):
@@ -505,8 +582,12 @@ def test_transport_progress_reports_real_requests_without_sensitive_values(
     limiter, clock = gate
     events = []
     guarded = guarded_send(lambda *args, **kwargs: response(), limiter, report=events.append)
-    guarded(SimpleNamespace(url="https://mg.wikipedia.org/w/api.php?title=SECRET",
-                            body="action=edit&token=SECRET&text=SECRET"))
+    guarded(
+        SimpleNamespace(
+            url="https://mg.wikipedia.org/w/api.php?title=SECRET",
+            body="action=edit&token=SECRET&text=SECRET",
+        )
+    )
     assert [event["phase"] for event in events] == ["start", "response"]
     assert "SECRET" not in json.dumps(events)
 

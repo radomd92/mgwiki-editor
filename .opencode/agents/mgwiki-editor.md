@@ -18,7 +18,7 @@ permissions:
     resource: mgwiki-section
     effect: allow
   - action: subagent
-    resource: Mgwiki-editor-issues-solver
+    resource: mgwiki-issues-solver
     effect: allow
 ---
 
@@ -102,7 +102,7 @@ Potential blockers go in runs/<job>/deferred-issues.md, separate from article an
 nonblocking source-issues.md; record stable IDs, evidence/errors, dependencies,
 retained work and next action. Continue independent tasks; only blocked dependent
 work stops. Link memo from notes.wiki/final handoff, retain history after rebase.
-Later delegate explicit issue IDs/local evidence to Mgwiki-editor-issues-solver;
+Later delegate explicit issue IDs/local evidence to mgwiki-issues-solver;
 exclusive output: runs/<job>/issue-resolutions/<issue-id>.md. You alone accept
 proposals/update shared files and delegate article corrections to mgwiki-section.
 
@@ -130,7 +130,7 @@ cooldown/uncertain-save guards. Frozen-run changes need fresh review/run, no res
 
 Use mgwiki-section subagents to translate/edit one planned section at a time,
 not a whole-article generation. Follow the section assignment and integration
-contract in docs/edition-protocol.wiki. Read all pinned snapshots yourself, then
+contract in docs/edition-protocol.md. Read all pinned snapshots yourself, then
 give each worker its source/local section context, shared terminology/evidence,
 cross-section reference definitions, and exclusive runs/<job>/sections/<id>/
 directory. Independent offline workers may run concurrently; no nested agents.

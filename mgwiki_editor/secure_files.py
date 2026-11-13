@@ -15,8 +15,14 @@ LIMIT = 6_000_000
 
 
 def relative(value: str) -> tuple[str, ...]:
-    if (not isinstance(value, str) or not value or "\\" in value or "\x00" in value
-            or value.startswith("/") or any(p in {"", ".", ".."} for p in value.split("/"))):
+    if (
+        not isinstance(value, str)
+        or not value
+        or "\\" in value
+        or "\x00" in value
+        or value.startswith("/")
+        or any(p in {"", ".", ".."} for p in value.split("/"))
+    ):
         raise StateError("Unsafe broker-relative path.")
     return PurePosixPath(value).parts
 
@@ -61,8 +67,9 @@ def write(root: Path, name: str, data: bytes, *, expected: str | None = None) ->
         raise StateError("Invalid/oversized broker output.")
     with parent(root, name, create=True) as (directory, leaf):
         if expected is None:
-            fd = os.open(leaf, os.O_CREAT | os.O_EXCL | os.O_WRONLY | os.O_NOFOLLOW,
-                         0o600, dir_fd=directory)
+            fd = os.open(
+                leaf, os.O_CREAT | os.O_EXCL | os.O_WRONLY | os.O_NOFOLLOW, 0o600, dir_fd=directory
+            )
             with os.fdopen(fd, "wb") as stream:
                 stream.write(data)
                 stream.flush()
@@ -72,8 +79,12 @@ def write(root: Path, name: str, data: bytes, *, expected: str | None = None) ->
             if hashlib.sha256(old).hexdigest() != expected:
                 raise StateError("Broker input changed; prior bytes retained.")
             temporary = ".policy-" + uuid.uuid4().hex
-            fd = os.open(temporary, os.O_CREAT | os.O_EXCL | os.O_WRONLY | os.O_NOFOLLOW,
-                         0o600, dir_fd=directory)
+            fd = os.open(
+                temporary,
+                os.O_CREAT | os.O_EXCL | os.O_WRONLY | os.O_NOFOLLOW,
+                0o600,
+                dir_fd=directory,
+            )
             try:
                 with os.fdopen(fd, "wb") as stream:
                     stream.write(data)

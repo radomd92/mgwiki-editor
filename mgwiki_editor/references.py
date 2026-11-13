@@ -55,12 +55,24 @@ def reference_nodes(text: str) -> tuple[list[dict[str, Any]], list[str]]:
                 if any("{{" in value or "[[" in value for value in attrs.values()):
                     errors.append("Dynamic reference attributes require explicit literal values.")
                 group = attrs.get("group", inherited_group if kind == "ref" else "")
-                nodes.append({"kind": kind, "group": group,
-                              "name": attrs.get("name", ""), "body": str(body or ""),
-                              "reuse": reuse, "delayed": delayed, "raw": str(node)})
+                nodes.append(
+                    {
+                        "kind": kind,
+                        "group": group,
+                        "name": attrs.get("name", ""),
+                        "body": str(body or ""),
+                        "reuse": reuse,
+                        "delayed": delayed,
+                        "raw": str(node),
+                    }
+                )
                 if body is not None:
-                    walk(body, in_ref=kind == "ref" and not delayed,
-                         inherited_group=group if kind == "references" else "", depth=depth + 1)
+                    walk(
+                        body,
+                        in_ref=kind == "ref" and not delayed,
+                        inherited_group=group if kind == "references" else "",
+                        depth=depth + 1,
+                    )
             elif isinstance(node, mw.nodes.Tag) and str(node.tag).casefold() == "gallery":
                 for line in str(node.contents).splitlines():
                     _, separator, caption = line.partition("|")
@@ -96,11 +108,17 @@ def reference_inventory(text: str) -> dict[str, Any]:
             definitions[key] = node["body"]
     return {
         "anonymous_count": anonymous,
-        "named": [{"group": group, "name": name, "calls": count,
-                   "body": definitions.get((group, name))}
-                  for (group, name), count in sorted(calls.items())],
-        "undefined": [{"group": group, "name": name}
-                      for group, name in sorted(calls.keys() - definitions.keys())],
-        "conflicts": conflicts, "groups": sorted(groups), "rendered_groups": sorted(renderers),
-        "missing_renderers": sorted(groups - renderers), "errors": errors,
+        "named": [
+            {"group": group, "name": name, "calls": count, "body": definitions.get((group, name))}
+            for (group, name), count in sorted(calls.items())
+        ],
+        "undefined": [
+            {"group": group, "name": name}
+            for group, name in sorted(calls.keys() - definitions.keys())
+        ],
+        "conflicts": conflicts,
+        "groups": sorted(groups),
+        "rendered_groups": sorted(renderers),
+        "missing_renderers": sorted(groups - renderers),
+        "errors": errors,
     }

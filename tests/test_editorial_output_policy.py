@@ -13,8 +13,8 @@ POLICIES = [
     ".opencode/skills/mgwiki-style/SKILL.md",
     ".opencode/skills/mgwiki-edition/SKILL.md",
     ".opencode/skills/mg-vocab/SKILL.md",
-    "docs/edition-protocol.wiki",
-    "README.wiki",
+    "docs/edition-protocol.md",
+    "docs/usage.md",
 ]
 
 

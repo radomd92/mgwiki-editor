@@ -20,8 +20,7 @@ def _resolve_array(data: Any, key: str | None) -> tuple[str, list[Any]]:
     for part in key.split("."):
         if isinstance(current, dict) and part in current:
             current = current[part]
-        elif (isinstance(current, list) and part.isdigit()
-              and int(part) < len(current)):
+        elif isinstance(current, list) and part.isdigit() and int(part) < len(current):
             current = current[int(part)]
         else:
             raise GuardError(f"JSON key path not found: {key}")
@@ -32,7 +31,12 @@ def _resolve_array(data: Any, key: str | None) -> tuple[str, list[Any]]:
 
 
 def json_slice(
-    job: Path, filename: str, *, key: str | None = None, offset: int = 0, limit: int = 20,
+    job: Path,
+    filename: str,
+    *,
+    key: str | None = None,
+    offset: int = 0,
+    limit: int = 20,
     fields: list[str] | None = None,
 ) -> dict[str, Any]:
     """Return one bounded page of a job-relative JSON array, pinning the source hash."""
@@ -44,7 +48,7 @@ def json_slice(
         raise GuardError("JSON slice fields must be nonempty names.")
     pinned = read_evidence(job, filename)
     address, items = _resolve_array(pinned.data, key)
-    selected = items[offset:offset + limit]
+    selected = items[offset : offset + limit]
     projected = []
     for item in selected:
         if fields and isinstance(item, dict):
@@ -53,18 +57,21 @@ def json_slice(
             projected.append(item)
     end = offset + len(projected)
     size = (Path(job).resolve() / pinned.name).stat().st_size
-    omitted = sorted({name for item in selected if isinstance(item, dict)
-                      for name in item} - set(fields or ()))
+    omitted = sorted(
+        {name for item in selected if isinstance(item, dict) for name in item} - set(fields or ())
+    )
     return {
-        "schema": 1, "view": "bounded_slice",
+        "schema": 1,
+        "view": "bounded_slice",
         "source": {"path": pinned.name, "sha256": pinned.sha256, "bytes": size},
         "key": address,
-        "total_items": len(items), "offset": offset,
+        "total_items": len(items),
+        "offset": offset,
         "next_offset": end if end < len(items) else None,
         "items": projected,
         "selected_fields": sorted(set(fields)) if fields else [],
         "omitted_fields": omitted,
         "limits": "Bounded slice of one pinned source; not validation, review, or approval. "
-                  "Read the relevant raw evidence before decisions. Source file unchanged; "
-                  "no content inferred, merged, or completed.",
+        "Read the relevant raw evidence before decisions. Source file unchanged; "
+        "no content inferred, merged, or completed.",
     }

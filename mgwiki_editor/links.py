@@ -25,15 +25,23 @@ def _local_title(value: str, mainspace: dict[str, set[str]]) -> str:
 
 
 def build_link_map(
-    job: Path, files: list[str], source_language: str, *, local_files: list[str] | None = None,
+    job: Path,
+    files: list[str],
+    source_language: str,
+    *,
+    local_files: list[str] | None = None,
 ) -> dict[str, Any]:
     """Combine explicit cached formatversion=2 langlink batches, never fetch metadata.
 
     Redirect chains use only recorded edges. Section/interwiki redirects stay unresolved.
     Conflicting snapshots, continuation and cycles require coordinator reconciliation.
     """
-    if (not files or not isinstance(source_language, str) or source_language == "mg"
-            or not re.fullmatch(r"[a-z][a-z0-9-]{0,19}", source_language)):
+    if (
+        not files
+        or not isinstance(source_language, str)
+        or source_language == "mg"
+        or not re.fullmatch(r"[a-z][a-z0-9-]{0,19}", source_language)
+    ):
         raise GuardError("Supply cached evidence and a non-Malagasy source language.")
     if (job / "job.json").exists():
         state = read_evidence(job, "job.json").data
@@ -54,9 +62,9 @@ def build_link_map(
         if isinstance(envelope, dict) and envelope.get("language", "mg") != "mg":
             raise GuardError("Namespace evidence must come from Malagasy Wikipedia.")
         response = envelope.get("response", envelope) if isinstance(envelope, dict) else None
-        if (not isinstance(response, dict) or any(
+        if not isinstance(response, dict) or any(
             key in response for key in ("continue", "error", "errors", "warnings")
-        )):
+        ):
             raise GuardError("Incomplete/failed Malagasy namespace evidence.")
         query = response.get("query", {})
         if not isinstance(query, dict) or not isinstance(query.get("pages"), list):
@@ -80,16 +88,24 @@ def build_link_map(
         artifacts[pinned.name] = pinned.sha256
         envelope = pinned.data
         response = envelope.get("response", envelope) if isinstance(envelope, dict) else None
-        if (not isinstance(response, dict) or "continue" in response or "error" in response
-                or "errors" in response or "warnings" in response):
+        if (
+            not isinstance(response, dict)
+            or "continue" in response
+            or "error" in response
+            or "errors" in response
+            or "warnings" in response
+        ):
             raise GuardError("Incomplete/failed langlink evidence; preserve and reconcile it.")
         query = response.get("query", {})
         if not isinstance(query, dict) or not isinstance(query.get("pages"), list):
             raise GuardError("Langlink evidence needs formatversion=2 query.pages.")
         for page in query["pages"]:
-            if (not isinstance(page, dict) or not isinstance(page.get("title"), str)
-                    or not page["title"].strip()
-                    or page.get("ns") != 0):
+            if (
+                not isinstance(page, dict)
+                or not isinstance(page.get("title"), str)
+                or not page["title"].strip()
+                or page.get("ns") != 0
+            ):
                 raise GuardError("Langlink evidence must identify source mainspace pages.")
             key = _key(page["title"])
             langlinks = page.get("langlinks", [])
@@ -103,8 +119,11 @@ def build_link_map(
                     targets.add(_local_title(link["title"], mainspace))
             if len(targets) > 1 or (page.get("missing", False) and targets):
                 raise GuardError(f"Conflicting Malagasy targets: {key}")
-            row = {"mg": next(iter(targets), None), "missing": bool(page.get("missing", False)),
-                   "evidence_files": [pinned.name]}
+            row = {
+                "mg": next(iter(targets), None),
+                "missing": bool(page.get("missing", False)),
+                "evidence_files": [pinned.name],
+            }
             for target in targets:
                 if ":" in target:
                     row["evidence_files"] = sorted(
@@ -113,17 +132,22 @@ def build_link_map(
             if key in pages:
                 if (pages[key]["mg"], pages[key]["missing"]) != (row["mg"], row["missing"]):
                     raise GuardError(f"Conflicting cached topic evidence: {key}")
-                row["evidence_files"] = sorted(set(
-                    pages[key]["evidence_files"] + row["evidence_files"],
-                ))
+                row["evidence_files"] = sorted(
+                    set(
+                        pages[key]["evidence_files"] + row["evidence_files"],
+                    )
+                )
             pages[key] = row
         for kind in ("normalized", "redirects"):
             changes = query.get(kind, [])
             if not isinstance(changes, list):
                 raise GuardError("Malformed redirect/normalization evidence.")
             for change in changes:
-                if (not isinstance(change, dict) or not isinstance(change.get("from"), str)
-                        or not isinstance(change.get("to"), str)):
+                if (
+                    not isinstance(change, dict)
+                    or not isinstance(change.get("from"), str)
+                    or not isinstance(change.get("to"), str)
+                ):
                     raise GuardError("Malformed redirect/normalization edge.")
                 origin, target = _key(change["from"]), _key(change["to"])
                 if origin == target and kind == "normalized":
@@ -146,25 +170,34 @@ def build_link_map(
             special |= flag
         terminal = pages.get(cursor, {})
         used.update(terminal.get("evidence_files", []))
-        mapped = {"mg": None if special else terminal.get("mg"),
-                  "missing": terminal.get("missing", False), "evidence_files": sorted(used),
-                  "canonical_source": cursor}
+        mapped = {
+            "mg": None if special else terminal.get("mg"),
+            "missing": terminal.get("missing", False),
+            "evidence_files": sorted(used),
+            "canonical_source": cursor,
+        }
         if special:
             mapped["reason"] = "section_or_interwiki_redirect_requires_review"
         elif not terminal:
             mapped["reason"] = "redirect_target_evidence_missing"
         if origin in pages:
             if (pages[origin]["mg"], pages[origin]["missing"]) != (
-                mapped["mg"], mapped["missing"],
+                mapped["mg"],
+                mapped["missing"],
             ):
                 raise GuardError(f"Conflicting direct/redirect topic evidence: {origin}")
             mapped["evidence_files"] = sorted(used | set(pages[origin]["evidence_files"]))
         mappings[origin] = mapped
-    result = {"schema": 1, "status": "cached_candidates_only", "source_language": source_language,
-            "target_language": "mg", "artifacts": dict(sorted(artifacts.items())),
-            "mappings": dict(sorted(mappings.items())),
-            "limits": "Cached langlinks only; not current revisions or independent topic review. "
-                      "No target, anchor, country spelling, or Commons/license guesses."}
+    result = {
+        "schema": 1,
+        "status": "cached_candidates_only",
+        "source_language": source_language,
+        "target_language": "mg",
+        "artifacts": dict(sorted(artifacts.items())),
+        "mappings": dict(sorted(mappings.items())),
+        "limits": "Cached langlinks only; not current revisions or independent topic review. "
+        "No target, anchor, country spelling, or Commons/license guesses.",
+    }
     if local_artifacts:
         result["local_artifacts"] = dict(sorted(local_artifacts.items()))
     return result
@@ -174,18 +207,26 @@ def load_link_map(job: Path, filename: str) -> tuple[dict[str, Any], dict[str, s
     """Rebuild derived mappings from pinned inputs; reject stale or edited assertions."""
     pinned = read_evidence(job, filename)
     data = pinned.data
-    if (not isinstance(data, dict) or data.get("schema") != 1
-            or not isinstance(data.get("artifacts"), dict) or not data["artifacts"]
-            or not isinstance(data.get("local_artifacts", {}), dict)):
+    if (
+        not isinstance(data, dict)
+        or data.get("schema") != 1
+        or not isinstance(data.get("artifacts"), dict)
+        or not data["artifacts"]
+        or not isinstance(data.get("local_artifacts", {}), dict)
+    ):
         raise GuardError("Link map needs a cached-evidence artifact manifest.")
     rebuilt = build_link_map(
-        job, sorted(data["artifacts"]), data.get("source_language", ""),
+        job,
+        sorted(data["artifacts"]),
+        data.get("source_language", ""),
         local_files=sorted(data.get("local_artifacts", {})),
     )
     if data != rebuilt:
         raise GuardError("Link map or pinned evidence changed; rebuild and review it.")
     return data["mappings"], {
-        **data["artifacts"], **data.get("local_artifacts", {}), pinned.name: pinned.sha256,
+        **data["artifacts"],
+        **data.get("local_artifacts", {}),
+        pinned.name: pinned.sha256,
     }
 
 
@@ -200,9 +241,15 @@ def adapt_links(text: str, mapping: dict[str, Any]) -> tuple[str, list[dict[str,
     local = {row["mg"] for row in mapping.values() if row.get("mg")}
 
     def record(link, action, destination=None, evidence=()):
-        decisions.append({"source": str(link), "source_target": str(link.title).strip(),
-                          "action": action, "destination": destination,
-                          "evidence_files": list(evidence)})
+        decisions.append(
+            {
+                "source": str(link),
+                "source_target": str(link.title).strip(),
+                "action": action,
+                "destination": destination,
+                "evidence_files": list(evidence),
+            }
+        )
 
     def protected(node):
         for link in node.__children__():
@@ -219,15 +266,23 @@ def adapt_links(text: str, mapping: dict[str, Any]) -> tuple[str, list[dict[str,
                     if node.text is not None:
                         walk(node.text)
                 elif bare.casefold().startswith("sokajy:"):
-                    record(node, "category_unchanged" if not target.startswith(":") else
-                           "category_made_live")
+                    record(
+                        node,
+                        "category_unchanged"
+                        if not target.startswith(":")
+                        else "category_made_live",
+                    )
                     if target.startswith(":"):
                         raw = str(node.title)
                         prefix = len(raw) - len(raw.lstrip())
-                        node.title = raw[:prefix] + raw[prefix + 1:]
+                        node.title = raw[:prefix] + raw[prefix + 1 :]
                 elif bare.casefold().startswith("category:"):
-                    record(node, "category_foreign_unchanged" if target.startswith(":") else
-                           "category_foreign_made_inert")
+                    record(
+                        node,
+                        "category_foreign_unchanged"
+                        if target.startswith(":")
+                        else "category_foreign_made_inert",
+                    )
                     if not target.startswith(":"):
                         raw = str(node.title)
                         prefix = len(raw) - len(raw.lstrip())
@@ -237,23 +292,56 @@ def adapt_links(text: str, mapping: dict[str, Any]) -> tuple[str, list[dict[str,
                 else:
                     base, separator, _ = target.partition("#")
                     if _key(base) not in mapping and _key(base) in local:
-                        record(node, "local_anchor_requires_review" if separator else
-                               "local_target_unchanged", _key(base))
+                        record(
+                            node,
+                            "local_anchor_requires_review"
+                            if separator
+                            else "local_target_unchanged",
+                            _key(base),
+                        )
                         continue
                     row = mapping.get(_key(base), {})
                     destination = row.get("mg")
                     label = str(node.text) if node.text is not None else target
-                    replacement = (f"[[{destination}|{label}]]" if label != destination else
-                                   f"[[{destination}]]") if destination else label
-                    record(node, ("mapped_anchor_omitted" if separator else "mapped") if
-                           destination else "plain_text_no_verified_target", destination,
-                           row.get("evidence_files", []))
+                    replacement = (
+                        (
+                            f"[[{destination}|{label}]]"
+                            if label != destination
+                            else f"[[{destination}]]"
+                        )
+                        if destination
+                        else label
+                    )
+                    record(
+                        node,
+                        ("mapped_anchor_omitted" if separator else "mapped")
+                        if destination
+                        else "plain_text_no_verified_target",
+                        destination,
+                        row.get("evidence_files", []),
+                    )
                     part.replace(node, replacement, recursive=False)
             elif isinstance(node, mw.nodes.Heading):
                 walk(node.title)
-            elif isinstance(node, mw.nodes.Tag) and str(node.tag).casefold() in {
-                "b", "strong", "span", "div", "p", "small", "sub", "sup", "table", "tr", "td", "th",
-            } and node.contents is not None:
+            elif (
+                isinstance(node, mw.nodes.Tag)
+                and str(node.tag).casefold()
+                in {
+                    "b",
+                    "strong",
+                    "span",
+                    "div",
+                    "p",
+                    "small",
+                    "sub",
+                    "sup",
+                    "table",
+                    "tr",
+                    "td",
+                    "th",
+                }
+                and node.contents is not None
+            ):
                 walk(node.contents)
             elif isinstance(node, mw.nodes.Tag) and str(node.tag).casefold() == "gallery":
                 lines = []

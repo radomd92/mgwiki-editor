@@ -26,12 +26,18 @@ SNAPSHOT = CACHE.with_suffix(".json")
 
 def feed(rows: str, *, identity: str = KAJY_ID) -> bytes:
     """Build a tiny local Blogger response; no remote fixtures or resources."""
-    return json.dumps({"entry": {
-        "id": {"$t": identity}, "title": {"$t": "Synthetic glossary"},
-        "author": [{"name": {"$t": "Test author"}}],
-        "published": {"$t": "2011-04-19"}, "updated": {"$t": "2011-04-19"},
-        "content": {"type": "html", "$t": f"<table>{rows}</table>"},
-    }}).encode("utf-8")
+    return json.dumps(
+        {
+            "entry": {
+                "id": {"$t": identity},
+                "title": {"$t": "Synthetic glossary"},
+                "author": [{"name": {"$t": "Test author"}}],
+                "published": {"$t": "2011-04-19"},
+                "updated": {"$t": "2011-04-19"},
+                "content": {"type": "html", "$t": f"<table>{rows}</table>"},
+            }
+        }
+    ).encode("utf-8")
 
 
 def test_cached_glossary_preserves_all_numbered_terms_and_provenance() -> None:
@@ -146,18 +152,24 @@ def test_importer_extracts_cells_entities_and_numbered_headings_without_network(
     assert result["entry_count"] == 3
     assert result["source_row_count"] == 4
     assert [entry["malagasy"] for entry in result["entries"]] == [
-        "Goba", "Ivodanja", "Kisendrasendra",
+        "Goba",
+        "Ivodanja",
+        "Kisendrasendra",
     ]
     assert result["entries"][2]["french"] == "Aléatoire"
     assert result["numbered_placeholders"][0]["source_number"] == 192
     assert result["source"]["feed_sha256"] == digest(payload)
 
 
-@pytest.mark.parametrize("rows", [
-    "", "<tr><td>1. Isa</td></tr>",
-    "<tr><td>1. Isa</td><td>Nombre</td><td>Extra</td></tr>",
-    "<tr><td>1. Isa</td><td>Nombre</td></tr><tr><td>1. Isa</td><td>Nombre</td></tr>",
-])
+@pytest.mark.parametrize(
+    "rows",
+    [
+        "",
+        "<tr><td>1. Isa</td></tr>",
+        "<tr><td>1. Isa</td><td>Nombre</td><td>Extra</td></tr>",
+        "<tr><td>1. Isa</td><td>Nombre</td></tr><tr><td>1. Isa</td><td>Nombre</td></tr>",
+    ],
+)
 def test_importer_rejects_unrecognized_or_duplicate_rows(rows: str) -> None:
     with pytest.raises(GuardError):
         import_kajy_feed(feed(rows), retrieved_at="2026-11-09")
@@ -169,7 +181,9 @@ def test_importer_rejects_unrelated_post() -> None:
 
 
 def test_cli_vocab_is_offline_and_pins_without_overwriting(
-    tmp_path: Path, monkeypatch: pytest.MonkeyPatch, capsys: pytest.CaptureFixture,
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+    capsys: pytest.CaptureFixture,
 ) -> None:
     class OfflineWiki:
         def __getattr__(self, name):
@@ -245,11 +259,18 @@ def test_cli_exact_query(capsys: pytest.CaptureFixture) -> None:
     assert result["entries"][0]["malagasy"] == "Fampimirana"
 
 
-@pytest.mark.parametrize("path", [
-    "AGENTS.md", ".opencode/agents/mgwiki-editor.md", ".opencode/agents/mgwiki-section.md",
-    ".opencode/skills/mg-vocab/SKILL.md", ".opencode/skills/mgwiki-edition/SKILL.md",
-    "docs/edition-protocol.wiki", "README.wiki",
-])
+@pytest.mark.parametrize(
+    "path",
+    [
+        "AGENTS.md",
+        ".opencode/agents/mgwiki-editor.md",
+        ".opencode/agents/mgwiki-section.md",
+        ".opencode/skills/mg-vocab/SKILL.md",
+        ".opencode/skills/mgwiki-edition/SKILL.md",
+        "docs/edition-protocol.md",
+        "docs/usage.md",
+    ],
+)
 def test_grounded_substitution_workflow_is_discoverable(path: str) -> None:
     text = " ".join((CACHE.parents[2] / path).read_text(encoding="utf-8").split())
     assert "SQLite" in text or ".sqlite" in text

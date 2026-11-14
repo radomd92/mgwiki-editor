@@ -118,6 +118,11 @@ Do not invent an acronym from a translated name or import English plural endings
 Explain rather than abbreviate when a shortened form would confuse. Standard
 unit/scientific symbols are notation, not prose acronyms needing a repeated gloss.
 
+Domain-specific acronym rules (medical, official government agencies, computer
+science/mathematics/physics, European history/geography Latin terms) and Malagasy
+transcription spelling (no geminated consonants, source /o/ as ô, /u/ as o) are
+project overrides defined in SKILL.md; follow those rules for new prose.
+
 Foreign agency/institution names may remain in their original language and word
 order. Accompany the full name with an accurate Malagasy translation in
 parentheses. Italicize the full retained foreign-language phrase; keep the

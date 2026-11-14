@@ -358,6 +358,12 @@ notes.wiki; set each review.json gate true only when actually checked:
   grounded substitutions and explicit retention reasons, not just audit counts.
   Original foreign acronyms have Malagasy parenthetical translations; retained
   foreign terms/full agency names have correct italics and agency glosses.
+  Apply the domain acronym rules in mgwiki-style: medical French form (English
+  fallback when French uses it), official-language agency acronyms, English plus
+  Malagasy gloss for computing/math/physics, and French plus Malagasy gloss for
+  European history/geography Latin terms. Review transcription-audit findings:
+  new Malagasy transcriptions avoid geminated consonants, write source /o/ as ô
+  and source /u/ as o; protected originals stay unchanged.
   Book/movie/paper titles use MediaWiki italics without corrupting citation
   fields. Preserve original name order, with the verified Malagasy surname-first
   convention; never mechanically reverse Chinese/Japanese/Korean/Vietnamese names

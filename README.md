@@ -168,7 +168,15 @@ evidence, identifiers, paths, revisions or citations.
 New Malagasy prose follows the local style guide in
 [`.opencode/skills/mgwiki-style/`](.opencode/skills/mgwiki-style/SKILL.md),
 which adapts the English Wikipedia Manual of Style and Words to Watch with
-explicit source attribution.
+explicit source attribution. Acronyms follow subject-domain rules (medical
+French-first, official-language agency names, English plus Malagasy gloss for
+technical fields, French plus Malagasy gloss for European Latin terms). New
+Malagasy transcriptions avoid geminated consonants and map the source /o/ sound
+to `ô` and /u/ to `o`.
+
+```bash
+python3 -m mgwiki_editor transcription-audit --draft runs/JOB/draft.wiki
+```
 
 ## Development
 

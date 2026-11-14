@@ -178,6 +178,9 @@ sy famoahana rivotra; ''asthma'' amin' ny teny anglisy)`.
 
 The user-confirmed equivalent asthma = asma is recorded as a project preference;
 it is not evidence of a successful dictionary lookup or of a subject's diagnosis.
+Medical acronyms follow mgwiki-style's French-first rule. New Malagasy
+transcriptions avoid geminated consonants and write source /o/ as ô, source /u/
+as o; run transcription-audit and record the review.
 Do not invent a standard Malagasy spelling. Record a new transcription as
 descriptive, explain it, and preserve the English name when ambiguity remains.
 Definitions explain the source term; they must not add diagnoses, symptoms

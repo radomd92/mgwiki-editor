@@ -19,6 +19,7 @@ Shared modules:
 | `wikitext.py` | Raw inventories, grouped references, literal citations |
 | `links.py` | Cached langlink batches, redirect chains, prose/caption mapping |
 | `memos.py` | Exact dictionary indexes, sense-specific vocabulary reports |
+| `transcription.py` | Offline geminated-consonant candidates and /o/, /u/ review items |
 
 Article names, term lists, aliases, omissions, naming decisions → explicit job inputs;
 never shared algorithm constants. Archived recipe hashes unchanged.

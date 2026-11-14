@@ -40,7 +40,8 @@ or reasoning downgrade. Article prose never shortened for token targets.
 ## Reusable local commands
 
 Prefer sections-plan, sections-assemble, coverage, dictionary-index,
-vocabulary-report, citation-audit, metadata-audit, vocab-audit. Custom script only
+vocabulary-report, citation-audit, metadata-audit, vocab-audit,
+transcription-audit. Custom script only
 for missing functionality, not a new per-job copy of existing operations.
 Batch independent offline checks in one shell invocation when useful; remote
 Wikipedia/dictionary operations remain serial per coordinator through shared gate.

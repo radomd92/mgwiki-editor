@@ -26,12 +26,23 @@ official translations, name components, or local template names.
   quotations, original titles, citation metadata, identifiers, URLs, code, and
   MediaWiki's paired/triple apostrophes for italics/bold. Link labels may be
   adapted; exact link targets and template parameter names must not be rewritten.
-- Foreign-language acronyms/abbreviations may retain their original letters and
-  established punctuation. On first mention add their accurate Malagasy
-  translation or expansion in parentheses, including common acronyms; repeat
-  in a self-contained caption/table when needed. Example: `WHO (Fikambanana
+- Foreign-language acronyms/abbreviations normally retain their original letters
+  and established punctuation. On first mention add an accurate Malagasy
+  translation or expansion in parentheses, including common acronyms; repeat in
+  a self-contained caption/table when needed. Example: `WHO (Fikambanana
   Iraisam-pirenena momba ny Fahasalamana)`. Do not invent a Malagasy acronym or
   mistake an explanatory translation for an official institutional name.
+  Domain rules override the default:
+  - Medical articles: use the French form of the same acronym when it exists;
+    if French also uses the English acronym, use the English one.
+  - Government agencies: use the acronym current in the country's original or
+    official language, with the official full name and a Malagasy gloss.
+  - Computer science, mathematics and physics: use the English acronym followed
+    by its Malagasy translation/expansion, defined once at first mention.
+  - European history and geography: for a Latin term, use the French form
+    followed by a Malagasy translation defined once at first mention.
+  These rules cover new prose only. Keep acronyms exact inside quotations,
+  original titles, citation metadata, identifiers, link targets and filenames.
 - Italicize retained foreign-language words/phrases with `''teny vahiny''`;
   keep a foreign term inside parentheses italicized too. Established Malagasy
   equivalents and Malagasy explanatory translations stay roman. Acronym tokens
@@ -71,6 +82,23 @@ official translations, name components, or local template names.
   quotations. Those exceptions protect faithful reproduction, not endorsement
   of a source's viewpoint in the article's own voice; translated quotations must
   be labelled and preserve the source's meaning and tone.
+
+## Malagasy transcription spelling
+
+Apply these rules when creating a new Malagasy transcription of a foreign term
+or name:
+- No geminated consonants: write one consonant (`Rosi`, not `Rossi`).
+- The source /o/ sound is written `ô`.
+- The source /u/ sound is written `o`.
+
+Apply them to new transcriptions only. Preserve quotations, original titles,
+citation metadata, exact link targets, identifiers, URLs and established Malagasy
+spellings. Do not guess pronunciation; record unresolved sound or spelling
+uncertainty in section notes or vocabulary review instead of inventing a form.
+Run `python3 -m mgwiki_editor transcription-audit --draft PATH` and review every
+candidate before attesting the terminology and fluency gates; use `--strict` to
+make remaining candidates fail the audit. Section workers record uncertain
+transcriptions in notes.wiki.
 
 ## Language and fidelity
 

@@ -30,6 +30,7 @@ from .metadata import metadata_audit
 from .reporting import report_summary
 from .slicing import json_slice
 from .terminology import audit_mathematical_terms
+from .transcription import audit_transcription
 from .usage import session_usage
 from .vocabulary import vocabulary
 from .workflow import assemble_sections, coverage_report, plan_sections
@@ -84,6 +85,17 @@ def parser() -> argparse.ArgumentParser:
     )
     audit.add_argument("--draft", type=Path, required=True)
     audit.add_argument("--output", type=Path)
+    transcription = commands.add_parser(
+        "transcription-audit",
+        help="Report possible geminated consonants and /o/, /u/ transcription review items",
+    )
+    transcription.add_argument("--draft", type=Path, required=True)
+    transcription.add_argument("--output", type=Path)
+    transcription.add_argument(
+        "--strict",
+        action="store_true",
+        help="Exit nonzero when candidates need review",
+    )
     validate = commands.add_parser(
         "validate",
         help="Offline structural lint; not translation review",
@@ -360,6 +372,7 @@ def main(argv: list[str] | None = None) -> int:
                 "session-usage",
                 "lookup-batch",
                 "offline-audit",
+                "transcription-audit",
                 "evidence-pin",
                 "evidence-verify",
                 "json-slice",
@@ -411,6 +424,8 @@ def main(argv: list[str] | None = None) -> int:
             result = vocabulary(args.word, language=args.language, exact=args.exact)
         elif args.command == "vocab-audit":
             result = audit_mathematical_terms(args.draft)
+        elif args.command == "transcription-audit":
+            result = audit_transcription(args.draft)
         elif args.command == "sections-plan":
             result = plan_sections(
                 args.job, ranges=args.ranges, level=args.level, group_max_bytes=args.group_max_bytes
@@ -508,13 +523,18 @@ def main(argv: list[str] | None = None) -> int:
             "evidence-pin",
         }:
             write_new({args.output: json_bytes(result)})
+        strict_transcription = (
+            args.command == "transcription-audit"
+            and getattr(args, "strict", False)
+            and result.get("finding_count", 0) > 0
+        )
         if getattr(args, "summary", False):
             result = report_summary(args.command, result, args.output)
         # JSON escapes preserve Unicode even on ASCII/Latin-1 terminal streams.
         # Local evidence files remain UTF-8; printing must not turn a successful
         # lookup/prepare/save into an apparent failure after its side effects.
         print(json.dumps(result, ensure_ascii=True, indent=2))
-        return 0
+        return int(strict_transcription)
     except Exception as exc:
         # A failed save may already have reached Wikimedia: retain the unconfirmed receipt.
         print(

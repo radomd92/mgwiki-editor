@@ -169,6 +169,20 @@ expected article output. Render success proves structure only; whole-article
 translation, license, attribution, template semantics and raw/offline preview
 editorial review still mandatory.
 
+## Transcription audit
+
+```sh
+python3 -m mgwiki_editor transcription-audit --draft runs/JOB/draft.wiki
+```
+
+Offline candidate report only. Flags possible geminated consonants in new-prose
+text nodes; skips quotations, references, foreign-term italics, templates,
+identifiers and URLs. Source /o/ → `ô` and /u/ → `o` cannot be inferred from
+spelling, so confirm both against pinned source pronunciation evidence. Add
+`--strict` to exit nonzero while candidates remain, for use as a review gate.
+Record dispositions in notes.wiki; the terminology and fluency gates remain
+editorial.
+
 ## Tests / authorization boundary
 
 Tests use fake Wiki/API, local strings/sockets and isolated fixtures only. No live

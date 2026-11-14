@@ -180,7 +180,12 @@ may follow in parentheses. Label editorial definitions and failed lookups
 honestly. Lack of a confirmed one-word equivalent need not block an accurate
 descriptive translation. For medical first mentions use a Malagasy transcription
 or established equivalent followed by `(na [Malagasy explanation])`; use asma
-for asthma. Do not add unsupported medical claims. More than 100 distinct
+for asthma. Do not add unsupported medical claims. Domain acronyms and Malagasy
+transcription spelling follow mgwiki-style: medical French/English fallback;
+official-language agency acronyms; English plus Malagasy gloss for
+computing/math/physics; French plus Malagasy gloss for European Latin terms; no
+geminated consonants, source /o/ as ô and /u/ as o. Run transcription-audit and
+review every candidate; protected originals stay unchanged. More than 100 distinct
 uncertain English vocabulary items go in the job's unknown-vocabulary.wiki for
 later terminology review, linked through vocabulary.json evidence_files. Never
 represent an unverified coinage as established terminology or defer a genuinely

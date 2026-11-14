@@ -56,8 +56,15 @@ as the specific local exception. Never guess name components. Transcribe foreign
 names written in non-Latin scripts into the Latin alphabet in new Malagasy prose,
 using a source-supported transcription/romanization and preserving name order.
 Do not guess pronunciation; preserve originals in quotations, original titles,
-citation metadata, exact link targets, identifiers and URLs. Words-to-watch
-guidance is contextual, not a blacklist; source quotations/titles/citation
+citation metadata, exact link targets, identifiers and URLs. Domain acronym rules
+override: medical articles use the French form (English only if French uses it);
+official agencies use the country's original/official-language acronym;
+computing/math/physics use the English acronym plus a Malagasy gloss; European
+history/geography use the French form of a Latin term plus a Malagasy gloss. New
+Malagasy transcriptions avoid geminated consonants, write source /o/ as ô and
+source /u/ as o; run transcription-audit and review candidates. Protected
+quotations, titles, citations, identifiers and URLs keep their originals.
+Words-to-watch guidance is contextual, not a blacklist; source quotations/titles/citation
 metadata are protected from caution-based rewriting.
 
 Source images and internal links: include those from every source section within

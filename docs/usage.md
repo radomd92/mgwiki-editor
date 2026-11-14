@@ -53,7 +53,8 @@ article recipes: scripts/legacy/; not active workflow. No new root-level recipes
 Cached links/dictionary/vocabulary: links-build, dictionary-index, vocabulary-report.
 Shared evidence/write guards: mgwiki_editor/artifacts.py. Reports never approve review.
 Citation/metadata/rendering checks: docs/editorial-checks.md. Offline citation-audit,
-metadata-audit; scoped template-info/source-expand/render-check broker actions;
+metadata-audit, transcription-audit; scoped template-info/source-expand/render-check
+broker actions;
 license-evidence for guarded live rights metadata, license-report for cached claims;
 control doctor for optional broker prerequisites. No automatic evidence/gate clearance.
 

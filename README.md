@@ -175,7 +175,9 @@ technical fields, French plus Malagasy gloss for European Latin terms). New
 Malagasy transcriptions avoid geminated consonants and map the source /o/ sound
 to `ô` and /u/ to `o`. New medical transcriptions prefer the French source term
 when one exists, using English only when French is unavailable, established
-Malagasy usage is English, or French would misstate the source.
+Malagasy usage is English, or French would misstate the source. If no verified
+local infobox template exists, use a native right-floated table at 30% width,
+5px text spacing and 75% font size, with any image centered.
 
 ```bash
 python3 -m mgwiki_editor transcription-audit --draft runs/JOB/draft.wiki

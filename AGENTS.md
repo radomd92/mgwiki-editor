@@ -70,7 +70,10 @@ metadata are protected from caution-based rewriting.
 Source images and internal links: include those from every source section within
 the requested scope, including infoboxes, galleries, tables, and captions; do not
 silently reduce the translation to plain text. Keep Commons filenames unchanged
-and translate captions/alt text. Retain internal links to the same topics using
+and translate captions/alt text. Infoboxes use a verified local template when one
+exists; otherwise use a native table at 30% width, floated right, with 5px text
+spacing and 75% font size, and center the image. Retain supported fields only.
+Retain internal links to the same topics using
 verified Malagasy targets and translated labels; adapt section anchors to the
 translated headings. Never guess targets or copy unusable/non-free foreign-local
 files. Record source-to-draft mappings and justified omissions in notes.wiki;

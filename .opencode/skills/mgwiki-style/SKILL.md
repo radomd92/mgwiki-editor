@@ -203,6 +203,21 @@ transcriptions in notes.wiki.
   every omitted or replaced image and its reason in notes.wiki; never silently
   drop images. Use permitted Wikipedia metadata and offline markup/preview checks,
   not image downloads or external-resource loading.
+- Infobox fallback: use a verified local infobox template when one exists. If no
+  equivalent exists, build a native wikitable with width `30%`, floated right,
+  `5px` spacing from the article text, and `75%` of the article font size. Center
+  any image in a full-width cell. Preserve supported fields and Commons filenames,
+  translate labels/captions, add alt text, omit unsupported fields, and never
+  invent data. Canonical pattern:
+  ```wikitext
+  {| class="infobox" style="width:30%; float:right; clear:right; margin:0 0 5px 5px; font-size:75%;"
+  |-
+  | colspan="2" style="text-align:center;" | [[File:Example.jpg|center|220px|alt=...|Caption]]
+  |-
+  ! scope="row" | Label
+  | Value
+  |}
+  ```
 - Preserve sourced Malagasy contributions in existing articles. No unsupported
   synthesis, removal of inconvenient claims, or unreviewed full replacement.
 - Add relevant Malagasy category links (Sokajy) at the end of the article, after

@@ -315,7 +315,12 @@ Include the source images and internal links from all sections within scope;
 do not silently flatten the article to unlinked text or discard illustrations.
 Keep Commons filenames unchanged, translate captions/alt text, preserve meaningful
 image placement/order, and retain caption links/references. Use verified local
-markup when source infobox/gallery templates are unsupported. Foreign-local or
+markup when source infobox/gallery templates are unsupported. If no verified
+local infobox template exists, render a native table with width 30%, floated
+right, 5px spacing from the article text and 75% of the article font size; center
+any image in a full-width cell. Preserve supported fields, Commons filenames,
+translated labels/captions and alt text; omit unsupported fields rather than
+inventing them. Foreign-local or
 non-free images require separate availability/reuse evidence; do not upload or
 import files. Resolve internal links to verified same-topic Malagasy pages,
 translate labels, and adapt same-page anchors to translated headings. If a target

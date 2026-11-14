@@ -229,7 +229,9 @@ already formatted by a template. A verbatim quotation retains its source text.
 * Use semantic wikitable headers and captions, not tables for visual page layout.
   Do not rely on color alone, text-only images, forced tiny fonts, or hidden/
   collapsed essential information. Inspect the preview offline without loading
-  external resources.
+  external resources. When no verified local infobox template exists, use a
+  native table: width 30%, floated right, 5px spacing from article text, 75%
+  font size, image centered in a full-width cell. Keep only supported fields.
 * Preserve source internal links within the requested scope, including those in
   infoboxes, tables and captions, using verified same-topic Malagasy targets and
   translated labels. Adapt same-page anchors to translated headings. Record

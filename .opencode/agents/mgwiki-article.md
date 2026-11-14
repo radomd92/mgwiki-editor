@@ -32,7 +32,9 @@ At assembly, enforce live article categories [[Sokajy:Name]] (convert inert
 [[:Sokajy:Name]] links) and {{lahatsoratra antsipirihany|Target}} for source
 Main/Main article/Further/Details section hatnotes, using the verified Malagasy
 target titles. Every Jereo koa entry must be a live [[translated title]] link,
-red links included. Page
+red links included. If no verified local infobox template exists, assemble a
+native table at 30% width, floated right, 5px spacing, 75% font size, centered
+image. Page
 large job evidence (json-slice, vocabulary-view, audit commands); never load a
 multi-megabyte artifact into your own context. Group short sections
 (`sections-plan --group-max-bytes 4000`) to cut repeated context. No

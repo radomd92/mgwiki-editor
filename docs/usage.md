@@ -127,6 +127,8 @@ the source guides per article. New Malagasy text uses amin' ny / an' Andriamanit
 amin' izao spacing; foreign acronyms have Malagasy parenthetical translations;
 retained foreign terms, full foreign agency names and book/movie/paper titles
 use MediaWiki italics. Full agency names also have Malagasy parenthetical glosses.
+If no verified local infobox template exists, use a native table at 30% width,
+floated right, 5px text spacing, 75% font size, centered image.
 Names retain original order, explicitly including Chinese/Japanese/Korean/
 Vietnamese names; verified Malagasy names use surname first, given names last.
 Never guess name components. Protected quotations, titles and citation metadata

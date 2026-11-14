@@ -55,6 +55,8 @@ links; source Main/Main article/Further/Details hatnotes use
 {{lahatsoratra antsipirihany|Target}}, one call per verified Malagasy target title.
 Every Jereo koa (See also) entry is a live [[translated title]] link, even when
 the target page does not exist yet (red link); never plain text or omission.
+Infoboxes use a verified local template when one exists; otherwise a native table
+with width 30%, float right, 5px text spacing, font-size 75%, centered image.
 User-facing replies, progress logs, handoffs, and memories use plain text or
 Markdown, never MediaWiki formatting. Use caveman ultra for all non-article
 natural-language output. Respond in the user's language unless requested otherwise.

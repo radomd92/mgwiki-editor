@@ -3,6 +3,7 @@
 [![CI](https://github.com/radomd92/mgwiki-editor/actions/workflows/tests.yml/badge.svg)](https://github.com/radomd92/mgwiki-editor/actions/workflows/tests.yml)
 ![Python](https://img.shields.io/badge/python-3.11%20%7C%203.12%20%7C%203.13-blue)
 [![License: Apache-2.0](https://img.shields.io/badge/license-Apache--2.0-blue.svg)](LICENSE)
+![Go](https://img.shields.io/badge/go-1.19%2B-blue)
 
 An autonomous [OpenCode](https://opencode.ai) agent harness that translates
 Wikipedia articles into Malagasy and saves reviewed MediaWiki wikitext to one
@@ -117,6 +118,8 @@ approval flag is used.
   skills/          style, edition and vocabulary procedures + local references
 docs/              protocol, policy, recovery, workflow and usage documentation
 mgwiki_editor/     CLI, transport guards, evidence, validation, proposal, save
+native/            Go scanner for large local artifacts (stdlib only)
+bin/               local native binary, ignored by Git
 tests/             offline regression suite with fake service boundaries
 data/              cached names, glossary, reviewed translation tips
 scripts/           vocabulary builders and historical article recipes
@@ -137,6 +140,7 @@ evidence/          example cached audit and lookup evidence
 | [`docs/script-workflow.md`](docs/script-workflow.md) | Reusable scripts versus historical recipes |
 | [`docs/legacy-script-patterns.md`](docs/legacy-script-patterns.md) | What to reuse from the historical article scripts |
 | [`docs/translation-memory.md`](docs/translation-memory.md) | Job-local notes and reviewed shared translation tips |
+| [`docs/native-tools.md`](docs/native-tools.md) | Go scanner for large job artifacts and duplicate evidence |
 | [`docs/prompts/malagasy-translation-prompt.txt`](docs/prompts/malagasy-translation-prompt.txt) | Standalone model-agnostic translation prompt |
 | [`AGENTS.md`](AGENTS.md) | Project policy that binds every agent role |
 
@@ -190,11 +194,14 @@ python3 -m mgwiki_editor transcription-audit --draft runs/JOB/draft.wiki
 python3 -m pytest
 ruff check mgwiki_editor tests
 ruff format --check mgwiki_editor tests
+make native
+make test-native
 ```
 
-The suite is offline. Live login, rendering and save behavior must be smoke
-tested by an operator with their own credentials. CI runs the same checks on
-Python 3.11, 3.12 and 3.13 and never publishes edits.
+The Python suite is offline. The native scanner uses Go's standard library only;
+build it for large local jobs. Live login, rendering and save behavior must be
+smoke tested by an operator with their own credentials. CI runs the same checks on
+Python 3.11, 3.12 and 3.13 plus the Go scanner tests and never publishes edits.
 
 See [`CONTRIBUTING.md`](CONTRIBUTING.md) for workflow and review expectations.
 

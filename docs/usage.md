@@ -39,6 +39,8 @@ see [NOTICE](../NOTICE).
 * docs/prompts/malagasy-translation-prompt.txt: standalone translation prompt.
 * mgwiki_editor/: Pywikibot CLI, dictionary client, validation, proposal, and save.
 * mgwiki_editor/network.py: shared pacing, overload cooldowns, API-only transport.
+* native/: Go scanner for large local wikitext/JSON artifacts; stdlib only.
+* bin/: local native binary, ignored by Git; build with `make native`.
 * tests/: offline regression tests with fake Wikipedia/dictionary boundaries.
 * data/country-names.json: cached direct mainspace titles from Sokajy:Firenena.
 * data/vocabulary/kajy-mathematics.sqlite: indexed, queryable French–Malagasy
@@ -57,7 +59,10 @@ Cached links/dictionary/vocabulary: links-build, dictionary-index, vocabulary-re
 Shared evidence/write guards: mgwiki_editor/artifacts.py. Reports never approve review.
 Citation/metadata/rendering checks: docs/editorial-checks.md. Offline citation-audit,
 metadata-audit, transcription-audit; reviewed shared tips: knowledge-index and
-knowledge-promote (docs/translation-memory.md); scoped template-info/source-expand/render-check
+knowledge-promote (docs/translation-memory.md); vocabulary-merge for a new
+root/section merge candidate; fast local triage: native-summary,
+native-inventory, native-compare, native-search (docs/native-tools.md); scoped
+template-info/source-expand/render-check
 broker actions;
 license-evidence for guarded live rights metadata, license-report for cached claims;
 control doctor for optional broker prerequisites. No automatic evidence/gate clearance.

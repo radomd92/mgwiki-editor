@@ -245,6 +245,8 @@ Inspect/run/create task-relevant helpers with `python3 ./name.py` or
 `mgwiki_editor.core.Wiki` or install its transport guard before Pywikibot use.
 Historical scripts in scripts/legacy/ are archive only: reuse their method via
 docs/legacy-script-patterns.md, never import or batch-run them.
+Native Go scanner (make native) is optional read-only triage for large artifacts:
+native-summary/inventory/compare/search. Python audits remain authoritative; no network.
 Independent article translation tasks may run concurrently; each coordinator
 keeps its own Wikipedia operations serial. All jobs share pacing across processes/languages (10s
 between requests, the conservative end of the requested 5–10s range; >=10s

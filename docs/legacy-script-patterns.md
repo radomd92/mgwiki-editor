@@ -18,11 +18,12 @@ patterns future articles should reuse.
 | Readable review copies and reference extraction | `*_plan.py`, `*_native.py` | Raw snapshots plus offline preview; `reference_inventory`, named-reference checks |
 | Link/file/category/local-page evidence batches | `*_evidence.py`, `*_names.py`, `*_identity.py` | `links-build`, `metadata-audit`, `license-evidence`, `countries`; cache every batch in the job |
 | Dictionary/term inventory and serialized lookups | `*_terms.py`, `*_lookup.py`, `*_more_terms.py` | `lookup`, `lookup-batch`, `dictionary-index`, pinned `evidence/lookup-*.json` |
-| Vocabulary merge, aliases, dedupe, evidence binding | `*_vocabulary.py`, `*_finalize.py`, `*_finish_memo.py` | `vocabulary-report`, `vocabulary-view`, `vocabulary-pack`; keep sense groups and evidence paths |
+| Vocabulary merge, aliases, dedupe, evidence binding | `*_vocabulary.py`, `*_finalize.py`, `*_finish_memo.py` | `vocabulary-report`, `vocabulary-view`, `vocabulary-pack`, `vocabulary-merge`; keep sense groups and evidence paths |
 | Translation assembly and native citations | `*_integrate.py`, `*_native.py` | `sections-assemble`, optional `--native-citations`; never regenerate sections |
 | Targeted review repairs | `*_review_fixes.py`, `*_precision_fixes.py`, `*_close_review.py` | Edit the draft or delegate the affected section; rerun `validate` + `offline-audit` |
 | Coverage and reference safety checks | `*_coverage*.py`, `*_markup_safety.py`, `*_final_review.py` | `coverage` (files, URLs, named references), `citation-audit`, `metadata-audit`, `offline-audit` |
 | Template existence and parameter rendering | `tmp_biol_sex_template_info2.py`, `tmp_biol_sex_param_test.py` | `template-info`, `source-expand`, `render-check` broker actions; never assume a source template works locally |
+| Large artifact triage and duplicate evidence | repeated `coverage-v*.json`, `offline-audit-*-coverage.json` | `native-summary`, `native-inventory`, `native-compare`, `native-search`; reports only |
 | Source disagreement memory | `earthquake_source_issues.py`, `programming_*` memos | `runs/<job>/source-issues.md`, stable IDs, nonblocking review issues |
 | Retain work when blocked; handoff | `*_retain.py`, `*_finish_memo.py`, `*_followup.py` | Keep the job directory and notes; report status/blockers; no gate waiver |
 | Final editorial review and gate attestation | `*_final_review.py`, `*_finalize.py` | Manual whole-article review, then `prepare`/`publish`; gates are attestations, never scripted proof |

@@ -22,6 +22,7 @@ Shared modules:
 | `transcription.py` | Offline geminated-consonant candidates and /o/, /u/ review items |
 | `terminology_audit.py` | Vocabulary choices matched against the assembled draft |
 | `knowledge.py` | Reviewed tip promotion and offline shared-memory query |
+| `native.py` | Optional Go accelerator wrappers; Python audits stay authoritative |
 
 Article names, term lists, aliases, omissions, naming decisions → explicit job inputs;
 never shared algorithm constants. Archived recipe hashes unchanged.

@@ -8,7 +8,7 @@ from typing import Any
 from urllib.parse import unquote, urlsplit
 
 from .artifacts import evidence_path, read_evidence, write_new
-from .core import GuardError, digest, json_bytes
+from .core import GuardError, digest, json_bytes, read_json
 
 
 def vocabulary_records(data: Any) -> list[dict[str, Any]]:
@@ -330,4 +330,115 @@ def vocabulary_report(job: Path, filename: str, lookups: list[str]) -> dict[str,
         "Count excludes only explicitly verified English terms; names/idioms and "
         "source disagreements need coordinator classification. No memo created, "
         "approval granted, source issue erased, or publication attempted.",
+    }
+
+
+def _merge_key(record: dict[str, Any]) -> tuple[str, str]:
+    return (
+        str(record.get("source_term", "")).strip().casefold(),
+        str(record.get("domain", "")).strip().casefold(),
+    )
+
+
+def _section_directories(job: Path) -> list[tuple[str, Path]]:
+    plan_path = job / "section-plan.json"
+    if plan_path.is_file():
+        plan = read_json(plan_path)
+        if not isinstance(plan, list):
+            raise GuardError("Section plan must be a list.")
+        rows = []
+        for item in plan:
+            if not isinstance(item, dict) or not isinstance(item.get("directory"), str):
+                raise GuardError("Section plan entry lacks a directory.")
+            directory = (job / item["directory"]).resolve()
+            if not directory.is_relative_to(job):
+                raise GuardError("Section directory escapes the job.")
+            rows.append((str(item.get("id", directory.name)), directory))
+        return rows
+    return sorted((path.parent.name, path) for path in (job / "sections").glob("*/vocabulary.json"))
+
+
+def merge_vocabulary(job: Path, output: Path) -> dict[str, Any]:
+    """Merge root and section vocabularies into a new candidate; never overwrite."""
+    job = job.resolve()
+    output = output.resolve()
+    if output.exists() or output.is_symlink():
+        raise GuardError("Merged vocabulary exists; preserve it.")
+    if not output.is_relative_to(job) or output == job:
+        raise GuardError("Merged vocabulary must be a new file inside the job.")
+    root_path = job / "vocabulary.json"
+    if not root_path.is_file():
+        raise GuardError("Job has no root vocabulary.json.")
+    root = vocabulary_records(read_json(root_path))
+    merged: list[dict[str, Any]] = []
+    index: dict[tuple[str, str], int] = {}
+    conflicts: list[dict[str, Any]] = []
+    missing_sections = []
+
+    def normalize(name: str, sid: str | None) -> str:
+        name = name.strip()
+        while name.startswith("../../"):
+            name = name[6:]
+        if sid and name in {"source.wiki", "supplement.wiki"}:
+            return f"sections/{sid}/{name}"
+        return name
+
+    def add(record: dict[str, Any], sid: str | None) -> None:
+        item = dict(record)
+        evidence = item.get("evidence_files", [])
+        if not isinstance(evidence, list) or any(not isinstance(name, str) for name in evidence):
+            raise GuardError("Vocabulary evidence_files must be a list of paths.")
+        item["evidence_files"] = sorted({normalize(name, sid) for name in evidence if name.strip()})
+        key = _merge_key(item)
+        if not key[0]:
+            raise GuardError("Vocabulary record lacks source_term.")
+        if key in index:
+            kept = merged[index[key]]
+            kept["evidence_files"] = sorted(
+                set(kept.get("evidence_files", [])) | set(item["evidence_files"])
+            )
+            alternatives = kept.setdefault("alternatives_rejected", [])
+            if not isinstance(alternatives, list):
+                raise GuardError("Vocabulary alternatives_rejected must be a list.")
+            other = item.get("chosen_expression")
+            if other and other != kept.get("chosen_expression") and other not in alternatives:
+                alternatives.append(other)
+                conflicts.append(
+                    {
+                        "source_term": kept.get("source_term"),
+                        "domain": kept.get("domain"),
+                        "kept": kept.get("chosen_expression"),
+                        "other": other,
+                    }
+                )
+            return
+        index[key] = len(merged)
+        merged.append(item)
+
+    for record in root:
+        add(record, None)
+    source_records = len(root)
+    for sid, directory in _section_directories(job):
+        path = directory / "vocabulary.json"
+        if not path.is_file():
+            missing_sections.append(sid)
+            continue
+        section = vocabulary_records(read_json(path))
+        source_records += len(section)
+        for record in section:
+            add(record, sid)
+    write_new({output: json_bytes(merged)})
+    return {
+        "schema": 1,
+        "status": "candidate_only",
+        "job": str(job),
+        "output": str(output.relative_to(job)),
+        "source_record_count": source_records,
+        "merged_record_count": len(merged),
+        "duplicate_count": source_records - len(merged),
+        "conflicts": conflicts,
+        "missing_sections": missing_sections,
+        "limits": "Deterministic merge candidate only; does not verify senses, resolve "
+        "conflicts, adopt the output, or change vocabulary.json. Review conflicts and "
+        "evidence paths before replacing any root memo.",
     }

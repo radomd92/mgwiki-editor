@@ -15,7 +15,7 @@ ROOT = Path(__file__).resolve().parents[1]
 # subject-specific acronym fallbacks, French-preferred medical transcription,
 # and geminate and /o/, /u/ transcription rules.
 BUDGET = {
-    "AGENTS.md": 19_600,
+    "AGENTS.md": 19_800,
     ".opencode/skills/mgwiki-style/SKILL.md": 19_000,
     ".opencode/skills/mgwiki-style/references/manual-of-style.wiki": 17_700,
     ".opencode/skills/mgwiki-style/references/words-to-watch.wiki": 10_300,

@@ -26,8 +26,18 @@ from .core import (
 from .knowledge import knowledge_index, promote_memory
 from .licenses import file_name, license_evidence, license_report
 from .links import build_link_map
-from .memos import dictionary_index, pack_vocabulary, vocabulary_report, vocabulary_view
+from .memos import (
+    dictionary_index,
+    merge_vocabulary,
+    pack_vocabulary,
+    vocabulary_report,
+    vocabulary_view,
+)
 from .metadata import metadata_audit
+from .native import compare as native_compare
+from .native import inventory as native_inventory
+from .native import search as native_search
+from .native import summary as native_summary
 from .reporting import report_summary
 from .slicing import json_slice
 from .terminology import audit_mathematical_terms
@@ -135,6 +145,39 @@ def parser() -> argparse.ArgumentParser:
     knowledge.add_argument("--language")
     knowledge.add_argument("--query")
     knowledge.add_argument("--output", type=Path)
+    native_inventory_parser = commands.add_parser(
+        "native-inventory",
+        help="Fast raw wikitext inventory; Python validate/coverage remain authoritative",
+    )
+    native_inventory_parser.add_argument("--file", type=Path, required=True)
+    native_inventory_parser.add_argument("--output", type=Path)
+    native_compare_parser = commands.add_parser(
+        "native-compare",
+        help="Fast raw source/draft set comparison; not editorial approval",
+    )
+    native_compare_parser.add_argument("--source", type=Path, required=True)
+    native_compare_parser.add_argument("--draft", type=Path, required=True)
+    native_compare_parser.add_argument("--output", type=Path)
+    native_summary_parser = commands.add_parser(
+        "native-summary",
+        help="Hash, size and duplicate-artifact scan for a job tree",
+    )
+    native_summary_parser.add_argument("--job", type=Path, required=True)
+    native_summary_parser.add_argument("--output", type=Path)
+    native_search_parser = commands.add_parser(
+        "native-search",
+        help="Bounded literal search across local job artifacts",
+    )
+    native_search_parser.add_argument("--job", type=Path, required=True)
+    native_search_parser.add_argument("--query", required=True)
+    native_search_parser.add_argument("--max-hits", type=int, default=200)
+    native_search_parser.add_argument("--output", type=Path)
+    vocabulary_merge = commands.add_parser(
+        "vocabulary-merge",
+        help="Merge root and section vocabulary into a new candidate; never overwrite",
+    )
+    vocabulary_merge.add_argument("--job", type=Path, required=True)
+    vocabulary_merge.add_argument("--output", type=Path, required=True)
     validate = commands.add_parser(
         "validate",
         help="Offline structural lint; not translation review",
@@ -415,6 +458,11 @@ def main(argv: list[str] | None = None) -> int:
                 "terminology-audit",
                 "knowledge-promote",
                 "knowledge-index",
+                "native-inventory",
+                "native-compare",
+                "native-summary",
+                "native-search",
+                "vocabulary-merge",
                 "evidence-pin",
                 "evidence-verify",
                 "json-slice",
@@ -479,6 +527,16 @@ def main(argv: list[str] | None = None) -> int:
                 language=args.language,
                 query=args.query,
             )
+        elif args.command == "native-inventory":
+            result = native_inventory(args.file)
+        elif args.command == "native-compare":
+            result = native_compare(args.source, args.draft)
+        elif args.command == "native-summary":
+            result = native_summary(args.job)
+        elif args.command == "native-search":
+            result = native_search(args.job, args.query, max_hits=args.max_hits)
+        elif args.command == "vocabulary-merge":
+            result = merge_vocabulary(args.job, args.output)
         elif args.command == "sections-plan":
             result = plan_sections(
                 args.job, ranges=args.ranges, level=args.level, group_max_bytes=args.group_max_bytes

@@ -171,8 +171,14 @@ hashes, source row numbers, and original cell text are cached with the pairs.
 
 Use the established Malagasy equivalent or a cautious transcription in the
 Malagasy alphabet, followed by a simple Malagasy explanation on first use:
-`[Malagasy transcription] (na [Malagasy explanation])`. The English name can be
-added inside the parentheses when useful. Example: `asma (na aretina mitaiza
+`[Malagasy transcription] (na [Malagasy explanation])`. Base a new medical
+transcription on the French term when one exists, since French is the more
+familiar foreign language for Malagasy readers; keep the French original in
+parentheses when useful. Use an English base only when no suitable French term
+exists, English is the established Malagasy usage, or the French form would
+misstate the source. Record the source language of the transcription. The
+English name can also be added inside the parentheses when useful. Example:
+`asma (na aretina mitaiza
 izay mahatonga ny lalan-drivotra hivonto sy ho tery ka manasarotra ny fifohana
 sy famoahana rivotra; ''asthma'' amin' ny teny anglisy)`.
 

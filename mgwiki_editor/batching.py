@@ -12,6 +12,7 @@ from .citations import citation_audit
 from .core import GuardError, digest, json_bytes, lint_wikitext, lookup
 from .metadata import metadata_audit
 from .terminology import audit_mathematical_terms
+from .terminology_audit import audit_terminology
 from .transcription import audit_transcription
 from .workflow import coverage_report
 
@@ -105,6 +106,7 @@ def offline_audit(
         "citation-audit": lambda: citation_audit(job, draft),
         "metadata-audit": lambda: metadata_audit(job, evidence or [], draft),
         "transcription-audit": lambda: audit_transcription(_inside(job, draft)),
+        "terminology-audit": lambda: audit_terminology(job, _inside(job, draft)),
     }
     if vocab_audit:
         planned["vocab-audit"] = lambda: audit_mathematical_terms(_inside(job, draft))

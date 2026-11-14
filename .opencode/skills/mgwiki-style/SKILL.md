@@ -118,9 +118,13 @@ transcriptions in notes.wiki.
   A clear descriptive expression is acceptable without a confirmed one-word
   equivalent; record editorial definitions honestly, not as dictionary evidence.
 - For medical terms use `[Malagasy transcription] (na [Malagasy explanation])`
-  on first mention, optionally adding the English term in parentheses. Use
-  `asma` for asthma. Explain the condition simply without adding unsupported
-  medical claims about the subject or inventing an established spelling.
+  on first mention. Base a new transcription on the French medical term when one
+  exists, because French is the more familiar foreign language for Malagasy
+  readers; give the French original in parentheses when useful. Use an English
+  base only when French offers no suitable term, English is the established
+  Malagasy usage, or the French form would misstate the source. Use `asma` for
+  asthma. Explain the condition simply without adding unsupported medical claims
+  about the subject or inventing an established spelling.
 - Resolve ambiguity by sense and subject domain, not surface resemblance. Check
   both dictionary editions for non-trivial vocabulary. Dictionary misses do not
   prove that a word is wrong; machine-generated definitions may themselves err.
@@ -182,7 +186,10 @@ transcriptions in notes.wiki.
   links; adapt same-page section anchors to translated headings. Do not silently
   strip links or create plausible-looking links to wrong topics. Plain unlinked
   text is better than a wrong link; record each unresolved target and fallback
-  in notes.wiki. Category and language-link safety rules below still apply.
+  in notes.wiki. Exception: every Jereo koa (See also) entry uses a live
+  [[translated article title]] even if the page does not exist yet (red link);
+  never use plain text or omit a title there. Category and language-link safety
+  rules below still apply.
 - Do not copy foreign templates blindly. Verify local template and parameter
   support. Prefer native wikitext or a simpler verified equivalent if absent;
   do not silently lose scientific data, references, or accessibility information.

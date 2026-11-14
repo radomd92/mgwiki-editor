@@ -12,17 +12,18 @@ ROOT = Path(__file__).resolve().parents[1]
 # The 2026-11-12 category/hatnote policy change added live Sokajy output and the
 # {{lahatsoratra antsipirihany}} section-hatnote rule.
 # The 2026-11-14 domain-acronym and Malagasy transcription policy added
-# subject-specific acronym fallbacks plus geminate and /o/, /u/ transcription rules.
+# subject-specific acronym fallbacks, French-preferred medical transcription,
+# and geminate and /o/, /u/ transcription rules.
 BUDGET = {
-    "AGENTS.md": 18_600,
-    ".opencode/skills/mgwiki-style/SKILL.md": 17_600,
-    ".opencode/skills/mgwiki-style/references/manual-of-style.wiki": 17_450,
+    "AGENTS.md": 19_200,
+    ".opencode/skills/mgwiki-style/SKILL.md": 18_200,
+    ".opencode/skills/mgwiki-style/references/manual-of-style.wiki": 17_700,
     ".opencode/skills/mgwiki-style/references/words-to-watch.wiki": 10_300,
-    ".opencode/skills/mg-vocab/SKILL.md": 16_300,
+    ".opencode/skills/mg-vocab/SKILL.md": 16_700,
     ".opencode/skills/mgwiki-edition/SKILL.md": 7_750,
-    ".opencode/agents/mgwiki-editor.md": 19_300,
-    ".opencode/agents/mgwiki-article.md": 3_950,
-    ".opencode/agents/mgwiki-section.md": 8_000,
+    ".opencode/agents/mgwiki-editor.md": 19_900,
+    ".opencode/agents/mgwiki-article.md": 4_100,
+    ".opencode/agents/mgwiki-section.md": 8_250,
     ".opencode/commands/mgtranslate.md": 5_400,
 }
 
@@ -36,7 +37,7 @@ WORKER_FIXED = (
     ".opencode/skills/mg-vocab/SKILL.md",
     ".opencode/agents/mgwiki-section.md",
 )
-WORKER_FIXED_CAP = 89_500
+WORKER_FIXED_CAP = 90_500
 
 
 @pytest.mark.parametrize("name, ceiling", sorted(BUDGET.items()))

@@ -270,7 +270,10 @@ cannot establish complete translation. Existing jobs are not bulk-rewritten.
 
 Medical first mentions use a Malagasy transcription or established equivalent
 followed by a simple explanation: [Malagasy transcription] (na [Malagasy
-explanation]). The English term can be added in parentheses. Use asma for asthma.
+explanation]). Base a new medical transcription on the French term when one
+exists, recording that source language; use English only if no suitable French
+term exists or English is established Malagasy usage. The English term can be
+added in parentheses. Use asma for asthma.
 Do not invent diagnoses, treatment advice or unsupported patient-specific detail.
 
 If more than 100 distinct uncertain English vocabulary items (101 or more)
@@ -317,7 +320,10 @@ non-free images require separate availability/reuse evidence; do not upload or
 import files. Resolve internal links to verified same-topic Malagasy pages,
 translate labels, and adapt same-page anchors to translated headings. If a target
 cannot be verified, retain the wording as plain text and document the unresolved
-target. Reconcile every omission/replacement with the inventory in notes.wiki.
+target. Exception: every Jereo koa (See also) entry must be a live
+[[translated article title]] link, even when that page does not exist yet; red
+links are required there, not plain text or omission. Reconcile every
+omission/replacement with the inventory in notes.wiki.
 Use no Markdown. Add relevant Malagasy category links (Sokajy) at the end of the
 article, after all sections and appendices. Preserve category links already
 present in the existing Malagasy article or sandbox: do not translate, rename,
@@ -363,7 +369,9 @@ notes.wiki; set each review.json gate true only when actually checked:
   Malagasy gloss for computing/math/physics, and French plus Malagasy gloss for
   European history/geography Latin terms. Review transcription-audit findings:
   new Malagasy transcriptions avoid geminated consonants, write source /o/ as ô
-  and source /u/ as o; protected originals stay unchanged.
+  and source /u/ as o; protected originals stay unchanged. Run terminology-audit
+  against the assembled draft and review missing expressions, untranslated
+  source-term hits and competing choices before attesting this gate.
   Book/movie/paper titles use MediaWiki italics without corrupting citation
   fields. Preserve original name order, with the verified Malagasy surname-first
   convention; never mechanically reverse Chinese/Japanese/Korean/Vietnamese names

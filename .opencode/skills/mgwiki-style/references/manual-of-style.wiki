@@ -234,9 +234,11 @@ already formatted by a template. A verbatim quotation retains its source text.
   infoboxes, tables and captions, using verified same-topic Malagasy targets and
   translated labels. Adapt same-page anchors to translated headings. Record
   unresolved targets and plain-text fallbacks in notes.wiki; never silently strip
-  links or guess targets. Link useful concepts to correct local topics, not every
-  repeated common word. Do not add misleading links or links/footnotes inside
-  section headings. Put selective external links in the appropriate appendix, not as inline substitutes
+  links or guess targets. Exception: every Jereo koa (See also) entry uses a live
+  [[translated article title]] even when the page does not exist yet (red link);
+  do not omit titles or leave them unlinked. Link useful concepts to correct
+  local topics, not every repeated common word. Do not add misleading links or
+  links/footnotes inside section headings. Put selective external links in the appropriate appendix, not as inline substitutes
   for citations; preserving a link does not authorize opening it.
 * Prefer simple native wikitext to elaborate HTML/CSS and unverified templates.
   No Markdown, live sandbox categories, mainspace metadata edits, or style bots.

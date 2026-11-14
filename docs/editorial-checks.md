@@ -183,6 +183,20 @@ spelling, so confirm both against pinned source pronunciation evidence. Add
 Record dispositions in notes.wiki; the terminology and fluency gates remain
 editorial.
 
+## Terminology reconciliation
+
+```sh
+python3 -m mgwiki_editor terminology-audit --job runs/JOB --draft runs/JOB/draft.wiki
+```
+
+Offline report only. Compares `vocabulary.json` with the assembled draft and
+flags missing chosen expressions, possible untranslated English source terms,
+competing choices for one sense and definition variants. Foreign-term italics,
+quotations, references, templates and URLs are skipped for source-term hits.
+Names/acronyms may legitimately appear in source form. Resolve each finding
+editorially; `--strict` exits nonzero while findings remain. This does not
+replace `vocabulary-report`, dictionary review or the terminology gate.
+
 ## Tests / authorization boundary
 
 Tests use fake Wiki/API, local strings/sockets and isolated fixtures only. No live

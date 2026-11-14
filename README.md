@@ -135,6 +135,7 @@ evidence/          example cached audit and lookup evidence
 | [`docs/issue-recovery.md`](docs/issue-recovery.md) | Deferred issues, service recovery and outage reporting |
 | [`docs/broker-deployment.md`](docs/broker-deployment.md) | Optional broker deployment and isolation |
 | [`docs/script-workflow.md`](docs/script-workflow.md) | Reusable scripts versus historical recipes |
+| [`docs/legacy-script-patterns.md`](docs/legacy-script-patterns.md) | What to reuse from the historical article scripts |
 | [`docs/prompts/malagasy-translation-prompt.txt`](docs/prompts/malagasy-translation-prompt.txt) | Standalone model-agnostic translation prompt |
 | [`AGENTS.md`](AGENTS.md) | Project policy that binds every agent role |
 
@@ -172,7 +173,9 @@ explicit source attribution. Acronyms follow subject-domain rules (medical
 French-first, official-language agency names, English plus Malagasy gloss for
 technical fields, French plus Malagasy gloss for European Latin terms). New
 Malagasy transcriptions avoid geminated consonants and map the source /o/ sound
-to `ô` and /u/ to `o`.
+to `ô` and /u/ to `o`. New medical transcriptions prefer the French source term
+when one exists, using English only when French is unavailable, established
+Malagasy usage is English, or French would misstate the source.
 
 ```bash
 python3 -m mgwiki_editor transcription-audit --draft runs/JOB/draft.wiki

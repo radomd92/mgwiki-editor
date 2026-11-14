@@ -57,6 +57,24 @@ def test_roles_repeat_the_domain_and_transcription_rules(path: str) -> None:
     assert "French" in text
 
 
+@pytest.mark.parametrize(
+    "path",
+    [
+        ".opencode/skills/mgwiki-style/SKILL.md",
+        ".opencode/skills/mg-vocab/SKILL.md",
+        "AGENTS.md",
+        ".opencode/agents/mgwiki-editor.md",
+        "docs/edition-protocol.md",
+        "docs/usage.md",
+    ],
+)
+def test_medical_transcription_prefers_french_source(path: str) -> None:
+    text = " ".join((ROOT / path).read_text(encoding="utf-8").split())
+    assert "medical" in text.casefold()
+    assert "French" in text
+    assert "English" in text
+
+
 def test_audit_reports_geminates_and_skips_protected_text(tmp_path: Path) -> None:
     draft = tmp_path / "draft.wiki"
     text = """'''Rosi''' dia mpilalao. Rossi koa no anarany. Ny "Baggio" sy ''football''.

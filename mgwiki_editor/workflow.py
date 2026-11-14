@@ -323,6 +323,10 @@ def coverage_report(job: Path, draft: Path) -> dict[str, Any]:
     source = inventory(source_bytes.decode("utf-8"))
     candidate = inventory(draft_bytes.decode("utf-8"))
     expected, actual = Counter(source["files"]), Counter(candidate["files"])
+    source_refs = source["references"]
+    draft_refs = candidate["references"]
+    source_named = {(row["group"], row["name"]): row["calls"] for row in source_refs["named"]}
+    draft_named = {(row["group"], row["name"]): row["calls"] for row in draft_refs["named"]}
     return {
         "schema": 1,
         "status": "review_required",
@@ -331,9 +335,23 @@ def coverage_report(job: Path, draft: Path) -> dict[str, Any]:
         "missing_files": dict(expected - actual),
         "extra_files": dict(actual - expected),
         "missing_source_urls": sorted(set(source["urls"]) - set(candidate["urls"])),
+        "missing_reference_names": [
+            {"group": group, "name": name}
+            for group, name in sorted(source_named.keys() - draft_named.keys())
+        ],
+        "extra_reference_names": [
+            {"group": group, "name": name}
+            for group, name in sorted(draft_named.keys() - source_named.keys())
+        ],
+        "source_named_reference_calls": sum(source_named.values()),
+        "draft_named_reference_calls": sum(draft_named.values()),
+        "source_anonymous_references": source_refs["anonymous_count"],
+        "draft_anonymous_references": draft_refs["anonymous_count"],
+        "draft_reference_definition_conflicts": draft_refs["conflicts"],
         "source": source,
         "draft": candidate,
         "limits": "Raw-markup comparison only. Template filenames are candidates; transclusions "
-        "not expanded. No Commons/license verification, semantic link matching, "
+        "not expanded. Reference comparison is by exact group/name, not citation content. "
+        "No Commons/license verification, semantic link matching, "
         "translation review, omission authorization, or publication approval.",
     }

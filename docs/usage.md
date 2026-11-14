@@ -48,8 +48,9 @@ see [NOTICE](../NOTICE).
 * scripts/build_vocabulary_db.py: offline, non-overwriting SQLite snapshot builder.
 
 Python workflow: docs/script-workflow.md. Reusable section planning, candidate
-assembly, coverage via CLI: sections-plan, sections-assemble, coverage. Historical
-article recipes: scripts/legacy/; not active workflow. No new root-level recipes.
+assembly, coverage via CLI: sections-plan, sections-assemble, coverage, terminology-audit.
+Historical article recipes: scripts/legacy/; reusable patterns and anti-patterns:
+docs/legacy-script-patterns.md. Not active workflow. No new root-level recipes.
 Cached links/dictionary/vocabulary: links-build, dictionary-index, vocabulary-report.
 Shared evidence/write guards: mgwiki_editor/artifacts.py. Reports never approve review.
 Citation/metadata/rendering checks: docs/editorial-checks.md. Offline citation-audit,
@@ -245,7 +246,10 @@ never claim a manual definition came from a dictionary. A missing preferred word
 alone need not block a draft; genuinely unresolved material meanings still do.
 
 Medical terms use a Malagasy transcription or established equivalent followed
-by (na [Malagasy explanation]); asthma is asma. The explanation must not invent
+by (na [Malagasy explanation]); asthma is asma. Base new medical transcriptions
+on the French term when one exists and record the source language; use English
+only if no suitable French term exists or English is established Malagasy usage.
+The explanation must not invent
 medical claims about the subject. Above 100 distinct uncertain English vocabulary
 items (101 or more), keep unknown-vocabulary.wiki in the job for later review,
 with sense, tentative wording and next action. Include it in the relevant

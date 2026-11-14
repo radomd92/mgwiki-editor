@@ -74,9 +74,12 @@ and translate captions/alt text. Retain internal links to the same topics using
 verified Malagasy targets and translated labels; adapt section anchors to the
 translated headings. Never guess targets or copy unusable/non-free foreign-local
 files. Record source-to-draft mappings and justified omissions in notes.wiki;
-use plain text for unresolved link targets rather than a misleading link. Check
-coverage in raw wikitext and the offline preview without fetching image resources
-or bypassing the existing network, copyright, or sandbox guards.
+use plain text for unresolved link targets rather than a misleading link.
+Exception: in a Jereo koa (See also) list, always link each translated article
+title with [[...]], even when the target page does not exist yet (red link);
+never downgrade these entries to plain text or omit them. Check coverage in raw
+wikitext and the offline preview without fetching image resources or bypassing
+the existing network, copyright, or sandbox guards.
 
 Categories: append relevant Malagasy Sokajy links at the end of the article.
 Preserve existing Malagasy article/sandbox category links without translating,
@@ -95,7 +98,10 @@ targets need coordinator review. Do not leave the English template or a bare lin
 Vocabulary: define unfamiliar terms in simple English, then translate the
 definition into Malagasy; keep English in parentheses when useful. Label manual
 definitions honestly. Medical terms use a Malagasy transcription or established
-equivalent plus `(na [Malagasy explanation])`; asthma = asma. Above 100 distinct
+equivalent plus `(na [Malagasy explanation])`; asthma = asma. Base new medical
+transcriptions on the French term when one exists; use English only when no
+suitable French term exists, English is established Malagasy usage, or French
+would misstate the source. Above 100 distinct
 uncertain English vocabulary items, keep a job-local unknown-vocabulary.wiki
 linked through vocabulary.json evidence_files. Accurate descriptive wording may
 resolve lexical uncertainty; unresolved material meanings still block publication.
@@ -231,6 +237,8 @@ account, sandbox, revision, proposal, receipt, uncertain-save and transport guar
 Inspect/run/create task-relevant helpers with `python3 ./name.py` or
 `python3 scripts/name.py`, without asking permission. Wikipedia helpers must use
 `mgwiki_editor.core.Wiki` or install its transport guard before Pywikibot use.
+Historical scripts in scripts/legacy/ are archive only: reuse their method via
+docs/legacy-script-patterns.md, never import or batch-run them.
 Independent article translation tasks may run concurrently; each coordinator
 keeps its own Wikipedia operations serial. All jobs share pacing across processes/languages (10s
 between requests, the conservative end of the requested 5–10s range; >=10s

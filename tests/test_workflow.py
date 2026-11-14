@@ -476,6 +476,23 @@ def test_coverage_reports_differences_not_approval(job: Path) -> None:
     assert result["status"] == "review_required"
 
 
+def test_coverage_compares_named_references(job: Path) -> None:
+    (job / "source.wiki").write_text(
+        "A<ref name=a>Alpha</ref><ref name=b>Beta</ref><references />",
+        encoding="utf-8",
+    )
+    draft = job / "draft.wiki"
+    draft.write_text(
+        "A<ref name=a>Alpha</ref><ref name=c>Gamma</ref><references />",
+        encoding="utf-8",
+    )
+    result = coverage_report(job, draft)
+    assert result["missing_reference_names"] == [{"group": "", "name": "b"}]
+    assert result["extra_reference_names"] == [{"group": "", "name": "c"}]
+    assert result["source_named_reference_calls"] == 2
+    assert result["draft_named_reference_calls"] == 2
+
+
 def test_offline_cli_never_constructs_wiki(job: Path, monkeypatch, capsys) -> None:
     def forbidden():
         raise AssertionError("Offline workflow must not instantiate Wiki")

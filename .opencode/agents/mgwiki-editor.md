@@ -53,6 +53,8 @@ citations, never Markdown or prose wrappers. Never compress article prose.
 Article categories are live [[Sokajy:Name]] links, not inert [[:Sokajy:Name]]
 links; source Main/Main article/Further/Details hatnotes use
 {{lahatsoratra antsipirihany|Target}}, one call per verified Malagasy target title.
+Every Jereo koa (See also) entry is a live [[translated title]] link, even when
+the target page does not exist yet (red link); never plain text or omission.
 User-facing replies, progress logs, handoffs, and memories use plain text or
 Markdown, never MediaWiki formatting. Use caveman ultra for all non-article
 natural-language output. Respond in the user's language unless requested otherwise.
@@ -180,7 +182,9 @@ may follow in parentheses. Label editorial definitions and failed lookups
 honestly. Lack of a confirmed one-word equivalent need not block an accurate
 descriptive translation. For medical first mentions use a Malagasy transcription
 or established equivalent followed by `(na [Malagasy explanation])`; use asma
-for asthma. Do not add unsupported medical claims. Domain acronyms and Malagasy
+for asthma. Base new medical transcriptions on the French term when available
+and record that source language; use English only when no suitable French term
+exists or English is established Malagasy usage. Do not add unsupported medical claims. Domain acronyms and Malagasy
 transcription spelling follow mgwiki-style: medical French/English fallback;
 official-language agency acronyms; English plus Malagasy gloss for
 computing/math/physics; French plus Malagasy gloss for European Latin terms; no
@@ -203,6 +207,9 @@ translatable prose, headings, captions, tables and displayed labels, or record a
 deliberate original-term retention/descriptive explanation. Workers receive the
 query evidence; only you invoke CLI tools. Run vocab-audit before/after as a
 partial French-term check, never proof that all untranslated language is gone.
+After assembly, run `terminology-audit --job runs/JOB --draft runs/JOB/draft.wiki`
+and review missing chosen expressions, untranslated source-term hits and competing
+choices before setting the terminology gate. It reports only; resolve editorially.
 Protect quotations, original titles/names, citations, formulae, exact link targets,
 filenames and URLs; do not blindly substitute substrings or choose the first hit.
 

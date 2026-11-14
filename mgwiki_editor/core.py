@@ -267,6 +267,37 @@ def lookup(
     }
 
 
+def see_also_errors(text: str) -> list[str]:
+    """Require linked article titles in a Jereo koa (See also) list, red links included."""
+    structure = re.sub(
+        r"(?is)<(nowiki|code|pre|syntaxhighlight|source|math|chem)\b.*?</\1>", "\n", text
+    )
+    structure = re.sub(r"(?s)<!--.*?-->", "", structure)
+    errors = []
+    active = False
+    for number, line in enumerate(structure.splitlines(), 1):
+        heading = re.match(r"^\s*={1,6}\s*(.*?)\s*={1,6}\s*$", line)
+        if heading:
+            active = heading.group(1).strip().casefold() == "jereo koa"
+            continue
+        if not active or not re.match(r"^\s*[*#]+\s*\S", line):
+            continue
+        targets = [
+            target.split("|", 1)[0].strip() for target in re.findall(r"\[\[([^\[\]]+?)\]\]", line)
+        ]
+        article = [
+            target
+            for target in targets
+            if target
+            and not target.startswith(":")
+            and not re.match(r"(?i)(?:file|image|media|sary|sokajy|category):", target)
+            and not re.match(r"^[a-z]{2,3}(?:-[a-z0-9]+)*:", target)
+        ]
+        if not article:
+            errors.append(f"Jereo koa entry needs a linked article title (line {number}).")
+    return errors
+
+
 def lint_wikitext(text: str) -> list[str]:
     """Conservatively lint wikitext; do not pretend to prove language or full syntax validity."""
     errors = []
@@ -309,6 +340,7 @@ def lint_wikitext(text: str) -> list[str]:
         subject = markdown_prose if label.startswith("Markdown") else prose
         if re.search(pattern, subject):
             errors.append(label + ".")
+    errors.extend(see_also_errors(text))
     for link in code.filter_wikilinks():
         target = str(link.title).strip()
         if target.startswith(":") and target.lstrip(":").casefold().startswith("sokajy:"):

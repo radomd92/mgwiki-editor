@@ -44,6 +44,8 @@ Main/Main article/Further/Details hatnotes:
 {{lahatsoratra antsipirihany|Target}}, one call per verified Malagasy target,
 in order; never English. Unresolved targets go to coordinator review.
 Article categories use live [[Sokajy:Name]], not inert [[:Sokajy:Name]].
+Every Jereo koa (See also) entry uses a live [[translated title]] link, even if
+the page does not exist yet; never plain text or omission.
 User-facing replies, progress logs, handoffs, and memories use plain text or
 Markdown, never MediaWiki formatting. Use caveman ultra for all non-article
 natural-language output; JSON evidence keeps its required structure. notes.wiki

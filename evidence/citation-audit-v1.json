@@ -1,0 +1,4036 @@
+{
+  "draft": {
+    "empty": false,
+    "references": {
+      "anonymous_count": 34,
+      "conflicts": [],
+      "errors": [],
+      "groups": [
+        "",
+        "fanamarihana"
+      ],
+      "missing_renderers": [],
+      "named": [
+        {
+          "body": "[[#CITEREFLivesey2001|Livesey (2001)]], p. 19.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-001"
+        },
+        {
+          "body": "[[#CITEREFFehér1990|Fehér (1990)]], pp. 117–130.",
+          "calls": 2,
+          "group": "",
+          "name": "FR-sfn-002"
+        },
+        {
+          "body": "[[#CITEREFJessene2013|Jessene (2013)]], pp. 39–40.",
+          "calls": 2,
+          "group": "",
+          "name": "FR-sfn-003"
+        },
+        {
+          "body": "[[#CITEREFJourdan2015|Jourdan (2015)]], p. 100.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-004"
+        },
+        {
+          "body": "[[#CITEREFMarzagalli2015|Marzagalli (2015)]], p. 4.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-005"
+        },
+        {
+          "body": "[[#CITEREFBaker1978|Baker (1978)]], pp. 279–303.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-006"
+        },
+        {
+          "body": "[[#CITEREFJordan2004|Jordan (2004)]], pp. 11–12.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-007"
+        },
+        {
+          "body": "[[#CITEREFMarzagalli2015|Marzagalli (2015)]], pp. 6–7.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-008"
+        },
+        {
+          "body": "[[#CITEREFClay2015|Clay (2015)]], pp. 24, 31.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-009"
+        },
+        {
+          "body": "[[#CITEREFJessene2013|Jessene (2013)]], pp. 32–33.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-010"
+        },
+        {
+          "body": "[[#CITEREFMarzagalli2015|Marzagalli (2015)]], pp. 8–10.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-011"
+        },
+        {
+          "body": "[[#CITEREFJourdan2015|Jourdan (2015)]], p. 104.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-012"
+        },
+        {
+          "body": "[[#CITEREFMarzagalli2015|Marzagalli (2015)]], pp. 5, 14–17.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-013"
+        },
+        {
+          "body": "[[#CITEREFTilly1983|Tilly (1983)]], p. 337.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-014"
+        },
+        {
+          "body": "[[#CITEREFWeir1989|Weir (1989)]], p. 98.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-015"
+        },
+        {
+          "body": "[[#CITEREFChanel2015|Chanel (2015)]], p. 68.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-016"
+        },
+        {
+          "body": "[[#CITEREFWeir1989|Weir (1989)]], p. 96.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-018"
+        },
+        {
+          "body": "[[#CITEREFJourdan2015|Jourdan (2015)]], pp. 94–104.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-019"
+        },
+        {
+          "body": "[[#CITEREFSmith2015|Smith (2015)]], pp. 50–51.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-020"
+        },
+        {
+          "body": "[[#CITEREFJessene2013|Jessene (2013)]], p. 36.",
+          "calls": 2,
+          "group": "",
+          "name": "FR-sfn-021"
+        },
+        {
+          "body": "[[#CITEREFSargentVelde1995|Sargent sy Velde (1995)]], pp. 485, 490–491.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-022"
+        },
+        {
+          "body": "[[#CITEREFSargentVelde1995|Sargent sy Velde (1995)]], pp. 483–485.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-023"
+        },
+        {
+          "body": "[[#CITEREFSargentVelde1995|Sargent sy Velde (1995)]], pp. 482–483.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-024"
+        },
+        {
+          "body": "[[#CITEREFJessene2013|Jessene (2013)]], p. 38.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-025"
+        },
+        {
+          "body": "[[#CITEREFSargentVelde1995|Sargent sy Velde (1995)]].",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-026"
+        },
+        {
+          "body": "[[#CITEREFDoyle1990|Doyle (1990)]], pp. 69–76.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-027"
+        },
+        {
+          "body": "[[#CITEREFDoyle1990|Doyle (1990)]], pp. 75–85.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-028"
+        },
+        {
+          "body": "[[#CITEREFSchama1989|Schama (1989)]], p. 115.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-029"
+        },
+        {
+          "body": "[[#CITEREFDoyle1990|Doyle (1990)]], p. 88.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-030"
+        },
+        {
+          "body": "[[#CITEREFCobban1963|Cobban (1963)]], p. 135.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-031"
+        },
+        {
+          "body": "[[#CITEREFDoyle1990|Doyle (1990)]], pp. 89–96.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-032"
+        },
+        {
+          "body": "[[#CITEREFDoyle1990|Doyle (1990)]], p. 93.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-033"
+        },
+        {
+          "body": "[[#CITEREFDoyle1990|Doyle (1990)]], p. 59.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-034"
+        },
+        {
+          "body": "[[#CITEREFDoyle1990|Doyle (1990)]], p. 99.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-035"
+        },
+        {
+          "body": "[[#CITEREFDoyle1990|Doyle (1990)]], pp. 99–100.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-036"
+        },
+        {
+          "body": "[[#CITEREFDoyle1990|Doyle (1990)]], pp. 100–101.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-037"
+        },
+        {
+          "body": "[[#CITEREFFreyFrey2004|Frey sy Frey (2004)]], pp. 4–5.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-038"
+        },
+        {
+          "body": "[[#CITEREFJessene2013|Jessene (2013)]], p. 39.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-039"
+        },
+        {
+          "body": "[[#CITEREFDoyle1990|Doyle (1990)]], pp. 101–105.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-040"
+        },
+        {
+          "body": "[[#CITEREFSchama1989|Schama (1989)]], p. 355.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-041"
+        },
+        {
+          "body": "[[#CITEREFDoyle1990|Doyle (1990)]], pp. 105–106.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-042"
+        },
+        {
+          "body": "[[#CITEREFDoyle1990|Doyle (1990)]], pp. 106–108.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-043"
+        },
+        {
+          "body": "[[#CITEREFSchama1989|Schama (1989)]], pp. 357–358.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-044"
+        },
+        {
+          "body": "[[#CITEREFSchama1989|Schama (1989)]], pp. 380–382.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-045"
+        },
+        {
+          "body": "[[#CITEREFSchama1989|Schama (1989)]], pp. 404–405.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-046"
+        },
+        {
+          "body": "[[#CITEREFDavidson2016|Davidson (2016)]], p. 29.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-047"
+        },
+        {
+          "body": "[[#CITEREFSchama1989|Schama (1989)]], pp. 423–424.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-048"
+        },
+        {
+          "body": "[[#CITEREFHibbert1982|Hibbert (1982)]], p. 93.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-049"
+        },
+        {
+          "body": "[[#CITEREFLefebvre1962|Lefebvre (1962)]], pp. 187–188.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-050"
+        },
+        {
+          "body": "[[#CITEREFForster1967|Forster (1967)]], pp. 71–86.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-051"
+        },
+        {
+          "body": "[[#CITEREFLefebvre1962|Lefebvre (1962)]], p. 130.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-052"
+        },
+        {
+          "body": "[[#CITEREFFuretOzouf1989|Furet sy Ozouf (1989)]], p. 112.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-053"
+        },
+        {
+          "body": "[[#CITEREFCenserHunt2001|Censer sy Hunt (2001)]], p. 16.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-054"
+        },
+        {
+          "body": "[[#CITEREFGarrard2012|Garrard (2012)]], p. 37.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-055"
+        },
+        {
+          "body": "[[#CITEREFRossHoltermannBindreiter2019|Ross, Holtermann ary Bindreiter (2019)]], p. 323.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-056"
+        },
+        {
+          "body": "[[#CITEREFLauritsenThorup2011|Lauritsen sy Thorup (2011)]], p. 100.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-057"
+        },
+        {
+          "body": "[[#CITEREFHuntMartinRosenwein2003|Hunt, Martin ary Rosenwein (2003)]], p. 625.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-058"
+        },
+        {
+          "body": "[[#CITEREFBetros2010|Betros (2010)]], pp. 16–21.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-059"
+        },
+        {
+          "body": "[[#CITEREFCenserHunt2001|Censer sy Hunt (2001)]], p. 4.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-060"
+        },
+        {
+          "body": "[[#CITEREFMcManners1969|McManners (1969)]], p. 27.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-061"
+        },
+        {
+          "body": "[[#CITEREFCenserHunt2001|Censer sy Hunt (2001)]], p. 92.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-062"
+        },
+        {
+          "body": "[[#CITEREFShusterman2013|Shusterman (2013)]], pp. 58–87.",
+          "calls": 2,
+          "group": "",
+          "name": "FR-sfn-063"
+        },
+        {
+          "body": "[[#CITEREFKennedy1989|Kennedy (1989)]], p. 151.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-064"
+        },
+        {
+          "body": "[[#CITEREFCenserHunt2001|Censer sy Hunt (2001)]], p. 61.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-065"
+        },
+        {
+          "body": "[[#CITEREFScott1975|Scott (1975)]], pp. 861–863.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-066"
+        },
+        {
+          "body": "[[#CITEREFSchama1989|Schama (1989)]], pp. 498–499.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-067"
+        },
+        {
+          "body": "[[#CITEREFSchama1989|Schama (1989)]], pp. 527–529.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-068"
+        },
+        {
+          "body": "[[#CITEREFTackett2003|Tackett (2003)]], p. 478.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-069"
+        },
+        {
+          "body": "[[#CITEREFDoyle2009|Doyle (2009)]], pp. 334–336.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-070"
+        },
+        {
+          "body": "[[#CITEREFPrice2003|Price (2003)]], p. 170.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-071"
+        },
+        {
+          "body": "[[#CITEREFTackett2003|Tackett (2003)]], p. 473.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-072"
+        },
+        {
+          "body": "[[#CITEREFTackett2004|Tackett (2004)]], pp. 148–150.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-073"
+        },
+        {
+          "body": "[[#CITEREFConner2012|Conner (2012)]], pp. 83–85.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-074"
+        },
+        {
+          "body": "[[#CITEREFSoboul1975|Soboul (1975)]], pp. 226–227.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-075"
+        },
+        {
+          "body": "[[#CITEREFLefebvre1962|Lefebvre (1962)]], p. 212.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-076"
+        },
+        {
+          "body": "[[#CITEREFLyons1975|Lyons (1975)]], p. 5.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-077"
+        },
+        {
+          "body": "[[#CITEREFSchama1989|Schama (1989)]], pp. 581, 602–603.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-078"
+        },
+        {
+          "body": "[[#CITEREFSchama1989|Schama (1989)]], p. 582.",
+          "calls": 2,
+          "group": "",
+          "name": "FR-sfn-079"
+        },
+        {
+          "body": "[[#CITEREFThompson1932|Thompson (1932)]], p. 77.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-080"
+        },
+        {
+          "body": "[[#CITEREFSchama1989|Schama (1989)]], pp. 586–587.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-081"
+        },
+        {
+          "body": "[[#CITEREFGershoy1933|Gershoy (1933)]], pp. IV–VI.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-082"
+        },
+        {
+          "body": "[[#CITEREFSchama1989|Schama (1989)]], pp. 585–586.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-083"
+        },
+        {
+          "body": "[[#CITEREFLalevée2019|Lalevée (2019)]], pp. 67–70.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-084"
+        },
+        {
+          "body": "[[#CITEREFSchama1989|Schama (1989)]], p. 586.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-085"
+        },
+        {
+          "body": "[[#CITEREFShusterman2013|Shusterman (2013)]], pp. 88–117.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-086"
+        },
+        {
+          "body": "[[#CITEREFDwyer2008|Dwyer (2008)]], pp. 99–100.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-087"
+        },
+        {
+          "body": "[[#CITEREFMcPhee2013|McPhee (2013)]], pp. 164–166.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-088"
+        },
+        {
+          "body": "[[#CITEREFCrook1996|Crook (1996)]], p. 94.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-089"
+        },
+        {
+          "body": "[[#CITEREFShusterman2013|Shusterman (2013)]], pp. 223–269.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-090"
+        },
+        {
+          "body": "[[#CITEREFLewis2002|Lewis (2002)]], p. 38.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-091"
+        },
+        {
+          "body": "[[#CITEREFTackett2011|Tackett (2011)]], pp. 54–55.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-092"
+        },
+        {
+          "body": "[[#CITEREFPas2008|Pas (2008)]], p. 49.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-093"
+        },
+        {
+          "body": "[[#CITEREFBarton1967|Barton (1967)]], pp. 146–160.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-094"
+        },
+        {
+          "body": "[[#CITEREFDoyle1990|Doyle (1990)]], p. 196.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-095"
+        },
+        {
+          "body": "[[#CITEREFWasson2009|Wasson (2009)]], p. 118.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-096"
+        },
+        {
+          "body": "[[#CITEREFShusterman2013|Shusterman (2013)]], pp. 143–173.",
+          "calls": 2,
+          "group": "",
+          "name": "FR-sfn-097"
+        },
+        {
+          "body": "[[#CITEREFShusterman2013|Shusterman (2013)]], pp. 271–312.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-098"
+        },
+        {
+          "body": "[[#CITEREFSchama1989|Schama (1989)]], p. 724.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-099"
+        },
+        {
+          "body": "[[#CITEREFSchama1989|Schama (1989)]], pp. 725–726.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-100"
+        },
+        {
+          "body": "[[#CITEREFKennedy2000|Kennedy (2000)]], p. 53.",
+          "calls": 2,
+          "group": "",
+          "name": "FR-sfn-101"
+        },
+        {
+          "body": "[[#CITEREFSchama1989|Schama (1989)]], p. 756.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-102"
+        },
+        {
+          "body": "[[#CITEREFSchama1989|Schama (1989)]], p. 766.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-103"
+        },
+        {
+          "body": "[[#CITEREFMcLynn1997|McLynn (1997)]], p. 76.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-104"
+        },
+        {
+          "body": "[[#CITEREFGough1998|Gough (1998)]], p. 77.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-105"
+        },
+        {
+          "body": "[[#CITEREFWhite1995|White (1995)]], p. 242.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-106"
+        },
+        {
+          "body": "[[#CITEREFSchama1989|Schama (1989)]], p. 784.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-107"
+        },
+        {
+          "body": "[[#CITEREFCough1987|Cough (1987)]], pp. 977–988.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-108"
+        },
+        {
+          "body": "[[#CITEREFFuretOzouf1989|Furet sy Ozouf (1989)]], p. 175.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-109"
+        },
+        {
+          "body": "[[#CITEREFSchama1989|Schama (1989)]], p. 816.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-113"
+        },
+        {
+          "body": "[[#CITEREFSchama1989|Schama (1989)]], p. 819.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-114"
+        },
+        {
+          "body": "[[#CITEREFSchama1989|Schama (1989)]], p. 837.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-115"
+        },
+        {
+          "body": "[[#CITEREFSchama1989|Schama (1989)]], p. 838.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-116"
+        },
+        {
+          "body": "[[#CITEREFSchama1989|Schama (1989)]], p. 844.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-117"
+        },
+        {
+          "body": "[[#CITEREFSchama1989|Schama (1989)]], p. 845.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-118"
+        },
+        {
+          "body": "[[#CITEREFSoboul1975|Soboul (1975)]], pp. 425–428.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-119"
+        },
+        {
+          "body": "[[#CITEREFFuret1989|Furet (1989)]], p. 222.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-120"
+        },
+        {
+          "body": "[[#CITEREFHanson2009|Hanson (2009)]], p. ?.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-121"
+        },
+        {
+          "body": "[[#CITEREFAndress2006|Andress (2006)]], p. 237.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-122"
+        },
+        {
+          "body": "[[#CITEREFMcLynn1997|McLynn (1997)]], p. 82.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-123"
+        },
+        {
+          "body": "[[#CITEREFAndress2006|Andress (2006)]], p. 354.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-124"
+        },
+        {
+          "body": "[[#CITEREFSchama1977|Schama (1977)]], pp. 178–192.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-125"
+        },
+        {
+          "body": "[[#CITEREFHargreaves-Mawdsley1968|Hargreaves-Mawdsley (1968)]], pp. 175–176.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-126"
+        },
+        {
+          "body": "[[#CITEREFLyons1975|Lyons (1975)]], p. 15.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-127"
+        },
+        {
+          "body": "[[#CITEREFWoronoff1984|Woronoff (1984)]], p. 10.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-128"
+        },
+        {
+          "body": "[[#CITEREFWoronoff1984|Woronoff (1984)]], p. 15.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-129"
+        },
+        {
+          "body": "[[#CITEREFDoyle1990|Doyle (1990)]], p. 320.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-130"
+        },
+        {
+          "body": "[[#CITEREFLyons1975|Lyons (1975)]], pp. 18–19.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-131"
+        },
+        {
+          "body": "[[#CITEREFLyons1975|Lyons (1975)]], p. 19.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-132"
+        },
+        {
+          "body": "[[#CITEREFLyons1975|Lyons (1975)]], p. 2.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-133"
+        },
+        {
+          "body": "[[#CITEREFBrown2006|Brown (2006)]], p. 1.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-134"
+        },
+        {
+          "body": "[[#CITEREFLyons1975|Lyons (1975)]], pp. 19–20.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-135"
+        },
+        {
+          "body": "[[#CITEREFLyons1975|Lyons (1975)]], pp. 27–28.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-136"
+        },
+        {
+          "body": "[[#CITEREFLyons1975|Lyons (1975)]], pp. 32–33.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-137"
+        },
+        {
+          "body": "[[#CITEREFLyons1975|Lyons (1975)]], p. 175.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-138"
+        },
+        {
+          "body": "[[#CITEREFMcLynn1997|McLynn (1997)]], p. 151.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-139"
+        },
+        {
+          "body": "[[#CITEREFMcLynn1997|McLynn (1997)]], p. 150.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-140"
+        },
+        {
+          "body": "[[#CITEREFMcLynn1997|McLynn (1997)]], p. 155.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-141"
+        },
+        {
+          "body": "[[#CITEREFMcLynn1997|McLynn (1997)]], p. 208.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-142"
+        },
+        {
+          "body": "[[#CITEREFHuntLanskyHanson1979|Hunt, Lansky ary Hanson (1979)]], pp. 735–736.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-143"
+        },
+        {
+          "body": "[[#CITEREFMcLynn1997|McLynn (1997)]], p. 211.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-144"
+        },
+        {
+          "body": "[[#CITEREFMcLynn1997|McLynn (1997)]], p. 219.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-145"
+        },
+        {
+          "body": "[[#CITEREFIsrael2014|Israel (2014)]], p. 695.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-146"
+        },
+        {
+          "body": "[[#CITEREFCobban1963|Cobban (1963)]], p. 152.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-147"
+        },
+        {
+          "body": "[[#CITEREFWalton2013|Walton (2013)]], pp. 363–364,368.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-148"
+        },
+        {
+          "body": "[[#CITEREFIsrael2014|Israel (2014)]], p. 13.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-149"
+        },
+        {
+          "body": "[[#CITEREFDoyle1990|Doyle (1990)]], p. 420.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-150"
+        },
+        {
+          "body": "[[#CITEREFIsrael2014|Israel (2014)]], pp. 206–208, 233.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-151"
+        },
+        {
+          "body": "[[#CITEREFWalton2013|Walton (2013)]], pp. 377.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-152"
+        },
+        {
+          "body": "[[#CITEREFDoyle1990|Doyle (1990)]], p. 421.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-153"
+        },
+        {
+          "body": "[[#CITEREFDoyle1990|Doyle (1990)]], pp. 421–422.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-154"
+        },
+        {
+          "body": "[[#CITEREFRégent2013|Régent (2013)]], pp. 398, 405–406.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-155"
+        },
+        {
+          "body": "[[#CITEREFIsrael2014|Israel (2014)]], pp. 106, 148, 254.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-156"
+        },
+        {
+          "body": "[[#CITEREFCobban1963|Cobban (1963)]], pp. 165–166.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-157"
+        },
+        {
+          "body": "[[#CITEREFIsrael2014|Israel (2014)]], pp. 24, 54, 66, 160, 177.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-158"
+        },
+        {
+          "body": "[[#CITEREFIsrael2014|Israel (2014)]], pp. 142–143,166,204–295.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-159"
+        },
+        {
+          "body": "[[#CITEREFIsrael2014|Israel (2014)]], pp. 16–19, 175, 209, 351.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-160"
+        },
+        {
+          "body": "[[#CITEREFIsrael2014|Israel (2014)]], pp. 180–181.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-161"
+        },
+        {
+          "body": "[[#CITEREFCobban1963|Cobban (1963)]], p. 173.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-162"
+        },
+        {
+          "body": "[[#CITEREFWalton2013|Walton (2013)]], p. 362.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-163"
+        },
+        {
+          "body": "[[#CITEREFLinton2013|Linton (2013)]], p. 267.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-164"
+        },
+        {
+          "body": "[[#CITEREFLinton2013|Linton (2013)]], pp. 264–265.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-165"
+        },
+        {
+          "body": "[[#CITEREFLinton2013|Linton (2013)]], p. 274.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-166"
+        },
+        {
+          "body": "[[#CITEREFRothenberg1988|Rothenberg (1988)]], pp. 779–780.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-167"
+        },
+        {
+          "body": "[[#CITEREFHayworth2015|Hayworth (2015)]], p. 89.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-168"
+        },
+        {
+          "body": "[[#CITEREFRothenberg1988|Rothenberg (1988)]], p. 772.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-169"
+        },
+        {
+          "body": "[[#CITEREFRothenberg1988|Rothenberg (1988)]], pp. 772–773.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-170"
+        },
+        {
+          "body": "[[#CITEREFRothenberg1988|Rothenberg (1988)]], p. 785.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-171"
+        },
+        {
+          "body": "[[#CITEREFBlanning1996|Blanning (1996)]], pp. 120–121.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-172"
+        },
+        {
+          "body": "[[#CITEREFBrown1995|Brown (1995)]], p. 35.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-173"
+        },
+        {
+          "body": "[[#CITEREFHayworth2015|Hayworth (2015)]], p. 256.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-174"
+        },
+        {
+          "body": "[[#CITEREFMcLynn1997|McLynn (1997)]], p. 157.",
+          "calls": 2,
+          "group": "",
+          "name": "FR-sfn-175"
+        },
+        {
+          "body": "[[#CITEREFRothenberg1988|Rothenberg (1988)]], p. 787.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-176"
+        },
+        {
+          "body": "[[#CITEREFRégent2013|Régent (2013)]], p. 397.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-177"
+        },
+        {
+          "body": "[[#CITEREFRégent2013|Régent (2013)]], p. 398–402.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-178"
+        },
+        {
+          "body": "[[#CITEREFDoyle1990|Doyle (1990)]], p. 413.",
+          "calls": 2,
+          "group": "",
+          "name": "FR-sfn-179"
+        },
+        {
+          "body": "[[#CITEREFRégent2013|Régent (2013)]], p. 398–399.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-180"
+        },
+        {
+          "body": "[[#CITEREFRégent2013|Régent (2013)]], pp. 398-399, 401, 402, passim.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-181"
+        },
+        {
+          "body": "[[#CITEREFDubois2004|Dubois (2004)]], pp. 30, 85 note 1, 228, 255 passim.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-182"
+        },
+        {
+          "body": "[[#CITEREFDubois2004|Dubois (2004)]], p. 54.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-183"
+        },
+        {
+          "body": "[[#CITEREFRégent2013|Régent (2013)]], pp. 401–402.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-184"
+        },
+        {
+          "body": "[[#CITEREFRégent2013|Régent (2013)]], p. 402–403.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-185"
+        },
+        {
+          "body": "[[#CITEREFRégent2013|Régent (2013)]], p. 404–405.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-186"
+        },
+        {
+          "body": "[[#CITEREFRégent2013|Régent (2013)]], pp. 406–407.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-187"
+        },
+        {
+          "body": "[[#CITEREFRégent2013|Régent (2013)]], pp. 407–408.",
+          "calls": 2,
+          "group": "",
+          "name": "FR-sfn-188"
+        },
+        {
+          "body": "[[#CITEREFDoyle1990|Doyle (1990)]], p. 414.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-189"
+        },
+        {
+          "body": "[[#CITEREFRégent2013|Régent (2013)]], p. 409.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-190"
+        },
+        {
+          "body": "[[#CITEREFRégent2013|Régent (2013)]], pp. 409–410.",
+          "calls": 2,
+          "group": "",
+          "name": "FR-sfn-191"
+        },
+        {
+          "body": "[[#CITEREFDoyle1990|Doyle (1990)]], pp. 414–415.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-192"
+        },
+        {
+          "body": "[[#CITEREFChisick1993|Chisick (1993)]], pp. 149–166.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-193"
+        },
+        {
+          "body": "[[#CITEREFChapman2005|Chapman (2005)]], pp. 7–12.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-194"
+        },
+        {
+          "body": "[[#CITEREFChisick1988|Chisick (1988)]], pp. 623–645.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-195"
+        },
+        {
+          "body": "[[#CITEREFCerulo1993|Cerulo (1993)]], pp. 243–271.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-196"
+        },
+        {
+          "body": "[[#CITEREFHanson2007|Hanson (2007)]], p. 151.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-197"
+        },
+        {
+          "body": "[[#CITEREFDelonLevayer1989|Delon sy Levayer (1989)]], pp. 153–154.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-198"
+        },
+        {
+          "body": "[[#CITEREFHuntMartinRosenwein2003|Hunt, Martin ary Rosenwein (2003)]], p. 664.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-199"
+        },
+        {
+          "body": "[[#CITEREFCrowdy2004|Crowdy (2004)]], p. 42.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-200"
+        },
+        {
+          "body": "[[#CITEREFHarden1995|Harden (1995)]], pp. 66–102.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-201"
+        },
+        {
+          "body": "[[#CITEREFMelzerRabine1992|Melzer sy Rabine (1992)]], p. 79.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-202"
+        },
+        {
+          "body": "[[#CITEREFLevyApplewhiteJohnson1979|Levy, Applewhite ary Johnson (1979)]], pp. 143–149.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-203"
+        },
+        {
+          "body": "[[#CITEREFHufton1992|Hufton (1992)]], pp. 106–107.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-204"
+        },
+        {
+          "body": "[[#CITEREFDesanHuntNelson2013|Desan, Hunt ary Nelson (2013)]], p. 452.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-205"
+        },
+        {
+          "body": "[[#CITEREFHufton1998|Hufton (1998)]], p. 303.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-206"
+        },
+        {
+          "body": "[[#CITEREFDalton2001|Dalton (2001)]], pp. 262–267.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-207"
+        },
+        {
+          "body": "[[#CITEREFSutherland2002|Sutherland (2002)]], pp. 1–24.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-208"
+        },
+        {
+          "body": "[[#CITEREFVardi1988|Vardi (1988)]], pp. 704–717.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-209"
+        },
+        {
+          "body": "[[#CITEREFPalmer1986|Palmer (1986)]], pp. 181–197.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-210"
+        },
+        {
+          "body": "[[#CITEREFBrezisCrouzet1995|Brezis sy Crouzet (1995)]], pp. 7–40.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-211"
+        },
+        {
+          "body": "[[#CITEREFPalmerColton1995|Palmer sy Colton (1995)]], p. 341.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-212"
+        },
+        {
+          "body": "[[#CITEREFRiemerSimon1997|Riemer sy Simon (1997)]], p. 106.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-213"
+        },
+        {
+          "body": "[[#CITEREFDannDinwiddy1988|Dann sy Dinwiddy (1988)]], p. 13.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-214"
+        },
+        {
+          "body": "[[#CITEREFKeitner2007|Keitner (2007)]], p. 12.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-215"
+        },
+        {
+          "body": "[[#CITEREFSpang2003|Spang (2003)]], pp. 119–147.",
+          "calls": 2,
+          "group": "",
+          "name": "FR-sfn-216"
+        },
+        {
+          "body": "[[#CITEREFHanson2009|Hanson (2009)]], p. 191.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-217"
+        },
+        {
+          "body": "[[#CITEREFHanson2009|Hanson (2009)]], p. 189.",
+          "calls": 2,
+          "group": "",
+          "name": "FR-sfn-218"
+        },
+        {
+          "body": "[[#CITEREFJones1988|Jones (1988)]], pp. 251–254, 265.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-219"
+        },
+        {
+          "body": "[[#CITEREFCobban1964|Cobban (1964)]], p. 89.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-220"
+        },
+        {
+          "body": "[[#CITEREFFranckMichalopoulos2017|Franck sy Michalopoulos (2017)]].",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-221"
+        },
+        {
+          "body": "[[#CITEREFFinleyFranckJohnson2017|Finley, Franck ary Johnson (2017)]].",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-222"
+        },
+        {
+          "body": "[[#CITEREFCobban1964|Cobban (1964)]], pp. 68–80.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-223"
+        },
+        {
+          "body": "[[#CITEREFPalmer1970|Palmer (1970)]], p. 459–505.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-224"
+        },
+        {
+          "body": "[[#CITEREFClark2000|Clark (2000)]], p. 233.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-225"
+        },
+        {
+          "body": "[[#CITEREFCrowe2005|Crowe (2005)]], p. 93.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-226"
+        },
+        {
+          "body": "[[#CITEREFPelling2002|Pelling (2002)]], pp. 5–10.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-227"
+        },
+        {
+          "body": "[[#CITEREFPalmer1970|Palmer (1970)]], p. 394–421.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-228"
+        },
+        {
+          "body": "[[#CITEREFKossmann1978|Kossmann (1978)]], pp. 65–81, 101–102.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-229"
+        },
+        {
+          "body": "[[#CITEREFHorstbollOstergård1990|Horstboll sy Ostergård (1990)]], pp. 155–179.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-230"
+        },
+        {
+          "body": "[[#CITEREFGreenwood1993|Greenwood (1993)]], pp. 57–58.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-231"
+        },
+        {
+          "body": "[[#CITEREFGreenwood1993|Greenwood (1993)]], pp. 65.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-232"
+        },
+        {
+          "body": "[[#CITEREFRudé1988|Rudé (1988)]], pp. 12–14.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-233"
+        },
+        {
+          "body": "[[#CITEREFDupuy2013|Dupuy (2013)]], pp. 486–487.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-234"
+        },
+        {
+          "body": "[[#CITEREFDupuy2013|Dupuy (2013)]], pp. 487–488.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-235"
+        },
+        {
+          "body": "[[#CITEREFRudé1988|Rudé (1988)]], pp. 441–442, 444–445.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-236"
+        },
+        {
+          "body": "[[#CITEREFDupuy2013|Dupuy (2013)]], p. 488.",
+          "calls": 2,
+          "group": "",
+          "name": "FR-sfn-237"
+        },
+        {
+          "body": "[[#CITEREFDoyle1990|Doyle (1990)]], p. 440.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-238"
+        },
+        {
+          "body": "[[#CITEREFFuretOzouf1989|Furet sy Ozouf (1989)]], pp. 881–889.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-239"
+        },
+        {
+          "body": "[[#CITEREFRudé1988|Rudé (1988)]], pp. 15–16.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-240"
+        },
+        {
+          "body": "[[#CITEREFRudé1988|Rudé (1988)]], pp. 16–19.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-241"
+        },
+        {
+          "body": "[[#CITEREFDupuy2013|Dupuy (2013)]], p. 489.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-242"
+        },
+        {
+          "body": "[[#CITEREFRudé1988|Rudé (1988)]], pp. 18–19.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-243"
+        },
+        {
+          "body": "[[#CITEREFDoyle1990|Doyle (1990)]], p. 444.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-244"
+        },
+        {
+          "body": "[[#CITEREFRudé1988|Rudé (1988)]], p. 20.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-245"
+        },
+        {
+          "body": "[[#CITEREFDoyle1990|Doyle (1990)]], p. 445.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-246"
+        },
+        {
+          "body": "[[#CITEREFDupuy2013|Dupuy (2013)]], p. 490.",
+          "calls": 2,
+          "group": "",
+          "name": "FR-sfn-247"
+        },
+        {
+          "body": "[[#CITEREFBell2004|Bell (2004)]], pp. 323–351.",
+          "calls": 1,
+          "group": "",
+          "name": "FR-sfn-248"
+        },
+        {
+          "body": "Serge Dupuis, [https://www.thecanadianencyclopedia.ca/en/article/french-immigration-in-canada ''French Immigration in Canada''], ''The Canadian Encyclopedia'', Historica Canada, 26 Febroary 2018. Nojerena tamin' ny 3 Janoary 2020. [https://web.archive.org/web/20210814100847/https://www.thecanadianencyclopedia.ca/en/article/french-immigration-in-canada Tahiry] tamin' ny 14 Aogositra 2021. Toetry ny rohy: mbola miasa.",
+          "calls": 3,
+          "group": "",
+          "name": "canimmg2"
+        },
+        {
+          "body": "Censer and Hunt, ''How to Read Images'' LEF CD-ROM.",
+          "calls": 1,
+          "group": "",
+          "name": "censer-hunt"
+        }
+      ],
+      "rendered_groups": [
+        "",
+        "fanamarihana"
+      ],
+      "undefined": []
+    },
+    "short_citations": [
+      {
+        "author_label": "Livesey (2001)",
+        "candidates": [],
+        "group": "",
+        "name": "FR-sfn-001",
+        "reference": "<ref name=\"FR-sfn-001\">[[#CITEREFLivesey2001|Livesey (2001)]], p. 19.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "needs_evidence"
+      },
+      {
+        "author_label": "Fehér (1990)",
+        "candidates": [],
+        "group": "",
+        "name": "FR-sfn-002",
+        "reference": "<ref name=\"FR-sfn-002\">[[#CITEREFFehér1990|Fehér (1990)]], pp. 117–130.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "needs_evidence"
+      },
+      {
+        "author_label": "Jessene (2013)",
+        "candidates": [],
+        "group": "",
+        "name": "FR-sfn-003",
+        "reference": "<ref name=\"FR-sfn-003\">[[#CITEREFJessene2013|Jessene (2013)]], pp. 39–40.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "needs_evidence"
+      },
+      {
+        "author_label": "Jourdan (2015)",
+        "candidates": [],
+        "group": "",
+        "name": "FR-sfn-004",
+        "reference": "<ref name=\"FR-sfn-004\">[[#CITEREFJourdan2015|Jourdan (2015)]], p. 100.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "needs_evidence"
+      },
+      {
+        "author_label": "Marzagalli (2015)",
+        "candidates": [],
+        "group": "",
+        "name": "FR-sfn-005",
+        "reference": "<ref name=\"FR-sfn-005\">[[#CITEREFMarzagalli2015|Marzagalli (2015)]], p. 4.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "needs_evidence"
+      },
+      {
+        "author_label": "Baker (1978)",
+        "candidates": [],
+        "group": "",
+        "name": "FR-sfn-006",
+        "reference": "<ref name=\"FR-sfn-006\">[[#CITEREFBaker1978|Baker (1978)]], pp. 279–303.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "needs_evidence"
+      },
+      {
+        "author_label": "Jordan (2004)",
+        "candidates": [],
+        "group": "",
+        "name": "FR-sfn-007",
+        "reference": "<ref name=\"FR-sfn-007\">[[#CITEREFJordan2004|Jordan (2004)]], pp. 11–12.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "needs_evidence"
+      },
+      {
+        "author_label": "Marzagalli (2015)",
+        "candidates": [],
+        "group": "",
+        "name": "FR-sfn-008",
+        "reference": "<ref name=\"FR-sfn-008\">[[#CITEREFMarzagalli2015|Marzagalli (2015)]], pp. 6–7.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "needs_evidence"
+      },
+      {
+        "author_label": "Clay (2015)",
+        "candidates": [],
+        "group": "",
+        "name": "FR-sfn-009",
+        "reference": "<ref name=\"FR-sfn-009\">[[#CITEREFClay2015|Clay (2015)]], pp. 24, 31.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "needs_evidence"
+      },
+      {
+        "author_label": "Jessene (2013)",
+        "candidates": [],
+        "group": "",
+        "name": "FR-sfn-010",
+        "reference": "<ref name=\"FR-sfn-010\">[[#CITEREFJessene2013|Jessene (2013)]], pp. 32–33.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "needs_evidence"
+      },
+      {
+        "author_label": "Marzagalli (2015)",
+        "candidates": [],
+        "group": "",
+        "name": "FR-sfn-011",
+        "reference": "<ref name=\"FR-sfn-011\">[[#CITEREFMarzagalli2015|Marzagalli (2015)]], pp. 8–10.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "needs_evidence"
+      },
+      {
+        "author_label": "Jourdan (2015)",
+        "candidates": [],
+        "group": "",
+        "name": "FR-sfn-012",
+        "reference": "<ref name=\"FR-sfn-012\">[[#CITEREFJourdan2015|Jourdan (2015)]], p. 104.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "needs_evidence"
+      },
+      {
+        "author_label": "Marzagalli (2015)",
+        "candidates": [],
+        "group": "",
+        "name": "FR-sfn-013",
+        "reference": "<ref name=\"FR-sfn-013\">[[#CITEREFMarzagalli2015|Marzagalli (2015)]], pp. 5, 14–17.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "needs_evidence"
+      },
+      {
+        "author_label": "Tilly (1983)",
+        "candidates": [],
+        "group": "",
+        "name": "FR-sfn-014",
+        "reference": "<ref name=\"FR-sfn-014\">[[#CITEREFTilly1983|Tilly (1983)]], p. 337.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "needs_evidence"
+      },
+      {
+        "author_label": "Weir (1989)",
+        "candidates": [],
+        "group": "",
+        "name": "FR-sfn-015",
+        "reference": "<ref name=\"FR-sfn-015\">[[#CITEREFWeir1989|Weir (1989)]], p. 98.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "needs_evidence"
+      },
+      {
+        "author_label": "Chanel (2015)",
+        "candidates": [],
+        "group": "",
+        "name": "FR-sfn-016",
+        "reference": "<ref name=\"FR-sfn-016\">[[#CITEREFChanel2015|Chanel (2015)]], p. 68.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "needs_evidence"
+      },
+      {
+        "author_label": "Weir (1989)",
+        "candidates": [],
+        "group": "",
+        "name": "FR-sfn-018",
+        "reference": "<ref name=\"FR-sfn-018\">[[#CITEREFWeir1989|Weir (1989)]], p. 96.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "needs_evidence"
+      },
+      {
+        "author_label": "Jourdan (2015)",
+        "candidates": [],
+        "group": "",
+        "name": "FR-sfn-019",
+        "reference": "<ref name=\"FR-sfn-019\">[[#CITEREFJourdan2015|Jourdan (2015)]], pp. 94–104.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "needs_evidence"
+      },
+      {
+        "author_label": "Smith (2015)",
+        "candidates": [],
+        "group": "",
+        "name": "FR-sfn-020",
+        "reference": "<ref name=\"FR-sfn-020\">[[#CITEREFSmith2015|Smith (2015)]], pp. 50–51.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "needs_evidence"
+      },
+      {
+        "author_label": "Jessene (2013)",
+        "candidates": [],
+        "group": "",
+        "name": "FR-sfn-021",
+        "reference": "<ref name=\"FR-sfn-021\">[[#CITEREFJessene2013|Jessene (2013)]], p. 36.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "needs_evidence"
+      },
+      {
+        "author_label": "Sargent sy Velde (1995)",
+        "candidates": [
+          {
+            "basis": "same_author_label_only",
+            "text": "[[#CITEREFSargentVelde1995|Sargent sy Velde (1995)]]."
+          }
+        ],
+        "group": "",
+        "name": "FR-sfn-022",
+        "reference": "<ref name=\"FR-sfn-022\">[[#CITEREFSargentVelde1995|Sargent sy Velde (1995)]], pp. 485, 490–491.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "candidates_require_review"
+      },
+      {
+        "author_label": "Sargent sy Velde (1995)",
+        "candidates": [
+          {
+            "basis": "same_author_label_only",
+            "text": "[[#CITEREFSargentVelde1995|Sargent sy Velde (1995)]]."
+          }
+        ],
+        "group": "",
+        "name": "FR-sfn-023",
+        "reference": "<ref name=\"FR-sfn-023\">[[#CITEREFSargentVelde1995|Sargent sy Velde (1995)]], pp. 483–485.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "candidates_require_review"
+      },
+      {
+        "author_label": "Sargent sy Velde (1995)",
+        "candidates": [
+          {
+            "basis": "same_author_label_only",
+            "text": "[[#CITEREFSargentVelde1995|Sargent sy Velde (1995)]]."
+          }
+        ],
+        "group": "",
+        "name": "FR-sfn-024",
+        "reference": "<ref name=\"FR-sfn-024\">[[#CITEREFSargentVelde1995|Sargent sy Velde (1995)]], pp. 482–483.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "candidates_require_review"
+      },
+      {
+        "author_label": "Jessene (2013)",
+        "candidates": [],
+        "group": "",
+        "name": "FR-sfn-025",
+        "reference": "<ref name=\"FR-sfn-025\">[[#CITEREFJessene2013|Jessene (2013)]], p. 38.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "needs_evidence"
+      },
+      {
+        "author_label": "Doyle (1990)",
+        "candidates": [],
+        "group": "",
+        "name": "FR-sfn-027",
+        "reference": "<ref name=\"FR-sfn-027\">[[#CITEREFDoyle1990|Doyle (1990)]], pp. 69–76.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "needs_evidence"
+      },
+      {
+        "author_label": "Doyle (1990)",
+        "candidates": [],
+        "group": "",
+        "name": "FR-sfn-028",
+        "reference": "<ref name=\"FR-sfn-028\">[[#CITEREFDoyle1990|Doyle (1990)]], pp. 75–85.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "needs_evidence"
+      },
+      {
+        "author_label": "Schama (1989)",
+        "candidates": [
+          {
+            "basis": "same_author_label_only",
+            "text": "Tamin' ny fifamaliana iray, dia nandrahona ny «hamaky kibon' ilay trondro ''turbot'' matavy, Danton» ny mpomba an' i Hébert iray nantsoina hoe Vadier. Namaly i Danton fa raha manandrana izany i Vadier, dia «hihinana ny atidohany ary hitay ao anaty karandohany» izy. Fandikana amin' ny teny malagasy ireo teny nalaina ireo.[[#CITEREFSchama1989|Schama (1989)]], p. 814."
+          }
+        ],
+        "group": "",
+        "name": "FR-sfn-029",
+        "reference": "<ref name=\"FR-sfn-029\">[[#CITEREFSchama1989|Schama (1989)]], p. 115.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "candidates_require_review"
+      },
+      {
+        "author_label": "Doyle (1990)",
+        "candidates": [],
+        "group": "",
+        "name": "FR-sfn-030",
+        "reference": "<ref name=\"FR-sfn-030\">[[#CITEREFDoyle1990|Doyle (1990)]], p. 88.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "needs_evidence"
+      },
+      {
+        "author_label": "Cobban (1963)",
+        "candidates": [],
+        "group": "",
+        "name": "FR-sfn-031",
+        "reference": "<ref name=\"FR-sfn-031\">[[#CITEREFCobban1963|Cobban (1963)]], p. 135.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "needs_evidence"
+      },
+      {
+        "author_label": "Doyle (1990)",
+        "candidates": [],
+        "group": "",
+        "name": "FR-sfn-032",
+        "reference": "<ref name=\"FR-sfn-032\">[[#CITEREFDoyle1990|Doyle (1990)]], pp. 89–96.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "needs_evidence"
+      },
+      {
+        "author_label": "Doyle (1990)",
+        "candidates": [],
+        "group": "",
+        "name": "FR-sfn-033",
+        "reference": "<ref name=\"FR-sfn-033\">[[#CITEREFDoyle1990|Doyle (1990)]], p. 93.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "needs_evidence"
+      },
+      {
+        "author_label": "Doyle (1990)",
+        "candidates": [],
+        "group": "",
+        "name": "FR-sfn-034",
+        "reference": "<ref name=\"FR-sfn-034\">[[#CITEREFDoyle1990|Doyle (1990)]], p. 59.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "needs_evidence"
+      },
+      {
+        "author_label": "Doyle (1990)",
+        "candidates": [],
+        "group": "",
+        "name": "FR-sfn-035",
+        "reference": "<ref name=\"FR-sfn-035\">[[#CITEREFDoyle1990|Doyle (1990)]], p. 99.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "needs_evidence"
+      },
+      {
+        "author_label": "Doyle (1990)",
+        "candidates": [],
+        "group": "",
+        "name": "FR-sfn-036",
+        "reference": "<ref name=\"FR-sfn-036\">[[#CITEREFDoyle1990|Doyle (1990)]], pp. 99–100.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "needs_evidence"
+      },
+      {
+        "author_label": "Doyle (1990)",
+        "candidates": [],
+        "group": "",
+        "name": "FR-sfn-037",
+        "reference": "<ref name=\"FR-sfn-037\">[[#CITEREFDoyle1990|Doyle (1990)]], pp. 100–101.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "needs_evidence"
+      },
+      {
+        "author_label": "Frey sy Frey (2004)",
+        "candidates": [],
+        "group": "",
+        "name": "FR-sfn-038",
+        "reference": "<ref name=\"FR-sfn-038\">[[#CITEREFFreyFrey2004|Frey sy Frey (2004)]], pp. 4–5.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "needs_evidence"
+      },
+      {
+        "author_label": "Jessene (2013)",
+        "candidates": [],
+        "group": "",
+        "name": "FR-sfn-039",
+        "reference": "<ref name=\"FR-sfn-039\">[[#CITEREFJessene2013|Jessene (2013)]], p. 39.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "needs_evidence"
+      },
+      {
+        "author_label": "Doyle (1990)",
+        "candidates": [],
+        "group": "",
+        "name": "FR-sfn-040",
+        "reference": "<ref name=\"FR-sfn-040\">[[#CITEREFDoyle1990|Doyle (1990)]], pp. 101–105.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "needs_evidence"
+      },
+      {
+        "author_label": "Schama (1989)",
+        "candidates": [
+          {
+            "basis": "same_author_label_only",
+            "text": "Tamin' ny fifamaliana iray, dia nandrahona ny «hamaky kibon' ilay trondro ''turbot'' matavy, Danton» ny mpomba an' i Hébert iray nantsoina hoe Vadier. Namaly i Danton fa raha manandrana izany i Vadier, dia «hihinana ny atidohany ary hitay ao anaty karandohany» izy. Fandikana amin' ny teny malagasy ireo teny nalaina ireo.[[#CITEREFSchama1989|Schama (1989)]], p. 814."
+          }
+        ],
+        "group": "",
+        "name": "FR-sfn-041",
+        "reference": "<ref name=\"FR-sfn-041\">[[#CITEREFSchama1989|Schama (1989)]], p. 355.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "candidates_require_review"
+      },
+      {
+        "author_label": "Doyle (1990)",
+        "candidates": [],
+        "group": "",
+        "name": "FR-sfn-042",
+        "reference": "<ref name=\"FR-sfn-042\">[[#CITEREFDoyle1990|Doyle (1990)]], pp. 105–106.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "needs_evidence"
+      },
+      {
+        "author_label": "Doyle (1990)",
+        "candidates": [],
+        "group": "",
+        "name": "FR-sfn-043",
+        "reference": "<ref name=\"FR-sfn-043\">[[#CITEREFDoyle1990|Doyle (1990)]], pp. 106–108.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "needs_evidence"
+      },
+      {
+        "author_label": "Schama (1989)",
+        "candidates": [
+          {
+            "basis": "same_author_label_only",
+            "text": "Tamin' ny fifamaliana iray, dia nandrahona ny «hamaky kibon' ilay trondro ''turbot'' matavy, Danton» ny mpomba an' i Hébert iray nantsoina hoe Vadier. Namaly i Danton fa raha manandrana izany i Vadier, dia «hihinana ny atidohany ary hitay ao anaty karandohany» izy. Fandikana amin' ny teny malagasy ireo teny nalaina ireo.[[#CITEREFSchama1989|Schama (1989)]], p. 814."
+          }
+        ],
+        "group": "",
+        "name": "FR-sfn-044",
+        "reference": "<ref name=\"FR-sfn-044\">[[#CITEREFSchama1989|Schama (1989)]], pp. 357–358.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "candidates_require_review"
+      },
+      {
+        "author_label": "Schama (1989)",
+        "candidates": [
+          {
+            "basis": "same_author_label_only",
+            "text": "Tamin' ny fifamaliana iray, dia nandrahona ny «hamaky kibon' ilay trondro ''turbot'' matavy, Danton» ny mpomba an' i Hébert iray nantsoina hoe Vadier. Namaly i Danton fa raha manandrana izany i Vadier, dia «hihinana ny atidohany ary hitay ao anaty karandohany» izy. Fandikana amin' ny teny malagasy ireo teny nalaina ireo.[[#CITEREFSchama1989|Schama (1989)]], p. 814."
+          }
+        ],
+        "group": "",
+        "name": "FR-sfn-045",
+        "reference": "<ref name=\"FR-sfn-045\">[[#CITEREFSchama1989|Schama (1989)]], pp. 380–382.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "candidates_require_review"
+      },
+      {
+        "author_label": "Schama (1989)",
+        "candidates": [
+          {
+            "basis": "same_author_label_only",
+            "text": "Tamin' ny fifamaliana iray, dia nandrahona ny «hamaky kibon' ilay trondro ''turbot'' matavy, Danton» ny mpomba an' i Hébert iray nantsoina hoe Vadier. Namaly i Danton fa raha manandrana izany i Vadier, dia «hihinana ny atidohany ary hitay ao anaty karandohany» izy. Fandikana amin' ny teny malagasy ireo teny nalaina ireo.[[#CITEREFSchama1989|Schama (1989)]], p. 814."
+          }
+        ],
+        "group": "",
+        "name": "FR-sfn-046",
+        "reference": "<ref name=\"FR-sfn-046\">[[#CITEREFSchama1989|Schama (1989)]], pp. 404–405.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "candidates_require_review"
+      },
+      {
+        "author_label": "Davidson (2016)",
+        "candidates": [],
+        "group": "",
+        "name": "FR-sfn-047",
+        "reference": "<ref name=\"FR-sfn-047\">[[#CITEREFDavidson2016|Davidson (2016)]], p. 29.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "needs_evidence"
+      },
+      {
+        "author_label": "Schama (1989)",
+        "candidates": [
+          {
+            "basis": "same_author_label_only",
+            "text": "Tamin' ny fifamaliana iray, dia nandrahona ny «hamaky kibon' ilay trondro ''turbot'' matavy, Danton» ny mpomba an' i Hébert iray nantsoina hoe Vadier. Namaly i Danton fa raha manandrana izany i Vadier, dia «hihinana ny atidohany ary hitay ao anaty karandohany» izy. Fandikana amin' ny teny malagasy ireo teny nalaina ireo.[[#CITEREFSchama1989|Schama (1989)]], p. 814."
+          }
+        ],
+        "group": "",
+        "name": "FR-sfn-048",
+        "reference": "<ref name=\"FR-sfn-048\">[[#CITEREFSchama1989|Schama (1989)]], pp. 423–424.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "candidates_require_review"
+      },
+      {
+        "author_label": "Hibbert (1982)",
+        "candidates": [],
+        "group": "",
+        "name": "FR-sfn-049",
+        "reference": "<ref name=\"FR-sfn-049\">[[#CITEREFHibbert1982|Hibbert (1982)]], p. 93.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "needs_evidence"
+      },
+      {
+        "author_label": "Lefebvre (1962)",
+        "candidates": [],
+        "group": "",
+        "name": "FR-sfn-050",
+        "reference": "<ref name=\"FR-sfn-050\">[[#CITEREFLefebvre1962|Lefebvre (1962)]], pp. 187–188.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "needs_evidence"
+      },
+      {
+        "author_label": "Forster (1967)",
+        "candidates": [],
+        "group": "",
+        "name": "FR-sfn-051",
+        "reference": "<ref name=\"FR-sfn-051\">[[#CITEREFForster1967|Forster (1967)]], pp. 71–86.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "needs_evidence"
+      },
+      {
+        "author_label": "Lefebvre (1962)",
+        "candidates": [],
+        "group": "",
+        "name": "FR-sfn-052",
+        "reference": "<ref name=\"FR-sfn-052\">[[#CITEREFLefebvre1962|Lefebvre (1962)]], p. 130.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "needs_evidence"
+      },
+      {
+        "author_label": "Furet sy Ozouf (1989)",
+        "candidates": [],
+        "group": "",
+        "name": "FR-sfn-053",
+        "reference": "<ref name=\"FR-sfn-053\">[[#CITEREFFuretOzouf1989|Furet sy Ozouf (1989)]], p. 112.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "needs_evidence"
+      },
+      {
+        "author_label": "Doyle 1990",
+        "candidates": [],
+        "group": "",
+        "name": "",
+        "reference": "<ref>[[#CITEREFDoyle1990|Doyle 1990]], p. 118.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "needs_evidence"
+      },
+      {
+        "author_label": "Israel 2014",
+        "candidates": [],
+        "group": "",
+        "name": "",
+        "reference": "<ref>[[#CITEREFIsrael2014|Israel 2014]], p. 58.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "needs_evidence"
+      },
+      {
+        "author_label": "Israel 2014",
+        "candidates": [],
+        "group": "",
+        "name": "",
+        "reference": "<ref>[[#CITEREFIsrael2014|Israel 2014]], pp. 77–84.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "needs_evidence"
+      },
+      {
+        "author_label": "Baker 1994",
+        "candidates": [],
+        "group": "",
+        "name": "",
+        "reference": "<ref>[[#CITEREFBaker1994|Baker 1994]], pp. 154–196.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "needs_evidence"
+      },
+      {
+        "author_label": "Ludwikowski 1990",
+        "candidates": [],
+        "group": "",
+        "name": "",
+        "reference": "<ref>[[#CITEREFLudwikowski1990|Ludwikowski 1990]], pp. 456–457.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "needs_evidence"
+      },
+      {
+        "author_label": "Israel 2014",
+        "candidates": [],
+        "group": "",
+        "name": "",
+        "reference": "<ref>[[#CITEREFIsrael2014|Israel 2014]], pp. 106–107.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "needs_evidence"
+      },
+      {
+        "author_label": "Israel 2014",
+        "candidates": [],
+        "group": "",
+        "name": "",
+        "reference": "<ref>[[#CITEREFIsrael2014|Israel 2014]], p. 103.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "needs_evidence"
+      },
+      {
+        "author_label": "Schama 1989",
+        "candidates": [],
+        "group": "",
+        "name": "",
+        "reference": "<ref>[[#CITEREFSchama1989|Schama 1989]], pp. 459–460.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "needs_evidence"
+      },
+      {
+        "author_label": "Doyle 1990",
+        "candidates": [],
+        "group": "",
+        "name": "",
+        "reference": "<ref>[[#CITEREFDoyle1990|Doyle 1990]], p. 121.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "needs_evidence"
+      },
+      {
+        "author_label": "Schama 1989",
+        "candidates": [],
+        "group": "",
+        "name": "",
+        "reference": "<ref>[[#CITEREFSchama1989|Schama 1989]], pp. 460–463.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "needs_evidence"
+      },
+      {
+        "author_label": "Doyle 1990",
+        "candidates": [],
+        "group": "",
+        "name": "",
+        "reference": "<ref>[[#CITEREFDoyle1990|Doyle 1990]], p. 122.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "needs_evidence"
+      },
+      {
+        "author_label": "Schama 1989",
+        "candidates": [],
+        "group": "",
+        "name": "",
+        "reference": "<ref>[[#CITEREFSchama1989|Schama 1989]], pp. 465, 470.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "needs_evidence"
+      },
+      {
+        "author_label": "Censer sy Hunt (2001)",
+        "candidates": [],
+        "group": "",
+        "name": "FR-sfn-054",
+        "reference": "<ref name=\"FR-sfn-054\">[[#CITEREFCenserHunt2001|Censer sy Hunt (2001)]], p. 16.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "needs_evidence"
+      },
+      {
+        "author_label": "Garrard (2012)",
+        "candidates": [],
+        "group": "",
+        "name": "FR-sfn-055",
+        "reference": "<ref name=\"FR-sfn-055\">[[#CITEREFGarrard2012|Garrard (2012)]], p. 37.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "needs_evidence"
+      },
+      {
+        "author_label": "Ross, Holtermann ary Bindreiter (2019)",
+        "candidates": [],
+        "group": "",
+        "name": "FR-sfn-056",
+        "reference": "<ref name=\"FR-sfn-056\">[[#CITEREFRossHoltermannBindreiter2019|Ross, Holtermann ary Bindreiter (2019)]], p. 323.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "needs_evidence"
+      },
+      {
+        "author_label": "Lauritsen sy Thorup (2011)",
+        "candidates": [],
+        "group": "",
+        "name": "FR-sfn-057",
+        "reference": "<ref name=\"FR-sfn-057\">[[#CITEREFLauritsenThorup2011|Lauritsen sy Thorup (2011)]], p. 100.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "needs_evidence"
+      },
+      {
+        "author_label": "Hunt, Martin ary Rosenwein (2003)",
+        "candidates": [],
+        "group": "",
+        "name": "FR-sfn-058",
+        "reference": "<ref name=\"FR-sfn-058\">[[#CITEREFHuntMartinRosenwein2003|Hunt, Martin ary Rosenwein (2003)]], p. 625.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "needs_evidence"
+      },
+      {
+        "author_label": "Betros (2010)",
+        "candidates": [],
+        "group": "",
+        "name": "FR-sfn-059",
+        "reference": "<ref name=\"FR-sfn-059\">[[#CITEREFBetros2010|Betros (2010)]], pp. 16–21.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "needs_evidence"
+      },
+      {
+        "author_label": "Censer sy Hunt (2001)",
+        "candidates": [],
+        "group": "",
+        "name": "FR-sfn-060",
+        "reference": "<ref name=\"FR-sfn-060\">[[#CITEREFCenserHunt2001|Censer sy Hunt (2001)]], p. 4.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "needs_evidence"
+      },
+      {
+        "author_label": "McManners (1969)",
+        "candidates": [],
+        "group": "",
+        "name": "FR-sfn-061",
+        "reference": "<ref name=\"FR-sfn-061\">[[#CITEREFMcManners1969|McManners (1969)]], p. 27.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "needs_evidence"
+      },
+      {
+        "author_label": "Censer sy Hunt (2001)",
+        "candidates": [],
+        "group": "",
+        "name": "FR-sfn-062",
+        "reference": "<ref name=\"FR-sfn-062\">[[#CITEREFCenserHunt2001|Censer sy Hunt (2001)]], p. 92.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "needs_evidence"
+      },
+      {
+        "author_label": "Shusterman (2013)",
+        "candidates": [],
+        "group": "",
+        "name": "FR-sfn-063",
+        "reference": "<ref name=\"FR-sfn-063\">[[#CITEREFShusterman2013|Shusterman (2013)]], pp. 58–87.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "needs_evidence"
+      },
+      {
+        "author_label": "Kennedy (1989)",
+        "candidates": [],
+        "group": "",
+        "name": "FR-sfn-064",
+        "reference": "<ref name=\"FR-sfn-064\">[[#CITEREFKennedy1989|Kennedy (1989)]], p. 151.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "needs_evidence"
+      },
+      {
+        "author_label": "Censer sy Hunt (2001)",
+        "candidates": [],
+        "group": "",
+        "name": "FR-sfn-065",
+        "reference": "<ref name=\"FR-sfn-065\">[[#CITEREFCenserHunt2001|Censer sy Hunt (2001)]], p. 61.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "needs_evidence"
+      },
+      {
+        "author_label": "Scott (1975)",
+        "candidates": [],
+        "group": "",
+        "name": "FR-sfn-066",
+        "reference": "<ref name=\"FR-sfn-066\">[[#CITEREFScott1975|Scott (1975)]], pp. 861–863.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "needs_evidence"
+      },
+      {
+        "author_label": "Schama (1989)",
+        "candidates": [
+          {
+            "basis": "same_author_label_only",
+            "text": "Tamin' ny fifamaliana iray, dia nandrahona ny «hamaky kibon' ilay trondro ''turbot'' matavy, Danton» ny mpomba an' i Hébert iray nantsoina hoe Vadier. Namaly i Danton fa raha manandrana izany i Vadier, dia «hihinana ny atidohany ary hitay ao anaty karandohany» izy. Fandikana amin' ny teny malagasy ireo teny nalaina ireo.[[#CITEREFSchama1989|Schama (1989)]], p. 814."
+          }
+        ],
+        "group": "",
+        "name": "FR-sfn-067",
+        "reference": "<ref name=\"FR-sfn-067\">[[#CITEREFSchama1989|Schama (1989)]], pp. 498–499.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "candidates_require_review"
+      },
+      {
+        "author_label": "Schama (1989)",
+        "candidates": [
+          {
+            "basis": "same_author_label_only",
+            "text": "Tamin' ny fifamaliana iray, dia nandrahona ny «hamaky kibon' ilay trondro ''turbot'' matavy, Danton» ny mpomba an' i Hébert iray nantsoina hoe Vadier. Namaly i Danton fa raha manandrana izany i Vadier, dia «hihinana ny atidohany ary hitay ao anaty karandohany» izy. Fandikana amin' ny teny malagasy ireo teny nalaina ireo.[[#CITEREFSchama1989|Schama (1989)]], p. 814."
+          }
+        ],
+        "group": "",
+        "name": "FR-sfn-068",
+        "reference": "<ref name=\"FR-sfn-068\">[[#CITEREFSchama1989|Schama (1989)]], pp. 527–529.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "candidates_require_review"
+      },
+      {
+        "author_label": "Tackett (2003)",
+        "candidates": [],
+        "group": "",
+        "name": "FR-sfn-069",
+        "reference": "<ref name=\"FR-sfn-069\">[[#CITEREFTackett2003|Tackett (2003)]], p. 478.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "needs_evidence"
+      },
+      {
+        "author_label": "Doyle (2009)",
+        "candidates": [],
+        "group": "",
+        "name": "FR-sfn-070",
+        "reference": "<ref name=\"FR-sfn-070\">[[#CITEREFDoyle2009|Doyle (2009)]], pp. 334–336.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "needs_evidence"
+      },
+      {
+        "author_label": "Price (2003)",
+        "candidates": [],
+        "group": "",
+        "name": "FR-sfn-071",
+        "reference": "<ref name=\"FR-sfn-071\">[[#CITEREFPrice2003|Price (2003)]], p. 170.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "needs_evidence"
+      },
+      {
+        "author_label": "Tackett (2003)",
+        "candidates": [],
+        "group": "",
+        "name": "FR-sfn-072",
+        "reference": "<ref name=\"FR-sfn-072\">[[#CITEREFTackett2003|Tackett (2003)]], p. 473.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "needs_evidence"
+      },
+      {
+        "author_label": "Tackett (2004)",
+        "candidates": [],
+        "group": "",
+        "name": "FR-sfn-073",
+        "reference": "<ref name=\"FR-sfn-073\">[[#CITEREFTackett2004|Tackett (2004)]], pp. 148–150.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "needs_evidence"
+      },
+      {
+        "author_label": "Conner (2012)",
+        "candidates": [],
+        "group": "",
+        "name": "FR-sfn-074",
+        "reference": "<ref name=\"FR-sfn-074\">[[#CITEREFConner2012|Conner (2012)]], pp. 83–85.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "needs_evidence"
+      },
+      {
+        "author_label": "Soboul (1975)",
+        "candidates": [],
+        "group": "",
+        "name": "FR-sfn-075",
+        "reference": "<ref name=\"FR-sfn-075\">[[#CITEREFSoboul1975|Soboul (1975)]], pp. 226–227.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "needs_evidence"
+      },
+      {
+        "author_label": "Lefebvre (1962)",
+        "candidates": [],
+        "group": "",
+        "name": "FR-sfn-076",
+        "reference": "<ref name=\"FR-sfn-076\">[[#CITEREFLefebvre1962|Lefebvre (1962)]], p. 212.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "needs_evidence"
+      },
+      {
+        "author_label": "Lyons (1975)",
+        "candidates": [],
+        "group": "",
+        "name": "FR-sfn-077",
+        "reference": "<ref name=\"FR-sfn-077\">[[#CITEREFLyons1975|Lyons (1975)]], p. 5.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "needs_evidence"
+      },
+      {
+        "author_label": "Schama (1989)",
+        "candidates": [
+          {
+            "basis": "same_author_label_only",
+            "text": "Tamin' ny fifamaliana iray, dia nandrahona ny «hamaky kibon' ilay trondro ''turbot'' matavy, Danton» ny mpomba an' i Hébert iray nantsoina hoe Vadier. Namaly i Danton fa raha manandrana izany i Vadier, dia «hihinana ny atidohany ary hitay ao anaty karandohany» izy. Fandikana amin' ny teny malagasy ireo teny nalaina ireo.[[#CITEREFSchama1989|Schama (1989)]], p. 814."
+          }
+        ],
+        "group": "",
+        "name": "FR-sfn-078",
+        "reference": "<ref name=\"FR-sfn-078\">[[#CITEREFSchama1989|Schama (1989)]], pp. 581, 602–603.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "candidates_require_review"
+      },
+      {
+        "author_label": "Schama (1989)",
+        "candidates": [
+          {
+            "basis": "same_author_label_only",
+            "text": "Tamin' ny fifamaliana iray, dia nandrahona ny «hamaky kibon' ilay trondro ''turbot'' matavy, Danton» ny mpomba an' i Hébert iray nantsoina hoe Vadier. Namaly i Danton fa raha manandrana izany i Vadier, dia «hihinana ny atidohany ary hitay ao anaty karandohany» izy. Fandikana amin' ny teny malagasy ireo teny nalaina ireo.[[#CITEREFSchama1989|Schama (1989)]], p. 814."
+          }
+        ],
+        "group": "",
+        "name": "FR-sfn-079",
+        "reference": "<ref name=\"FR-sfn-079\">[[#CITEREFSchama1989|Schama (1989)]], p. 582.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "candidates_require_review"
+      },
+      {
+        "author_label": "Thompson (1932)",
+        "candidates": [],
+        "group": "",
+        "name": "FR-sfn-080",
+        "reference": "<ref name=\"FR-sfn-080\">[[#CITEREFThompson1932|Thompson (1932)]], p. 77.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "needs_evidence"
+      },
+      {
+        "author_label": "Schama (1989)",
+        "candidates": [
+          {
+            "basis": "same_author_label_only",
+            "text": "Tamin' ny fifamaliana iray, dia nandrahona ny «hamaky kibon' ilay trondro ''turbot'' matavy, Danton» ny mpomba an' i Hébert iray nantsoina hoe Vadier. Namaly i Danton fa raha manandrana izany i Vadier, dia «hihinana ny atidohany ary hitay ao anaty karandohany» izy. Fandikana amin' ny teny malagasy ireo teny nalaina ireo.[[#CITEREFSchama1989|Schama (1989)]], p. 814."
+          }
+        ],
+        "group": "",
+        "name": "FR-sfn-081",
+        "reference": "<ref name=\"FR-sfn-081\">[[#CITEREFSchama1989|Schama (1989)]], pp. 586–587.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "candidates_require_review"
+      },
+      {
+        "author_label": "Schama (1989)",
+        "candidates": [
+          {
+            "basis": "same_author_label_only",
+            "text": "Tamin' ny fifamaliana iray, dia nandrahona ny «hamaky kibon' ilay trondro ''turbot'' matavy, Danton» ny mpomba an' i Hébert iray nantsoina hoe Vadier. Namaly i Danton fa raha manandrana izany i Vadier, dia «hihinana ny atidohany ary hitay ao anaty karandohany» izy. Fandikana amin' ny teny malagasy ireo teny nalaina ireo.[[#CITEREFSchama1989|Schama (1989)]], p. 814."
+          }
+        ],
+        "group": "",
+        "name": "FR-sfn-083",
+        "reference": "<ref name=\"FR-sfn-083\">[[#CITEREFSchama1989|Schama (1989)]], pp. 585–586.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "candidates_require_review"
+      },
+      {
+        "author_label": "Lalevée (2019)",
+        "candidates": [],
+        "group": "",
+        "name": "FR-sfn-084",
+        "reference": "<ref name=\"FR-sfn-084\">[[#CITEREFLalevée2019|Lalevée (2019)]], pp. 67–70.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "needs_evidence"
+      },
+      {
+        "author_label": "Schama (1989)",
+        "candidates": [
+          {
+            "basis": "same_author_label_only",
+            "text": "Tamin' ny fifamaliana iray, dia nandrahona ny «hamaky kibon' ilay trondro ''turbot'' matavy, Danton» ny mpomba an' i Hébert iray nantsoina hoe Vadier. Namaly i Danton fa raha manandrana izany i Vadier, dia «hihinana ny atidohany ary hitay ao anaty karandohany» izy. Fandikana amin' ny teny malagasy ireo teny nalaina ireo.[[#CITEREFSchama1989|Schama (1989)]], p. 814."
+          }
+        ],
+        "group": "",
+        "name": "FR-sfn-085",
+        "reference": "<ref name=\"FR-sfn-085\">[[#CITEREFSchama1989|Schama (1989)]], p. 586.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "candidates_require_review"
+      },
+      {
+        "author_label": "Shusterman (2013)",
+        "candidates": [],
+        "group": "",
+        "name": "FR-sfn-086",
+        "reference": "<ref name=\"FR-sfn-086\">[[#CITEREFShusterman2013|Shusterman (2013)]], pp. 88–117.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "needs_evidence"
+      },
+      {
+        "author_label": "Dwyer (2008)",
+        "candidates": [],
+        "group": "",
+        "name": "FR-sfn-087",
+        "reference": "<ref name=\"FR-sfn-087\">[[#CITEREFDwyer2008|Dwyer (2008)]], pp. 99–100.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "needs_evidence"
+      },
+      {
+        "author_label": "McPhee (2013)",
+        "candidates": [
+          {
+            "basis": "same_author_label_only",
+            "text": "* <span id=\"CITEREFDupuy2013\"></span>Dupuy, Pascal (2013). ''The Revolution in History, Commemoration, and Memory''. Ao amin' ny [[#CITEREFMcPhee2013|McPhee (2013)]]."
+          },
+          {
+            "basis": "same_author_label_only",
+            "text": "* <span id=\"CITEREFJessene2013\"></span>Jessene, Jean-Pierre (2013). ''The Social and Economic Crisis in France at the End of the Ancien Régime''. Ao amin' ny [[#CITEREFMcPhee2013|McPhee (2013)]]."
+          }
+        ],
+        "group": "",
+        "name": "FR-sfn-088",
+        "reference": "<ref name=\"FR-sfn-088\">[[#CITEREFMcPhee2013|McPhee (2013)]], pp. 164–166.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "candidates_require_review"
+      },
+      {
+        "author_label": "Crook (1996)",
+        "candidates": [],
+        "group": "",
+        "name": "FR-sfn-089",
+        "reference": "<ref name=\"FR-sfn-089\">[[#CITEREFCrook1996|Crook (1996)]], p. 94.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "needs_evidence"
+      },
+      {
+        "author_label": "Shusterman (2013)",
+        "candidates": [],
+        "group": "",
+        "name": "FR-sfn-090",
+        "reference": "<ref name=\"FR-sfn-090\">[[#CITEREFShusterman2013|Shusterman (2013)]], pp. 223–269.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "needs_evidence"
+      },
+      {
+        "author_label": "Lewis (2002)",
+        "candidates": [],
+        "group": "",
+        "name": "FR-sfn-091",
+        "reference": "<ref name=\"FR-sfn-091\">[[#CITEREFLewis2002|Lewis (2002)]], p. 38.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "needs_evidence"
+      },
+      {
+        "author_label": "Tackett (2011)",
+        "candidates": [],
+        "group": "",
+        "name": "FR-sfn-092",
+        "reference": "<ref name=\"FR-sfn-092\">[[#CITEREFTackett2011|Tackett (2011)]], pp. 54–55.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "needs_evidence"
+      },
+      {
+        "author_label": "Pas (2008)",
+        "candidates": [],
+        "group": "",
+        "name": "FR-sfn-093",
+        "reference": "<ref name=\"FR-sfn-093\">[[#CITEREFPas2008|Pas (2008)]], p. 49.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "needs_evidence"
+      },
+      {
+        "author_label": "Barton (1967)",
+        "candidates": [],
+        "group": "",
+        "name": "FR-sfn-094",
+        "reference": "<ref name=\"FR-sfn-094\">[[#CITEREFBarton1967|Barton (1967)]], pp. 146–160.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "needs_evidence"
+      },
+      {
+        "author_label": "Doyle (1990)",
+        "candidates": [],
+        "group": "",
+        "name": "FR-sfn-095",
+        "reference": "<ref name=\"FR-sfn-095\">[[#CITEREFDoyle1990|Doyle (1990)]], p. 196.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "needs_evidence"
+      },
+      {
+        "author_label": "Wasson (2009)",
+        "candidates": [],
+        "group": "",
+        "name": "FR-sfn-096",
+        "reference": "<ref name=\"FR-sfn-096\">[[#CITEREFWasson2009|Wasson (2009)]], p. 118.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "needs_evidence"
+      },
+      {
+        "author_label": "Shusterman (2013)",
+        "candidates": [],
+        "group": "",
+        "name": "FR-sfn-097",
+        "reference": "<ref name=\"FR-sfn-097\">[[#CITEREFShusterman2013|Shusterman (2013)]], pp. 143–173.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "needs_evidence"
+      },
+      {
+        "author_label": "Shusterman (2013)",
+        "candidates": [],
+        "group": "",
+        "name": "FR-sfn-098",
+        "reference": "<ref name=\"FR-sfn-098\">[[#CITEREFShusterman2013|Shusterman (2013)]], pp. 271–312.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "needs_evidence"
+      },
+      {
+        "author_label": "Schama (1989)",
+        "candidates": [
+          {
+            "basis": "same_author_label_only",
+            "text": "Tamin' ny fifamaliana iray, dia nandrahona ny «hamaky kibon' ilay trondro ''turbot'' matavy, Danton» ny mpomba an' i Hébert iray nantsoina hoe Vadier. Namaly i Danton fa raha manandrana izany i Vadier, dia «hihinana ny atidohany ary hitay ao anaty karandohany» izy. Fandikana amin' ny teny malagasy ireo teny nalaina ireo.[[#CITEREFSchama1989|Schama (1989)]], p. 814."
+          }
+        ],
+        "group": "",
+        "name": "FR-sfn-099",
+        "reference": "<ref name=\"FR-sfn-099\">[[#CITEREFSchama1989|Schama (1989)]], p. 724.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "candidates_require_review"
+      },
+      {
+        "author_label": "Schama (1989)",
+        "candidates": [
+          {
+            "basis": "same_author_label_only",
+            "text": "Tamin' ny fifamaliana iray, dia nandrahona ny «hamaky kibon' ilay trondro ''turbot'' matavy, Danton» ny mpomba an' i Hébert iray nantsoina hoe Vadier. Namaly i Danton fa raha manandrana izany i Vadier, dia «hihinana ny atidohany ary hitay ao anaty karandohany» izy. Fandikana amin' ny teny malagasy ireo teny nalaina ireo.[[#CITEREFSchama1989|Schama (1989)]], p. 814."
+          }
+        ],
+        "group": "",
+        "name": "FR-sfn-100",
+        "reference": "<ref name=\"FR-sfn-100\">[[#CITEREFSchama1989|Schama (1989)]], pp. 725–726.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "candidates_require_review"
+      },
+      {
+        "author_label": "Kennedy (2000)",
+        "candidates": [],
+        "group": "",
+        "name": "FR-sfn-101",
+        "reference": "<ref name=\"FR-sfn-101\">[[#CITEREFKennedy2000|Kennedy (2000)]], p. 53.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "needs_evidence"
+      },
+      {
+        "author_label": "Schama (1989)",
+        "candidates": [
+          {
+            "basis": "same_author_label_only",
+            "text": "Tamin' ny fifamaliana iray, dia nandrahona ny «hamaky kibon' ilay trondro ''turbot'' matavy, Danton» ny mpomba an' i Hébert iray nantsoina hoe Vadier. Namaly i Danton fa raha manandrana izany i Vadier, dia «hihinana ny atidohany ary hitay ao anaty karandohany» izy. Fandikana amin' ny teny malagasy ireo teny nalaina ireo.[[#CITEREFSchama1989|Schama (1989)]], p. 814."
+          }
+        ],
+        "group": "",
+        "name": "FR-sfn-102",
+        "reference": "<ref name=\"FR-sfn-102\">[[#CITEREFSchama1989|Schama (1989)]], p. 756.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "candidates_require_review"
+      },
+      {
+        "author_label": "Schama (1989)",
+        "candidates": [
+          {
+            "basis": "same_author_label_only",
+            "text": "Tamin' ny fifamaliana iray, dia nandrahona ny «hamaky kibon' ilay trondro ''turbot'' matavy, Danton» ny mpomba an' i Hébert iray nantsoina hoe Vadier. Namaly i Danton fa raha manandrana izany i Vadier, dia «hihinana ny atidohany ary hitay ao anaty karandohany» izy. Fandikana amin' ny teny malagasy ireo teny nalaina ireo.[[#CITEREFSchama1989|Schama (1989)]], p. 814."
+          }
+        ],
+        "group": "",
+        "name": "FR-sfn-103",
+        "reference": "<ref name=\"FR-sfn-103\">[[#CITEREFSchama1989|Schama (1989)]], p. 766.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "candidates_require_review"
+      },
+      {
+        "author_label": "McLynn (1997)",
+        "candidates": [],
+        "group": "",
+        "name": "FR-sfn-104",
+        "reference": "<ref name=\"FR-sfn-104\">[[#CITEREFMcLynn1997|McLynn (1997)]], p. 76.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "needs_evidence"
+      },
+      {
+        "author_label": "Gough (1998)",
+        "candidates": [],
+        "group": "",
+        "name": "FR-sfn-105",
+        "reference": "<ref name=\"FR-sfn-105\">[[#CITEREFGough1998|Gough (1998)]], p. 77.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "needs_evidence"
+      },
+      {
+        "author_label": "White (1995)",
+        "candidates": [],
+        "group": "",
+        "name": "FR-sfn-106",
+        "reference": "<ref name=\"FR-sfn-106\">[[#CITEREFWhite1995|White (1995)]], p. 242.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "needs_evidence"
+      },
+      {
+        "author_label": "Schama (1989)",
+        "candidates": [
+          {
+            "basis": "same_author_label_only",
+            "text": "Tamin' ny fifamaliana iray, dia nandrahona ny «hamaky kibon' ilay trondro ''turbot'' matavy, Danton» ny mpomba an' i Hébert iray nantsoina hoe Vadier. Namaly i Danton fa raha manandrana izany i Vadier, dia «hihinana ny atidohany ary hitay ao anaty karandohany» izy. Fandikana amin' ny teny malagasy ireo teny nalaina ireo.[[#CITEREFSchama1989|Schama (1989)]], p. 814."
+          }
+        ],
+        "group": "",
+        "name": "FR-sfn-107",
+        "reference": "<ref name=\"FR-sfn-107\">[[#CITEREFSchama1989|Schama (1989)]], p. 784.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "candidates_require_review"
+      },
+      {
+        "author_label": "Cough (1987)",
+        "candidates": [],
+        "group": "",
+        "name": "FR-sfn-108",
+        "reference": "<ref name=\"FR-sfn-108\">[[#CITEREFCough1987|Cough (1987)]], pp. 977–988.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "needs_evidence"
+      },
+      {
+        "author_label": "Furet sy Ozouf (1989)",
+        "candidates": [],
+        "group": "",
+        "name": "FR-sfn-109",
+        "reference": "<ref name=\"FR-sfn-109\">[[#CITEREFFuretOzouf1989|Furet sy Ozouf (1989)]], p. 175.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "needs_evidence"
+      },
+      {
+        "author_label": "Schama (1989)",
+        "candidates": [
+          {
+            "basis": "same_author_label_only",
+            "text": "Tamin' ny fifamaliana iray, dia nandrahona ny «hamaky kibon' ilay trondro ''turbot'' matavy, Danton» ny mpomba an' i Hébert iray nantsoina hoe Vadier. Namaly i Danton fa raha manandrana izany i Vadier, dia «hihinana ny atidohany ary hitay ao anaty karandohany» izy. Fandikana amin' ny teny malagasy ireo teny nalaina ireo.[[#CITEREFSchama1989|Schama (1989)]], p. 814."
+          }
+        ],
+        "group": "",
+        "name": "FR-sfn-113",
+        "reference": "<ref name=\"FR-sfn-113\">[[#CITEREFSchama1989|Schama (1989)]], p. 816.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "candidates_require_review"
+      },
+      {
+        "author_label": "Schama (1989)",
+        "candidates": [
+          {
+            "basis": "same_author_label_only",
+            "text": "Tamin' ny fifamaliana iray, dia nandrahona ny «hamaky kibon' ilay trondro ''turbot'' matavy, Danton» ny mpomba an' i Hébert iray nantsoina hoe Vadier. Namaly i Danton fa raha manandrana izany i Vadier, dia «hihinana ny atidohany ary hitay ao anaty karandohany» izy. Fandikana amin' ny teny malagasy ireo teny nalaina ireo.[[#CITEREFSchama1989|Schama (1989)]], p. 814."
+          }
+        ],
+        "group": "",
+        "name": "FR-sfn-114",
+        "reference": "<ref name=\"FR-sfn-114\">[[#CITEREFSchama1989|Schama (1989)]], p. 819.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "candidates_require_review"
+      },
+      {
+        "author_label": "Schama (1989)",
+        "candidates": [
+          {
+            "basis": "same_author_label_only",
+            "text": "Tamin' ny fifamaliana iray, dia nandrahona ny «hamaky kibon' ilay trondro ''turbot'' matavy, Danton» ny mpomba an' i Hébert iray nantsoina hoe Vadier. Namaly i Danton fa raha manandrana izany i Vadier, dia «hihinana ny atidohany ary hitay ao anaty karandohany» izy. Fandikana amin' ny teny malagasy ireo teny nalaina ireo.[[#CITEREFSchama1989|Schama (1989)]], p. 814."
+          }
+        ],
+        "group": "",
+        "name": "FR-sfn-115",
+        "reference": "<ref name=\"FR-sfn-115\">[[#CITEREFSchama1989|Schama (1989)]], p. 837.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "candidates_require_review"
+      },
+      {
+        "author_label": "Schama (1989)",
+        "candidates": [
+          {
+            "basis": "same_author_label_only",
+            "text": "Tamin' ny fifamaliana iray, dia nandrahona ny «hamaky kibon' ilay trondro ''turbot'' matavy, Danton» ny mpomba an' i Hébert iray nantsoina hoe Vadier. Namaly i Danton fa raha manandrana izany i Vadier, dia «hihinana ny atidohany ary hitay ao anaty karandohany» izy. Fandikana amin' ny teny malagasy ireo teny nalaina ireo.[[#CITEREFSchama1989|Schama (1989)]], p. 814."
+          }
+        ],
+        "group": "",
+        "name": "FR-sfn-116",
+        "reference": "<ref name=\"FR-sfn-116\">[[#CITEREFSchama1989|Schama (1989)]], p. 838.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "candidates_require_review"
+      },
+      {
+        "author_label": "Schama (1989)",
+        "candidates": [
+          {
+            "basis": "same_author_label_only",
+            "text": "Tamin' ny fifamaliana iray, dia nandrahona ny «hamaky kibon' ilay trondro ''turbot'' matavy, Danton» ny mpomba an' i Hébert iray nantsoina hoe Vadier. Namaly i Danton fa raha manandrana izany i Vadier, dia «hihinana ny atidohany ary hitay ao anaty karandohany» izy. Fandikana amin' ny teny malagasy ireo teny nalaina ireo.[[#CITEREFSchama1989|Schama (1989)]], p. 814."
+          }
+        ],
+        "group": "",
+        "name": "FR-sfn-117",
+        "reference": "<ref name=\"FR-sfn-117\">[[#CITEREFSchama1989|Schama (1989)]], p. 844.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "candidates_require_review"
+      },
+      {
+        "author_label": "Schama (1989)",
+        "candidates": [
+          {
+            "basis": "same_author_label_only",
+            "text": "Tamin' ny fifamaliana iray, dia nandrahona ny «hamaky kibon' ilay trondro ''turbot'' matavy, Danton» ny mpomba an' i Hébert iray nantsoina hoe Vadier. Namaly i Danton fa raha manandrana izany i Vadier, dia «hihinana ny atidohany ary hitay ao anaty karandohany» izy. Fandikana amin' ny teny malagasy ireo teny nalaina ireo.[[#CITEREFSchama1989|Schama (1989)]], p. 814."
+          }
+        ],
+        "group": "",
+        "name": "FR-sfn-118",
+        "reference": "<ref name=\"FR-sfn-118\">[[#CITEREFSchama1989|Schama (1989)]], p. 845.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "candidates_require_review"
+      },
+      {
+        "author_label": "Soboul (1975)",
+        "candidates": [],
+        "group": "",
+        "name": "FR-sfn-119",
+        "reference": "<ref name=\"FR-sfn-119\">[[#CITEREFSoboul1975|Soboul (1975)]], pp. 425–428.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "needs_evidence"
+      },
+      {
+        "author_label": "Furet (1989)",
+        "candidates": [],
+        "group": "",
+        "name": "FR-sfn-120",
+        "reference": "<ref name=\"FR-sfn-120\">[[#CITEREFFuret1989|Furet (1989)]], p. 222.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "needs_evidence"
+      },
+      {
+        "author_label": "Andress (2006)",
+        "candidates": [],
+        "group": "",
+        "name": "FR-sfn-122",
+        "reference": "<ref name=\"FR-sfn-122\">[[#CITEREFAndress2006|Andress (2006)]], p. 237.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "needs_evidence"
+      },
+      {
+        "author_label": "McLynn (1997)",
+        "candidates": [],
+        "group": "",
+        "name": "FR-sfn-123",
+        "reference": "<ref name=\"FR-sfn-123\">[[#CITEREFMcLynn1997|McLynn (1997)]], p. 82.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "needs_evidence"
+      },
+      {
+        "author_label": "Andress (2006)",
+        "candidates": [],
+        "group": "",
+        "name": "FR-sfn-124",
+        "reference": "<ref name=\"FR-sfn-124\">[[#CITEREFAndress2006|Andress (2006)]], p. 354.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "needs_evidence"
+      },
+      {
+        "author_label": "Schama (1977)",
+        "candidates": [],
+        "group": "",
+        "name": "FR-sfn-125",
+        "reference": "<ref name=\"FR-sfn-125\">[[#CITEREFSchama1977|Schama (1977)]], pp. 178–192.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "needs_evidence"
+      },
+      {
+        "author_label": "Hargreaves-Mawdsley (1968)",
+        "candidates": [],
+        "group": "",
+        "name": "FR-sfn-126",
+        "reference": "<ref name=\"FR-sfn-126\">[[#CITEREFHargreaves-Mawdsley1968|Hargreaves-Mawdsley (1968)]], pp. 175–176.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "needs_evidence"
+      },
+      {
+        "author_label": "Lyons (1975)",
+        "candidates": [],
+        "group": "",
+        "name": "FR-sfn-127",
+        "reference": "<ref name=\"FR-sfn-127\">[[#CITEREFLyons1975|Lyons (1975)]], p. 15.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "needs_evidence"
+      },
+      {
+        "author_label": "Woronoff (1984)",
+        "candidates": [],
+        "group": "",
+        "name": "FR-sfn-128",
+        "reference": "<ref name=\"FR-sfn-128\">[[#CITEREFWoronoff1984|Woronoff (1984)]], p. 10.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "needs_evidence"
+      },
+      {
+        "author_label": "Woronoff (1984)",
+        "candidates": [],
+        "group": "",
+        "name": "FR-sfn-129",
+        "reference": "<ref name=\"FR-sfn-129\">[[#CITEREFWoronoff1984|Woronoff (1984)]], p. 15.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "needs_evidence"
+      },
+      {
+        "author_label": "Doyle (1990)",
+        "candidates": [],
+        "group": "",
+        "name": "FR-sfn-130",
+        "reference": "<ref name=\"FR-sfn-130\">[[#CITEREFDoyle1990|Doyle (1990)]], p. 320.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "needs_evidence"
+      },
+      {
+        "author_label": "Lyons (1975)",
+        "candidates": [],
+        "group": "",
+        "name": "FR-sfn-131",
+        "reference": "<ref name=\"FR-sfn-131\">[[#CITEREFLyons1975|Lyons (1975)]], pp. 18–19.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "needs_evidence"
+      },
+      {
+        "author_label": "Lyons (1975)",
+        "candidates": [],
+        "group": "",
+        "name": "FR-sfn-132",
+        "reference": "<ref name=\"FR-sfn-132\">[[#CITEREFLyons1975|Lyons (1975)]], p. 19.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "needs_evidence"
+      },
+      {
+        "author_label": "Lyons (1975)",
+        "candidates": [],
+        "group": "",
+        "name": "FR-sfn-133",
+        "reference": "<ref name=\"FR-sfn-133\">[[#CITEREFLyons1975|Lyons (1975)]], p. 2.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "needs_evidence"
+      },
+      {
+        "author_label": "Brown (2006)",
+        "candidates": [],
+        "group": "",
+        "name": "FR-sfn-134",
+        "reference": "<ref name=\"FR-sfn-134\">[[#CITEREFBrown2006|Brown (2006)]], p. 1.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "needs_evidence"
+      },
+      {
+        "author_label": "Lyons (1975)",
+        "candidates": [],
+        "group": "",
+        "name": "FR-sfn-135",
+        "reference": "<ref name=\"FR-sfn-135\">[[#CITEREFLyons1975|Lyons (1975)]], pp. 19–20.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "needs_evidence"
+      },
+      {
+        "author_label": "Lyons (1975)",
+        "candidates": [],
+        "group": "",
+        "name": "FR-sfn-136",
+        "reference": "<ref name=\"FR-sfn-136\">[[#CITEREFLyons1975|Lyons (1975)]], pp. 27–28.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "needs_evidence"
+      },
+      {
+        "author_label": "Lyons (1975)",
+        "candidates": [],
+        "group": "",
+        "name": "FR-sfn-137",
+        "reference": "<ref name=\"FR-sfn-137\">[[#CITEREFLyons1975|Lyons (1975)]], pp. 32–33.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "needs_evidence"
+      },
+      {
+        "author_label": "Lyons (1975)",
+        "candidates": [],
+        "group": "",
+        "name": "FR-sfn-138",
+        "reference": "<ref name=\"FR-sfn-138\">[[#CITEREFLyons1975|Lyons (1975)]], p. 175.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "needs_evidence"
+      },
+      {
+        "author_label": "McLynn (1997)",
+        "candidates": [],
+        "group": "",
+        "name": "FR-sfn-139",
+        "reference": "<ref name=\"FR-sfn-139\">[[#CITEREFMcLynn1997|McLynn (1997)]], p. 151.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "needs_evidence"
+      },
+      {
+        "author_label": "McLynn (1997)",
+        "candidates": [],
+        "group": "",
+        "name": "FR-sfn-140",
+        "reference": "<ref name=\"FR-sfn-140\">[[#CITEREFMcLynn1997|McLynn (1997)]], p. 150.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "needs_evidence"
+      },
+      {
+        "author_label": "McLynn (1997)",
+        "candidates": [],
+        "group": "",
+        "name": "FR-sfn-141",
+        "reference": "<ref name=\"FR-sfn-141\">[[#CITEREFMcLynn1997|McLynn (1997)]], p. 155.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "needs_evidence"
+      },
+      {
+        "author_label": "McLynn (1997)",
+        "candidates": [],
+        "group": "",
+        "name": "FR-sfn-142",
+        "reference": "<ref name=\"FR-sfn-142\">[[#CITEREFMcLynn1997|McLynn (1997)]], p. 208.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "needs_evidence"
+      },
+      {
+        "author_label": "Hunt, Lansky ary Hanson (1979)",
+        "candidates": [],
+        "group": "",
+        "name": "FR-sfn-143",
+        "reference": "<ref name=\"FR-sfn-143\">[[#CITEREFHuntLanskyHanson1979|Hunt, Lansky ary Hanson (1979)]], pp. 735–736.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "needs_evidence"
+      },
+      {
+        "author_label": "McLynn (1997)",
+        "candidates": [],
+        "group": "",
+        "name": "FR-sfn-144",
+        "reference": "<ref name=\"FR-sfn-144\">[[#CITEREFMcLynn1997|McLynn (1997)]], p. 211.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "needs_evidence"
+      },
+      {
+        "author_label": "McLynn (1997)",
+        "candidates": [],
+        "group": "",
+        "name": "FR-sfn-145",
+        "reference": "<ref name=\"FR-sfn-145\">[[#CITEREFMcLynn1997|McLynn (1997)]], p. 219.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "needs_evidence"
+      },
+      {
+        "author_label": "Israel (2014)",
+        "candidates": [],
+        "group": "",
+        "name": "FR-sfn-146",
+        "reference": "<ref name=\"FR-sfn-146\">[[#CITEREFIsrael2014|Israel (2014)]], p. 695.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "needs_evidence"
+      },
+      {
+        "author_label": "Cobban (1963)",
+        "candidates": [],
+        "group": "",
+        "name": "FR-sfn-147",
+        "reference": "<ref name=\"FR-sfn-147\">[[#CITEREFCobban1963|Cobban (1963)]], p. 152.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "needs_evidence"
+      },
+      {
+        "author_label": "Walton (2013)",
+        "candidates": [],
+        "group": "",
+        "name": "FR-sfn-148",
+        "reference": "<ref name=\"FR-sfn-148\">[[#CITEREFWalton2013|Walton (2013)]], pp. 363–364,368.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "needs_evidence"
+      },
+      {
+        "author_label": "Israel (2014)",
+        "candidates": [],
+        "group": "",
+        "name": "FR-sfn-149",
+        "reference": "<ref name=\"FR-sfn-149\">[[#CITEREFIsrael2014|Israel (2014)]], p. 13.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "needs_evidence"
+      },
+      {
+        "author_label": "Doyle (1990)",
+        "candidates": [],
+        "group": "",
+        "name": "FR-sfn-150",
+        "reference": "<ref name=\"FR-sfn-150\">[[#CITEREFDoyle1990|Doyle (1990)]], p. 420.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "needs_evidence"
+      },
+      {
+        "author_label": "Israel (2014)",
+        "candidates": [],
+        "group": "",
+        "name": "FR-sfn-151",
+        "reference": "<ref name=\"FR-sfn-151\">[[#CITEREFIsrael2014|Israel (2014)]], pp. 206–208, 233.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "needs_evidence"
+      },
+      {
+        "author_label": "Walton (2013)",
+        "candidates": [],
+        "group": "",
+        "name": "FR-sfn-152",
+        "reference": "<ref name=\"FR-sfn-152\">[[#CITEREFWalton2013|Walton (2013)]], pp. 377.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "needs_evidence"
+      },
+      {
+        "author_label": "Doyle (1990)",
+        "candidates": [],
+        "group": "",
+        "name": "FR-sfn-153",
+        "reference": "<ref name=\"FR-sfn-153\">[[#CITEREFDoyle1990|Doyle (1990)]], p. 421.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "needs_evidence"
+      },
+      {
+        "author_label": "Doyle (1990)",
+        "candidates": [],
+        "group": "",
+        "name": "FR-sfn-154",
+        "reference": "<ref name=\"FR-sfn-154\">[[#CITEREFDoyle1990|Doyle (1990)]], pp. 421–422.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "needs_evidence"
+      },
+      {
+        "author_label": "Régent (2013)",
+        "candidates": [
+          {
+            "basis": "same_author_label_only",
+            "text": "[[#CITEREFRégent2013|Régent (2013)]], pp. 398-399, 401, 402, passim."
+          }
+        ],
+        "group": "",
+        "name": "FR-sfn-155",
+        "reference": "<ref name=\"FR-sfn-155\">[[#CITEREFRégent2013|Régent (2013)]], pp. 398, 405–406.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "candidates_require_review"
+      },
+      {
+        "author_label": "Israel (2014)",
+        "candidates": [],
+        "group": "",
+        "name": "FR-sfn-156",
+        "reference": "<ref name=\"FR-sfn-156\">[[#CITEREFIsrael2014|Israel (2014)]], pp. 106, 148, 254.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "needs_evidence"
+      },
+      {
+        "author_label": "Cobban (1963)",
+        "candidates": [],
+        "group": "",
+        "name": "FR-sfn-157",
+        "reference": "<ref name=\"FR-sfn-157\">[[#CITEREFCobban1963|Cobban (1963)]], pp. 165–166.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "needs_evidence"
+      },
+      {
+        "author_label": "Israel (2014)",
+        "candidates": [],
+        "group": "",
+        "name": "FR-sfn-158",
+        "reference": "<ref name=\"FR-sfn-158\">[[#CITEREFIsrael2014|Israel (2014)]], pp. 24, 54, 66, 160, 177.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "needs_evidence"
+      },
+      {
+        "author_label": "Israel (2014)",
+        "candidates": [],
+        "group": "",
+        "name": "FR-sfn-159",
+        "reference": "<ref name=\"FR-sfn-159\">[[#CITEREFIsrael2014|Israel (2014)]], pp. 142–143,166,204–295.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "needs_evidence"
+      },
+      {
+        "author_label": "Israel (2014)",
+        "candidates": [],
+        "group": "",
+        "name": "FR-sfn-160",
+        "reference": "<ref name=\"FR-sfn-160\">[[#CITEREFIsrael2014|Israel (2014)]], pp. 16–19, 175, 209, 351.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "needs_evidence"
+      },
+      {
+        "author_label": "Israel (2014)",
+        "candidates": [],
+        "group": "",
+        "name": "FR-sfn-161",
+        "reference": "<ref name=\"FR-sfn-161\">[[#CITEREFIsrael2014|Israel (2014)]], pp. 180–181.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "needs_evidence"
+      },
+      {
+        "author_label": "Cobban (1963)",
+        "candidates": [],
+        "group": "",
+        "name": "FR-sfn-162",
+        "reference": "<ref name=\"FR-sfn-162\">[[#CITEREFCobban1963|Cobban (1963)]], p. 173.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "needs_evidence"
+      },
+      {
+        "author_label": "Walton (2013)",
+        "candidates": [],
+        "group": "",
+        "name": "FR-sfn-163",
+        "reference": "<ref name=\"FR-sfn-163\">[[#CITEREFWalton2013|Walton (2013)]], p. 362.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "needs_evidence"
+      },
+      {
+        "author_label": "Linton (2013)",
+        "candidates": [],
+        "group": "",
+        "name": "FR-sfn-164",
+        "reference": "<ref name=\"FR-sfn-164\">[[#CITEREFLinton2013|Linton (2013)]], p. 267.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "needs_evidence"
+      },
+      {
+        "author_label": "Linton (2013)",
+        "candidates": [],
+        "group": "",
+        "name": "FR-sfn-165",
+        "reference": "<ref name=\"FR-sfn-165\">[[#CITEREFLinton2013|Linton (2013)]], pp. 264–265.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "needs_evidence"
+      },
+      {
+        "author_label": "Linton (2013)",
+        "candidates": [],
+        "group": "",
+        "name": "FR-sfn-166",
+        "reference": "<ref name=\"FR-sfn-166\">[[#CITEREFLinton2013|Linton (2013)]], p. 274.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "needs_evidence"
+      },
+      {
+        "author_label": "Rothenberg (1988)",
+        "candidates": [],
+        "group": "",
+        "name": "FR-sfn-167",
+        "reference": "<ref name=\"FR-sfn-167\">[[#CITEREFRothenberg1988|Rothenberg (1988)]], pp. 779–780.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "needs_evidence"
+      },
+      {
+        "author_label": "Hayworth (2015)",
+        "candidates": [],
+        "group": "",
+        "name": "FR-sfn-168",
+        "reference": "<ref name=\"FR-sfn-168\">[[#CITEREFHayworth2015|Hayworth (2015)]], p. 89.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "needs_evidence"
+      },
+      {
+        "author_label": "Rothenberg (1988)",
+        "candidates": [],
+        "group": "",
+        "name": "FR-sfn-169",
+        "reference": "<ref name=\"FR-sfn-169\">[[#CITEREFRothenberg1988|Rothenberg (1988)]], p. 772.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "needs_evidence"
+      },
+      {
+        "author_label": "Rothenberg (1988)",
+        "candidates": [],
+        "group": "",
+        "name": "FR-sfn-170",
+        "reference": "<ref name=\"FR-sfn-170\">[[#CITEREFRothenberg1988|Rothenberg (1988)]], pp. 772–773.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "needs_evidence"
+      },
+      {
+        "author_label": "Rothenberg (1988)",
+        "candidates": [],
+        "group": "",
+        "name": "FR-sfn-171",
+        "reference": "<ref name=\"FR-sfn-171\">[[#CITEREFRothenberg1988|Rothenberg (1988)]], p. 785.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "needs_evidence"
+      },
+      {
+        "author_label": "Blanning (1996)",
+        "candidates": [],
+        "group": "",
+        "name": "FR-sfn-172",
+        "reference": "<ref name=\"FR-sfn-172\">[[#CITEREFBlanning1996|Blanning (1996)]], pp. 120–121.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "needs_evidence"
+      },
+      {
+        "author_label": "Brown (1995)",
+        "candidates": [],
+        "group": "",
+        "name": "FR-sfn-173",
+        "reference": "<ref name=\"FR-sfn-173\">[[#CITEREFBrown1995|Brown (1995)]], p. 35.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "needs_evidence"
+      },
+      {
+        "author_label": "Hayworth (2015)",
+        "candidates": [],
+        "group": "",
+        "name": "FR-sfn-174",
+        "reference": "<ref name=\"FR-sfn-174\">[[#CITEREFHayworth2015|Hayworth (2015)]], p. 256.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "needs_evidence"
+      },
+      {
+        "author_label": "McLynn (1997)",
+        "candidates": [],
+        "group": "",
+        "name": "FR-sfn-175",
+        "reference": "<ref name=\"FR-sfn-175\">[[#CITEREFMcLynn1997|McLynn (1997)]], p. 157.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "needs_evidence"
+      },
+      {
+        "author_label": "Rothenberg (1988)",
+        "candidates": [],
+        "group": "",
+        "name": "FR-sfn-176",
+        "reference": "<ref name=\"FR-sfn-176\">[[#CITEREFRothenberg1988|Rothenberg (1988)]], p. 787.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "needs_evidence"
+      },
+      {
+        "author_label": "Régent (2013)",
+        "candidates": [
+          {
+            "basis": "same_author_label_only",
+            "text": "[[#CITEREFRégent2013|Régent (2013)]], pp. 398-399, 401, 402, passim."
+          }
+        ],
+        "group": "",
+        "name": "FR-sfn-177",
+        "reference": "<ref name=\"FR-sfn-177\">[[#CITEREFRégent2013|Régent (2013)]], p. 397.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "candidates_require_review"
+      },
+      {
+        "author_label": "Régent (2013)",
+        "candidates": [
+          {
+            "basis": "same_author_label_only",
+            "text": "[[#CITEREFRégent2013|Régent (2013)]], pp. 398-399, 401, 402, passim."
+          }
+        ],
+        "group": "",
+        "name": "FR-sfn-178",
+        "reference": "<ref name=\"FR-sfn-178\">[[#CITEREFRégent2013|Régent (2013)]], p. 398–402.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "candidates_require_review"
+      },
+      {
+        "author_label": "Doyle (1990)",
+        "candidates": [],
+        "group": "",
+        "name": "FR-sfn-179",
+        "reference": "<ref name=\"FR-sfn-179\">[[#CITEREFDoyle1990|Doyle (1990)]], p. 413.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "needs_evidence"
+      },
+      {
+        "author_label": "Régent (2013)",
+        "candidates": [
+          {
+            "basis": "same_author_label_only",
+            "text": "[[#CITEREFRégent2013|Régent (2013)]], pp. 398-399, 401, 402, passim."
+          }
+        ],
+        "group": "",
+        "name": "FR-sfn-180",
+        "reference": "<ref name=\"FR-sfn-180\">[[#CITEREFRégent2013|Régent (2013)]], p. 398–399.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "candidates_require_review"
+      },
+      {
+        "author_label": "Dubois (2004)",
+        "candidates": [
+          {
+            "basis": "same_author_label_only",
+            "text": "[[#CITEREFDubois2004|Dubois (2004)]], pp. 30, 85 note 1, 228, 255 passim."
+          }
+        ],
+        "group": "",
+        "name": "FR-sfn-183",
+        "reference": "<ref name=\"FR-sfn-183\">[[#CITEREFDubois2004|Dubois (2004)]], p. 54.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "candidates_require_review"
+      },
+      {
+        "author_label": "Régent (2013)",
+        "candidates": [
+          {
+            "basis": "same_author_label_only",
+            "text": "[[#CITEREFRégent2013|Régent (2013)]], pp. 398-399, 401, 402, passim."
+          }
+        ],
+        "group": "",
+        "name": "FR-sfn-184",
+        "reference": "<ref name=\"FR-sfn-184\">[[#CITEREFRégent2013|Régent (2013)]], pp. 401–402.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "candidates_require_review"
+      },
+      {
+        "author_label": "Régent (2013)",
+        "candidates": [
+          {
+            "basis": "same_author_label_only",
+            "text": "[[#CITEREFRégent2013|Régent (2013)]], pp. 398-399, 401, 402, passim."
+          }
+        ],
+        "group": "",
+        "name": "FR-sfn-185",
+        "reference": "<ref name=\"FR-sfn-185\">[[#CITEREFRégent2013|Régent (2013)]], p. 402–403.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "candidates_require_review"
+      },
+      {
+        "author_label": "Régent (2013)",
+        "candidates": [
+          {
+            "basis": "same_author_label_only",
+            "text": "[[#CITEREFRégent2013|Régent (2013)]], pp. 398-399, 401, 402, passim."
+          }
+        ],
+        "group": "",
+        "name": "FR-sfn-186",
+        "reference": "<ref name=\"FR-sfn-186\">[[#CITEREFRégent2013|Régent (2013)]], p. 404–405.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "candidates_require_review"
+      },
+      {
+        "author_label": "Régent (2013)",
+        "candidates": [
+          {
+            "basis": "same_author_label_only",
+            "text": "[[#CITEREFRégent2013|Régent (2013)]], pp. 398-399, 401, 402, passim."
+          }
+        ],
+        "group": "",
+        "name": "FR-sfn-187",
+        "reference": "<ref name=\"FR-sfn-187\">[[#CITEREFRégent2013|Régent (2013)]], pp. 406–407.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "candidates_require_review"
+      },
+      {
+        "author_label": "Régent (2013)",
+        "candidates": [
+          {
+            "basis": "same_author_label_only",
+            "text": "[[#CITEREFRégent2013|Régent (2013)]], pp. 398-399, 401, 402, passim."
+          }
+        ],
+        "group": "",
+        "name": "FR-sfn-188",
+        "reference": "<ref name=\"FR-sfn-188\">[[#CITEREFRégent2013|Régent (2013)]], pp. 407–408.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "candidates_require_review"
+      },
+      {
+        "author_label": "Doyle (1990)",
+        "candidates": [],
+        "group": "",
+        "name": "FR-sfn-189",
+        "reference": "<ref name=\"FR-sfn-189\">[[#CITEREFDoyle1990|Doyle (1990)]], p. 414.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "needs_evidence"
+      },
+      {
+        "author_label": "Régent (2013)",
+        "candidates": [
+          {
+            "basis": "same_author_label_only",
+            "text": "[[#CITEREFRégent2013|Régent (2013)]], pp. 398-399, 401, 402, passim."
+          }
+        ],
+        "group": "",
+        "name": "FR-sfn-190",
+        "reference": "<ref name=\"FR-sfn-190\">[[#CITEREFRégent2013|Régent (2013)]], p. 409.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "candidates_require_review"
+      },
+      {
+        "author_label": "Régent (2013)",
+        "candidates": [
+          {
+            "basis": "same_author_label_only",
+            "text": "[[#CITEREFRégent2013|Régent (2013)]], pp. 398-399, 401, 402, passim."
+          }
+        ],
+        "group": "",
+        "name": "FR-sfn-191",
+        "reference": "<ref name=\"FR-sfn-191\">[[#CITEREFRégent2013|Régent (2013)]], pp. 409–410.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "candidates_require_review"
+      },
+      {
+        "author_label": "Doyle (1990)",
+        "candidates": [],
+        "group": "",
+        "name": "FR-sfn-192",
+        "reference": "<ref name=\"FR-sfn-192\">[[#CITEREFDoyle1990|Doyle (1990)]], pp. 414–415.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "needs_evidence"
+      },
+      {
+        "author_label": "Chisick (1993)",
+        "candidates": [],
+        "group": "",
+        "name": "FR-sfn-193",
+        "reference": "<ref name=\"FR-sfn-193\">[[#CITEREFChisick1993|Chisick (1993)]], pp. 149–166.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "needs_evidence"
+      },
+      {
+        "author_label": "Chapman (2005)",
+        "candidates": [],
+        "group": "",
+        "name": "FR-sfn-194",
+        "reference": "<ref name=\"FR-sfn-194\">[[#CITEREFChapman2005|Chapman (2005)]], pp. 7–12.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "needs_evidence"
+      },
+      {
+        "author_label": "Chisick (1988)",
+        "candidates": [],
+        "group": "",
+        "name": "FR-sfn-195",
+        "reference": "<ref name=\"FR-sfn-195\">[[#CITEREFChisick1988|Chisick (1988)]], pp. 623–645.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "needs_evidence"
+      },
+      {
+        "author_label": "Cerulo (1993)",
+        "candidates": [],
+        "group": "",
+        "name": "FR-sfn-196",
+        "reference": "<ref name=\"FR-sfn-196\">[[#CITEREFCerulo1993|Cerulo (1993)]], pp. 243–271.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "needs_evidence"
+      },
+      {
+        "author_label": "Hanson (2007)",
+        "candidates": [],
+        "group": "",
+        "name": "FR-sfn-197",
+        "reference": "<ref name=\"FR-sfn-197\">[[#CITEREFHanson2007|Hanson (2007)]], p. 151.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "needs_evidence"
+      },
+      {
+        "author_label": "Delon sy Levayer (1989)",
+        "candidates": [],
+        "group": "",
+        "name": "FR-sfn-198",
+        "reference": "<ref name=\"FR-sfn-198\">[[#CITEREFDelonLevayer1989|Delon sy Levayer (1989)]], pp. 153–154.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "needs_evidence"
+      },
+      {
+        "author_label": "Hunt, Martin ary Rosenwein (2003)",
+        "candidates": [],
+        "group": "",
+        "name": "FR-sfn-199",
+        "reference": "<ref name=\"FR-sfn-199\">[[#CITEREFHuntMartinRosenwein2003|Hunt, Martin ary Rosenwein (2003)]], p. 664.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "needs_evidence"
+      },
+      {
+        "author_label": "Crowdy (2004)",
+        "candidates": [],
+        "group": "",
+        "name": "FR-sfn-200",
+        "reference": "<ref name=\"FR-sfn-200\">[[#CITEREFCrowdy2004|Crowdy (2004)]], p. 42.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "needs_evidence"
+      },
+      {
+        "author_label": "Harden (1995)",
+        "candidates": [],
+        "group": "",
+        "name": "FR-sfn-201",
+        "reference": "<ref name=\"FR-sfn-201\">[[#CITEREFHarden1995|Harden (1995)]], pp. 66–102.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "needs_evidence"
+      },
+      {
+        "author_label": "Melzer sy Rabine (1992)",
+        "candidates": [],
+        "group": "",
+        "name": "FR-sfn-202",
+        "reference": "<ref name=\"FR-sfn-202\">[[#CITEREFMelzerRabine1992|Melzer sy Rabine (1992)]], p. 79.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "needs_evidence"
+      },
+      {
+        "author_label": "Levy, Applewhite ary Johnson (1979)",
+        "candidates": [],
+        "group": "",
+        "name": "FR-sfn-203",
+        "reference": "<ref name=\"FR-sfn-203\">[[#CITEREFLevyApplewhiteJohnson1979|Levy, Applewhite ary Johnson (1979)]], pp. 143–149.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "needs_evidence"
+      },
+      {
+        "author_label": "Hufton (1992)",
+        "candidates": [],
+        "group": "",
+        "name": "FR-sfn-204",
+        "reference": "<ref name=\"FR-sfn-204\">[[#CITEREFHufton1992|Hufton (1992)]], pp. 106–107.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "needs_evidence"
+      },
+      {
+        "author_label": "Desan, Hunt ary Nelson (2013)",
+        "candidates": [],
+        "group": "",
+        "name": "FR-sfn-205",
+        "reference": "<ref name=\"FR-sfn-205\">[[#CITEREFDesanHuntNelson2013|Desan, Hunt ary Nelson (2013)]], p. 452.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "needs_evidence"
+      },
+      {
+        "author_label": "Hufton (1998)",
+        "candidates": [],
+        "group": "",
+        "name": "FR-sfn-206",
+        "reference": "<ref name=\"FR-sfn-206\">[[#CITEREFHufton1998|Hufton (1998)]], p. 303.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "needs_evidence"
+      },
+      {
+        "author_label": "Dalton (2001)",
+        "candidates": [],
+        "group": "",
+        "name": "FR-sfn-207",
+        "reference": "<ref name=\"FR-sfn-207\">[[#CITEREFDalton2001|Dalton (2001)]], pp. 262–267.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "needs_evidence"
+      },
+      {
+        "author_label": "Sutherland (2002)",
+        "candidates": [],
+        "group": "",
+        "name": "FR-sfn-208",
+        "reference": "<ref name=\"FR-sfn-208\">[[#CITEREFSutherland2002|Sutherland (2002)]], pp. 1–24.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "needs_evidence"
+      },
+      {
+        "author_label": "Vardi (1988)",
+        "candidates": [],
+        "group": "",
+        "name": "FR-sfn-209",
+        "reference": "<ref name=\"FR-sfn-209\">[[#CITEREFVardi1988|Vardi (1988)]], pp. 704–717.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "needs_evidence"
+      },
+      {
+        "author_label": "Palmer (1986)",
+        "candidates": [],
+        "group": "",
+        "name": "FR-sfn-210",
+        "reference": "<ref name=\"FR-sfn-210\">[[#CITEREFPalmer1986|Palmer (1986)]], pp. 181–197.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "needs_evidence"
+      },
+      {
+        "author_label": "Brezis sy Crouzet (1995)",
+        "candidates": [],
+        "group": "",
+        "name": "FR-sfn-211",
+        "reference": "<ref name=\"FR-sfn-211\">[[#CITEREFBrezisCrouzet1995|Brezis sy Crouzet (1995)]], pp. 7–40.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "needs_evidence"
+      },
+      {
+        "author_label": "Palmer sy Colton (1995)",
+        "candidates": [],
+        "group": "",
+        "name": "FR-sfn-212",
+        "reference": "<ref name=\"FR-sfn-212\">[[#CITEREFPalmerColton1995|Palmer sy Colton (1995)]], p. 341.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "needs_evidence"
+      },
+      {
+        "author_label": "Riemer sy Simon (1997)",
+        "candidates": [],
+        "group": "",
+        "name": "FR-sfn-213",
+        "reference": "<ref name=\"FR-sfn-213\">[[#CITEREFRiemerSimon1997|Riemer sy Simon (1997)]], p. 106.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "needs_evidence"
+      },
+      {
+        "author_label": "Dann sy Dinwiddy (1988)",
+        "candidates": [],
+        "group": "",
+        "name": "FR-sfn-214",
+        "reference": "<ref name=\"FR-sfn-214\">[[#CITEREFDannDinwiddy1988|Dann sy Dinwiddy (1988)]], p. 13.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "needs_evidence"
+      },
+      {
+        "author_label": "Keitner (2007)",
+        "candidates": [],
+        "group": "",
+        "name": "FR-sfn-215",
+        "reference": "<ref name=\"FR-sfn-215\">[[#CITEREFKeitner2007|Keitner (2007)]], p. 12.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "needs_evidence"
+      },
+      {
+        "author_label": "Spang (2003)",
+        "candidates": [],
+        "group": "",
+        "name": "FR-sfn-216",
+        "reference": "<ref name=\"FR-sfn-216\">[[#CITEREFSpang2003|Spang (2003)]], pp. 119–147.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "needs_evidence"
+      },
+      {
+        "author_label": "Hanson (2009)",
+        "candidates": [
+          {
+            "basis": "same_author_label_only",
+            "text": "[[#CITEREFHanson2009|Hanson (2009)]], p. ?."
+          }
+        ],
+        "group": "",
+        "name": "FR-sfn-217",
+        "reference": "<ref name=\"FR-sfn-217\">[[#CITEREFHanson2009|Hanson (2009)]], p. 191.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "candidates_require_review"
+      },
+      {
+        "author_label": "Hanson (2009)",
+        "candidates": [
+          {
+            "basis": "same_author_label_only",
+            "text": "[[#CITEREFHanson2009|Hanson (2009)]], p. ?."
+          }
+        ],
+        "group": "",
+        "name": "FR-sfn-218",
+        "reference": "<ref name=\"FR-sfn-218\">[[#CITEREFHanson2009|Hanson (2009)]], p. 189.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "candidates_require_review"
+      },
+      {
+        "author_label": "Furet, ed., A Critical Dictionary of the French Revolution",
+        "candidates": [],
+        "group": "",
+        "name": "",
+        "reference": "<ref>Furet, ed., ''A Critical Dictionary of the French Revolution'', pp. 479–493.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "needs_evidence"
+      },
+      {
+        "author_label": "Jones (1988)",
+        "candidates": [],
+        "group": "",
+        "name": "FR-sfn-219",
+        "reference": "<ref name=\"FR-sfn-219\">[[#CITEREFJones1988|Jones (1988)]], pp. 251–254, 265.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "needs_evidence"
+      },
+      {
+        "author_label": "Cobban (1964)",
+        "candidates": [],
+        "group": "",
+        "name": "FR-sfn-220",
+        "reference": "<ref name=\"FR-sfn-220\">[[#CITEREFCobban1964|Cobban (1964)]], p. 89.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "needs_evidence"
+      },
+      {
+        "author_label": "Cobban (1964)",
+        "candidates": [],
+        "group": "",
+        "name": "FR-sfn-223",
+        "reference": "<ref name=\"FR-sfn-223\">[[#CITEREFCobban1964|Cobban (1964)]], pp. 68–80.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "needs_evidence"
+      },
+      {
+        "author_label": "Palmer (1970)",
+        "candidates": [],
+        "group": "",
+        "name": "FR-sfn-224",
+        "reference": "<ref name=\"FR-sfn-224\">[[#CITEREFPalmer1970|Palmer (1970)]], p. 459–505.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "needs_evidence"
+      },
+      {
+        "author_label": "Clark (2000)",
+        "candidates": [],
+        "group": "",
+        "name": "FR-sfn-225",
+        "reference": "<ref name=\"FR-sfn-225\">[[#CITEREFClark2000|Clark (2000)]], p. 233.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "needs_evidence"
+      },
+      {
+        "author_label": "Crowe (2005)",
+        "candidates": [],
+        "group": "",
+        "name": "FR-sfn-226",
+        "reference": "<ref name=\"FR-sfn-226\">[[#CITEREFCrowe2005|Crowe (2005)]], p. 93.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "needs_evidence"
+      },
+      {
+        "author_label": "Pelling (2002)",
+        "candidates": [],
+        "group": "",
+        "name": "FR-sfn-227",
+        "reference": "<ref name=\"FR-sfn-227\">[[#CITEREFPelling2002|Pelling (2002)]], pp. 5–10.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "needs_evidence"
+      },
+      {
+        "author_label": "Palmer (1970)",
+        "candidates": [],
+        "group": "",
+        "name": "FR-sfn-228",
+        "reference": "<ref name=\"FR-sfn-228\">[[#CITEREFPalmer1970|Palmer (1970)]], p. 394–421.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "needs_evidence"
+      },
+      {
+        "author_label": "Kossmann (1978)",
+        "candidates": [],
+        "group": "",
+        "name": "FR-sfn-229",
+        "reference": "<ref name=\"FR-sfn-229\">[[#CITEREFKossmann1978|Kossmann (1978)]], pp. 65–81, 101–102.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "needs_evidence"
+      },
+      {
+        "author_label": "Horstboll sy Ostergård (1990)",
+        "candidates": [],
+        "group": "",
+        "name": "FR-sfn-230",
+        "reference": "<ref name=\"FR-sfn-230\">[[#CITEREFHorstbollOstergård1990|Horstboll sy Ostergård (1990)]], pp. 155–179.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "needs_evidence"
+      },
+      {
+        "author_label": "Greenwood (1993)",
+        "candidates": [],
+        "group": "",
+        "name": "FR-sfn-231",
+        "reference": "<ref name=\"FR-sfn-231\">[[#CITEREFGreenwood1993|Greenwood (1993)]], pp. 57–58.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "needs_evidence"
+      },
+      {
+        "author_label": "Greenwood (1993)",
+        "candidates": [],
+        "group": "",
+        "name": "FR-sfn-232",
+        "reference": "<ref name=\"FR-sfn-232\">[[#CITEREFGreenwood1993|Greenwood (1993)]], pp. 65.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "needs_evidence"
+      },
+      {
+        "author_label": "Rudé (1988)",
+        "candidates": [],
+        "group": "",
+        "name": "FR-sfn-233",
+        "reference": "<ref name=\"FR-sfn-233\">[[#CITEREFRudé1988|Rudé (1988)]], pp. 12–14.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "needs_evidence"
+      },
+      {
+        "author_label": "Dupuy (2013)",
+        "candidates": [],
+        "group": "",
+        "name": "FR-sfn-234",
+        "reference": "<ref name=\"FR-sfn-234\">[[#CITEREFDupuy2013|Dupuy (2013)]], pp. 486–487.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "needs_evidence"
+      },
+      {
+        "author_label": "Dupuy (2013)",
+        "candidates": [],
+        "group": "",
+        "name": "FR-sfn-235",
+        "reference": "<ref name=\"FR-sfn-235\">[[#CITEREFDupuy2013|Dupuy (2013)]], pp. 487–488.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "needs_evidence"
+      },
+      {
+        "author_label": "Rudé (1988)",
+        "candidates": [],
+        "group": "",
+        "name": "FR-sfn-236",
+        "reference": "<ref name=\"FR-sfn-236\">[[#CITEREFRudé1988|Rudé (1988)]], pp. 441–442, 444–445.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "needs_evidence"
+      },
+      {
+        "author_label": "Dupuy (2013)",
+        "candidates": [],
+        "group": "",
+        "name": "FR-sfn-237",
+        "reference": "<ref name=\"FR-sfn-237\">[[#CITEREFDupuy2013|Dupuy (2013)]], p. 488.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "needs_evidence"
+      },
+      {
+        "author_label": "Doyle (1990)",
+        "candidates": [],
+        "group": "",
+        "name": "FR-sfn-238",
+        "reference": "<ref name=\"FR-sfn-238\">[[#CITEREFDoyle1990|Doyle (1990)]], p. 440.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "needs_evidence"
+      },
+      {
+        "author_label": "Furet sy Ozouf (1989)",
+        "candidates": [],
+        "group": "",
+        "name": "FR-sfn-239",
+        "reference": "<ref name=\"FR-sfn-239\">[[#CITEREFFuretOzouf1989|Furet sy Ozouf (1989)]], pp. 881–889.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "needs_evidence"
+      },
+      {
+        "author_label": "Rudé (1988)",
+        "candidates": [],
+        "group": "",
+        "name": "FR-sfn-240",
+        "reference": "<ref name=\"FR-sfn-240\">[[#CITEREFRudé1988|Rudé (1988)]], pp. 15–16.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "needs_evidence"
+      },
+      {
+        "author_label": "Rudé (1988)",
+        "candidates": [],
+        "group": "",
+        "name": "FR-sfn-241",
+        "reference": "<ref name=\"FR-sfn-241\">[[#CITEREFRudé1988|Rudé (1988)]], pp. 16–19.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "needs_evidence"
+      },
+      {
+        "author_label": "Dupuy (2013)",
+        "candidates": [],
+        "group": "",
+        "name": "FR-sfn-242",
+        "reference": "<ref name=\"FR-sfn-242\">[[#CITEREFDupuy2013|Dupuy (2013)]], p. 489.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "needs_evidence"
+      },
+      {
+        "author_label": "Rudé (1988)",
+        "candidates": [],
+        "group": "",
+        "name": "FR-sfn-243",
+        "reference": "<ref name=\"FR-sfn-243\">[[#CITEREFRudé1988|Rudé (1988)]], pp. 18–19.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "needs_evidence"
+      },
+      {
+        "author_label": "Doyle (1990)",
+        "candidates": [],
+        "group": "",
+        "name": "FR-sfn-244",
+        "reference": "<ref name=\"FR-sfn-244\">[[#CITEREFDoyle1990|Doyle (1990)]], p. 444.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "needs_evidence"
+      },
+      {
+        "author_label": "Rudé (1988)",
+        "candidates": [],
+        "group": "",
+        "name": "FR-sfn-245",
+        "reference": "<ref name=\"FR-sfn-245\">[[#CITEREFRudé1988|Rudé (1988)]], p. 20.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "needs_evidence"
+      },
+      {
+        "author_label": "Doyle (1990)",
+        "candidates": [],
+        "group": "",
+        "name": "FR-sfn-246",
+        "reference": "<ref name=\"FR-sfn-246\">[[#CITEREFDoyle1990|Doyle (1990)]], p. 445.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "needs_evidence"
+      },
+      {
+        "author_label": "Dupuy (2013)",
+        "candidates": [],
+        "group": "",
+        "name": "FR-sfn-247",
+        "reference": "<ref name=\"FR-sfn-247\">[[#CITEREFDupuy2013|Dupuy (2013)]], p. 490.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "needs_evidence"
+      },
+      {
+        "author_label": "Bell (2004)",
+        "candidates": [],
+        "group": "",
+        "name": "FR-sfn-248",
+        "reference": "<ref name=\"FR-sfn-248\">[[#CITEREFBell2004|Bell (2004)]], pp. 323–351.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "needs_evidence"
+      }
+    ]
+  },
+  "inputs": {
+    "draft": {
+      "path": "draft.wiki",
+      "sha256": "b74eb94de82f419cd47852e0d55eb083c46854dab4abd7d9718ca4863fadddb8"
+    },
+    "source": {
+      "path": "source.wiki",
+      "sha256": "1b2a9e59efdbbf9be98cea0db7ca95f0a2e42ddc0f775671ffc5206894fd9a21"
+    }
+  },
+  "limits": "Literal native/core #tag references and explicit bibliography entries only. Surname matches are candidates, never identified works, editions or quotation antecedents. No repair, external lookup, source-disagreement classification, citation-gate clearance or publication authorization.",
+  "schema": 1,
+  "source": {
+    "empty": false,
+    "references": {
+      "anonymous_count": 17,
+      "conflicts": [],
+      "errors": [],
+      "groups": [
+        ""
+      ],
+      "missing_renderers": [
+        ""
+      ],
+      "named": [
+        {
+          "body": "{{Cite encyclopedia |title=French Immigration in Canada |encyclopedia=The Canadian Encyclopedia |publisher=Historica Canada |url=https://www.thecanadianencyclopedia.ca/en/article/french-immigration-in-canada |access-date=3 January 2020 |date=26 February 2018 |last1=Dupuis |first1=Serge |archive-date=14 August 2021 |archive-url=https://web.archive.org/web/20210814100847/https://www.thecanadianencyclopedia.ca/en/article/french-immigration-in-canada |url-status=live }}",
+          "calls": 3,
+          "group": "",
+          "name": "canimmg2"
+        },
+        {
+          "body": "Censer and Hunt, \"How to Read Images\" LEF CD-ROM.",
+          "calls": 1,
+          "group": "",
+          "name": "censer-hunt"
+        }
+      ],
+      "rendered_groups": [],
+      "undefined": []
+    },
+    "short_citations": [
+      {
+        "author_label": "Aulard in Arthur Tilley, ed. (1922)",
+        "candidates": [],
+        "group": "",
+        "name": "",
+        "reference": "<ref>Aulard in Arthur Tilley, ed. (1922) p. 115.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "needs_evidence"
+      },
+      {
+        "author_label": "Furet, ed., A Critical Dictionary of the French Revolution",
+        "candidates": [],
+        "group": "",
+        "name": "",
+        "reference": "<ref>Furet, ed., ''A Critical Dictionary of the French Revolution'', pp. 479–493.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "needs_evidence"
+      },
+      {
+        "author_label": "Graham",
+        "candidates": [],
+        "group": "",
+        "name": "",
+        "reference": "<ref>Graham, pp. 297–298.</ref>",
+        "shorthand": "author_page_locator",
+        "status": "needs_evidence"
+      }
+    ]
+  },
+  "status": "review_required"
+}

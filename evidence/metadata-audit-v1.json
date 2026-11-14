@@ -1,0 +1,241 @@
+{
+  "artifacts": {},
+  "draft": "draft.wiki",
+  "draft_sha256": "b74eb94de82f419cd47852e0d55eb083c46854dab4abd7d9718ca4863fadddb8",
+  "expansions": [],
+  "files": [
+    {
+      "filename": "Anonymous - Prise de la Bastille.jpg",
+      "license_approved": false,
+      "metadata": []
+    },
+    {
+      "filename": "Attaque de la Convention nationale, 1790.jpg",
+      "license_approved": false,
+      "metadata": []
+    },
+    {
+      "filename": "Bouchot - Le general Bonaparte au Conseil des Cinq-Cents.jpg",
+      "license_approved": false,
+      "metadata": []
+    },
+    {
+      "filename": "Chérieux - Club des femmes patriotes dans une église - 1793.jpg",
+      "license_approved": false,
+      "metadata": []
+    },
+    {
+      "filename": "Cruikshank - The Radical's Arms.png",
+      "license_approved": false,
+      "metadata": []
+    },
+    {
+      "filename": "Death of Marat by David.jpg",
+      "license_approved": false,
+      "metadata": []
+    },
+    {
+      "filename": "Decret de l'Assemblée National qui supprime les Ordres Religieux et Religieuses.jpg",
+      "license_approved": false,
+      "metadata": []
+    },
+    {
+      "filename": "Execution of Louis XVI.jpg",
+      "license_approved": false,
+      "metadata": []
+    },
+    {
+      "filename": "Execution robespierre, saint just....jpg",
+      "license_approved": false,
+      "metadata": []
+    },
+    {
+      "filename": "Federation.jpg",
+      "license_approved": false,
+      "metadata": []
+    },
+    {
+      "filename": "Fire in Saint-Domingo 1791, German copper engraving.jpg",
+      "license_approved": false,
+      "metadata": []
+    },
+    {
+      "filename": "France-500Livres-1790-uni.jpg",
+      "license_approved": false,
+      "metadata": []
+    },
+    {
+      "filename": "Georges Danton.jpg",
+      "license_approved": false,
+      "metadata": []
+    },
+    {
+      "filename": "Georges Lefebvre.jpg",
+      "license_approved": false,
+      "metadata": []
+    },
+    {
+      "filename": "Hippolyte Taine cropped.png",
+      "license_approved": false,
+      "metadata": []
+    },
+    {
+      "filename": "Jacques Bertaux - Der Tuileriensturm am 10. August 1792.jpg",
+      "license_approved": false,
+      "metadata": []
+    },
+    {
+      "filename": "L'Ami du peuple 1.jpg",
+      "license_approved": false,
+      "metadata": []
+    },
+    {
+      "filename": "La Bataille du Pont d'Arcole.jpg",
+      "license_approved": false,
+      "metadata": []
+    },
+    {
+      "filename": "La Marseillaise.ogg",
+      "license_approved": false,
+      "metadata": []
+    },
+    {
+      "filename": "Marche-des-marseillois.jpg",
+      "license_approved": false,
+      "metadata": []
+    },
+    {
+      "filename": "Octobre 1793, supplice de 9 émigrés.jpg",
+      "license_approved": false,
+      "metadata": []
+    },
+    {
+      "filename": "Olympe de Gouges.png",
+      "license_approved": false,
+      "metadata": []
+    },
+    {
+      "filename": "Parliaments and Sovereign Councils of the Kingdom of France in 1789 (fr).png",
+      "license_approved": false,
+      "metadata": []
+    },
+    {
+      "filename": "Paul Barras directeur.jpg",
+      "license_approved": false,
+      "metadata": []
+    },
+    {
+      "filename": "Prise de la Bastille.jpg",
+      "license_approved": false,
+      "metadata": []
+    },
+    {
+      "filename": "Retour Varennes 1791.jpg",
+      "license_approved": false,
+      "metadata": []
+    },
+    {
+      "filename": "Sans-culotte.jpg",
+      "license_approved": false,
+      "metadata": []
+    },
+    {
+      "filename": "Serment du Jeu de Paume - Jacques-Louis David.jpg",
+      "license_approved": false,
+      "metadata": []
+    },
+    {
+      "filename": "Troisordres.jpg",
+      "license_approved": false,
+      "metadata": []
+    },
+    {
+      "filename": "Valmy Battle painting.jpg",
+      "license_approved": false,
+      "metadata": []
+    }
+  ],
+  "limits": "Caller-supplied pinned evidence, not fresh availability or authenticated origin by itself. Conflicting versions retained, never silently selected. Missing local description pages do not disprove shared-file availability. Review license restrictions, exact call/file mapping, template contracts and final guarded render separately. No resource fetch or gate clearance.",
+  "schema": 1,
+  "status": "review_required",
+  "templates": [
+    {
+      "call": "{{lahatsoratra antsipirihany|Antony nahatonga ny Revôlisiôna frantsay}}",
+      "core_parser_function": false,
+      "metadata": [],
+      "parameter_contract_approved": false
+    },
+    {
+      "call": "{{lahatsoratra antsipirihany|Fivorian' ny solontenan' ny saranga telo tany Frantsa tamin' ny 1789}}",
+      "core_parser_function": false,
+      "metadata": [],
+      "parameter_contract_approved": false
+    },
+    {
+      "call": "{{lahatsoratra antsipirihany|Revôlisiôna frantsay nanomboka tamin' ny fahavaratra 1790 ka hatramin' ny fananganana ny Antenimiera mpanao lalàna}}",
+      "core_parser_function": false,
+      "metadata": [],
+      "parameter_contract_approved": false
+    },
+    {
+      "call": "{{lahatsoratra antsipirihany|Fandosirana tany Varennes}}",
+      "core_parser_function": false,
+      "metadata": [],
+      "parameter_contract_approved": false
+    },
+    {
+      "call": "{{lahatsoratra antsipirihany|Louis XVI sy ny Antenimiera mpanao lalàna}}",
+      "core_parser_function": false,
+      "metadata": [],
+      "parameter_contract_approved": false
+    },
+    {
+      "call": "{{lahatsoratra antsipirihany|Fihemorana ara-pôlitika tamin' ny Thermidor}}",
+      "core_parser_function": false,
+      "metadata": [],
+      "parameter_contract_approved": false
+    },
+    {
+      "call": "{{lahatsoratra antsipirihany|Adin' ny Revôlisiôna frantsay}}",
+      "core_parser_function": false,
+      "metadata": [],
+      "parameter_contract_approved": false
+    },
+    {
+      "call": "{{lahatsoratra antsipirihany|Fampiasana tandindona tamin' ny Revôlisiôna frantsay}}",
+      "core_parser_function": false,
+      "metadata": [],
+      "parameter_contract_approved": false
+    },
+    {
+      "call": "{{lahatsoratra antsipirihany|Vehivavy tamin' ny Revôlisiôna frantsay}}",
+      "core_parser_function": false,
+      "metadata": [],
+      "parameter_contract_approved": false
+    },
+    {
+      "call": "{{lahatsoratra antsipirihany|Feminisma miady tamin' ny Revôlisiôna frantsay}}",
+      "core_parser_function": false,
+      "metadata": [],
+      "parameter_contract_approved": false
+    },
+    {
+      "call": "{{lahatsoratra antsipirihany|Fiantraikan' ny Revôlisiôna frantsay}}",
+      "core_parser_function": false,
+      "metadata": [],
+      "parameter_contract_approved": false
+    },
+    {
+      "call": "{{lahatsoratra antsipirihany|Fandalinana ny fanoratana ny tantaran' ny Revôlisiôna frantsay}}",
+      "core_parser_function": false,
+      "metadata": [],
+      "parameter_contract_approved": false
+    },
+    {
+      "call": "{{lahatsoratra antsipirihany|Lisitry ny asa soratra momba ny Revôlisiôna frantsay}}",
+      "core_parser_function": false,
+      "metadata": [],
+      "parameter_contract_approved": false
+    }
+  ]
+}

@@ -43,7 +43,9 @@ actual translation/edit request permits checked Bot-Jagwar sandbox publication;
 inherit draft-only/no-save and every narrower user limit exactly.
 
 Disk-first staging: handoffs, notes, review evidence and receipts are the
-authoritative state; conversation is not. After each accepted section batch and
+authoritative state; conversation is not. Query knowledge-index before planning;
+record reviewed general tips in translation-memory.json; shared tips are advisory.
+After each accepted section batch and
 before whole-article review, persist status to those artifacts and let compaction
 trim the transcript. Re-read required pinned artifacts after compaction; never
 treat a compacted summary as review evidence or a confirmed save receipt.

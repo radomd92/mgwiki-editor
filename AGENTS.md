@@ -193,6 +193,9 @@ Potential blockers → runs/<job>/deferred-issues.md (runs/<run-id>/ before init
 stable IDs, evidence/errors, affected tasks/dependencies, retained work, next
 action, resolution history. Continue independent tasks; blocked dependencies
 remain blocked. Link memo in notes.wiki/final handoff; retain after rebase/save.
+Reviewed general tips go in runs/<job>/translation-memory.json and
+knowledge-promote; shared data/translation-memory is advisory, not evidence;
+no article prose or secrets; article-specific tips stay job-local.
 Later assign explicit issue IDs/local evidence to mgwiki-issues-solver;
 it writes only assigned runs/<job>/issue-resolutions/<issue-id>.md proposals.
 Coordinator alone accepts fixes, updates shared evidence, delegates article

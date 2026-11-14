@@ -23,6 +23,7 @@ from .core import (
     prepare,
     publish,
 )
+from .knowledge import knowledge_index, promote_memory
 from .licenses import file_name, license_evidence, license_report
 from .links import build_link_map
 from .memos import dictionary_index, pack_vocabulary, vocabulary_report, vocabulary_view
@@ -109,6 +110,31 @@ def parser() -> argparse.ArgumentParser:
         action="store_true",
         help="Exit nonzero when candidates need review",
     )
+    promote = commands.add_parser(
+        "knowledge-promote",
+        help="Promote reviewed general translation tips from a job; never edits articles",
+    )
+    promote.add_argument("--job", type=Path, required=True)
+    promote.add_argument("--memory", type=Path, required=True)
+    promote.add_argument(
+        "--output-dir",
+        type=Path,
+        default=Path("data/translation-memory/entries"),
+        help="Destination directory for new entry files",
+    )
+    knowledge = commands.add_parser(
+        "knowledge-index",
+        help="List shared reviewed translation tips; advisory only",
+    )
+    knowledge.add_argument(
+        "--root",
+        type=Path,
+        default=Path("data/translation-memory/entries"),
+    )
+    knowledge.add_argument("--domain")
+    knowledge.add_argument("--language")
+    knowledge.add_argument("--query")
+    knowledge.add_argument("--output", type=Path)
     validate = commands.add_parser(
         "validate",
         help="Offline structural lint; not translation review",
@@ -387,6 +413,8 @@ def main(argv: list[str] | None = None) -> int:
                 "offline-audit",
                 "transcription-audit",
                 "terminology-audit",
+                "knowledge-promote",
+                "knowledge-index",
                 "evidence-pin",
                 "evidence-verify",
                 "json-slice",
@@ -442,6 +470,15 @@ def main(argv: list[str] | None = None) -> int:
             result = audit_transcription(args.draft)
         elif args.command == "terminology-audit":
             result = audit_terminology(args.job, args.draft)
+        elif args.command == "knowledge-promote":
+            result = promote_memory(args.job, args.memory, args.output_dir)
+        elif args.command == "knowledge-index":
+            result = knowledge_index(
+                args.root,
+                domain=args.domain,
+                language=args.language,
+                query=args.query,
+            )
         elif args.command == "sections-plan":
             result = plan_sections(
                 args.job, ranges=args.ranges, level=args.level, group_max_bytes=args.group_max_bytes

@@ -34,6 +34,8 @@ see [NOTICE](../NOTICE).
 * .opencode/skills/mgwiki-edition/SKILL.md: required edition workflow.
 * .opencode/skills/mg-vocab/SKILL.md: evidence-backed vocabulary memo procedure.
 * docs/edition-protocol.md: full new/existing article edition protocol.
+* docs/translation-memory.md: job-local notes and reviewed shared tips.
+* data/translation-memory/: append-only reviewed general tips; advisory only.
 * docs/prompts/malagasy-translation-prompt.txt: standalone translation prompt.
 * mgwiki_editor/: Pywikibot CLI, dictionary client, validation, proposal, and save.
 * mgwiki_editor/network.py: shared pacing, overload cooldowns, API-only transport.
@@ -54,7 +56,8 @@ docs/legacy-script-patterns.md. Not active workflow. No new root-level recipes.
 Cached links/dictionary/vocabulary: links-build, dictionary-index, vocabulary-report.
 Shared evidence/write guards: mgwiki_editor/artifacts.py. Reports never approve review.
 Citation/metadata/rendering checks: docs/editorial-checks.md. Offline citation-audit,
-metadata-audit, transcription-audit; scoped template-info/source-expand/render-check
+metadata-audit, transcription-audit; reviewed shared tips: knowledge-index and
+knowledge-promote (docs/translation-memory.md); scoped template-info/source-expand/render-check
 broker actions;
 license-evidence for guarded live rights metadata, license-report for cached claims;
 control doctor for optional broker prerequisites. No automatic evidence/gate clearance.

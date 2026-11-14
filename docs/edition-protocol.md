@@ -449,6 +449,12 @@ before saving. Do not blindly retry; inspect the page once through the paced
 gateway and reconcile only if exact saved bytes and state can be established.
 Otherwise record unconfirmed/blocked status and stop without questions.
 
+Before handoff, review `translation-memory.json`: keep article-specific guidance
+local; mark only source-independent reusable tips `reviewed` with `scope=general`.
+Promote them with `knowledge-promote` after successful save; shared tips are
+advisory, never policy or evidence. Include no article prose, secrets or private
+paths. Failed or blocked jobs may still retain candidates for later review.
+
 Return a short caveman ultra plain-text/Markdown sandbox URL and confirmed status;
 include the source-issues.md path/count when issues remain. Only an explicitly
 requested raw Malagasy article uses wikitext. Never claim mainspace was updated.

@@ -731,7 +731,7 @@ def initialize(
 
 
 ARTIFACTS = ("job.json", "draft.wiki", "review.json", "notes.wiki", "vocabulary.json")
-OPTIONAL_ARTIFACTS = ("source-issues.md", "editorial-state.json")
+OPTIONAL_ARTIFACTS = ("source-issues.md", "editorial-state.json", "translation-memory.json")
 
 
 def artifact_hashes(job: Path) -> dict[str, str]:

@@ -40,6 +40,8 @@ assignment defines your offline role. Coordinator retains the complete protocol.
 Apply every Malagasy prose, name, citation, image, internal-link, category-safety,
 and article-wikitext rule. Do not compress encyclopedia prose. Use MediaWiki
 wikitext only for Malagasy translation/article content in section.wiki.
+Put reusable general tips in notes.wiki for coordinator promotion; never write
+shared memory or other job files.
 Main/Main article/Further/Details hatnotes:
 {{lahatsoratra antsipirihany|Target}}, one call per verified Malagasy target,
 in order; never English. Unresolved targets go to coordinator review.

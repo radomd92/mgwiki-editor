@@ -106,6 +106,8 @@ Potential blockers go in runs/<job>/deferred-issues.md, separate from article an
 nonblocking source-issues.md; record stable IDs, evidence/errors, dependencies,
 retained work and next action. Continue independent tasks; only blocked dependent
 work stops. Link memo from notes.wiki/final handoff, retain history after rebase.
+Reusable tips: query knowledge-index before planning; record reviewed general tips
+in runs/<job>/translation-memory.json; promote only reviewed general entries.
 Later delegate explicit issue IDs/local evidence to mgwiki-issues-solver;
 exclusive output: runs/<job>/issue-resolutions/<issue-id>.md. You alone accept
 proposals/update shared files and delegate article corrections to mgwiki-section.

@@ -118,7 +118,7 @@ approval flag is used.
 docs/              protocol, policy, recovery, workflow and usage documentation
 mgwiki_editor/     CLI, transport guards, evidence, validation, proposal, save
 tests/             offline regression suite with fake service boundaries
-data/              cached country names and the Kajy mathematics glossary
+data/              cached names, glossary, reviewed translation tips
 scripts/           vocabulary builders and historical article recipes
 evidence/          example cached audit and lookup evidence
 ```
@@ -136,6 +136,7 @@ evidence/          example cached audit and lookup evidence
 | [`docs/broker-deployment.md`](docs/broker-deployment.md) | Optional broker deployment and isolation |
 | [`docs/script-workflow.md`](docs/script-workflow.md) | Reusable scripts versus historical recipes |
 | [`docs/legacy-script-patterns.md`](docs/legacy-script-patterns.md) | What to reuse from the historical article scripts |
+| [`docs/translation-memory.md`](docs/translation-memory.md) | Job-local notes and reviewed shared translation tips |
 | [`docs/prompts/malagasy-translation-prompt.txt`](docs/prompts/malagasy-translation-prompt.txt) | Standalone model-agnostic translation prompt |
 | [`AGENTS.md`](AGENTS.md) | Project policy that binds every agent role |
 

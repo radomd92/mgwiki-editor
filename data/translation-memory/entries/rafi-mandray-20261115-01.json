@@ -1,0 +1,17 @@
+{
+  "domain": "existing sandbox repair",
+  "evidence": [],
+  "guidance": "Compare the source and draft image inventories by filename, then search the draft for leftover caption text without a File: line before concluding the section is complete.",
+  "id": "rafi-mandray-20261115-01",
+  "problem": "A damaged sandbox translation can lose a whole image while leaving its caption behind as a stray prose line (for example 'Jereo koa: <caption>'), which hides the coverage gap.",
+  "promoted_at": "2026-11-15T20:24:31.865696+00:00",
+  "review_reason": "Observed and fixed here: File:Earcov.JPG was missing and its caption had become an orphan 'Jereo koa' bullet.",
+  "reviewed": true,
+  "scope": "general",
+  "source_job": "rafi-mandray-fix-20261115",
+  "source_language": "en",
+  "source_memory_sha256": "03c093c1c96881f9014e3e226a3d370588b2724c4f937c72a8efa76bca6fbac2",
+  "source_sections": [],
+  "status": "reviewed",
+  "target_language": "mg"
+}

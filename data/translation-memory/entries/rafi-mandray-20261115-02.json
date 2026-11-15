@@ -1,0 +1,17 @@
+{
+  "domain": "templates",
+  "evidence": [],
+  "guidance": "Resolve the template redirect once (Endrika:Lahatsoratra antsipirihany -> Endrika:Article détaillé here) and read the target body to confirm it renders [[{{{1}}}]] before dispatching section workers.",
+  "id": "rafi-mandray-20261115-02",
+  "problem": "A Malagasy hatnote template name may be a redirect, so checking only its existence does not prove the positional parameter contract.",
+  "promoted_at": "2026-11-15T20:24:31.866288+00:00",
+  "review_reason": "Verified via two read-only queries before the six hatnote calls were accepted.",
+  "reviewed": true,
+  "scope": "general",
+  "source_job": "rafi-mandray-fix-20261115",
+  "source_language": "en",
+  "source_memory_sha256": "03c093c1c96881f9014e3e226a3d370588b2724c4f937c72a8efa76bca6fbac2",
+  "source_sections": [],
+  "status": "reviewed",
+  "target_language": "mg"
+}

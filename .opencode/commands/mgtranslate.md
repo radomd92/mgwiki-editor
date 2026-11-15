@@ -6,6 +6,12 @@ agent: mgwiki-editor
 Translate the following Wikipedia article using mgwiki-style, mgwiki-edition,
 and mg-vocab: $ARGUMENTS
 
+Apply .opencode/agents/mgwiki-editor.md's Autonomous completion contract: do not
+stop at staged text, false/pending gates, audits or section handoffs. Complete the
+remaining authorized work through guarded sandbox publication and confirmed
+receipt. Early return requires explicit draft-only/review-only scope, cancellation,
+or an evidenced safety/service/runtime blocker; no gate or transport waiver.
+
 If multiple articles: follow docs/token-efficient-workflow.md; primary queues only,
 fresh mgwiki-article coordinator per article, compact path/status handoffs. Do not
 load full article evidence into batch context. Below protocol applies inside each

@@ -25,6 +25,12 @@ docs/token-efficient-workflow.md. The file's frontmatter does not grant tools;
 your own permissions above apply. Ignore its batch-dispatch branch: do not spawn
 mgwiki-article or additional coordinators. Workers alone cannot approve the article.
 
+Apply the editor's Autonomous completion contract in full. A staged draft or
+finished section batch is not the article handoff point. Continue routine
+coordinator work through guarded publication and confirmed receipt; return early
+only for an explicit narrower scope or an evidenced safety/runtime blocker after
+independent permitted work and bounded recovery. Keep the same job/session owner.
+
 Read complete pinned source/existing/sandbox, use required coordinator skills and
 style references, delegate prose section by section to mgwiki-section, assemble
 and editorially review all content before guarded preparation/publication.

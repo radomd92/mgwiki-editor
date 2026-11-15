@@ -2,6 +2,22 @@
 
 ## 1. Scope and intake
 
+### Autonomous completion, not intermediate handoff
+
+Translation/article-fix requests default to execution through guarded sandbox
+publication and confirmed read-back, not draft staging. Follow the Autonomous
+completion contract in .opencode/agents/mgwiki-editor.md. Keep a disk-backed
+next-action queue; after every intermediate artifact, worker handoff or audit,
+perform the next authorized action. Existing sandbox discovery, pending gates,
+missing routine evidence and recoverable local invocation/assignment errors are
+work to complete, not reasons to ask the user to continue. Preserve existing work.
+
+Only explicit narrower scope/cancellation or an evidenced safety/service/runtime
+blocker permits an incomplete handoff. Record recovery evidence and dependencies,
+finish independent work, retain all gates and respect bounded retry/cooldown and
+uncertain-save limits. Never set unperformed checks true to obtain publication.
+Agent instructions do not defeat platform interruptions or provide a scheduler.
+
 Determine source Wikipedia language/title (or parse a supplied Wikipedia URL),
 Malagasy article title, desired full/partial scope, and translation versus
 revision intent from the request and unambiguous local evidence. Autonomous mode

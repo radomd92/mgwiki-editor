@@ -1,0 +1,15 @@
+{
+  "domain": "workflow",
+  "evidence": [],
+  "guidance": "Query local Template:/Endrika: and category titles once per job before delegating; convert unsupported citation templates to supported ones preserving every field.",
+  "id": "robot-20261115-01",
+  "problem": "Unsupported citation/category templates discovered only at render time block or degrade the draft.",
+  "promoted_at": "2026-11-15T16:58:41.786505+00:00",
+  "scope": "general",
+  "source_job": "robot-20261115",
+  "source_language": "en",
+  "source_memory_sha256": "ba431511f5551d510872384e8518c22551ba9fba15710be4ef3c7b04c7cd1ca2",
+  "source_sections": [],
+  "status": "reviewed",
+  "target_language": "mg"
+}

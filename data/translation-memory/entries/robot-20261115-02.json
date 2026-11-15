@@ -1,0 +1,15 @@
+{
+  "domain": "workflow",
+  "evidence": [],
+  "guidance": "Write exact literal tails of over-limit lines into sections/<id>/long-line-tails.md before dispatch; never reflow the pinned fragment.",
+  "id": "robot-20261115-02",
+  "problem": "Source lines longer than the read-tool limit block offline section workers.",
+  "promoted_at": "2026-11-15T16:58:41.786842+00:00",
+  "scope": "general",
+  "source_job": "robot-20261115",
+  "source_language": "en",
+  "source_memory_sha256": "ba431511f5551d510872384e8518c22551ba9fba15710be4ef3c7b04c7cd1ca2",
+  "source_sections": [],
+  "status": "reviewed",
+  "target_language": "mg"
+}

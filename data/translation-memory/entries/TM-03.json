@@ -1,0 +1,15 @@
+{
+  "domain": "save verification",
+  "evidence": [],
+  "guidance": "Reconcile with a prefix-equality check plus API revision metadata (user, comment, timestamp, parentid) before declaring an uncertain save; never resubmit blindly.",
+  "id": "TM-03",
+  "problem": "MediaWiki does not store a final trailing newline, so strict read-back can differ from the prepared draft by exactly one byte.",
+  "promoted_at": "2026-11-14T23:21:57.120923+00:00",
+  "scope": "general",
+  "source_job": "loko-20261114",
+  "source_language": "en",
+  "source_memory_sha256": "ad58f3404801e3de0b83f3805d5cba89811a4921b4e1e222bf0e2c69312be517",
+  "source_sections": [],
+  "status": "reviewed",
+  "target_language": "mg"
+}

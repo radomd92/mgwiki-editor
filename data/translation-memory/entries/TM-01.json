@@ -1,0 +1,15 @@
+{
+  "domain": "section workflow",
+  "evidence": [],
+  "guidance": "Give the worker a folded copy (fold -s -w 900) inside its own section directory and have it patch only the affected spans; never accept a truncated section.",
+  "id": "TM-01",
+  "problem": "Very long wikitext lines exceed the read tool's 2000-character display cap; a section worker can miss clause tails.",
+  "promoted_at": "2026-11-14T23:21:57.120073+00:00",
+  "scope": "general",
+  "source_job": "loko-20261114",
+  "source_language": "en",
+  "source_memory_sha256": "ad58f3404801e3de0b83f3805d5cba89811a4921b4e1e222bf0e2c69312be517",
+  "source_sections": [],
+  "status": "reviewed",
+  "target_language": "mg"
+}

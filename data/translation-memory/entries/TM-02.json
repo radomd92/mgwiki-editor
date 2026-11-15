@@ -1,0 +1,15 @@
+{
+  "domain": "templates",
+  "evidence": [],
+  "guidance": "Verify each citation/hatnote template with one API query before assigning citations, and test-render one example call to confirm parameter support.",
+  "id": "TM-02",
+  "problem": "On mg.wikipedia the Template namespace is Endrika, not Modely; guessing template names breaks citations.",
+  "promoted_at": "2026-11-14T23:21:57.120569+00:00",
+  "scope": "general",
+  "source_job": "loko-20261114",
+  "source_language": "en",
+  "source_memory_sha256": "ad58f3404801e3de0b83f3805d5cba89811a4921b4e1e222bf0e2c69312be517",
+  "source_sections": [],
+  "status": "reviewed",
+  "target_language": "mg"
+}

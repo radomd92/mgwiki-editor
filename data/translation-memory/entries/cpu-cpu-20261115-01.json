@@ -1,0 +1,15 @@
+{
+  "domain": "job setup",
+  "evidence": [],
+  "guidance": "Pass --existing-title explicitly and confirm the mg target with one batched prop=langlinks&lllang=mg query (Wiki.link_targets) instead of langlinks() enumeration.",
+  "id": "cpu-cpu-20261115-01",
+  "problem": "Pywikibot page.langlinks() enumerates every language site (one request per wiki) and can blow a bounded init timeout on a large article.",
+  "promoted_at": "2026-11-15T18:41:50.135833+00:00",
+  "scope": "general",
+  "source_job": "cpu-cpu-20261115",
+  "source_language": "en",
+  "source_memory_sha256": "10a474dbaa89b4959ea04c3f0e8a2fb4a4b6a34ce8f2937ba6c1b0530c241fd6",
+  "source_sections": [],
+  "status": "reviewed",
+  "target_language": "mg"
+}

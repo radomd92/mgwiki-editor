@@ -1,0 +1,15 @@
+{
+  "domain": "citations",
+  "evidence": [],
+  "guidance": "On conversion keep url + archive-url + access-date in the plain text; when coverage flags URLs, normalize scheme and trailing punctuation before concluding anything is missing, then restore only genuine losses.",
+  "id": "cpu-cpu-20261115-03",
+  "problem": "Converting {{cite book}}/{{cite journal}} to plain-text refs silently drops archive-url/access-date, and coverage reports the URLs as missing even when a scheme or trailing period differs.",
+  "promoted_at": "2026-11-15T18:41:50.136915+00:00",
+  "scope": "general",
+  "source_job": "cpu-cpu-20261115",
+  "source_language": "en",
+  "source_memory_sha256": "10a474dbaa89b4959ea04c3f0e8a2fb4a4b6a34ce8f2937ba6c1b0530c241fd6",
+  "source_sections": [],
+  "status": "reviewed",
+  "target_language": "mg"
+}

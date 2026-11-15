@@ -1,0 +1,17 @@
+{
+  "domain": "mgwiki workflow",
+  "evidence": [
+    "notes.wiki"
+  ],
+  "guidance": "Copy verified link/target evidence into the job and pass job-relative paths, or verify internal-link coverage centrally in the coordinator before assembly.",
+  "id": "worker-external-dir-permission",
+  "problem": "Offline mgwiki-section workers cannot read files outside the job directory (external_directory permission denied), so link/target evidence kept in /tmp is invisible to them.",
+  "promoted_at": "2026-11-15T19:02:48.215650+00:00",
+  "scope": "general",
+  "source_job": "zava-misy-fix-20261115",
+  "source_language": "en",
+  "source_memory_sha256": "4ee4e33b37598ba621498ee8c509b99c1ad87ccc49c1ea69b12e2c0ec80a1e12",
+  "source_sections": [],
+  "status": "reviewed",
+  "target_language": "mg"
+}

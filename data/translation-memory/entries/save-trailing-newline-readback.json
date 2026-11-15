@@ -1,0 +1,17 @@
+{
+  "domain": "mgwiki workflow",
+  "evidence": [
+    "receipt.json"
+  ],
+  "guidance": "Reconcile with one paced read of the destination, compare the saved text to draft.rstrip('\\n'), and record the normalization in receipt.json instead of retrying the write.",
+  "id": "save-trailing-newline-readback",
+  "problem": "MediaWiki can strip the single trailing newline on save, so publish's byte read-back differs by one byte and reports an unconfirmed save for identical content.",
+  "promoted_at": "2026-11-15T19:02:48.215998+00:00",
+  "scope": "general",
+  "source_job": "zava-misy-fix-20261115",
+  "source_language": "en",
+  "source_memory_sha256": "4ee4e33b37598ba621498ee8c509b99c1ad87ccc49c1ea69b12e2c0ec80a1e12",
+  "source_sections": [],
+  "status": "reviewed",
+  "target_language": "mg"
+}

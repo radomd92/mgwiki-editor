@@ -1,0 +1,15 @@
+{
+  "domain": "section handoff",
+  "evidence": [],
+  "guidance": "In the worker brief require evidence paths as ../../evidence/<file>; after handoff, re-run a small normalizer that rewrites any job-relative name to ../../<name> and verifies each file exists inside the job.",
+  "id": "cpu-cpu-20261115-02",
+  "problem": "Section workers naturally write job-relative evidence paths in section vocabulary.json, which sections-assemble rejects (it resolves them section-relative).",
+  "promoted_at": "2026-11-15T18:41:50.136529+00:00",
+  "scope": "general",
+  "source_job": "cpu-cpu-20261115",
+  "source_language": "en",
+  "source_memory_sha256": "10a474dbaa89b4959ea04c3f0e8a2fb4a4b6a34ce8f2937ba6c1b0530c241fd6",
+  "source_sections": [],
+  "status": "reviewed",
+  "target_language": "mg"
+}

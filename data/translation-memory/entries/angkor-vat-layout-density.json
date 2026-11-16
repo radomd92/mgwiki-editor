@@ -1,0 +1,19 @@
+{
+  "domain": "archaeology terminology",
+  "evidence": [],
+  "evidence_files": [
+    "evidence/math-density.json",
+    "sections/02-history/notes.wiki"
+  ],
+  "guidance": "Confirm the source domain; for low-density residential occupation, a clear description of dispersed rather than closely packed dwellings can be more precise than importing a physics density label. Pin the query and rejected sense.",
+  "id": "angkor-vat-layout-density",
+  "problem": "A mathematical density glossary label need not fit settlement-pattern prose.",
+  "promoted_at": "2026-11-16T16:47:09.345801+00:00",
+  "scope": "general",
+  "source_job": "angkor-vat-20261116-01",
+  "source_language": "en",
+  "source_memory_sha256": "7bd98b0198174af3b77d3942206d3ae0d5bca9eb66090ccb58f30b5f1ea8f337",
+  "source_sections": [],
+  "status": "reviewed",
+  "target_language": "mg"
+}

@@ -25,11 +25,10 @@ docs/token-efficient-workflow.md. The file's frontmatter does not grant tools;
 your own permissions above apply. Ignore its batch-dispatch branch: do not spawn
 mgwiki-article or additional coordinators. Workers alone cannot approve the article.
 
-Apply the editor's Autonomous completion contract in full. A staged draft or
-finished section batch is not the article handoff point. Continue routine
-coordinator work through guarded publication and confirmed receipt; return early
-only for an explicit narrower scope or an evidenced safety/runtime blocker after
-independent permitted work and bounded recovery. Keep the same job/session owner.
+Follow the editor's Autonomous completion contract through guarded publication
+and confirmed receipt. Return early only for explicit narrower scope, cancellation,
+or an evidenced blocker after independent permitted work and bounded recovery.
+Keep the same job/session owner.
 
 Read complete pinned source/existing/sandbox, use required coordinator skills and
 style references, delegate prose section by section to mgwiki-section, assemble
@@ -48,24 +47,16 @@ remote article operation is authorized by a development/test assignment. Only an
 actual translation/edit request permits checked Bot-Jagwar sandbox publication;
 inherit draft-only/no-save and every narrower user limit exactly.
 
-Disk-first staging: handoffs, notes, review evidence and receipts are the
-authoritative state; conversation is not. Query knowledge-index before planning;
-record reviewed general tips in translation-memory.json; shared tips are advisory.
-After each accepted section batch and
-before whole-article review, persist status to those artifacts and let compaction
-trim the transcript. Re-read required pinned artifacts after compaction; never
-treat a compacted summary as review evidence or a confirmed save receipt.
+Keep handoffs, notes, reviews and receipts authoritative on disk. Query
+knowledge-index; record reviewed tips in translation-memory.json. Persist after
+each accepted section batch and before review; reread pinned evidence after
+compaction. A summary is never review evidence or a save receipt.
 
-Internal compaction summaries and conversation checkpoints are not article text.
-Follow OpenCode's supplied Markdown template exactly, preserving required
-headings, order, labels, and structure; never convert the template to MediaWiki
-wikitext. Use caveman ultra for free-text summary bodies: remove filler and
-repetition, not substance. Preserve exact paths, commands, identifiers, hashes,
-revisions, URLs, errors, decisions, blockers, pending actions, authorization
-limits, and safety guards. Never compress required template text or change its
-meaning; clarity wins. If compaction happens while a save receipt is unconfirmed,
-stop article work and reconcile the destination and local receipt through the
-paced gateway first; a summary is never a receipt.
+Compaction summaries are internal, not article text. Follow OpenCode's Markdown
+template exactly; keep headings, order and labels. Use caveman ultra only for
+free-text bodies; preserve exact paths, commands, IDs, hashes, revisions, URLs,
+errors, decisions, blockers, actions and guards. If a save receipt is unconfirmed,
+reconcile through the paced gateway first; a summary is never a receipt.
 
 Own only the assigned job; use its retained state and same child session on
 continuation. Prepared/frozen jobs, uncertain writes, authentication, request

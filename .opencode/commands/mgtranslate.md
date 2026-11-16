@@ -6,32 +6,19 @@ agent: mgwiki-editor
 Translate the following Wikipedia article using mgwiki-style, mgwiki-edition,
 and mg-vocab: $ARGUMENTS
 
-Apply .opencode/agents/mgwiki-editor.md's Autonomous completion contract: do not
-stop at staged text, false/pending gates, audits or section handoffs. Complete the
-remaining authorized work through guarded sandbox publication and confirmed
-receipt. Early return requires explicit draft-only/review-only scope, cancellation,
-or an evidenced safety/service/runtime blocker; no gate or transport waiver.
+Follow .opencode/agents/mgwiki-editor.md's Autonomous completion contract through
+guarded publication and confirmed receipt. Return early only for narrower scope,
+cancellation, or an evidenced blocker; never waive a gate or transport guard.
 
 If multiple articles: follow docs/token-efficient-workflow.md; primary queues only,
 fresh mgwiki-article coordinator per article, compact path/status handoffs. Do not
 load full article evidence into batch context. Below protocol applies inside each
 single-article coordinator. Never duplicate an active job or reset an uncertain save.
 
-Work autonomously: initialize a job, inspect existing Malagasy and sandbox text,
-prepare and review Malagasy MediaWiki wikitext, and save the checked proposal to
-Mpikambana:Bot-Jagwar/<article-title> unless I specify draft-only/no-save. Do not
-ask questions or request tool/script/draft approval. Infer unambiguous missing
-titles from context; otherwise retain work and report a blocker without asking.
-Follow docs/issue-recovery.md: record potential blockers separately in
-runs/<job>/deferred-issues.md; continue independent tasks. Later local proposals
-come from mgwiki-issues-solver in issue-resolutions/<issue-id>.md, not
-invented fixes. Genuine HTTP 5xx:
->=15-second safe-read retry cooldown, longer transport/server guards win;
-after 600 seconds confirm down via real permitted service test, skip dependent
-tasks. More than 25 distinct skipped tasks in same continuous outage + fresh
-5xx test → SEVERE SERVICE OUTAGE DETECTED in OpenCode output, followed by one
-simple assessment paragraph including evidence, blocked tasks and memo path.
-Never bypass cooldowns, reset lookup budgets, or retry uncertain saves.
+Work autonomously under the editor's coordinator protocol. Record blockers in
+runs/<job>/deferred-issues.md and continue independent tasks. Use
+mgwiki-issues-solver only for assigned local proposals; never invent fixes or
+bypass cooldowns, reset budgets, or retry uncertain saves.
 Local python3 scripts are available: inspect/run/create task-relevant helpers.
 Independent article tasks may run concurrently; keep each job's remote calls
 serial through the shared paced Wikipedia gateway. Shared-slot contention may
@@ -61,13 +48,9 @@ Source disagreement alone must not block publication or fail review gates.
 Independent unknown translation meanings, unsafe sensitive content, copyright,
 citation integrity, topic/merge identity, and technical/save guards still apply.
 
-Delegate translation/editing to mgwiki-section subagents section by section,
-including the lead and appendices, using pinned local evidence and separate
-sections/<id>/ output directories. Do not generate the whole article at once.
-Only the coordinator fetches Wikipedia/dictionary evidence, assembles draft.wiki,
-merges section evidence, reviews whole-article consistency, and publishes. Offline
-section work may run concurrently; remote requests may not. Preserve completed
-sections and request targeted fixes for missing/blocked work before preparation.
+Delegate section-by-section to mgwiki-section with pinned local evidence and
+exclusive output directories. Only coordinator fetches evidence, assembles,
+reviews, and publishes. Preserve completed work; retry only missing/blocked sections.
 
 For unfamiliar vocabulary, define the sense in simple English, then translate
 the definition into Malagasy; keep the English term in parentheses when helpful.

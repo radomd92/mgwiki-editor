@@ -47,20 +47,11 @@ If a section worker lacks a local slice, long-line tail, lookup or clear scope,
 supply it and resume that same worker; do not hand routine coordinator work back
 to the user. Child completion is intermediate until its evidence is accepted.
 
-Before any incomplete final handoff, establish a genuine blocking dependency:
-record the exact error/evidence, affected work, authorized recovery already tried,
-and next safe action in deferred-issues.md; finish independent permitted work.
-Unfinished ordinary review, workload, report generation or a preference to resume
-later is not a blocker. Do not request another user "continue" for routine stages.
-
-Safety exceptions remain mandatory: unresolved material meaning/topic/merge or
-content-integrity ambiguity, unavailable authorization/authentication, enforced
-cooldown/service deferral, unresolved save state, and actual runtime/tool limits
-may require a truthful blocked/deferred handoff. Follow the existing bounded
-recovery policy; no endless retries, sleep/poll loops, gate fabrication, bypasses,
-mainspace edits or blind save retries. Never promise unconditional publication.
-Instructions cannot override a platform interruption or guarantee execution after
-the session stops. Persist exact continuation state when such a limit intervenes.
+Incomplete handoff needs a genuine blocker recorded in deferred-issues.md with
+evidence, affected work, recovery tried, and next safe action; finish independent
+work. Routine review/workload is not a blocker. Follow docs/issue-recovery.md and
+all save/transport guards; never fabricate gates, bypass cooldowns, edit mainspace,
+or blindly retry uncertain saves. Persist continuation state if interrupted.
 
 Success final reply: confirmed sandbox URL/revision and required issue-memory
 paths only. Never describe staged fixes, audit success or an old sandbox revision
@@ -176,34 +167,18 @@ No worker network/shell grants or tokens in prose. Development never authorizes
 save; every profile retains account/sandbox/revision/review/proposal/receipt/
 cooldown/uncertain-save guards. Frozen-run changes need fresh review/run, no reset.
 
-Use mgwiki-section subagents to translate/edit one planned section at a time,
-not a whole-article generation. Follow the section assignment and integration
-contract in docs/edition-protocol.md. Read all pinned snapshots yourself, then
-give each worker its source/local section context, shared terminology/evidence,
-cross-section reference definitions, and exclusive runs/<job>/sections/<id>/
-directory. Independent offline workers may run concurrently; no nested agents.
-Workers write section.wiki, notes.wiki, and vocabulary.json only in their assigned
-directory and report missing evidence to you, never fetching it themselves.
-You alone merge accepted fragments into draft.wiki and shared job evidence,
-resolve translation/integration inconsistencies, set review gates, prepare, and publish.
-Do not let workers overwrite shared files or treat their completion as final
-editorial approval. Missing/failed sections block completion; preserve completed
-sections and delegate targeted corrections instead of regenerating the article.
+Follow docs/edition-protocol.md's section assignment/integration contract. Read
+all pinned snapshots; give each mgwiki-section worker its local source, shared
+terminology/evidence, cross-section references, and exclusive
+runs/<job>/sections/<id>/ output. Workers stay offline and write only their
+assigned files. You alone merge, review, set gates, prepare and publish. Missing
+sections block completion; preserve completed work and retry only affected sections.
 
-Source inconsistencies and article contradictions are nonblocking review issues.
-Consolidate workers' issue notes into runs/<job>/source-issues.md before prepare;
-use Markdown/plain text and caveman ultra commentary. Each entry needs stable ID,
-open/resolved status, article/job, pinned source revision/path and section,
-conflicting claims with citations, draft handling, and next review action.
-Preserve exact evidence and issue history; retain the memory after publication,
-link it from notes.wiki and the final handoff, and carry open issues into rebases.
-Translate conflicting accounts faithfully with their existing attribution and
-uncertainty. Never invent a resolution, choose an unsupported winner, or insert
-translator TODOs. Source disagreement alone must not fail review gates or block
-sandbox publication; do not put it in vocabulary.json as an unresolved meaning.
-Unknown translation meanings, unsafe living-person/medical/legal content,
-copyright, citation integrity, topic/merge identity, and technical/save guards
-remain independent blockers. An open source issue is not an incomplete section.
+Follow docs/edition-protocol.md's nonblocking source-issue procedure. Consolidate
+worker notes in runs/<job>/source-issues.md before prepare, retain/link its history,
+and translate conflicting accounts with their attribution and uncertainty.
+Never invent a resolution or treat disagreement alone as a blocker or vocabulary
+meaning. Other editorial and technical blockers remain independent.
 
 Write draft.wiki, review.json, and vocabulary.json only inside the initialized
 job under runs/. Wikipedia interactions use the Pywikibot CLI or local Python
@@ -278,40 +253,12 @@ claiming to have read them. Required Wikipedia API operations and the configured
 read-only dictionary are exceptions; API redirects are not followed. Inspect
 preview.html offline without fetching linked images, scripts, CSS, or citations.
 
-Protect Wikimedia: all helpers use Wiki or install_wikimedia_transport() before
-constructing Pywikibot sites. Shared limits: 10 seconds between requests across
-CLI processes/languages (the conservative end of the requested 5–10 second
-range); at least 10 seconds between edits. Server cooldowns can extend this. Reuse
-pinned snapshots, lookup files and country-name cache; batch local checks, not
-network concurrency. HTTP 429/503, maxlag or ratelimited persists Retry-After and
-exponential backoff. Do not immediately rerun the failed command. No automatic
-resubmission of writes; three consecutive overloads open a 15-minute circuit.
-Use only the shared transport limiter, not an additional sleep before/after each
-CLI command. Native process-scaled throttling and native retry loops are disabled.
-Independent article tasks may run concurrently, each coordinator's remote calls
-serial and all jobs sharing the same gate. Shared-slot contention may wait up to
-600 seconds total per gate; repeated extensions never restart the budget. Server
-cooldown waits retain a separate 10-second limit; longer cooldowns mean retain
-draft and report deferred status. Never run manual shell sleep or
-poll loops. Tool stderr distinguishes actual requests/responses from waiting;
-use that evidence instead of claiming work is progressing during a cooldown.
-Never evade limits using another account, host, IP, script or process.
-Genuine HTTP 500–599 (including 502): retry safe reads several times, >=15 seconds
-after failed response; longer Retry-After/shared cooldown/circuit/budget wins.
-Persist service-scoped probe history/deadlines in deferred-issues.md. At/after
-600 seconds since first failure, perform real permitted read-only service test;
-continued 5xx with no intervening success → service down, skip dependent tasks,
-retain work, continue independent tasks. Cached failures/gate refusals are not
-tests; blocked deadline probes defer, never bypass guards. Exact structured
-dictionary NoPage is missing-page evidence, not outage. Never retry uncertain saves.
-More than 25 distinct skipped tasks (26+) in same continuous service outage:
-fresh permitted 5xx test required, then emit SEVERE SERVICE OUTAGE DETECTED in
-OpenCode output plus one simple paragraph: assessment, probe evidence/duration,
-all blocked/skipped task IDs, retained-work/memo path, next action. Deduplicate
-counts/alerts; successful service replies end episode. Follow docs/issue-recovery.md
-for probe freshness, per-lookup budget, deferred tests and later solver handoff.
-Use PYTHONUTF8=1 when invoking the CLI with non-ASCII arguments on a non-UTF-8
-process locale; never treat a misdecoded title's absence as evidence of no page.
+Follow docs/edition-protocol.md's Wikimedia request budget and
+docs/issue-recovery.md's service-recovery procedure. Use the shared transport for
+all Wiki requests; honor its pacing, cooldowns, budgets and outage state. Never
+add retry/sleep loops, parallelize Wiki calls, evade limits, or retry uncertain
+writes. Use PYTHONUTF8=1 for non-ASCII CLI arguments under a non-UTF-8 locale;
+never treat a misdecoded title's absence as evidence of no page.
 
 A user translation/edit request authorizes autonomous sandbox completion unless
 they specify draft-only/no-save. Harness development/testing is not a save

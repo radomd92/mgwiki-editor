@@ -1,0 +1,21 @@
+{
+  "domain": "media-evidence",
+  "evidence": [
+    "evidence/file-00-raw.json",
+    "evidence/file-00-latest.json",
+    "evidence/file-00-latest-license.json",
+    "evidence/media-editorial-review-v1.json"
+  ],
+  "guidance": "Never strip API continuation to satisfy license-report. Through guarded Wiki, query the already pinned file version with identical iistart/iiend timestamps and adequate bounded iilimit; preserve actual reply, verify version timestamp/SHA1, then rerun license-report and editorial rights review. If continuation remains, retain incomplete status or consume it through permitted reads.",
+  "id": "file-version-complete-evidence-20261117",
+  "problem": "Imageinfo reply may include historical continuation; latest-version metadata alone does not make that reply complete.",
+  "promoted_at": "2026-11-17T17:44:14.150021+00:00",
+  "reason": "Reviewed actual incomplete/complete responses and unchanged version hashes; source-independent transport/evidence lesson, not article prose or new policy. Promote only after confirmed sandbox save.",
+  "scope": "general",
+  "source_job": "conservation-energy-20261117-canonical",
+  "source_language": "en",
+  "source_memory_sha256": "9572d45de0c14793c84c5e8b80c6a48284f75a66458fff63859a92290b81e8c1",
+  "source_sections": [],
+  "status": "reviewed",
+  "target_language": "mg"
+}

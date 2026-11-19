@@ -1,0 +1,15 @@
+{
+  "domain": "physics terminology",
+  "evidence": [],
+  "guidance": "Confirm domain and source sense before choosing a glossary candidate. Mechanical power is work per time; torque is turning effect of force. Reject exponent/ordered-pair mappings for those senses, pin the query and rejection, and prefer an accurate descriptive expression when no suitable candidate exists.",
+  "id": "mechanical-power-torque-glossary-polysemy",
+  "problem": "French puissance/couple glossary hits can mean mathematical exponent/ordered pair rather than mechanical power/torque.",
+  "promoted_at": "2026-11-19T13:27:08.292962+00:00",
+  "scope": "general",
+  "source_job": "job",
+  "source_language": "en",
+  "source_memory_sha256": "9127dc651014227d289c33ac28a922652e176cc2082db21e67c2b44e2f15c087",
+  "source_sections": [],
+  "status": "reviewed",
+  "target_language": "mg"
+}

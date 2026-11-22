@@ -1,13 +1,15 @@
 """Use existing assembler/formatter; adapt unsupported reference wrappers offline."""
 import json
+import sys
 from pathlib import Path
 import mwparserfromhell as mw
 from mgwiki_editor.workflow import assemble_sections
 from mgwiki_editor.wikitext import literal_citation
 
 p=Path('runs/gupta-empire-20261122').resolve()
-assemble_sections(p,output=p/'assembly-v2')
-code=mw.parse((p/'assembly-v2/draft.wiki').read_text(encoding='utf-8'))
+assembly = sys.argv[1] if len(sys.argv) > 1 else 'assembly-v2'
+assemble_sections(p,output=p/assembly)
+code=mw.parse((p/assembly/'draft.wiki').read_text(encoding='utf-8'))
 changes=[]
 for t in reversed(code.filter_templates()):
     name=str(t.name).strip().replace('_',' ').casefold()
@@ -24,6 +26,8 @@ for t in reversed(code.filter_templates()):
             key=str(param.name).strip();v=str(param.value).strip()
             if v.startswith(('https://','http://')) and not any(c in v for c in ' []\n'):
                 replacement=replacement.replace(key+': '+v,key+': ['+v+']',1)
+            if key.casefold() == 'isbn' and v:
+                replacement=replacement.replace(key+': '+v,'<nowiki>'+key+': '+v+'</nowiki>',1)
     elif name in ('sfn','harvnb'):
         pos=[value(str(i)) for i in range(1,8) if value(str(i))]
         year=pos[-1];authors=', '.join(pos[:-1])
@@ -54,7 +58,7 @@ text=str(code)
 for title in ['The Huns','The First Spring: The Golden Age of India','Indian Esoteric Buddhism: Social History of the Tantric Movement']:
     text=text.replace('>'+title+' by ',">''"+title+"'' by ")
 text=text.replace('>The Huns, Hyun Jin Kim',">''The Huns'', Hyun Jin Kim")
-text+='\n* [https://en.wikisource.org/wiki/1911_Encyclop%C3%A6dia_Britannica/Gupta Lahatsoratra « Gupta » ao amin\' ny Encyclopædia Britannica, fanontana 1911]\n* [https://commons.wikimedia.org/wiki/Category:Gupta_Empire Sary sy rakitra momba ny Empira Gupta ao amin\' ny Wikimedia Commons]\n\n[[Sokajy:India]]\n'
+text+='\n* [https://en.wikisource.org/wiki/1911_Encyclop%C3%A6dia_Britannica/Gupta Lahatsoratra « Gupta » ao amin\' ny \'\'Encyclopædia Britannica\'\', fanontana 1911]\n* [https://commons.wikimedia.org/wiki/Category:Gupta_Empire Sary sy rakitra momba ny Empira Gupta ao amin\' ny \'\'Wikimedia Commons\'\' (tahirin-drakitra iombonan\' ny tetikasa Wikimedia)]\n\n[[Sokajy:India]]\n'
 (p/'draft.wiki').write_text(text,encoding='utf-8')
-(p/'native-adaptations-v1.json').write_text(json.dumps(changes,ensure_ascii=False,indent=2),encoding='utf-8')
+(p/('native-adaptations-'+assembly+'.json')).write_text(json.dumps(changes,ensure_ascii=False,indent=2),encoding='utf-8')
 print('Native draft written',len(text.encode('utf-8')),'bytes',len(changes),'template adaptations')

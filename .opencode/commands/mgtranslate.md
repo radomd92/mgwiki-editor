@@ -6,22 +6,20 @@ agent: mgwiki-editor
 Translate the following Wikipedia article using mgwiki-style, mgwiki-edition,
 and mg-vocab: $ARGUMENTS
 
-Apply .opencode/agents/mgwiki-editor.md's Autonomous completion contract: do not
-stop at staged text, false/pending gates, audits or section handoffs. Complete the
-remaining authorized work through guarded sandbox publication and confirmed
-receipt. Early return requires explicit draft-only/review-only scope, cancellation,
-or an evidenced safety/service/runtime blocker; no gate or transport waiver.
+Apply .opencode/agents/mgwiki-editor.md's Autonomous completion contract: staged text,
+pending gates, audits, section handoffs are intermediate. Continue through guarded
+sandbox publication/confirmed receipt. Early return: explicit draft-only/review-only,
+cancellation or evidenced safety/service/runtime blocker; no gate/transport waiver.
 
-If multiple articles: follow docs/token-efficient-workflow.md; primary queues only,
-fresh mgwiki-article coordinator per article, compact path/status handoffs. Do not
-load full article evidence into batch context. Below protocol applies inside each
-single-article coordinator. Never duplicate an active job or reset an uncertain save.
+Multiple articles: docs/token-efficient-workflow.md; primary queues only, fresh
+mgwiki-article per article, path/status handoffs only, no full evidence in batch
+context. Below: single-article protocol. No duplicate active job/uncertain-save reset.
 
-Work autonomously: initialize a job, inspect existing Malagasy and sandbox text,
-prepare and review Malagasy MediaWiki wikitext, and save the checked proposal to
-Mpikambana:Bot-Jagwar/<article-title> unless I specify draft-only/no-save. Do not
-ask questions or request tool/script/draft approval. Infer unambiguous missing
-titles from context; otherwise retain work and report a blocker without asking.
+Autonomous: initialize job, inspect existing Malagasy/sandbox, prepare/review
+Malagasy MediaWiki wikitext, save checked proposal to
+Mpikambana:Bot-Jagwar/<article-title> unless draft-only/no-save. No questions or
+tool/script/draft approval. Infer only unambiguous missing titles from context;
+otherwise retain work, report blocker without asking.
 Follow docs/issue-recovery.md: record potential blockers separately in
 runs/<job>/deferred-issues.md; continue independent tasks. Later local proposals
 come from mgwiki-issues-solver in issue-resolutions/<issue-id>.md, not
@@ -61,21 +59,19 @@ Source disagreement alone must not block publication or fail review gates.
 Independent unknown translation meanings, unsafe sensitive content, copyright,
 citation integrity, topic/merge identity, and technical/save guards still apply.
 
-Delegate translation/editing to mgwiki-section subagents section by section,
-including the lead and appendices, using pinned local evidence and separate
-sections/<id>/ output directories. Do not generate the whole article at once.
-Only the coordinator fetches Wikipedia/dictionary evidence, assembles draft.wiki,
-merges section evidence, reviews whole-article consistency, and publishes. Offline
-section work may run concurrently; remote requests may not. Preserve completed
-sections and request targeted fixes for missing/blocked work before preparation.
+Delegate translation/editing section by section to mgwiki-section, lead/appendices
+included: pinned local evidence, separate sections/<id>/ outputs. No whole-article
+generation. Only coordinator fetches Wikipedia/dictionary evidence, assembles
+draft.wiki, merges evidence, reviews whole-article consistency, publishes. Offline
+sections may run concurrently; remote requests may not. Preserve completed sections;
+request targeted fixes for missing/blocked work before preparation.
 
-For unfamiliar vocabulary, define the sense in simple English, then translate
-the definition into Malagasy; keep the English term in parentheses when helpful.
-Medical terms use a Malagasy transcription plus a Malagasy explanation in the
-form `(na …)`; asthma = asma. Follow mg-vocab's unknown-vocabulary.wiki procedure
-above 100 distinct uncertain items. Do not browse external reference links or
-request permission just to do so. Accurate descriptive wording is acceptable;
-unresolved critical meanings and publication integrity gates remain mandatory.
+Unfamiliar vocabulary: define sense in simple English, translate definition into
+Malagasy; English in parentheses when useful. Medical terms: Malagasy transcription
+plus Malagasy explanation `(na …)`; asthma = asma. Follow mg-vocab's
+unknown-vocabulary.wiki procedure above 100 distinct uncertain items. No external
+reference browsing or permission requests merely to browse. Accurate descriptive
+wording allowed; unresolved critical meanings/publication integrity gates remain.
 No external-link access through any tool or script unless I explicitly request
 it; required Wikipedia API and configured read-only dictionary calls are allowed.
 
